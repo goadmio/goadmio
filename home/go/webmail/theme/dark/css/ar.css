@@ -1,0 +1,231 @@
+form {margin:0;}
+
+	.InputText {
+FONT-WEIGHT: normal;FONT-SIZE: 14px; font-family: 'MS Sans Serif',Tahoma,Microsoft Sans Serif;border: 1px solid #BEBEBE;padding: 3px;margin:2px;background: url(../../theme/{$_SESSION['SessionAdminTheme']}/image/text-bg.gif);
+-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+border-radius: 7px;
+	}
+	.InputText:focus {
+border: 1px solid #BEBEBE;
+background:#BEBEBE;
+	}
+
+	.InputTextZ {FONT-WEIGHT: normal;FONT-SIZE: 14px; font-family: 'MS Sans Serif',Tahoma,Verdana;border: 1px solid #FFFFFF;}
+	
+	.InputTextB {FONT-WEIGHT: bold;FONT-SIZE: 20px; font-family: Times New Roman,Tahoma,Microsoft Sans Serif;color:#505050;border: 0px;background:transparent}
+	
+	.TextArea {
+	FONT-WEIGHT: normal;FONT-SIZE: 14px; font-family: 'MS Sans Serif',Tahoma,Microsoft Sans Serif;border: 1px solid #BEBEBE;padding: 3px;margin:2px;background: url(../../theme/{$_SESSION['SessionAdminTheme']}/image/text-bg.gif) repeat-x;
+	-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+border-radius: 7px;
+	}
+	.TextArea:focus {
+border: 1px solid #BEBEBE;
+background:#BEBEBE;
+	}
+	
+	.TextAreaZ {FONT-WEIGHT: normal;FONT-SIZE: 14px; font-family: 'MS Sans Serif',Tahoma,Verdana;border: 1px solid #FFFFFF;}
+	.Select {FONT-WEIGHT: normal;FONT-SIZE: 14px; font-family: 'MS Sans Serif',Tahoma,Verdana;}
+
+	.InputButton {FONT-WEIGHT: normal;FONT-SIZE: 12px; font-family: 'MS Sans Serif',Tahoma,Verdana;background-color:#e4e4e4;margin: 3;}
+	
+BODY {SCROLLBAR-FACE-COLOR: #d8d8d8; SCROLLBAR-HIGHLIGHT-COLOR: #d8d8d8; SCROLLBAR-SHADOW-COLOR: #d8d8d8; SCROLLBAR-3DLIGHT-COLOR: #505050; SCROLLBAR-ARROW-COLOR: #505050; SCROLLBAR-TRACK-COLOR: #DDE09E; SCROLLBAR-DARKSHADOW-COLOR: #505050}
+
+.BodyControl {background-image: url(../../theme/{$_SESSION['SessionAdminTheme']}/image/bg-control.jpg);}
+
+.BodyTop {background-color:#505050;}
+.BTab {background-color:#505050;}
+.BTabBG {background-color:#d8d8d8;}
+
+.Label {width: 100px;}
+
+.LI {COLOR: #505050; LIST-STYLE-TYPE: square;FONT-SIZE: 12px; font-family: Arial,Verdana,Comic Sans MS}
+
+A.UserGroup0:link {FONT-WEIGHT: normal;FONT-SIZE: 13px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Microsoft Sans Serif,Tahoma,Verdana}
+A.UserGroup0:visited {FONT-WEIGHT: normal;FONT-SIZE: 13px; COLOR: #505050;  TEXT-DECORATION: none ;font-family: Microsoft Sans Serif,Tahoma,Verdana}
+A.UserGroup0:active {FONT-WEIGHT: normal;FONT-SIZE: 13px; COLOR: #0000FF;TEXT-DECORATION: none ;font-family: Microsoft Sans Serif,Tahoma,Verdana}
+A.UserGroup0:hover {FONT-WEIGHT: normal;FONT-SIZE: 13px; COLOR: #0000FF;TEXT-DECORATION: none ; font-family: Microsoft Sans Serif,Tahoma,Verdana}
+
+A.HTab:link {FONT-SIZE: 10px;FONT-WEIGHT: normal; COLOR: #275179;TEXT-DECORATION: none ; font-family: Verdana, Arial, Helvetica, sans-serif}
+A.HTab:visited {FONT-SIZE: 10px;FONT-WEIGHT: normal; COLOR: #275179;TEXT-DECORATION: none ; font-family: Verdana, Arial, Helvetica, sans-serif}
+A.HTab:active {FONT-SIZE: 10px;FONT-WEIGHT: normal; COLOR: #FFCC33;TEXT-DECORATION: none ; font-family: Verdana, Arial, Helvetica, sans-serif}
+A.HTab:hover {FONT-SIZE: 10px;FONT-WEIGHT: normal; COLOR: #FFCC33;TEXT-DECORATION: none ; font-family: Verdana, Arial, Helvetica, sans-serif}
+
+.HTab {FONT-SIZE: 10px;FONT-WEIGHT: normal; COLOR: #275179;TEXT-DECORATION: none ; font-family: Verdana, Arial, Helvetica, sans-serif}
+
+A.em:link {FONT-SIZE: 10px;FONT-WEIGHT: bold; COLOR: #505050; font-family: Verdana, Arial, Helvetica, sans-serif}
+A.em:visited {FONT-SIZE: 10px;FONT-WEIGHT: bold; COLOR: #505050; font-family: Verdana, Arial, Helvetica, sans-serif}
+A.em:active {FONT-SIZE: 10px; COLOR: #FFCC33; font-family: Verdana, Arial, Helvetica, sans-serif}
+A.em:hover {FONT-SIZE: 10px; COLOR: #FFCC33; font-family: Verdana, Arial, Helvetica, sans-serif}
+
+.Help {FONT-WEIGHT: normal;FONT-SIZE: 13px; COLOR: #505050;TEXT-DECORATION: none ; font-family: Microsoft Sans Serif,Tahoma,Verdana}
+
+
+/*  collapse-separated-inherit  */
+/*  Table */
+.Table {background-image: url(../../theme/{$_SESSION['SessionAdminTheme']}/image/module-page-bg.gif);BACKGROUND-REPEAT: repeat-x;background-color:#ffffff;border-spacing: 0px;border:inset #505050 0px}
+/*  Td */
+.Td {border: 1px solid #505050;padding: 2px;background: #ffffff}
+
+/*  collapse-separated-inherit  */
+/*  Table */
+.TableB {background-image: url(../../theme/{$_SESSION['SessionAdminTheme']}/image/tool-page-bg.gif);BACKGROUND-REPEAT: repeat-x;background-color:#ffffff;border-spacing: 0px;border:inset #505050 0px}
+/*  Td */
+.TdB {border: 1px solid #505050;padding: 2px;background: #ffffff}
+
+
+
+
+/*  Table Copyright */
+.TableCR {
+background:#FFFFFF;
+border: 5px solid #FFFFFF;
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+border-radius: 8px;
+
+}
+
+/*  TdCR */
+.TdCR {border: 0px solid #505050;padding: 2px;background: #ffffff;}
+
+A.CR:link {FONT-WEIGHT: normal;FONT-SIZE: 13px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Microsoft Sans Serif,Tahoma,Verdana}
+A.CR:visited {FONT-WEIGHT: normal;FONT-SIZE: 13px; COLOR: #505050;  TEXT-DECORATION: none ;font-family: Microsoft Sans Serif,Tahoma,Verdana}
+A.CR:active {FONT-WEIGHT: normal;FONT-SIZE: 13px; COLOR: #0000FF;TEXT-DECORATION: none ;font-family: Microsoft Sans Serif,Tahoma,Verdana}
+A.CR:hover {FONT-WEIGHT: normal;FONT-SIZE: 13px; COLOR: #0000FF;TEXT-DECORATION: none ; font-family: Microsoft Sans Serif,Tahoma,Verdana}
+
+.CR {FONT-WEIGHT: normal;FONT-SIZE: 13px; COLOR: #505050;TEXT-DECORATION: none ; font-family: Microsoft Sans Serif,Tahoma,Verdana}
+
+A.ColumnB:link {FONT-SIZE: 14px;FONT-WEIGHT: bold; COLOR:#505050;TEXT-DECORATION: none; font-family: 'Times New Roman','MS Sans Serif',Tahoma;}
+A.ColumnB:visited {FONT-SIZE: 14px;FONT-WEIGHT: bold; COLOR: #505050;TEXT-DECORATION: none ; font-family: 'Times New Roman','MS Sans Serif',Tahoma;}
+A.ColumnB:active {FONT-SIZE: 14px; FONT-WEIGHT: bold;COLOR: #505050;TEXT-DECORATION: underline ; font-family: 'Times New Roman','MS Sans Serif',Tahoma;}
+A.ColumnB:hover {FONT-SIZE: 14px;FONT-WEIGHT: bold; COLOR: #505050;TEXT-DECORATION: underline ; font-family: 'Times New Roman','MS Sans Serif',Tahoma;}
+
+
+.Column {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #000000; font-family: 'MS Sans Serif',Tahoma,Microsoft Sans Serif;}
+.ColumnB {FONT-WEIGHT: bold;FONT-SIZE: 14px; COLOR: #505050; font-family: 'Times New Roman','MS Sans Serif',Tahoma;}
+
+
+.ColonA {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #505050; font-family: Arial,Times New Roman,Verdana}
+.ColonB {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #800040; font-family: Arial,Times New Roman,Verdana}
+
+.Title {FONT-WEIGHT: bold;FONT-SIZE: 10px; COLOR: #505050; font-family: Verdana,Times New Roman,Comic Sans MS}
+.MenuTitle {FONT-WEIGHT: bold;FONT-SIZE: 14px; COLOR: #505050; font-family: Times New Roman,Verdana,Comic Sans MS}
+.PageTitle {FONT-WEIGHT: bold;FONT-SIZE: 18px; COLOR: #FFFFFF; font-family: Arial,Times New Roman,Comic Sans MS}
+
+
+.Tab {FONT-WEIGHT: normal;FONT-SIZE: 11px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Tahoma,Arial,Verdana}
+.TabOn {FONT-WEIGHT: bold;FONT-SIZE: 10px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Verdana,Arial}
+
+.Left {FONT-WEIGHT: bold;FONT-SIZE: 14px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Times New Roman,Arial,Verdana}
+
+.LTab {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Arial,Verdana}
+.LTabOn {FONT-WEIGHT: bold;FONT-SIZE: 10px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Verdana,Arial}
+
+.Error {FONT-SIZE: 12px; COLOR: #FF0000; TEXT-DECORATION: none ;font-family: Arial,Verdana }
+
+.TabInfo {FONT-SIZE: 12px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Arial,Verdana;background-image: url(media/image/admin/tab-info-l-en.gif);BACKGROUND-REPEAT: no-repeat;}
+
+A.Menu:link {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #505050; TEXT-DECORATION: none ;font-family: 'MS Sans Serif',Tahoma,Microsoft Sans Serif;}
+A.Menu:visited {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #505050; TEXT-DECORATION: none ;font-family: 'MS Sans Serif',Tahoma,Microsoft Sans Serif;}
+A.Menu:active {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #804040; TEXT-DECORATION: none ;font-family: 'MS Sans Serif',Tahoma,Microsoft Sans Serif;}
+A.Menu:hover {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #804040; TEXT-DECORATION: none ; font-family: 'MS Sans Serif',Tahoma,Microsoft Sans Serif;}
+
+A.White:link {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FFFFFF; font-family: Arial,Verdana,Times New Roman}
+A.White:visited {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FFFFFF; TEXT-DECORATION: none ;font-family: Arial,Verdana,Times New Roman}
+A.White:active {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #00ff00; TEXT-DECORATION: none ;font-family: Arial,Verdana,Times New Roman}
+A.White:hover {FONT-WEIGHT: normal;FONT-SIZE: 12x; COLOR: #00ff00; TEXT-DECORATION: none ; font-family: Arial,Verdana,Times New Roman}
+
+.White {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FFFFFF; font-family: Arial,Verdana,Times New Roman}
+
+A.Link:link {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #505050; font-family: Arial, Verdana, Helvetica}
+A.Link:visited {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Arial, Verdana, Helvetica}
+A.Link:active {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #008000; TEXT-DECORATION: none ;font-family: Arial, Verdana, Helvetica}
+A.Link:hover {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #008000; TEXT-DECORATION: none ; font-family: Arial, Verdana, Helvetica}
+
+.Link  {FONT-WEIGHT: bold;FONT-SIZE: 10px; COLOR: #008000; TEXT-DECORATION: none ; font-family: Verdana,Arial,Helvetica}
+
+A.Number:link {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Arial, Verdana, Helvetica}
+A.Number:visited {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Arial, Verdana, Helvetica}
+A.Number:active {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #804040; TEXT-DECORATION: none ;font-family: Arial, Verdana, Helvetica}
+A.Number:hover {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #804040; TEXT-DECORATION: none ; font-family: Arial, Verdana, Helvetica}
+
+.Number  {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FF0000; TEXT-DECORATION: none ; font-family: Arial,Verdana,Helvetica}
+
+
+.Description {FONT-WEIGHT: normal;FONT-SIZE: 10px; COLOR: #808080; font-family: Verdana,Arial,Times New Roman}
+.Message {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Tahoma,Arial,Verdana }
+
+.Top {FONT-SIZE: 12px; COLOR: #808080; TEXT-DECORATION: none ;font-family: Arial,Verdana }
+
+
+
+.TdMenuOver {border: 0px;padding: 0;background-image: url(../../theme/{$_SESSION['SessionAdminTheme']}/image/option-over-bg.gif);}
+
+	.Date {FONT-WEIGHT: normal;FONT-SIZE: 10px; COLOR: #FF0000; font-family: Verdana,Arial,Times New Roman}
+	.Time {FONT-WEIGHT: normal;FONT-SIZE: 10px; COLOR: #0000ff; font-family: Verdana,Arial,Times New Roman}	
+	.Username {FONT-WEIGHT: normal;FONT-SIZE: 10px; COLOR: #008000; font-family: Verdana,Arial,Times New Roman}	
+
+A.Category:link {FONT-WEIGHT: bold;FONT-SIZE: 10px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Verdana,Arial}
+A.Category:visited {FONT-WEIGHT: bold;FONT-SIZE: 10px; COLOR: #505050; TEXT-DECORATION: none ;font-family: Verdana,Arial}
+A.Category:active {FONT-WEIGHT: bold;FONT-SIZE: 10px; COLOR: #ff0000; TEXT-DECORATION: underline ;font-family: Verdana,Arial}
+A.Category:hover {FONT-WEIGHT: bold;FONT-SIZE: 10px; COLOR: #ff0000; TEXT-DECORATION: underline ; font-family: Verdana,Arial}
+
+
+/* Pages */
+.TablePages {border-collapse:separated ;background-color:#ffffff;border-spacing: 0px;border:solid #ffffff 1px}
+.TdPages {border: 1px solid #DDDDDD;width:20px;padding: 5px;margin-right:4px;background: #FFFFFF;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+
+}
+.TdPagesOver {border: 1px solid #DDDDDD;Color:#FFFFFF;width:20px;padding: 5px;margin-right:4px;background:#459300 url(../../theme/{$_SESSION['SessionAdminTheme']}/image/page-over-bg.gif) repeat-x;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+border-style: solid;
+
+}
+.Pages {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none ; font-family: Arial,Verdana}
+.PagesOver {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FFFFFF; TEXT-DECORATION: none ; font-family: Arial,Verdana}
+
+.RadiusULUR {
+background:#878787 url(../../theme/{$_SESSION['SessionAdminTheme']}/image/bar-bg.gif) repeat-x;
+
+
+border: 1px solid #505050;
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+border-radius: 8px;
+
+-moz-border-radius-bottomleft: 0;
+-moz-border-radius-bottomright: 0;
+-webkit-border-bottom-left-radius: 0;
+-webkit-border-bottom-right-radius: 0;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+				
+border-bottom:0px;
+}
+
+
+.RadiusDLDR {
+background:#FFFFFF;
+
+border: 1px solid #505050;
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+border-radius: 8px;
+
+-moz-border-radius-topleft: 0;
+-moz-border-radius-topright: 0;
+-webkit-border-top-left-radius: 0;
+-webkit-border-top-right-radius: 0;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+				
+border-top:0px;
+}

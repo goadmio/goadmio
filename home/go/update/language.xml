@@ -1,0 +1,3078 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Variables>
+
+	<Variable>OAlign</Variable>
+	<En>right</En>
+	<Ar>left</Ar>
+
+
+	<Variable>DAlign</Variable>
+	<En>left</En>
+	<Ar>right</Ar>
+
+
+	<Variable>Home</Variable>
+	<En>Home</En>
+	<Ar>الرئيسية</Ar>
+
+
+	<Variable>BannerAdvertise</Variable>
+	<En>Banner Advertise</En>
+	<Ar>البانرات الإعلانية</Ar>
+
+
+	<Variable>Advertise</Variable>
+	<En>Advertise</En>
+	<Ar>الإعلانات</Ar>
+
+
+	<Variable>Support</Variable>
+	<En>Support</En>
+	<Ar>الدعم الفنى</Ar>
+
+
+	<Variable>Plugins</Variable>
+	<En>Plugins</En>
+	<Ar>الإضافات</Ar>
+
+
+	<Variable>Help</Variable>
+	<En>Help</En>
+	<Ar>المساعدة</Ar>
+
+
+	<Variable>Backup</Variable>
+	<En>Backup</En>
+	<Ar>الباك اب</Ar>
+
+
+	<Variable>OnlineSupport</Variable>
+	<En>Online Support</En>
+	<Ar>الدعم الفنى</Ar>
+
+
+	<Variable>ForceUpdateEmanage</Variable>
+	<En>Force Update Emanage</En>
+	<Ar>تحديث إجبارى للبرنامج</Ar>
+
+
+	<Variable>BackupAndRestore</Variable>
+	<En>Backup and restore</En>
+	<Ar>النسخ الإحتياطى</Ar>
+
+
+	<Variable>SearchReplaceInDatabase</Variable>
+	<En>Search / Replace In Database</En>
+	<Ar>البحث و الإستبدال فى قواعد البيانات</Ar>
+
+
+	<Variable>DatabaseBackup</Variable>
+	<En>Database backup</En>
+	<Ar>نسخة إحتياطية</Ar>
+
+
+	<Variable>DatabaseSplitBackup</Variable>
+	<En>Database split backup</En>
+	<Ar>نسخة احتياطية مجزءة</Ar>
+
+
+	<Variable>DatabaseFTPBackup</Variable>
+	<En>Database FTP backup</En>
+	<Ar>نسخة احتياطية على الموقع</Ar>
+
+
+	<Variable>ImportSQLFile</Variable>
+	<En>Import SQL File</En>
+	<Ar>زرع ملف SQL</Ar>
+
+
+	<Variable>RestoreSqlFileFTP</Variable>
+	<En>Restore SQL file (FTP)</En>
+	<Ar>زرع ملف SQL مرفوع على الموقع</Ar>
+
+
+
+	<Variable>RunSQLQuery</Variable>
+	<En>Run SQL query</En>
+	<Ar>تشغيل إستعلام SQL</Ar>
+
+
+	<Variable>DropTables</Variable>
+	<En>Drop tables</En>
+	<Ar>حذف الجداول</Ar>
+
+
+
+
+	<Variable>UpdateHelp</Variable>
+	<En>Update Help</En>
+	<Ar>تحديث ملفات المساعدة</Ar>
+
+
+	<Variable>AboutEmanage</Variable>
+	<En>About Emanage</En>
+	<Ar>عن إيمانيج</Ar>
+
+
+
+	<Variable>EmanageSettings</Variable>
+	<En>Emanage Settings</En>
+	<Ar>إعداد اساسية</Ar>
+
+
+
+	<Variable>RemoveTitle</Variable>
+	<En>Remove Title</En>
+	<Ar>ترخيص البرنامج</Ar>
+
+
+
+
+	<Variable>AddEditBanners</Variable>
+	<En>Add / Edit Banners</En>
+	<Ar>اضافة / تعديل البانرات</Ar>
+
+
+	<Variable>PopUpWindow</Variable>
+	<En>Popup window</En>
+	<Ar>التحكم فى ظهور نافذةة اعلانية منبثقة</Ar>
+
+
+	<Variable>Logout</Variable>
+	<En>Logout</En>
+	<Ar>خروج</Ar>
+
+
+	<Variable>Modules</Variable>
+	<En>Modules</En>
+	<Ar>البرامج</Ar>
+
+
+	<Variable>Features</Variable>
+	<En>Features</En>
+	<Ar>التحكم</Ar>
+
+
+
+	<Variable>AdvancedFeatures</Variable>
+	<En>Advanced Features</En>
+	<Ar>الخصائص المتقدمة</Ar>
+
+
+	<Variable>MainFeatures</Variable>
+	<En>Main Features</En>
+	<Ar>الخصائص الاساسية</Ar>
+
+
+
+
+
+	<Variable>Tools</Variable>
+	<En>Tools</En>
+	<Ar>الأدوات</Ar>
+
+
+
+
+
+	<Variable>UploadBanner</Variable>
+	<En>Upload Banner</En>
+	<Ar>اضافة بانر اعلانى</Ar>
+
+
+	<Variable>GoToUrl</Variable>
+	<En>Go to url</En>
+	<Ar>اذهب للرابط التالى</Ar>
+
+
+	<Variable>BannerWidth</Variable>
+	<En>Banner width</En>
+	<Ar>عرض البانر</Ar>
+
+
+	<Variable>BannerHeight</Variable>
+	<En>Banner height</En>
+	<Ar>ارتفاع البانر</Ar>
+
+
+	<Variable>BannerDirection</Variable>
+	<En>Banner direction</En>
+	<Ar>اتجاة البانر</Ar>
+
+
+	<Variable>Tickets</Variable>
+	<En>Tickets</En>
+	<Ar>تذاكر الدعم الفنى</Ar>
+
+
+	<Variable>OpenTickets</Variable>
+	<En>Open tickets</En>
+	<Ar>التذاكر المفتوحة</Ar>
+
+
+	<Variable>VisitorNo</Variable>
+	<En>Visitor No</En>
+	<Ar>عدد الزوار</Ar>
+
+
+	<Variable>Banner</Variable>
+	<En>Banner</En>
+	<Ar>بانر</Ar>
+
+
+	<Variable>Direction</Variable>
+	<En>Direction</En>
+	<Ar>الإتجاة</Ar>
+
+
+	<Variable>Visitor</Variable>
+	<En>Visitor</En>
+	<Ar>الزوار</Ar>
+
+
+	<Variable>Control</Variable>
+	<En>Control</En>
+	<Ar>التحكم</Ar>
+
+
+	<Variable>Up</Variable>
+	<En>Up</En>
+	<Ar>اعلى الموقع</Ar>
+
+
+	<Variable>Down</Variable>
+	<En>Down</En>
+	<Ar>اسفل الموقع</Ar>
+
+
+	<Variable>Right</Variable>
+	<En>Right</En>
+	<Ar>الى اليمين</Ar>
+
+
+	<Variable>Left</Variable>
+	<En>Left</En>
+	<Ar>الى اليسار</Ar>
+
+
+	<Variable>Middle</Variable>
+	<En>Middle</En>
+	<Ar>الوسط</Ar>
+
+
+	<Variable>AddNewPopUp</Variable>
+	<En>Add new pop up</En>
+	<Ar>اضف نافذة منبثقة</Ar>
+
+
+	<Variable>PopUpTitle</Variable>
+	<En>Pop up title</En>
+	<Ar>عنوان النافذة</Ar>
+
+
+	<Variable>PopUpWidth</Variable>
+	<En>Pop up width</En>
+	<Ar>عرض النافذة</Ar>
+
+
+	<Variable>PopUpHeight</Variable>
+	<En>Pop up height</En>
+	<Ar>ارتفاع النافذة</Ar>
+
+
+	<Variable>PopUpHTMLCode</Variable>
+	<En>Pop up HTML code</En>
+	<Ar>كود اتش تى ام ال للنافذة</Ar>
+
+
+	<Variable>Customers</Variable>
+	<En>Customers</En>
+	<Ar>العملاء</Ar>
+
+
+	<Variable>ListCustomers</Variable>
+	<En>List customers</En>
+	<Ar>عرض العملاء</Ar>
+
+
+	<Variable>SortByDomain</Variable>
+	<En>Sort by domain</En>
+	<Ar>رتب بأسماء النطاق</Ar>
+
+
+	<Variable>SortByRegisterDate</Variable>
+	<En>Sort by register date</En>
+	<Ar>رتب بتاريخ حجز النطاق</Ar>
+
+
+	<Variable>SortByHostingExpiresOn</Variable>
+	<En>Sort by hosting expires on</En>
+	<Ar>رتب بتاريخ انتهاء الأستضافة</Ar>
+
+
+	<Variable>SortByDomainExpiresOn</Variable>
+	<En>Sort by domain expires on</En>
+	<Ar>رتب بتاريخ انتهاء اسم النطاق</Ar>
+
+
+	<Variable>SortByReseller</Variable>
+	<En>Sort by reseller</En>
+	<Ar>رتب بالوكلاء</Ar>
+
+
+	<Variable>AddNewCustomer</Variable>
+	<En>Add new customer</En>
+	<Ar>اضافة عميل جديد</Ar>
+
+
+	<Variable>RecycleBin</Variable>
+	<En>Recycle bin</En>
+	<Ar>سلة المحذوفات</Ar>
+
+
+	<Variable>UpdateDomainInfo</Variable>
+	<En>Update domain info</En>
+	<Ar>تعديل بيانات النطاق</Ar>
+
+
+	<Variable>GetDomainsInfo</Variable>
+	<En>Get domains info</En>
+	<Ar>ابحث عن بيانات النطاقات</Ar>
+
+
+	<Variable>Domain</Variable>
+	<En>Domain</En>
+	<Ar>اسم النطاق</Ar>
+
+
+	<Variable>DateRegistered</Variable>
+	<En>Date Registered</En>
+	<Ar>تاريخ حجز اسم النطاق</Ar>
+
+	<Variable>DateSubmitted</Variable>
+	<En>Date Submitted</En>
+	<Ar>تاريخ الإضافة</Ar>
+
+
+
+
+	<Variable>ExpiresOn</Variable>
+	<En>Expires on</En>
+	<Ar>ينتهى فى</Ar>
+
+
+	<Variable>DaysLeft</Variable>
+	<En>Days left</En>
+	<Ar>عدد الأيام الباقية</Ar>
+
+
+	<Variable>ResellerDomain</Variable>
+	<En>ResellerDomain</En>
+	<Ar>اسم النطاق للوكيل</Ar>
+
+
+	<Variable>SortBy</Variable>
+	<En>Sort By</En>
+	<Ar>رتب ب</Ar>
+
+
+	<Variable>PendingAccounts</Variable>
+	<En>Pending Accounts</En>
+	<Ar>حسابات جارى العمل فيها</Ar>
+
+
+	<Variable>WebHosting</Variable>
+	<En>Web hosting</En>
+	<Ar>استضافة</Ar>
+
+
+	<Variable>MailHosting</Variable>
+	<En>Mail hosting</En>
+	<Ar>استضافة بريد اليكترونى</Ar>
+
+
+	<Variable>HomepageDomain</Variable>
+	<En>Home page / Domain</En>
+	<Ar>الصفحة الرئيسية / اسم النطاق</Ar>
+
+
+	<Variable>Username</Variable>
+	<En>User name</En>
+	<Ar>اسم الدخول</Ar>
+
+
+	<Variable>Password</Variable>
+	<En>Password</En>
+	<Ar>كلمة السر</Ar>
+
+
+	<Variable>Email</Variable>
+	<En>Email</En>
+	<Ar>البريد الإليكترونى</Ar>
+
+
+
+
+	<Variable>SiteTitle</Variable>
+	<En>Site title</En>
+	<Ar>عنوان الموقع</Ar>
+
+
+	<Variable>FullName</Variable>
+	<En>Full Name</En>
+	<Ar>الأسم بالكامل</Ar>
+
+
+	<Variable>Address</Variable>
+	<En>Address</En>
+	<Ar>العنوان</Ar>
+
+
+	<Variable>Reseller|Server</Variable>
+	<En>Reseller|Server</En>
+	<Ar>وكلاء | خادم</Ar>
+
+
+	<Variable>MoreFeatures</Variable>
+	<En>More Features</En>
+	<Ar>خصائص اضافية</Ar>
+
+
+	<Variable>Templates</Variable>
+	<En>Templates</En>
+	<Ar>القوالب</Ar>
+
+
+	<Variable>GeneralSetting</Variable>
+	<En>General setting</En>
+	<Ar>اعدادات عامة</Ar>
+
+
+	<Variable>ColumnSetting</Variable>
+	<En>Column setting</En>
+	<Ar>اعدادات الأعمدة</Ar>
+
+
+	<Variable>DispalySetting</Variable>
+	<En>Dispaly setting</En>
+	<Ar>اعدادات عرض الموقع</Ar>
+
+
+	<Variable>Forum</Variable>
+	<En>Forum</En>
+	<Ar>المنتدى</Ar>
+
+
+
+	<Variable>RegisterDisplaySetting</Variable>
+	<En>Register display setting</En>
+	<Ar>خصائص اعدادات صفحة التسجيل</Ar>
+
+
+	<Variable>UserCPDisplaySetting</Variable>
+	<En>User CP display setting</En>
+	<Ar>اعدادات عرض لوحة تحكم العضو</Ar>
+
+
+	<Variable>StatisticDisplaySetting</Variable>
+	<En>Statistic display setting</En>
+	<Ar>احصائيات اعدادات عرض الموقع</Ar>
+
+
+	<Variable>SubmitDisplaySetting</Variable>
+	<En>Submit display setting</En>
+	<Ar>حفظ اعدادات عرض الموقع</Ar>
+
+
+	<Variable>ContactUsDisplaySetting</Variable>
+	<En>Contact Us display setting</En>
+	<Ar>اعدادات عرض صفحة اتصل بنا</Ar>
+
+
+	<Variable>ManageMessages</Variable>
+	<En>Manage Messages</En>
+	<Ar>إدارة الرسائل</Ar>
+
+
+	<Variable>UpdateMessages</Variable>
+	<En>Update Messages</En>
+	<Ar>تحديث الرسائل</Ar>
+
+
+	<Variable>Message</Variable>
+	<En>Message</En>
+	<Ar>رسائل</Ar>
+
+
+	<Variable>Main</Variable>
+	<En>Main</En>
+	<Ar>رئيسية</Ar>
+
+
+	<Variable>UploadImageManagement</Variable>
+	<En>Upload Image management</En>
+	<Ar>إدارة تحميل الصور</Ar>
+
+
+	<Variable>WatermarkManagement</Variable>
+	<En>Watermark Management</En>
+	<Ar>إدارة العلامة المائية للصور</Ar>
+
+
+	<Variable>RemoveAllUploadedImages</Variable>
+	<En>Remove all uploaded images</En>
+	<Ar>ازالة جميع الصور التى تم رفعها</Ar>
+
+
+	<Variable>RemoveUnutilizedThemeImageFiles</Variable>
+	<En>Remove unutilized theme image files</En>
+	<Ar>إزالة الصور الغير مستخدمة فى التصميم</Ar>
+
+
+	<Variable>ResizeAllImageFiles</Variable>
+	<En>Resize all image files</En>
+	<Ar>اعادة تغيير حجم كل ملفات الصور</Ar>
+
+
+	<Variable>Block</Variable>
+	<En>Block</En>
+	<Ar>الإطار العام</Ar>
+
+
+	<Variable>BlockSettings</Variable>
+	<En>Block Settings</En>
+	<Ar>اعدادات الإطار العام للصفحة</Ar>
+
+
+	<Variable>RestoreChangeTheme</Variable>
+	<En>Restore / Change theme</En>
+	<Ar>تركيب / تغيير التصميم</Ar>
+
+
+	<Variable>RemoveTheme</Variable>
+	<En>Remove theme</En>
+	<Ar>حذف التصميم</Ar>
+
+
+	<Variable>CreateDisplayPhpFile</Variable>
+	<En>Create display.php File</En>
+	<Ar>تكوين ملف display.php المتحكم فى العرض</Ar>
+
+
+	<Variable>PendingTickets</Variable>
+	<En>pending tickets</En>
+	<Ar>في انتظار تذاكر</Ar>
+
+
+	<Variable>CreateCssFiles</Variable>
+	<En>Create css files</En>
+	<Ar>تكوين ملفات css</Ar>
+
+
+	<Variable>News</Variable>
+	<En>News</En>
+	<Ar>أخبار</Ar>
+
+
+	<Variable>AddModifyNews</Variable>
+	<En>Add / Modify news</En>
+	<Ar>اضافة \ تعديل الأخبار</Ar>
+
+
+	<Variable>EditArticle</Variable>
+	<En>Edit Article</En>
+	<Ar>تعديل مقالة</Ar>
+
+
+	<Variable>SubmitAnArticle</Variable>
+	<En>Submit an Article</En>
+	<Ar>اضافة مقالة</Ar>
+
+
+	<Variable>MessageType</Variable>
+	<En>Message Type</En>
+	<Ar>نوع الرسالة</Ar>
+
+
+	<Variable>MessageDate</Variable>
+	<En>Message Date</En>
+	<Ar>تاريخ الرسالة</Ar>
+
+
+	<Variable>AttachVideo</Variable>
+	<En>Attach Video</En>
+	<Ar>إرفاق ملف فيديو</Ar>
+
+
+	<Variable>Video</Variable>
+	<En>Video</En>
+	<Ar>الفيديو</Ar>
+
+
+	<Variable>AttachImage</Variable>
+	<En>Attach Image</En>
+	<Ar>إرفاق صورة</Ar>
+
+
+
+
+	<Variable>Poll</Variable>
+	<En>Poll</En>
+	<Ar>تصويت</Ar>
+
+
+	<Variable>AddModifyPoll</Variable>
+	<En>Add / Modify poll</En>
+	<Ar>اضافة \ تعديل التصويت</Ar>
+
+
+	<Variable>SEO</Variable>
+	<En>SEO</En>
+	<Ar>التوافق مع محركات البحث وسرعة تحميل الموقع</Ar>
+
+	<Variable>CreateSitemapXml</Variable>
+	<En>Create sitemap.xml</En>
+	<Ar>تكوين ملف sitemap.xml</Ar>
+
+
+	<Variable>Language</Variable>
+	<En>Language</En>
+	<Ar>اللغة</Ar>
+
+
+
+
+	<Variable>ArchivedTickets</Variable>
+	<En>Archived tickets</En>
+	<Ar>تذاكر المحفوظة بالأرشيف</Ar>
+
+
+	<Variable>SearchReplace</Variable>
+	<En>Search / Replace</En>
+	<Ar>بحث\تعديل</Ar>
+
+
+	<Variable>AddNewTemplate</Variable>
+	<En>Add new template</En>
+	<Ar>اضافة قالب جديد</Ar>
+
+
+	<Variable>RemoveResetTemplates</Variable>
+	<En>Remove / Reset Templates</En>
+	<Ar>تفريغ جميع القوالب</Ar>
+
+
+	<Variable>ClosedTickets</Variable>
+	<En>Closed tickets</En>
+	<Ar>تذاكر المغلقة</Ar>
+
+
+	<Variable>RestoreTemplate</Variable>
+	<En>Restore template</En>
+	<Ar>استعادة القالب</Ar>
+
+
+	<Variable>SearchInTemplates</Variable>
+	<En>Search in templates</En>
+	<Ar>ابحث داخل القالب</Ar>
+
+
+	<Variable>ReplaceInTemplates</Variable>
+	<En>Replace in templates</En>
+	<Ar>تغيير داخل القالب</Ar>
+
+
+
+	<Variable>AddModifyOperator</Variable>
+	<En>Add / Modify operator</En>
+	<Ar>إضافة / تعديل موظف دعم فنى مباشر</Ar>
+
+
+	<Variable>LetterHeaderFor</Variable>
+	<En>Letter Header for</En>
+	<Ar>الهيدر العام للموقع</Ar>
+
+
+	<Variable>HeaderFor</Variable>
+	<En>Header for</En>
+	<Ar>اعلى الموقع</Ar>
+
+
+	<Variable>FooterFor</Variable>
+	<En>Footer for</En>
+	<Ar>اسفل الموقع</Ar>
+
+
+	<Variable>LetterFooterFor</Variable>
+	<En>Letter Footer for</En>
+	<Ar>الجزء السفلى العام للموقع</Ar>
+
+
+	<Variable>Blocks</Variable>
+	<En>Blocks</En>
+	<Ar>الإطار العام</Ar>
+
+
+	<Variable>LeftFor</Variable>
+	<En>Left for</En>
+	<Ar>الجزء الشمال</Ar>
+
+
+	<Variable>RightFor</Variable>
+	<En>Right for</En>
+	<Ar>الجزء اليمين</Ar>
+
+
+	<Variable>UpFor</Variable>
+	<En>Up for</En>
+	<Ar>اعلى الموقع</Ar>
+
+
+	<Variable>DownFor</Variable>
+	<En>Down for</En>
+	<Ar>اسفل الموقع</Ar>
+
+
+	<Variable>OpenBorder</Variable>
+	<En>Open Border</En>
+	<Ar>الأستايل الخاص ببداية البلوك</Ar>
+
+
+	<Variable>CloseBorder</Variable>
+	<En>Close Border</En>
+	<Ar>الأستايل الخاص بنهاية البلوك</Ar>
+
+
+	<Variable>IntroductionFor</Variable>
+	<En>Introduction for</En>
+	<Ar>بلوك خاص بنبذة او مقدمة عن الموقع</Ar>
+
+
+	<Variable>DefaultPageFor</Variable>
+	<En>Default page for</En>
+	<Ar>الصفحة الرئيسية ل</Ar>
+
+
+	<Variable>MainPages</Variable>
+	<En>Main Pages</En>
+	<Ar>الصفحات الرئيسية</Ar>
+
+
+	<Variable>HomeFor</Variable>
+	<En>Home for</En>
+	<Ar>الصفحة الرئيسية ل</Ar>
+
+
+	<Variable>CategoryPageFor</Variable>
+	<En>Category page for</En>
+	<Ar>صفحة التصنيفات ل</Ar>
+
+
+	<Variable>ListPageFor</Variable>
+	<En>List page for</En>
+	<Ar>صفحة العرض ل</Ar>
+
+
+	<Variable>ShowPageFor</Variable>
+	<En>Show page for</En>
+	<Ar>صفحة عرض التفاصيل</Ar>
+
+
+	<Variable>DedicatePageFor</Variable>
+	<En>Tell a friend page for</En>
+	<Ar>صفحة اخبر صديق</Ar>
+
+
+	<Variable>Find</Variable>
+	<En>Find</En>
+	<Ar>ابحث</Ar>
+
+
+	<Variable>FindPageFor</Variable>
+	<En>Find page for</En>
+	<Ar>ابحث عن صفحة</Ar>
+
+
+	<Variable>LetterPageFor</Variable>
+	<En>Letter page for</En>
+	<Ar>صفحة تصنيف بالحروف</Ar>
+
+
+	<Variable>About</Variable>
+	<En>About</En>
+	<Ar>عن المؤسسة</Ar>
+
+
+	<Variable>OtherPages</Variable>
+	<En>Other Pages</En>
+	<Ar>صفحات اخرى</Ar>
+
+
+	<Variable>ChatPageFor</Variable>
+	<En>Chat page for</En>
+	<Ar>صفحة شات ل</Ar>
+
+
+	<Variable>CommentPageFor</Variable>
+	<En>Comment page for</En>
+	<Ar>صفحة التعليقات ل</Ar>
+
+
+	<Variable>ContactUSPageFor</Variable>
+	<En>Contact US page for</En>
+	<Ar>صفحة اتصل بنا ل</Ar>
+
+
+	<Variable>DownloadFor</Variable>
+	<En>Download for</En>
+	<Ar>صفحة تحميلات ل</Ar>
+
+
+	<Variable>FAQPageFor</Variable>
+	<En>F.A.Q page for</En>
+	<Ar>صفحة اسئلة واجوبة مساعدة</Ar>
+
+
+	<Variable>FavoritePageFor</Variable>
+	<En>Favorite page for</En>
+	<Ar>صفحة المفضلة ل</Ar>
+
+
+	<Variable>ForgetPasswordPageFor</Variable>
+	<En>Forget password page for</En>
+	<Ar>صفحة نسيت كلمة السر ل</Ar>
+
+
+	<Variable>GuestBookPageFor</Variable>
+	<En>Guest book page for</En>
+	<Ar>صفحة سجل الزوار ل</Ar>
+
+
+
+	<Variable>UserRegistrationSettings</Variable>
+	<En>User registration settings</En>
+	<Ar>إعدادات تسجيل العضوية</Ar>
+
+
+
+
+
+
+
+	<Variable>HelpPageFor</Variable>
+	<En>Help page for</En>
+	<Ar>صفحة المساعدة ل</Ar>
+
+
+
+
+	<Variable>InboxPageFor</Variable>
+	<En>Inbox page for</En>
+	<Ar>صندوق الرسائل الداخلية الواردة للأعضاء</Ar>
+
+
+	<Variable>ListUsersMembersPageFor</Variable>
+	<En>List Users / Members page for</En>
+	<Ar>صفحة عرض الأعضاء ل</Ar>
+
+
+	<Variable>LoginPageFor</Variable>
+	<En>Login page for</En>
+	<Ar>صفحة تسجيل الدخول ل</Ar>
+
+
+	<Variable>ManagePageFor</Variable>
+	<En>Manage page for</En>
+	<Ar>صفحة الإدارة ل</Ar>
+
+
+	<Variable>MapPageFor</Variable>
+	<En>Map page for</En>
+	<Ar>صفحة ادارة الخرائط ل</Ar>
+
+
+	<Variable>MessagePageFor</Variable>
+	<En>Message page for</En>
+	<Ar>صفحة الرسائل ل</Ar>
+
+
+	<Variable>NewsPageFor</Variable>
+	<En>News page for</En>
+	<Ar>صفحة الأخبار ل</Ar>
+
+
+	<Variable>PollPageFor</Variable>
+	<En>Poll page for</En>
+	<Ar>صفحة التصويت ل</Ar>
+
+
+	<Variable>ProfilePageFor</Variable>
+	<En>Profile page for</En>
+	<Ar>صفحة المعلومات الخاصة بالعضو</Ar>
+
+
+	<Variable>RegisterPageFor</Variable>
+	<En>Register page for</En>
+	<Ar>صفحة تسجيل الأعضاء ل</Ar>
+
+
+	<Variable>SearchPage</Variable>
+	<En>Search page</En>
+	<Ar>صفحة البحث</Ar>
+
+
+	<Variable>Add\modifyDepartment</Variable>
+	<En>add\modify department</En>
+	<Ar>إضافة\تعديل القسم</Ar>
+
+
+	<Variable>SendMailPageFor</Variable>
+	<En>Send mail page for</En>
+	<Ar>صفحة ارسال بريد ل</Ar>
+
+
+	<Variable>SendMessagePageFor</Variable>
+	<En>Send message page for</En>
+	<Ar>صفحة ارسال رسائل ل</Ar>
+
+
+
+	<Variable>StatisticPageFor</Variable>
+	<En>Statistic page for</En>
+	<Ar>صفحة الأحصائيات ل</Ar>
+
+
+	<Variable>Note</Variable>
+	<En>note</En>
+	<Ar>ملاحظة</Ar>
+
+
+	<Variable>PageNo</Variable>
+	<En>Number Of items in page</En>
+	<Ar>عدد الوحدات فى الصفحة الواحدة</Ar>
+
+
+	<Variable>QuickNote</Variable>
+	<En>quick note</En>
+	<Ar>ملاحظة سريعة</Ar>
+
+
+	<Variable>PageBarNo</Variable>
+	<En>Numbe of Pages before next link</En>
+	<Ar>عدد الصفحات التى يظهر بعدها لينك التالى</Ar>
+
+
+	<Variable>PageBreak</Variable>
+	<En>Max number of shown pages</En>
+	<Ar>اقص عدد للصفحات المعروضة</Ar>
+
+
+	<Variable>ShowWidth</Variable>
+	<En>Control width of pics in details page</En>
+	<Ar>التحكم فى عرض صورة صفحة التفاصيل</Ar>
+
+
+	<Variable>Distributer</Variable>
+	<En>distributer</En>
+	<Ar>موزع</Ar>
+
+
+	<Variable>AddModifyDepartment</Variable>
+	<En>Add / Modify Department</En>
+	<Ar>إضافة / تعديل قسم</Ar>
+
+
+	<Variable>ShowHeight</Variable>
+	<En>Control height of pics in details page</En>
+	<Ar>التحكم فى طول صورة صفحة التفاصيل</Ar>
+
+
+	<Variable>NewsFlashMax</Variable>
+	<En>Max No. of latest news</En>
+	<Ar>اقصى عدد لآخر الأخبار</Ar>
+
+
+	<Variable>RelatedNewsMax</Variable>
+	<En>Max No. of related news</En>
+	<Ar>اقصى عدد للأخبار المتعلقة</Ar>
+
+
+	<Variable>MoreNewsMax</Variable>
+	<En>Max No. of link more news</En>
+	<Ar>اقصى عدد لرابط المزيد</Ar>
+
+
+	<Variable>LiveSupportSitting</Variable>
+	<En>live support sitting</En>
+	<Ar>اعدادات الدعم المباشر</Ar>
+
+
+	<Variable>LiveSalesSupport</Variable>
+	<En>live sales support</En>
+	<Ar>دعم مبيعات مباشر</Ar>
+
+
+	<Variable>EditSection</Variable>
+	<En>Edit Section</En>
+	<Ar>تعديل القسم</Ar>
+
+
+
+
+	<Variable>ManageUsers</Variable>
+	<En>Manage Users</En>
+	<Ar>إدارة الأعضاء</Ar>
+
+
+	<Variable>AllUsers</Variable>
+	<En>All Users</En>
+	<Ar>كل الأعضاء</Ar>
+
+
+
+	<Variable>UnknownUsers</Variable>
+	<En>Unknown Users</En>
+	<Ar>الأعضاء الغير معرفين</Ar>
+
+
+
+
+	<Variable>Users</Variable>
+	<En>Users</En>
+	<Ar>الأعضاء</Ar>
+
+
+	<Variable>Companies</Variable>
+	<En>Companies</En>
+	<Ar>الشركات</Ar>
+
+
+
+	<Variable>UserRegistrationSittings</Variable>
+	<En>user registration sitting</En>
+	<Ar>اعدادات تسجيل العضوية</Ar>
+
+
+	<Variable>ArchivedVotesMax</Variable>
+	<En>Max Archived Votes</En>
+	<Ar>اقصى عدد للتصويتات يمكن ارشفتها</Ar>
+
+
+	<Variable>ActiveValue</Variable>
+	<En>Active Value</En>
+	<Ar>طريقة التفعيل</Ar>
+
+
+	<Variable>ActiveFollow</Variable>
+	<En>Active Members Follow</En>
+	<Ar>خاصية تتبع الأعضاء</Ar>
+
+
+	<Variable>ActiveLinkID</Variable>
+	<En>Active related to link</En>
+	<Ar>تفعيل ملحقات تابعة لرابط او موضوع</Ar>
+
+
+	<Variable>SearchEngineOptimization</Variable>
+	<En>Search Engine Optimization</En>
+	<Ar>التوافق مع محركات البحث وسرعة تحميل الموقع</Ar>
+
+
+	<Variable>LinkBarDesign</Variable>
+	<En>Control Link Bar Design</En>
+	<Ar>التحكم فى تصميم عرض الروابط</Ar>
+
+
+	<Variable>IncludeLoginBox</Variable>
+	<En>Include Login Box</En>
+	<Ar>تفعيل ظهور تسجيل الدخول بجانب الروابط</Ar>
+
+
+	<Variable>WhoIsOnlineDesign</Variable>
+	<En>Who is online Layout</En>
+	<Ar>تصميم واخراج شكل المتواجدين حاليا</Ar>
+
+
+	<Variable>MembersOnlineToday</Variable>
+	<En>Members Online Today</En>
+	<Ar> الأعضاء المتواجدين حاليا اليوم</Ar>
+
+
+	<Variable>ExtraSearch</Variable>
+	<En>Extra Search</En>
+	<Ar>بحث اضافى</Ar>
+
+
+	<Variable>SearchHistory</Variable>
+	<En>View Search History</En>
+	<Ar>عمليات البحث السابقة</Ar>
+
+
+	<Variable>ActiveSearchBarOnPages</Variable>
+	<En>Active search bar on pages</En>
+	<Ar>تفعيل البحث فى الصفحات التالية</Ar>
+
+
+	<Variable>AtiveLetterBarOnPages</Variable>
+	<En>Ative letter category bar on pages</En>
+	<Ar>تفعيل شريط التصنيف بالحروف</Ar>
+
+
+	<Variable>AtiveGreetingBarOnPages</Variable>
+	<En>Ative greeting bar on pages</En>
+	<Ar>تفعيل شريط التهنئة بالصفحة</Ar>
+
+
+	<Variable>ActiveLinkBarOnPages</Variable>
+	<En>Active link bar on pages</En>
+	<Ar>تفعيل شريط الروابط فى الصفحات</Ar>
+
+
+	<Variable>ActiveStatisticBarOnPages</Variable>
+	<En>Active Statistic bar on pages</En>
+	<Ar>تفعيل شريط الأحصائيات فى الصفحات</Ar>
+
+
+	<Variable>ActiveJumpBarOnPages</Variable>
+	<En>Active Jump bar on pages</En>
+	<Ar>تفعيل شريط التنقل بين الصفحات</Ar>
+
+
+	<Variable>Country</Variable>
+	<En>country</En>
+	<Ar>البلد\الدولة</Ar>
+
+	<Variable>EnCountry</Variable>
+	<En>Country (English)</En>
+	<Ar>الدولة بالانجليزى</Ar>
+
+	<Variable>ArCountry</Variable>
+	<En>Country (Arabic)</En>
+	<Ar>الدولة بالعربى</Ar>
+
+
+	<Variable>Gender</Variable>
+	<En>gender</En>
+	<Ar>النوع</Ar>
+
+
+	<Variable>AccountActivation</Variable>
+	<En>account activation</En>
+	<Ar>تنشيط الحساب</Ar>
+
+
+	<Variable>Add\modifyIssue</Variable>
+	<En>add\modify issue</En>
+	<Ar>مسألة التعديل و الاضافة</Ar>
+
+
+	<Variable>ChangeAdministratorPassword</Variable>
+	<En> Change Administrator Password</En>
+	<Ar>تغيير كلمة السر للمدير العام</Ar>
+
+
+	<Variable>Hosting</Variable>
+	<En>hosting</En>
+	<Ar>الاستضافة</Ar>
+
+
+	<Variable>UserAccessOnPagesMemberOnlyCanAccessThisPage</Variable>
+	<En>Active Access bar on pages Member only can access this page</En>
+	<Ar>تفعيل سماحية الدخول على الصفحات للأعضاء</Ar>
+
+
+	<Variable>(Home)PageColumnNo</Variable>
+	<En>(Home) page list Categories column No</En>
+	<Ar>عدد الأعمدة لعرض التصنيفات فى الصفحة الرئيسية</Ar>
+
+
+	<Variable>Info(Category)PageColumnNo</Variable>
+	<En>Info (Category) page column No. to be listed</En>
+	<Ar>عدد الأعمدة لعرض التصنيفات فى صفحة التصنيفات</Ar>
+
+
+	<Variable>Info(List)PageColumnNo</Variable>
+	<En>Info (List) page column No.</En>
+	<Ar>عدد الأعمدة لعرض التصنيفات فى صفحة العرض</Ar>
+
+
+	<Variable>SectionDisplayOption</Variable>
+	<En>Section Display Option</En>
+	<Ar>اعدادات قسم العرض بالموقع</Ar>
+
+
+	<Variable>SectionDisplay</Variable>
+	<En>Section Display</En>
+	<Ar>طريقة عرض القسم</Ar>
+
+
+	<Variable>SectionDisplayMethod</Variable>
+	<En>Section Display Method</En>
+	<Ar>طريقة عرض القسم على الصفحة الرئيسية</Ar>
+
+
+	<Variable>SectionDisplayAlign</Variable>
+	<En>Section content Display Align</En>
+	<Ar>طريقة عرض محتويات القسم من صور وكلام</Ar>
+
+
+	<Variable>ActiveItemNo</Variable>
+	<En>Active Item No</En>
+	<Ar>عدد الوحدات داخل القسم او النوع</Ar>
+
+
+	<Variable>ItemNoFontColor</Variable>
+	<En>Item No Font Color</En>
+	<Ar>لون عدد الوحدات بداخل القسم</Ar>
+
+
+	<Variable>AddSmallBuletImage</Variable>
+	<En>Add small Bulet Image</En>
+	<Ar>اضافة صورة صغيرة بجانب اسم الوحدة</Ar>
+
+
+	<Variable>DisplayNoOfViewingThatBrowseThisSectionNow</Variable>
+	<En>Display No of Viewing this section now</En>
+	<Ar>عرض عدد المتصفحين لهذا القسم حاليا</Ar>
+
+
+	<Variable>AddDotLine(LikeEmail)</Variable>
+	<En>Add Doted Line</En>
+	<Ar>اضافة خط فاصل</Ar>
+
+
+	<Variable>ShowSubSections</Variable>
+	<En>Show sub sections</En>
+	<Ar>اظهار التصنيفات الفرعية</Ar>
+
+
+	<Variable>ShowCategories</Variable>
+	<En>Show categories</En>
+	<Ar>اظهار التصنيفات</Ar>
+
+
+	<Variable>ShowSectionDescription</Variable>
+	<En>Show section Description</En>
+	<Ar>اظهار وصف للقسم</Ar>
+
+
+	<Variable>SectionDisplayOrderBy</Variable>
+	<En>Section Display Order</En>
+	<Ar>عرض القسم بترتيب</Ar>
+
+
+	<Variable>SortOrder</Variable>
+	<En>Sort Order</En>
+	<Ar>نوع الترتيب</Ar>
+
+
+	<Variable>SectionDisplaySQLFilter</Variable>
+	<En>Section Display SQL Filter</En>
+	<Ar>عملية فلترة لما يأتى من قواعد البيانات</Ar>
+
+
+	<Variable>ShowSomeCategoryOnHomepage</Variable>
+	<En>Show some category on home page</En>
+	<Ar>اظهار بعض التصنيفات فى الصفحة الرئيسية</Ar>
+
+
+	<Variable>PleaseEnterCategoryIDsYouWantToShowOnHomepage</Variable>
+	<En>Please enter Category IDs you want to show on home page</En>
+	<Ar>من فضلك ادخل ارقام التصنيفات المراد عرضها فى الصفحة الرئيسية</Ar>
+
+
+	<Variable>TopTen</Variable>
+	<En>Top Ten</En>
+	<Ar>افضل عشرة</Ar>
+
+
+
+
+
+	<Variable>CategoryDisplayOption</Variable>
+	<En>Category Display Option</En>
+	<Ar>اعدادت عرض التصنيفات</Ar>
+
+
+	<Variable>CategoryDisplay</Variable>
+	<En>Category Display</En>
+	<Ar>عرض التصنيف</Ar>
+
+
+	<Variable>CategoryDisplayMethod</Variable>
+	<En>Category Display Method</En>
+	<Ar>طريقة ظهور التصنيف</Ar>
+
+
+	<Variable>CategoryDisplayAlign</Variable>
+	<En>Category Display Align</En>
+	<Ar>تحديد مكان عرض التصنيف</Ar>
+
+
+	<Variable>DisplayNoOfViewingThatBrowseThisCategoryNow</Variable>
+	<En>Display No of Viewing  this Category now</En>
+	<Ar>عرض عدد المتصفحين لهذا التصنيف حاليا</Ar>
+
+
+	<Variable>ShowSubCategories</Variable>
+	<En>Show sub Categories</En>
+	<Ar>اظهار التصنيفات الفرعية</Ar>
+
+
+	<Variable>BadwordsManagement</Variable>
+	<En>badwords management</En>
+	<Ar>ادارة الكلمات السيئة</Ar>
+
+
+	<Variable>MailList</Variable>
+	<En>mail list</En>
+	<Ar>قائمة البريد</Ar>
+
+
+	<Variable>Jobs</Variable>
+	<En>jobs</En>
+	<Ar>الوظائف</Ar>
+
+
+	<Variable>FixEverything</Variable>
+	<En>Fix Everything</En>
+	<Ar>إصلاح المشاكل ذاتيا</Ar>
+
+
+
+	<Variable>EmanageOptions</Variable>
+	<En>Emanage Options</En>
+	<Ar>خصائص البرنامج</Ar>
+
+
+
+	<Variable>Licences</Variable>
+	<En>Licences</En>
+	<Ar>التراخيص</Ar>
+
+
+
+
+
+	<Variable>DefaultPermission</Variable>
+	<En>Default Permission</En>
+	<Ar>إذن افتراضي</Ar>
+
+
+
+	<Variable>ShowCategoryDescription</Variable>
+	<En>Show category Description</En>
+	<Ar>اظهر وصف للتصنيف</Ar>
+
+
+	<Variable>CategoryDisplayTopImage</Variable>
+	<En>Category Display Top Image</En>
+	<Ar>اعرض صورة التصنيف فى الأعلى</Ar>
+
+
+	<Variable>CategoryDisplayOrderBy</Variable>
+	<En>Category Display Order By</En>
+	<Ar>ترتيب التصنيفات بحسب</Ar>
+
+
+	<Variable>CategoryDisplaySQLFilter</Variable>
+	<En>Category Display SQL Filter</En>
+	<Ar>عملية فلترة لما يأتى من قواعد البيانات</Ar>
+
+
+	<Variable>ListDisplayOption</Variable>
+	<En>List Display Option</En>
+	<Ar>اعدادات عرض التصنيفات</Ar>
+
+
+	<Variable>ListDisplay</Variable>
+	<En>List Display</En>
+	<Ar>عرضى\افقى</Ar>
+
+
+	<Variable>ListDisplayMethod</Variable>
+	<En>List Display Method</En>
+	<Ar>طريقة عرض التصنيفات</Ar>
+
+
+	<Variable>ListDisplayAlign</Variable>
+	<En>List Display Align</En>
+	<Ar>تحديد مكان عرض التصنيف</Ar>
+
+
+	<Variable>MakeBorderAroundTable</Variable>
+	<En>Make Border around table</En>
+	<Ar>عمل بوردر للجدول</Ar>
+
+
+	<Variable>DisplayNoOfViewingThatBrowseThisListNow</Variable>
+	<En>Display No of Viewing this List now</En>
+	<Ar>اظهار عدد المتصفحين الحاليين</Ar>
+
+
+	<Variable>DisplayStartScoreResult</Variable>
+	<En>Display Start score result</En>
+	<Ar>عرض نتيجة بداية التسجيل</Ar>
+
+
+	<Variable>ShowHotItemAboveListPage</Variable>
+	<En>Show Hot Item Above list page</En>
+	<Ar>اظهر الوحدات المهمة اعلى صفحة العرض</Ar>
+
+
+	<Variable>PleaseEnterNoOfHotItemYouWantToDisplayAboveListPage</Variable>
+	<En>Please enter No. of hot item you want to display above list page</En>
+	<Ar>من فضلك حدد عدد الوحدات التى تريد ظهورها</Ar>
+
+
+	<Variable>StatisticReportDisplay</Variable>
+	<En>Statistic Report (Display report about no of items found and current displaying items)</En>
+	<Ar>احصائيات عن عدد الوحدات الموجودة والمعروضة</Ar>
+
+
+	<Variable>AddCheckboxNextToElement</Variable>
+	<En>Add Checkbox next to element</En>
+	<Ar>اضافة بوكس اختيار بجانب اى عنصر</Ar>
+
+
+	<Variable>ListDisplayTopImage</Variable>
+	<En>List Display Top Image</En>
+	<Ar>اظهار صورة فى اعلى صفحة العرض</Ar>
+
+
+	<Variable>ListDisplayOrderBy</Variable>
+	<En>List Display Order By</En>
+	<Ar>التحكم فى ترتيب العرض</Ar>
+
+
+	<Variable>ShowDisplayOption</Variable>
+	<En>Details Page Display Option</En>
+	<Ar>اعدادات صفحة التفاصيل</Ar>
+
+
+	<Variable>ShowDisplayTopImage</Variable>
+	<En>Details Page Display Top Image</En>
+	<Ar>عرض صورة اعلى صفحة التفاصيل</Ar>
+
+
+	<Variable>DisplayNoOfViewingThatBrowseThisShowNowAndDisplayTheirUsernames</Variable>
+	<En>Display No of Viewing details page now and display their user names</En>
+	<Ar>اظهر عدد المتصفحين لصفحة التفاصيل واسماء دخولهم</Ar>
+
+
+	<Variable>ShowDisplayDetails</Variable>
+	<En>Show page Display Details</En>
+	<Ar>التفاصيل الخاصة بصفحة التفاصيل</Ar>
+
+
+	<Variable>ShowDisplayActiveComment</Variable>
+	<En>Display Active comment</En>
+	<Ar>عرض التعليقات التى تم الموافقة عليها</Ar>
+
+
+	<Variable>ShowDisplayActiveRattingBar</Variable>
+	<En>Display Active Ratting bar</En>
+	<Ar>اظهار شريط التقييم فى صفحة التفاصيل</Ar>
+
+
+	<Variable>ShowDisplayActiveFavorite</Variable>
+	<En>Display Active Favorite</En>
+	<Ar>اعرض المفضلات التى تم الموافقة عليها</Ar>
+
+
+	<Variable>ShowDisplayAddToCart</Variable>
+	<En>Display Add To Cart</En>
+	<Ar>التحكم فى اظهار اضف لسلة التسوق</Ar>
+
+
+	<Variable>EnClientName</Variable>
+	<En>Client Name (English)</En>
+	<Ar>اسم العميل بالعربية</Ar>
+
+
+	<Variable>ArClientName</Variable>
+	<En>Client Name (Arabic)</En>
+	<Ar>اسم العميل بالعربية</Ar>
+
+	<Variable>ImportDisplaySettingsFromAnotherService</Variable>
+	<En>Import Display Settings from another Service</En>
+	<Ar>احصل على اعدادات العرض من خدمة اخرى بالسيستم</Ar>
+
+
+	<Variable>RestoreDefaults</Variable>
+	<En>Restore defaults</En>
+	<Ar>ارجاع الأعدادات الأولية</Ar>
+
+
+	<Variable>RegisterSetting</Variable>
+	<En>Register setting</En>
+	<Ar>اعدادت التسجيل بالموقع</Ar>
+
+
+	<Variable>DispayMethod</Variable>
+	<En>Display Method</En>
+	<Ar>طريقة العرض</Ar>
+
+
+	<Variable>Numbering</Variable>
+	<En>Numbering</En>
+	<Ar>الترقيم</Ar>
+
+
+	<Variable>CreateEmailAccount</Variable>
+	<En>Create Email Account</En>
+	<Ar>عمل بريد اليكترونى</Ar>
+
+
+	<Variable>RequiredField</Variable>
+	<En>Required field</En>
+	<Ar>مطلوب</Ar>
+
+
+	<Variable>DisplayThisField</Variable>
+	<En>Display this field</En>
+	<Ar>اعرض هذا الفيلد</Ar>
+
+
+	<Variable>PhotoProfile</Variable>
+	<En>Photo Profile</En>
+	<Ar>البروفايل الخاص بالصور</Ar>
+
+
+	<Variable>YourInformation</Variable>
+	<En>Your Information</En>
+	<Ar>بيانات المسجل</Ar>
+
+
+	<Variable>InCaseYouForgetYourIDOrPassword</Variable>
+	<En>In case you forget your ID or password</En>
+	<Ar>فى حالة ما اذا نسيت رقمك او كلمة السر</Ar>
+
+
+	<Variable>Messenger</Variable>
+	<En>Messenger</En>
+	<Ar>ماسنجر</Ar>
+
+
+	<Variable>AdditionalOptions</Variable>
+	<En>Additional Options</En>
+	<Ar>خيارات اخرى</Ar>
+
+
+	<Variable>FirstName</Variable>
+	<En>First Name</En>
+	<Ar>الاسم الأول</Ar>
+
+
+	<Variable>LastName</Variable>
+	<En>Last Name</En>
+	<Ar>الاسم الأخير</Ar>
+
+
+	<Variable>BirthDate</Variable>
+	<En>Birth Date</En>
+	<Ar>تاريخ الميلاد</Ar>
+
+
+	<Variable>MartialStatus</Variable>
+	<En>MartialStatus</En>
+	<Ar>العلاقات</Ar>
+
+
+	<Variable>City</Variable>
+	<En>City</En>
+	<Ar>المدينة</Ar>
+
+
+	<Variable>StreetAddress</Variable>
+	<En>Street Address</En>
+	<Ar>العنوان</Ar>
+
+
+	<Variable>TelNo</Variable>
+	<En>Telephone Number</En>
+	<Ar>رقم الهاتف</Ar>
+
+
+	<Variable>Mobile</Variable>
+	<En>Mobile Number</En>
+	<Ar>رقم الجوال</Ar>
+
+
+	<Variable>FaxNumber</Variable>
+	<En>Fax Number</En>
+	<Ar>رقم الفاكس</Ar>
+
+
+	<Variable>Job</Variable>
+	<En>Job</En>
+	<Ar>الوظيفة</Ar>
+
+
+	<Variable>Hobby</Variable>
+	<En>Hobby</En>
+	<Ar>الهواية</Ar>
+
+
+	<Variable>Company</Variable>
+	<En>Company</En>
+	<Ar>الشركة</Ar>
+
+	<Variable>ICQ#</Variable>
+	<En> ICQ#</En>
+	<Ar> ICQ#</Ar>
+
+	<Variable>AllowAdminToSendYouE-Mail</Variable>
+	<En>Allow admin to send you E-Mail</En>
+	<Ar>ااسمح للأدمن بإرسال ايميل لك</Ar>
+
+
+	<Variable>TermsOfService</Variable>
+	<En>Terms of service</En>
+	<Ar>شروط الأستخدام</Ar>
+
+
+	<Variable>ManageMessage</Variable>
+	<En>Manage Message</En>
+	<Ar>اعدادات الرسائل</Ar>
+
+
+	<Variable>MsgKey</Variable>
+	<En>Msg Key</En>
+	<Ar>نوع الرسالة</Ar>
+
+
+	<Variable>SenderName</Variable>
+	<En>Sender Name</En>
+	<Ar>اسم المرسل</Ar>
+
+
+	<Variable>SenderEmail</Variable>
+	<En>Sender Email</En>
+	<Ar>بريد المرسل</Ar>
+
+
+	<Variable>Subject</Variable>
+	<En>Subject</En>
+	<Ar>موضوع الرسالة</Ar>
+
+
+	<Variable>AsHTML</Variable>
+	<En>As HTML</En>
+	<Ar>ك اتش تى ام ال</Ar>
+
+
+	<Variable>PleaseSelectMessagesToUpdate</Variable>
+	<En>Please select messages to update</En>
+	<Ar>من فضلك اختار رسائل لتعديلها</Ar>
+
+
+	<Variable>WatermarkType</Variable>
+	<En>Watermark Type</En>
+	<Ar>نوع العلامة المائية</Ar>
+
+
+	<Variable>WatermarkText</Variable>
+	<En>Watermark Text</En>
+	<Ar>الكلمات المراد وضعها كعلامة مائية</Ar>
+
+
+	<Variable>WatermarkColor</Variable>
+	<En>Watermark Color</En>
+	<Ar>لون العلامة المائية</Ar>
+
+
+	<Variable>WatermarkBgcolor</Variable>
+	<En>Watermark Bgcolor</En>
+	<Ar>خلفية العلامة المائية</Ar>
+
+
+	<Variable>WatermarkPosition</Variable>
+	<En>Watermark Position</En>
+	<Ar>مكان العلامة المائية</Ar>
+
+
+	<Variable>WatermarkFilename</Variable>
+	<En>Watermark Filename</En>
+	<Ar>اسم ملف العلامة المائية</Ar>
+
+
+
+	<Variable>EnableDisableCacheSystem</Variable>
+	<En>Enable / Disable Cache System</En>
+	<Ar>تفعيل / تعطيل نظام النسخ المؤقت</Ar>
+
+
+	<Variable>EditCategory</Variable>
+	<En>Edit Category</En>
+	<Ar>تعديل تصنيف</Ar>
+
+
+	<Variable>AddNewCategory</Variable>
+	<En>Add New Category</En>
+	<Ar>اضافة تصنيف جديد</Ar>
+
+
+	<Variable>AllImageFilesWasUploadedOn</Variable>
+	<En>All image files was uploaded on folder module/tea/upload/image will be delete, to complate this step please check five of check box bellow</En>
+	<Ar> كل ملفات الصور تم رفعها فى الباث التالى module/tea/upload/image لإكمال هذة الخطوة رجاء اختيار خمس من البوكس التاليين</Ar>
+
+
+	<Variable>Theme</Variable>
+	<En>Theme</En>
+	<Ar>التصميم</Ar>
+
+
+	<Variable>UpdateVariable</Variable>
+	<En>Update Variable</En>
+	<Ar>تعديل المتغير</Ar>
+
+
+	<Variable>ResizeAllImageFilesTo</Variable>
+	<En>Resize all image files to</En>
+	<Ar>اعادة تغيير احجام الصور الى</Ar>
+
+
+	<Variable>VisibilityOptions</Variable>
+	<En>Visibility Options</En>
+	<Ar>اعدادات الظهور</Ar>
+
+	<Variable>Watermark</Variable>
+	<En>watermark</En>
+	<Ar>العلامة المائية</Ar>
+
+	<Variable>PollPeriod</Variable>
+	<En>Poll Period</En>
+	<Ar>فترة التصويت</Ar>
+
+	<Variable>Services</Variable>
+	<En>Services</En>
+	<Ar>خدمات</Ar>
+
+	<Variable>Add\modifyModule</Variable>
+	<En>add\modify Module</En>
+	<Ar>اضافة\تعديل وحدة</Ar>
+
+
+	<Variable>	RestoreModuleNames</Variable>
+	<En> 	 Restore Module Names</En>
+	<Ar>استرجاع اسماء الوحدات</Ar>
+
+
+	<Variable>	CreateModule</Variable>
+	<En>	Create module</En>
+	<Ar>انشاء وحدة</Ar>
+
+
+	<Variable>Template</Variable>
+	<En>template</En>
+	<Ar>قالب</Ar>
+
+
+	<Variable>Countries</Variable>
+	<En>Countries</En>
+	<Ar>الدول</Ar>
+
+
+	<Variable>EnCountryName</Variable>
+	<En>English country name</En>
+	<Ar>اسم الدولة بالانجليزية</Ar>
+
+
+	<Variable>ArCountryName</Variable>
+	<En>Arabic country name</En>
+	<Ar>اسم الدولة بالغة العربية</Ar>
+
+
+	<Variable>CountryCode</Variable>
+	<En>Country Code</En>
+	<Ar>كود الدولة</Ar>
+
+
+	<Variable>LeftBlockWidth</Variable>
+	<En>Left block width</En>
+	<Ar>عرض الجزء الشمال</Ar>
+
+
+	<Variable>MiddleBlockWidth</Variable>
+	<En>Middle block width</En>
+	<Ar>عرض الجزء الأوسط</Ar>
+
+
+
+	<Variable>District</Variable>
+	<En>district</En>
+	<Ar>منطقة</Ar>
+
+
+	<Variable>RightBlockWidth</Variable>
+	<En>Right block width</En>
+	<Ar>عرض الجزء الأيمن</Ar>
+
+
+	<Variable>IndexMiddleWidth</Variable>
+	<En>Index middle width</En>
+	<Ar>عرض الجزء الأوسط فى الصفحة الرئيسية</Ar>
+
+
+	<Variable>Break</Variable>
+	<En>Line break code</En>
+	<Ar>كود الخط الفاصل</Ar>
+
+
+	<Variable>BannerSql</Variable>
+	<En>Banner Sql</En>
+	<Ar>اس كيو ال للبانر الإعلانى</Ar>
+
+
+	<Variable>ChangeThemeForService</Variable>
+	<En>Change Theme for service</En>
+	<Ar>تغيير التصميم للخدمة</Ar>
+
+
+	<Variable>Overwrite</Variable>
+	<En>Overwrite</En>
+	<Ar>اعادة الكتابة عليها</Ar>
+
+
+	<Variable>CreateArSccFileFor</Variable>
+	<En>Create arabic css file for</En>
+	<Ar>تكوين ملفات css للغة العربية</Ar>
+
+
+	<Variable>CreateArCssFileFromFile</Variable>
+	<En>Create arabic Css file from file</En>
+	<Ar>تكوين ملفات css للغة العربية من ملف آخر</Ar>
+
+
+	<Variable>AddNewNews</Variable>
+	<En>Add new news</En>
+	<Ar>اضافة اخبار جديدة</Ar>
+
+
+	<Variable>AddModifyCountriesIPs</Variable>
+	<En>Add / Modify Countries IPs</En>
+	<Ar>الدول Ips اضافة و تعديل</Ar>
+
+
+	<Variable>EnSubject</Variable>
+	<En>English Title</En>
+	<Ar>عنوان الخبر انجليزى</Ar>
+
+
+	<Variable>ArSubject</Variable>
+	<En>Arabic Title</En>
+	<Ar>عنوان الخبر عربى</Ar>
+
+
+	<Variable>EnMessage</Variable>
+	<En>English Content</En>
+	<Ar>محتوى الخبر انجليزى</Ar>
+
+
+	<Variable>	ConvertAnIPv4ToNetwork</Variable>
+	<En> 	 Convert an IPv4 to network</En>
+	<Ar>	IPv4 تحويل إلى شبكة</Ar>
+
+
+	<Variable>ArMessage</Variable>
+	<En>Arabic Content</En>
+	<Ar>محتوى الخبر عربى</Ar>
+
+
+	<Variable>Image</Variable>
+	<En>Image</En>
+	<Ar>صورة</Ar>
+
+
+	<Variable>RelatedKey</Variable>
+	<En>Related Keywords</En>
+	<Ar>كلمات مميزة متعلقة</Ar>
+
+
+	<Variable>CharMax</Variable>
+	<En>Max Chr</En>
+	<Ar>اقصى عدد للحروف</Ar>
+
+
+	<Variable>AddNewPoll</Variable>
+	<En>Add new Poll</En>
+	<Ar>اضافة تصويت جدبد</Ar>
+
+
+	<Variable>EnQuestion</Variable>
+	<En>English Question</En>
+	<Ar>السؤال انجليزى</Ar>
+
+
+	<Variable>Arabic</Variable>
+	<En>Arabic</En>
+	<Ar>المحتوى عربى</Ar>
+
+
+	<Variable>AnswerNo</Variable>
+	<En>Answer No</En>
+	<Ar>عدد الأجابات</Ar>
+
+
+	<Variable>EnAnswer1</Variable>
+	<En>English Answer 1</En>
+	<Ar>الإجابة الأولى انجليزى</Ar>
+
+
+	<Variable>Answer2</Variable>
+	<En>English Answer 2</En>
+	<Ar>الإجابة الثانية انجليزى</Ar>
+
+
+	<Variable>EnAnswer3</Variable>
+	<En>English Answer 3</En>
+	<Ar>الإجابة الثالثة انجليزى</Ar>
+
+
+	<Variable>EnAnswer4</Variable>
+	<En>English Answer 4</En>
+	<Ar>الإجابة الرابعة انجليزى</Ar>
+
+
+	<Variable>EnAnswer5</Variable>
+	<En>English Answer 5</En>
+	<Ar>الإجابة الخامسة انجليزى</Ar>
+
+
+	<Variable>EnAnswer6</Variable>
+	<En>English Answer 6</En>
+	<Ar>الإجابة السادسة انجليزى</Ar>
+
+
+	<Variable>EnAnswer7</Variable>
+	<En>English Answer 7</En>
+	<Ar>الإجابة السابعة انجليزى</Ar>
+
+
+	<Variable>EnAnswer8</Variable>
+	<En>English Answer 8</En>
+	<Ar>الإجابة الثامنة انجليزى</Ar>
+
+
+	<Variable>EnAnswer9</Variable>
+	<En>English Answer 9</En>
+	<Ar>الإجابة التاسعة انجليزى</Ar>
+
+
+	<Variable>EnAnswer10</Variable>
+	<En>English Answer 10</En>
+	<Ar>الإجابة العاشرة انجليزى</Ar>
+
+
+	<Variable>EnPollSubject</Variable>
+	<En>English Poll subject</En>
+	<Ar>موضوع التصويت انجليزى</Ar>
+
+
+	<Variable>ImportCountriesIPsFromFile</Variable>
+	<En>Import Countries IPs from file</En>
+	<Ar> الدول من ملف Ips استيراد</Ar>
+
+
+	<Variable>EnPollComment</Variable>
+	<En>English Poll comment</En>
+	<Ar>تعليق على التصويت انجليزى</Ar>
+
+
+	<Variable>Keywords</Variable>
+	<En>Keywords</En>
+	<Ar>كلمات متعلقة</Ar>
+
+
+	<Variable>Information</Variable>
+	<En>Information</En>
+	<Ar>معلومات</Ar>
+
+
+	<Variable>English</Variable>
+	<En>English</En>
+	<Ar>انجليزى</Ar>
+
+
+	<Variable>PageTitle</Variable>
+	<En>Page Title</En>
+	<Ar>عنوان الصفحة</Ar>
+
+	<Variable>LocationAndNearbyFacilities</Variable>
+	<En>Location and nearby facilities</En>
+	<Ar>اماكن مشهورة قريبة من المكان</Ar>
+
+
+	<Variable>Notes</Variable>
+	<En>Notes</En>
+	<Ar>ملاحظات</Ar>
+
+
+	<Variable>Backorder</Variable>
+	<En>backorder</En>
+	<Ar>أمر مؤجل</Ar>
+
+
+	<Variable>Ban</Variable>
+	<En>ban</En>
+	<Ar>حظر</Ar>
+
+
+	<Variable>FileSize</Variable>
+	<En>File Size</En>
+	<Ar>حجم الملف</Ar>
+
+
+	<Variable>SitemapURL</Variable>
+	<En>Sitemap URL</En>
+	<Ar>رابط خريطة الموقع</Ar>
+
+
+	<Variable>CreateSitemapXmlFileFor</Variable>
+	<En>Create sitemap.xml file for</En>
+	<Ar>تكوين ملف sitemap.xml ل</Ar>
+
+
+	<Variable>Checker</Variable>
+	<En>checker</En>
+	<Ar>المدقق</Ar>
+
+
+	<Variable>Config</Variable>
+	<En>Config</En>
+	<Ar>اعداد</Ar>
+
+
+	<Variable>WhatAreSitemaps</Variable>
+	<En>What are Sitemaps?  Sitemaps are an easy way for webmasters to inform search engines about pages on their sites that are available for crawling. In its simplest form, a Sitemap is an XML file that lists URLs for a site along with additional metadata about each URL (when it was last updated, how often it usually changes, and how important it is, relative to other URLs in the site) so that search engines can more intelligently crawl the site.</En>
+	<Ar>خريطة الموقع هى عبارة عن وسيلة سهلة لأصحاب المواقع بإبلاغ محركات البحث ان صفحات موقعهم متاحة للأرشفة وهى بشكل بسيط عبارة عن ملف يحتوى لينكات الموقع مع بعض الكلمات الموضحة</Ar>
+
+
+	<Variable>MagazineSection</Variable>
+	<En>Magazine Section</En>
+	<Ar>قسم المجلة</Ar>
+
+
+	<Variable>MagazineTemplate</Variable>
+	<En>MagazineTemplate</En>
+	<Ar>قالب المجلة</Ar>
+
+
+	<Variable>VariableName</Variable>
+	<En>Variable Name</En>
+	<Ar>اسم المتغير</Ar>
+
+
+	<Variable>EnValue</Variable>
+	<En>English Value</En>
+	<Ar>القيمة انجليزى</Ar>
+
+
+	<Variable>ArValue</Variable>
+	<En>Arabic Value</En>
+	<Ar>القيمة عربى</Ar>
+
+
+	<Variable>SubmitDisplayAlign(TitleAlign)</Variable>
+	<En>Submit Display Align (Title Align)</En>
+	<Ar>محاذاة العنوان فى صفحات الإضافة</Ar>
+
+
+	<Variable>ColonAAlign</Variable>
+	<En>Colon A Align (Contain Titles)</En>
+	<Ar>المحاذاة الأفقية لعمود العناوين</Ar>
+
+
+	<Variable>ColonAValign</Variable>
+	<En>Colon A Valign</En>
+	<Ar>المحاذاة الرأسية لعمود العناوين</Ar>
+
+
+	<Variable>ColonAWidth</Variable>
+	<En>Colon A Width</En>
+	<Ar>عرض عمود العناوين</Ar>
+
+
+	<Variable>ColonBWidth</Variable>
+	<En>Colon B Width (Contain Fields)</En>
+	<Ar>عرض عمود المدخلات</Ar>
+
+
+	<Variable>ColonString</Variable>
+	<En>Seperation Between titles and fields</En>
+	<Ar>الفاصل بين العناوين وفيلد المدخلات</Ar>
+
+
+	<Variable>NoOfImageCanAttachedWithItem</Variable>
+	<En>No. of image can attached with item</En>
+	<Ar>عدد الصور التى يمكن رفعها مع العنصر</Ar>
+
+
+	<Variable>ActiveImageAltThisToAllowCommentOnIamges</Variable>
+	<En>Active Image Alt this to allow comment on iamges</En>
+	<Ar>تفعيل الكلام على الصور عند مرور الماوس (alt)</Ar>
+
+
+	<Variable>MagazineVariable</Variable>
+	<En>MagazineVariable</En>
+	<Ar>متغير المجلة</Ar>
+
+
+	<Variable>NewDays</Variable>
+	<En>New Days</En>
+	<Ar>اظهار كلمة new بجانب المدخلات لفترة معينة</Ar>
+
+
+	<Variable>EditorTheme</Variable>
+	<En>Editor Theme</En>
+	<Ar>تصميم الأيديتور المتحكم فى الكلام</Ar>
+
+
+	<Variable>MailListMessage</Variable>
+	<En>Mail list Message</En>
+	<Ar>رسالة قائمة البريد</Ar>
+
+
+	<Variable>EditorSize</Variable>
+	<En>Editor Size</En>
+	<Ar>حجم الأيديتور</Ar>
+
+
+	<Variable>EditorWidth</Variable>
+	<En>Editor Width</En>
+	<Ar>عرض الأيديتور</Ar>
+
+
+	<Variable>Payment</Variable>
+	<En>Payment</En>
+	<Ar>الدفع</Ar>
+
+
+	<Variable>Permission</Variable>
+	<En>permission</En>
+	<Ar>إذن</Ar>
+
+
+	<Variable>Reputation</Variable>
+	<En>Reputation</En>
+	<Ar>السمعة</Ar>
+
+
+	<Variable>	InsertDataFromATextFile</Variable>
+	<En> 	 Import SQL File</En>
+	<Ar> ادراج بيانات من ملف نصي</Ar>
+
+
+	<Variable>Emanage</Variable>
+	<En>emanage</En>
+	<Ar>الادارة الالكترونية</Ar>
+
+
+	<Variable>AdditionalService</Variable>
+	<En>additional service</En>
+	<Ar>	 خدمة إضافية</Ar>
+
+
+	<Variable>AlertAdmin</Variable>
+	<En> alert admin</En>
+	<Ar>	 تنبيه الادارة</Ar>
+
+
+	<Variable>CancellationDepartment</Variable>
+	<En>cancellation department</En>
+	<Ar>ادارة الالغاء</Ar>
+
+
+	<Variable>REBOOTREQUESTS</Variable>
+	<En>REBOOT REQUESTS</En>
+	<Ar>طلبات التشغيل</Ar>
+
+
+	<Variable>REQUESTINSTALLATIN</Variable>
+	<En>REQUEST INSTALLATIN</En>
+	<Ar>تنصيب طلب</Ar>
+
+
+	<Variable>RESELLERDEPARTMENT</Variable>
+	<En>RESELLER DEPARTMENT</En>
+	<Ar>ادارة الموزع</Ar>
+
+
+	<Variable>TECHNICALSUPPORTDEPARTMENT</Variable>
+	<En>TECHNICAL SUPPORT DEPARTMENT</En>
+	<Ar>ادارة الدعم الفني</Ar>
+
+
+	<Variable>UpdateEmanage</Variable>
+	<En>Update Emanage</En>
+	<Ar>تحديث البرنامج</Ar>
+
+
+	<Variable>UpdateControlPanel</Variable>
+	<En>Update Control Panel</En>
+	<Ar>تحديث لوحة التحكم</Ar>
+
+
+	<Variable>UpdateLanguage</Variable>
+	<En>Update Language</En>
+	<Ar>تحديث اللغة</Ar>
+
+
+	<Variable>UpdateCountryDatabase</Variable>
+	<En>Update Country Database</En>
+	<Ar>تحديث قاعدة بيانات الدول</Ar>
+
+
+
+	<Variable>MainSetting</Variable>
+	<En>Main setting</En>
+	<Ar>الاعدادات الرئيسية</Ar>
+
+
+	<Variable>Copyright</Variable>
+	<En>Copyright</En>
+	<Ar>حقوق النشر</Ar>
+
+	<Variable>ID</Variable>
+	<En>ID</En>
+	<Ar>مسلسل</Ar>
+
+	<Variable>UserID</Variable>
+	<En>User ID</En>
+	<Ar>رقم العضوية</Ar>
+
+	<Variable>Date</Variable>
+	<En>Date</En>
+	<Ar>التاريخ</Ar>
+
+
+	<Variable>Time</Variable>
+	<En>Time</En>
+	<Ar>الوقت</Ar>
+
+
+	<Variable>Quantity</Variable>
+	<En>Quantity</En>
+	<Ar>العدد</Ar>
+
+
+	<Variable>Amount</Variable>
+	<En>Amount</En>
+	<Ar>المبلغ</Ar>
+	
+	
+	<Variable>Balance</Variable>
+	<En>Balance</En>
+	<Ar>الرصيد</Ar>
+	
+	<Variable>ItemsPerPage</Variable>
+	<En>Items Per Page</En>
+	<Ar>عدد العناصر في الصفحة</Ar>
+	
+	<Variable>Action</Variable>
+	<En>Action</En>
+	<Ar>إجراء</Ar>
+	
+	
+	<Variable>CompanyDomain</Variable>
+	<En>Company Domain</En>
+	<Ar>نطاق الشركة</Ar>
+
+
+	<Variable>AdminFullName</Variable>
+	<En>Admin Full Name</En>
+	<Ar>اسم المشرف بالكامل</Ar>
+
+
+	<Variable>AdminNickname</Variable>
+	<En>Admin nickname</En>
+	<Ar>لقب المدير</Ar>
+
+
+	<Variable>AdminEmail</Variable>
+	<En>Admin email</En>
+	<Ar>بريد المدير الالكتروني</Ar>
+
+
+	<Variable>AdminNotify</Variable>
+	<En>Admin notify</En>
+	<Ar>ابلاغ المدير</Ar>
+
+
+
+
+	<Variable>UploadIssueImage</Variable>
+	<En>Upload Issue Image</En>
+	<Ar>صورة العدد</Ar>
+
+
+
+
+	<Variable>SerialNo</Variable>
+	<En>Serial No</En>
+	<Ar>الرقم التسلسلي</Ar>
+
+
+	<Variable>IssueImage</Variable>
+	<En>Issue Image</En>
+	<Ar>صورة العدد</Ar>
+
+
+	<Variable>IssueDate</Variable>
+	<En>Issue Date</En>
+	<Ar>تاريخ العدد</Ar>
+
+
+
+	<Variable>RestoreModuleNames</Variable>
+	<En>Restore Module Names</En>
+	<Ar>إعادة اسماء البرامج كما كانت</Ar>
+
+
+
+	<Variable>DeleteInstallDirectory</Variable>
+	<En>Security alert! /install directory still remains in the Emanage root directory. This poses a security risk, so please delete that directory immediately.</En>
+	<Ar>تحذير أمني! المجلد install لا يزال موجوداً هذا يشكل خطر أمني, لذا قم بحذف هذا المجلد على وجه السرعة.</Ar>
+
+
+	<Variable>MagicQuotesOff</Variable>
+	<En><![CDATA[Magic quotes for incoming GET/POST/Cookie data is On, please change settings inside your php.ini file:<br>magic_quotes_gpc = Off]]></En>
+	<Ar><![CDATA[الرجاء تغيير القيمة magic_quotes_gpc فى الملف php.ini إلى القيمة التالية :<br>magic_quotes_gpc = Off]]></Ar>
+
+
+
+	<Variable>EnIconBarTitle</Variable>
+	<En>English Tool Name</En>
+	<Ar>اسم الأداة بالإنجليزية</Ar>
+
+
+	<Variable>ArIconBarTitle</Variable>
+	<En>Arabic Tool Name</En>
+	<Ar>اسم الأداة بالعربية</Ar>
+
+
+	<Variable>IconBarImage</Variable>
+	<En>Image Icon</En>
+	<Ar>صورة الإيقونة</Ar>
+
+
+	<Variable>IconBarUrl</Variable>
+	<En>Tool URL</En>
+	<Ar>مسار الأداة</Ar>
+
+
+	<Variable>TargetFrame</Variable>
+	<En>Target Window</En>
+	<Ar>نافذة العرض</Ar>
+
+	
+	<Variable>LanguageAndVariable</Variable>
+	<En><![CDATA[Language & Variable]]></En>
+	<Ar>المتغيرات و اللغة</Ar>
+
+
+	<Variable>Category</Variable>
+	<En>Category</En>
+	<Ar>التصنيف</Ar>
+	
+
+	<Variable>Description</Variable>
+	<En>Description</En>
+	<Ar>الوصف</Ar>
+	
+
+	<Variable>EnDescription</Variable>
+	<En>English description</En>
+	<Ar>الوصف بالانجليزى</Ar>
+	
+
+	<Variable>ArDescription</Variable>
+	<En>Arabic description</En>
+	<Ar>الوصف بالعربى</Ar>
+	
+
+	<Variable>Item</Variable>
+	<En>Message name</En>
+	<Ar>اسم المقالة</Ar>
+	
+
+	<Variable>IssueName</Variable>
+	<En>Issue name</En>
+	<Ar>اسم الاصدار</Ar>
+	
+
+	<Variable>EnItem</Variable>
+	<En>English article name</En>
+	<Ar>اسم المقالة بالانجليزى</Ar>
+	
+
+	<Variable>ArItem</Variable>
+	<En>Arabic article name</En>
+	<Ar>اسم المقالة بالعربى</Ar>
+	
+
+	<Variable>ParentItem</Variable>
+	<En>Album name</En>
+	<Ar>اسم المجموعة</Ar>
+	
+
+	<Variable>EnParentItem</Variable>
+	<En>English album name</En>
+	<Ar>اسم المجموعة يالانجليزى</Ar>
+	
+
+	<Variable>ArParentItem</Variable>
+	<En>Arabic album name</En>
+	<Ar>اسم المجموعة بالعربى</Ar>
+	
+
+	<Variable>AllSite</Variable>
+	<En>All Site</En>
+	<Ar>الموقع كاملا</Ar>
+	
+
+	<Variable>Categorys</Variable>
+	<En>Issue Name</En>
+	<Ar>اسم الاصدار</Ar>
+	
+
+
+
+
+
+	<Variable>EnTag</Variable>
+	<En>English Tags</En>
+	<Ar>التاج بالانجليزى</Ar>
+	
+
+	<Variable>ArTag</Variable>
+	<En>Arabic Tags</En>
+	<Ar>التاج بالعربى</Ar>
+	
+
+
+
+
+
+	
+	<Variable>HotItem</Variable>
+	<En>Priority</En>
+	<Ar>الأولوية</Ar>
+	
+
+	<Variable>FileName</Variable>
+	<En>File name</En>
+	<Ar>اسم الملف</Ar>
+	
+
+
+	
+
+	<Variable>FileUrl</Variable>
+	<En>File URL</En>
+	<Ar>مسار الملف</Ar>
+	
+
+	<Variable>SubmitService</Variable>
+	<En>Post an article</En>
+	<Ar>اضف مقالة</Ar>
+	
+
+	<Variable>EditService</Variable>
+	<En>Edit an article</En>
+	<Ar>تعديل المقالة</Ar>
+	
+
+	
+	<Variable>ReplyService</Variable>
+	<En>Add new article linked with current one</En>
+	<Ar>إضافة مقالة فرعى من المقالة الحالى</Ar>
+	
+	
+	
+	<Variable>SubmitLinkService</Variable>
+	<En>Add new article linked with current one</En>
+	<Ar>إضافة جزء آخر للخبر الحالى</Ar>
+	
+
+	
+	
+	<Variable>AddNewSection</Variable>
+	<En>Add new section</En>
+	<Ar>إضافة قسم جديد</Ar>
+	
+
+	<Variable>AddModifySection</Variable>
+	<En>Add/Modify section</En>
+	<Ar>إضافة/تعديل قسم</Ar>
+	
+
+	<Variable>AddModifyCategory</Variable>
+	<En>Add/Modify Issue</En>
+	<Ar>إضافة/تعديل اصدار</Ar>
+	
+
+	<Variable>Section</Variable>
+	<En>Section name</En>
+	<Ar>اسم القسم</Ar>
+	
+
+	<Variable>EnSection</Variable>
+	<En>English section name</En>
+	<Ar>اسم القسم بالانجليزية</Ar>
+	
+
+	<Variable>EnCategory</Variable>
+	<En>English Issue name</En>
+	<Ar>اسم الاصدار بالانجليزية</Ar>
+	
+
+	<Variable>ArSection</Variable>
+	<En>Arabic section name</En>
+	<Ar>اسم القسم بالعربية</Ar>
+	
+
+	<Variable>ArCategory</Variable>
+	<En>Arabic Issue name</En>
+	<Ar>اسم الاصدار بالعربية</Ar>
+	
+
+	<Variable>SectionImage</Variable>
+	<En>Section image</En>
+	<Ar>صورة القسم</Ar>
+	
+	<Variable>SectionImageIcon</Variable>
+	<En>Section image icon</En>
+	<Ar>ايقونة القسم</Ar>
+		
+
+
+	<Variable>CategoryImage</Variable>
+	<En>Issue image</En>
+	<Ar>صورة الاصدار</Ar>
+	
+
+	<Variable>EnTitleBar</Variable>
+	<En>English Title Bar</En>
+	<Ar>العنوان الرئيسيى للقسم يالانجليزية</Ar>
+
+
+	<Variable>ArTitleBar</Variable>
+	<En>Arabic Title Bar</En>
+	<Ar>العنوان الرئيسيى للقسم يالعربية</Ar>
+
+
+	<Variable>Comments</Variable>
+	<En>Comments</En>
+	<Ar>التعليقات</Ar>
+
+
+
+
+	<Variable>AttachImages</Variable>
+	<En>Attach Images</En>
+	<Ar>إرفاق صور</Ar>
+
+
+
+
+	<Variable>ImageDescription</Variable>
+	<En>Image Description</En>
+	<Ar>وصف الصورة</Ar>
+
+
+	<Variable>NoOfMembers</Variable>
+	<En>No of members</En>
+	<Ar>عدد الأعضاء</Ar>
+
+
+	<Variable>EmanageMessage</Variable>
+	<En>Emanage Message</En>
+	<Ar>رسالة إدارية</Ar>
+
+
+	<Variable>NoPriority</Variable>
+	<En>No Priority</En>
+	<Ar>بدون أولوية</Ar>
+
+	<Variable>BronzeLevelPriority</Variable>
+	<En>Bronze Level Priority</En>
+	<Ar>مستوى الأولوية البرونزية</Ar>
+	
+	<Variable>SilverLevelPriority</Variable>
+	<En>Silver Level Priority</En>
+	<Ar>مستوى الأولوية الفضية</Ar>
+	
+	<Variable>GoldLevelPriority</Variable>
+	<En>Gold Level Priority</En>
+	<Ar>مستوى الأولوية الذهبية</Ar>
+
+
+	<Variable>PermissionReasons</Variable>
+	<En>You are not logged in or you do not have permission to access this page. This could be due to one of several reasons:</En>
+	<Ar>أنت لم تسجل الدخول بعد أو أنك لا تملك صلاحية لدخول لهذه الصفحة. هذا قد يكون عائداً لأحد هذه الأسباب:</Ar>
+
+
+	<Variable>YouArNotLoggedIn</Variable>
+	<En>You are not logged in. Fill in the form at the bottom of this page and try again.</En>
+	<Ar>لم تقم بتسجيل الدخول. إملاء الاستمارة أدنى هذه الصفحة وحاول مرة أخرى.</Ar>
+
+
+	<Variable>YouMayNotHaveSufficient</Variable>
+	<En>You may not have sufficient privileges to access this page. Are you trying to edit someone else\'s post, access administrative features or some other privileged system?</En>
+	<Ar>قد لا يكون لديك إمتيازات كافية لدخول هذه الصفحة. هل تحاول تعديل مشاركة شخص آخر,دخول ميزات إدارية أو نظام متميز آخر؟ </Ar>
+
+
+	<Variable>AdministratorDisabledAccount</Variable>
+	<En>If you are trying to post, the administrator may have disabled your account, or it may be awaiting activation.</En>
+	<Ar>إذا كنت تحاول كتابة مشاركة, ربما قامت الإدارة بحظر حسابك , أو أن حسابك لم يتم تفعيله بعد.</Ar>
+
+
+	<Variable>AdministratorRequiredRegister</Variable>
+	<En><![CDATA[The administrator may have required you to <a href=\'[LService]-register-en.html\'>register</a> before you can view this page.]]></En>
+	<Ar><![CDATA[يتوجب عليك <a href=\'[LService]-register-ar.html\'>التسجيل</a> حتى تتمكن من مشاهدة هذه الصفحة.]]></Ar>
+
+
+
+
+
+
+	<Variable>AlreadyMember</Variable>
+	<En>You may already be a member</En>
+	<Ar>يبدو انك عضو بالفعل</Ar>
+
+
+
+	<Variable>SubmitYourComment</Variable>
+	<En>Submit Your Comment</En>
+	<Ar>أضف تعليقك</Ar>
+
+
+	<Variable>CommentSubmittedSuccessfully</Variable>
+	<En>Your comment has been retrieved and will be published after approval. Thank You!</En>
+	<Ar>تم إرسال التعليق ، وسيتم نشره بعد الموافقة عليه. شكرا!</Ar>
+
+
+	<Variable>CommentLengthAtLeast</Variable>
+	<En>Comment length should be at least 50 chars</En>
+	<Ar>يجب ألا يقل عدد حروف التعليق عن 50 حرف</Ar>
+
+
+	<Variable>CommentFillSpaces</Variable>
+	<En>Do not try to fill comment field with spaces to fit the required length</En>
+	<Ar>لا تحاول ملء خانة التعليق بفراغات لتتناسب مع عدد الحروف المطلوبة </Ar>
+
+
+	<Variable>CommentLengthAtMost</Variable>
+	<En>Comment length should be at most 500 chars</En>
+	<Ar>يجب ألا يزيد عدد حروف التعليق عن 500 حرف</Ar>
+
+
+	<Variable>ErrorsFillingForm</Variable>
+	<En>Errors filling form</En>
+	<Ar>أخطاء فى ملء النموذج</Ar>
+
+
+	<Variable>SecurityCodeWrong</Variable>
+	<En>The security code is wrong</En>
+	<Ar>الكود السرى غير صحيح</Ar>
+
+
+	<Variable>InvalidEmailMx</Variable>
+	<En>The email address \"[Email]\" is NOT valid - No MX records corresponding to \"[Domain]\" domain</En>
+	<Ar>البريد الإلكترونى \"[Email]\" غير صحيح - فلا يوجد MX للدومين \"[Domain]\"</Ar>
+
+
+	<Variable>Faq</Variable>
+	<En>F.A.Q</En>
+	<Ar>الأسئلة المتكررة</Ar>
+
+
+	<Variable>MailUsername</Variable>
+	<En>E-mail address</En>
+	<Ar>حساب البريد الإلكترونى</Ar>
+
+
+
+
+
+	<Variable>MsnMessenger</Variable>
+	<En>Msn Messenger</En>
+	<Ar>ماسنجر الهوتميل</Ar>
+
+
+	<Variable>YahooMessenger</Variable>
+	<En>Yahoo Messenger</En>
+	<Ar>ماسنجر الياهو</Ar>
+
+
+	<Variable>GoogleMessenger</Variable>
+	<En>Google Messenger</En>
+	<Ar>ماسنجر جوجل</Ar>
+
+
+	<Variable>Icq</Variable>
+	<En>ICQ#</En>
+	<Ar>ICQ#</Ar>
+
+
+	<Variable>AllJobs</Variable>
+	<En>All Jobs</En>
+	<Ar>كل الوظائف</Ar>
+
+
+
+	<Variable>Specialization</Variable>
+	<En>Specialization</En>
+	<Ar>التخصص</Ar>
+
+
+	<Variable>IAgree</Variable>
+	<En>I Agree</En>
+	<Ar>موافق</Ar>
+
+
+	<Variable>IDoNotAgree</Variable>
+	<En>I Do Not Agree</En>
+	<Ar>غير موافق</Ar>
+
+
+
+
+	<Variable>Categories</Variable>
+	<En>Categories</En>
+	<Ar>الأقسام</Ar>
+
+
+
+
+	<Variable>YourDetails</Variable>
+	<En>Your Details</En>
+	<Ar>بياناتك الشخصية</Ar>
+
+
+	<Variable>Region</Variable>
+	<En>Region</En>
+	<Ar>الولاية</Ar>
+
+
+	<Variable>PostalCode</Variable>
+	<En>Postal Code</En>
+	<Ar>الرقم البريدى</Ar>
+
+	<Variable>RegistrationInformation</Variable>
+	<En>Registration Information</En>
+	<Ar>بيانات التسجيل</Ar>
+
+
+	<Variable>RegistrationClosed</Variable>
+	<En>Registration Closed</En>
+	<Ar>التسجيل مغلق</Ar>
+
+
+	<Variable>Issue</Variable>
+	<En>Issue</En>
+	<Ar>العدد</Ar>
+	
+
+	
+	
+	<Variable>ArticleTitle</Variable>
+	<En>Article Title</En>
+	<Ar>عنوان المقالة</Ar>
+	
+	
+	
+	<Variable>ArticleType</Variable>
+	<En>Article Type</En>
+	<Ar>نوع المقالة</Ar>
+	
+
+
+	<Variable>AddDedicate</Variable>
+	<En>Add Dedicate</En>
+	<Ar>أضف إهداء</Ar>
+
+
+
+	<Variable>AllowAdminToSendYouEmail</Variable>
+	<En>Allow admin to send you email</En>
+	<Ar>السماح لإدارة الموقع بمراسلتكم</Ar>
+
+
+	<Variable>UsernameIsUnavailable</Variable>
+	<En>Sorry, your Username is already in the database</En>
+	<Ar>اسم المستخدم محجوز بواسطة عضو اخر</Ar>
+
+
+	<Variable>UsernameLengthMatch</Variable>
+	<En>Username length must be between [UsernameLengthMin] and [UsernameLengthMax] characters.</En>
+	<Ar>اسم المستخدم يجب أن يكون بين [UsernameLengthMin] و [UsernameLengthMax] حرفاً</Ar>
+
+
+	<Variable>PasswordLengthMatch</Variable>
+	<En>Password length must be between [PasswordLengthMin] and [PasswordLengthMax] characters.</En>
+	<Ar>اسم المستخدم يجب أن يكون بين [PasswordLengthMin] و [PasswordLengthMax] حرفاً</Ar>
+
+
+	<Variable>EmailIsUnavailable</Variable>
+	<En>Sorry, your e-mail is already in the database</En>
+	<Ar>البريد الإلكترونى مستخدم من قبل</Ar>
+
+
+	<Variable>AccountAdded</Variable>
+	<En>Registration completed</En>
+	<Ar>التسجيل تم بنجاح</Ar>
+
+
+	<Variable>ProblemWithRegistration</Variable>
+	<En>Problem with registration</En>
+	<Ar>لم تتم عملية التسجيل للأسباب التالية</Ar>
+
+
+	<Variable>BasicInformation</Variable>
+	<En>Basic Information</En>
+	<Ar>بيانات أساسية</Ar>
+
+
+	<Variable>GroupInformation</Variable>
+	<En>Group Information</En>
+	<Ar>بيانات المجموعة</Ar>
+
+
+	<Variable>AdditionalInformation</Variable>
+	<En>Additional Information</En>
+	<Ar>بيانات إضافية</Ar>
+
+
+	<Variable>SecretQuestion</Variable>
+	<En>Secret Question</En>
+	<Ar>السؤال السرى</Ar>
+
+
+	<Variable>SecretAnswer</Variable>
+	<En>Secret Answer</En>
+	<Ar>إجابة السؤال السرى</Ar>
+
+
+	<Variable>GroupName</Variable>
+	<En>Group Name</En>
+	<Ar>أسم المجموعة</Ar>
+
+
+
+
+	<Variable>HomePage</Variable>
+	<En>URL of Web Site</En>
+	<Ar>الصفحة الشخصية</Ar>
+
+
+	<Variable>AlternateEmail</Variable>
+	<En>Alternate Email</En>
+	<Ar>البريد البديل</Ar>
+
+
+	<Variable>WeDidNotFindResults</Variable>
+	<En>We did not find results</En>
+	<Ar>لا يوجد نتائج</Ar>
+
+
+	<Variable>Day</Variable>
+	<En>Day</En>
+	<Ar>يوم</Ar>
+
+
+	<Variable>Month</Variable>
+	<En>Month</En>
+	<Ar>شهر</Ar>
+
+
+	<Variable>January</Variable>
+	<En>January</En>
+	<Ar>يناير</Ar>
+
+
+	<Variable>February</Variable>
+	<En>February</En>
+	<Ar>فبراير</Ar>
+
+
+	<Variable>March</Variable>
+	<En>March</En>
+	<Ar>مارس</Ar>
+
+
+	<Variable>April</Variable>
+	<En>April</En>
+	<Ar>إبريل</Ar>
+
+
+	<Variable>May</Variable>
+	<En>May</En>
+	<Ar>مايو</Ar>
+
+
+	<Variable>June</Variable>
+	<En>June</En>
+	<Ar>يونيو</Ar>
+
+
+	<Variable>July</Variable>
+	<En>July</En>
+	<Ar>يوليو</Ar>
+
+
+	<Variable>August</Variable>
+	<En>August</En>
+	<Ar>أغسطس</Ar>
+
+
+	<Variable>September</Variable>
+	<En>September</En>
+	<Ar>سبتمبر</Ar>
+
+
+	<Variable>October</Variable>
+	<En>October</En>
+	<Ar>أكتوبر</Ar>
+
+
+	<Variable>November</Variable>
+	<En>November</En>
+	<Ar>نوفمبر</Ar>
+
+
+	<Variable>December</Variable>
+	<En>December</En>
+	<Ar>ديسمبر</Ar>
+
+
+   
+
+	<Variable>RequiredFieldMustNotBeBlank</Variable>
+	<En>Required field must not be blank</En>
+	<Ar>برجاء إدخال جميع البيانات المطلوبة</Ar>
+
+
+	<Variable>InvalidCharacterInUsername</Variable>
+	<En>Invalid character in Username. Only letters, numbers, underscores (_) or hyphens (-) are allowed</En>
+	<Ar>هناك علامات غير مسموح بها فى اسم المستخدم فقط مسموح بالحروف الإنجليزية و الأرقام و العلامات (-)  و(_)</Ar>
+
+
+	
+	
+	<Variable>PleaseTypeYourUsername</Variable>
+	<En>Please type your Username</En>
+	<Ar>برجاء إدخال اسم المستخدم</Ar>
+
+	<Variable>PleaseTypeYourNickname</Variable>
+	<En>Please type your nickname</En>
+	<Ar>برجاء إدخال الاسم المستعار</Ar>
+
+
+	<Variable>PleaseTypeYourEmailAddress</Variable>
+	<En>Please type your email address</En>
+	<Ar>برجاء إدخال البريد الإلكترونى</Ar>
+
+
+	<Variable>IncorrectEmailAddress</Variable>
+	<En>Incorrect email address</En>
+	<Ar>البريد الإلكترونى غير صحيح</Ar>
+
+
+	<Variable>EmailUsedByOtherUser</Variable>
+	<En>email used by other user</En>
+	<Ar>البريد الإلكترونى مستخدم بواسطة عضو اخر</Ar>
+
+
+	<Variable>PleaseTypePassword</Variable>
+	<En>Please type password</En>
+	<Ar>برجاء إدخال كلمة المرور</Ar>
+
+
+	<Variable>YourPasswordEntriesDidNotMatch</Variable>
+	<En>Your password entries did not match</En>
+	<Ar>كلمة المرور و تأكيد كلمة المرور غير متطابقتين</Ar>
+
+
+	<Variable>PleaseSelectAQuestion</Variable>
+	<En>Please select a question</En>
+	<Ar>برجاء إختيار السؤال السرى</Ar>
+
+
+	<Variable>PleaseTypeAnswer</Variable>
+	<En>Please type the answer to the question you selected</En>
+	<Ar>برجاء الإجابة على السؤال السرى</Ar>
+
+
+	<Variable>PleaseSpecifyAFirstName</Variable>
+	<En>Please specify a First Name</En>
+	<Ar>برجاء إدخال الاسم الأول</Ar>
+
+
+	<Variable>PleaseSpecifyALastName</Variable>
+	<En>Please specify a Last Name</En>
+	<Ar>برجاء إدخال الاسم الأخير</Ar>
+
+
+	<Variable>PleaseSpecifyYourGender</Variable>
+	<En>Please specify your Gender</En>
+	<Ar>برجاء إدخال النوع ذكر ام أنثى</Ar>
+
+
+	<Variable>PleaseSpecifyYourTelNo</Variable>
+	<En>Please specify your telephone number</En>
+	<Ar>برجاء إدخال رقم الهاتف</Ar>
+
+
+	<Variable>PleaseSpecifyYourMobile</Variable>
+	<En>Please specify your mobile number</En>
+	<Ar>برجاء إدخال رقم المحمول</Ar>
+
+
+	<Variable>PleaseSpecifyYourFaxNo</Variable>
+	<En>Please specify your fax number</En>
+	<Ar>برجاء إدخال رقم الفاكس</Ar>
+
+
+
+
+
+	<Variable>SpecifyValidBirthDay</Variable>
+	<En>You did not specify a valid Day of the Month for your birthday</En>
+	<Ar>لم تقم بإدخال يوم الميلاد بشكل صحيح</Ar>
+
+
+	<Variable>SpecifyValidBirthMonth</Variable>
+	<En>You did not specify a valid Birth Month</En>
+	<Ar>لم تقم بإدخال شهر الميلاد بشكل صحيح</Ar>
+
+
+	<Variable>SpecifyValidBirthYear</Variable>
+	<En>You did not specify a valid Year for your birthday</En>
+	<Ar>لم تقم بإدخال سنة الميلاد بشكل صحيح</Ar>
+
+
+	<Variable>PleaseSelectCountry</Variable>
+	<En>Please select country</En>
+	<Ar>برجاء إختيار الدولة</Ar>
+
+
+	<Variable>PleaseSelectState</Variable>
+	<En>Please select state</En>
+	<Ar>برجاء إختيار الولاية (المحافظة)</Ar>
+
+
+	<Variable>SecurityCode</Variable>
+	<En>Please enter the word you see from the picture below</En>
+	<Ar>برجاء إدخال كود التسجيل كما هو موضح فى الصورة</Ar>
+
+
+	<Variable>SubmitMessage</Variable>
+	<En>Thank you for your submission</En>
+	<Ar>شكرا على الإضافة</Ar>
+
+	
+</Variables>

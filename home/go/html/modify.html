@@ -1,0 +1,223 @@
+<nav>
+
+	<div class=Navigator>
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+	
+</nav>
+
+<header>
+	
+	<if $Edit!=1>
+		
+		<div class=DivXTable>
+		<table cellPadding='8' cellSpacing=0 class=Table>
+
+		<THEAD>
+		
+		<tr>
+		
+		<TH align='$DAlign' width='20%'>
+		<a href="javascript:Load('$CurrentFileName?&SortBy=Domain')">{$LNG['Domain']}</a>
+		</TH>
+
+		<TH align='$DAlign' width='20%'>
+		<a href="javascript:Load('$CurrentFileName?&SortBy=Username')">{$LNG['Username']}</a>
+		</TH>
+		
+		<TH align='$DAlign' width='15%'>
+		<a href="javascript:Load('$CurrentFileName?&SortBy=SpaceUsed')">{$LNG['DiskUsage']}</a>
+		</TH>
+		
+		<TH align='$DAlign' width='15%'>
+		<a href="javascript:Load('$CurrentFileName?&SortBy=BandwidthUsed')">{$LNG['BandwidthUsage']}</a>
+		</TH>
+				
+		<TH align='$DAlign' width='20%'>
+		<a href="javascript:Load('$CurrentFileName?&SortBy=TimeStamp')">{$LNG['CreatedDate']}</a>
+		</TH>
+
+		<TH align='center' width='10%'>
+
+		</TH>
+
+		</tr>
+		
+		</THEAD>
+		
+		<TBODY>
+		
+	</if>
+
+</header>
+
+<loop>
+
+	<if $Edit==1>
+	
+		<div class='DivInput {$Dir}DivInput'>Package:<br>
+		$SelectPackage
+		</div>
+
+		<div class='DivInput {$Dir}DivInput'>Primary Domain:<br>
+		<input type='text' name='Domain' id='Domain' value='$Domain' class=InputText maxlength=255 readonly> <a href="javascript:Load('domain.php?Domain=$Domain')">Chnage Primary Domain</a>
+		</div>
+		
+		<div class='DivInput {$Dir}DivInput'>Username:<br>
+		<input type='text' name='Username' value='$Username' class=InputText maxlength=100 readonly> <a href="javascript:Load('username.php?Domain=$Domain')">Chnage Username</a>
+		</div>
+
+		<div class='DivInput {$Dir}DivInput'>{$LNG['DiskSpace']}:<br>
+		<input type='text' id='DiskSpace{$Row['SiteID']}' value='$DiskSpace' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('DiskSpace{$Row['SiteID']}').value),'DiskSpace{$Row['SiteID']}')" class=InputText maxlength=100>
+		</div>
+		
+		<div class='DivInput {$Dir}DivInput'>{$LNG['BandwidthLimit']}:<br>
+		<input type='text' id='Bandwidth{$Row['SiteID']}' value='$Bandwidth' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('Bandwidth{$Row['SiteID']}').value),'Bandwidth{$Row['SiteID']}')" class=InputText maxlength=100>
+		</div>
+
+		<div class='DivInput {$Dir}DivInput'>{$LNG['InodeLimit']}:<br>
+		<input type='text' id='Inode{$Row['SiteID']}' value='$Inode' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('Inode{$Row['SiteID']}').value),'Inode{$Row['SiteID']}')" class=InputText maxlength=100>
+		</div>
+		
+		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxFTPAccounts']}:<br>
+		<input type='text' id='FTPNo{$Row['SiteID']}' value='$FTPNo' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('FTPNo{$Row['SiteID']}').value),'FTPNo{$Row['SiteID']}')" class=InputText maxlength=100>
+		</div>
+		
+		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxEmailAccounts']}:<br>
+		<input type='text' id='EmailNo{$Row['SiteID']}' value='$EmailNo' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('EmailNo{$Row['SiteID']}').value),'EmailNo{$Row['SiteID']}')" class=InputText maxlength=100>
+		</div>
+		
+		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxSQLDatabases']}:<br>
+		<input type='text' id='DatabaseNo{$Row['SiteID']}' value='$DatabaseNo' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('DatabaseNo{$Row['SiteID']}').value),'DatabaseNo{$Row['SiteID']}')" class=InputText maxlength=100>
+		</div>
+
+		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxSubDomains']}:<br>
+		<input type='text' id='SubDomainNo{$Row['SiteID']}' value='$SubDomainNo' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('SubDomainNo{$Row['SiteID']}').value),'SubDomainNo{$Row['SiteID']}')" class=InputText maxlength=100>
+		</div>
+
+		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxAliasDomains']}:<br>
+		<input type='text' id='AliasNo{$Row['SiteID']}' value='$AliasNo' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('AliasNo{$Row['SiteID']}').value),'AliasNo{$Row['SiteID']}')" class=InputText maxlength=100>
+		</div>
+
+		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxAddonDomains']}:<br>
+		<input type='text' id='AddonNo{$Row['SiteID']}' value='$AddonNo' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('AddonNo{$Row['SiteID']}').value),'AddonNo{$Row['SiteID']}')" class=InputText maxlength=100>
+		</div>
+
+
+		
+		<div class=DivXTable>
+		<table cellPadding='8' cellSpacing=0 class=Table>
+
+		<THEAD>
+		
+		<tr>
+	
+		<TH style="text-align: center;">{$LNG['DiskUsage']}</TH>
+		<TH style="text-align: center;">{$LNG['BandwidthUsage']}</TH>
+		<TH style="text-align: center;">Inode</TH>
+		<TH style="text-align: center;">{$LNG['FTPAccounts']}</TH>
+		<TH style="text-align: center;">{$LNG['EmailAccounts']}</TH>
+		<TH style="text-align: center;">{$LNG['Databases']}</TH>
+		<TH style="text-align: center;">{$LNG['SubDomains']}</TH>
+		<TH style="text-align: center;">{$LNG['Aliases']}</TH>
+		<TH style="text-align: center;">{$LNG['AddonDomains']}</TH>
+
+		</tr>
+		
+		</THEAD>
+		
+		<TBODY>
+		
+		<tr>
+		
+		<TD style="text-align: center;">$SpaceUsed / $DiskSpace</TD>
+		<TD style="text-align: center;">$BandwidthUsed / $Bandwidth</TD>
+		<TD style="text-align: center;">$InodeUsed / $Inode</TD>
+		<TD style="text-align: center;">$FTPNoUsed / $FTPNo</TD>
+		<TD style="text-align: center;">$EmailNoUsed / $EmailNo</TD>
+		<TD style="text-align: center;">$DatabaseNoUsed / $DatabaseNo</TD>
+		<TD style="text-align: center;">$SubDomainNoUsed / $SubDomainNo</TD>
+		<TD style="text-align: center;">$AliasNoUsed / $AliasNo</TD>
+		<TD style="text-align: center;">$AddonNoUsed / $AddonNo</TD>
+		
+		</tr>
+		
+		</TBODY>
+		
+		</table>
+		</div>
+	
+
+	<else>
+
+		<tr id='TR{$ID}' class='$TDColor' divid=Find find='{$Row['Domain']}-{$Row['Email']}'>
+
+		<TD>
+		<a href='http://{$Row['Domain']}' target='_blank'>{$Row['Domain']}</a>
+		</TD>
+
+		<TD>
+		{$Row['Username']}
+		</TD>
+		
+		
+		<TD>
+		$SpaceUsed / $DiskSpace
+		</TD>
+		
+		<TD>
+		$BandwidthUsed / $Bandwidth
+		</TD>
+
+		<TD>
+		$CreatedDate
+		</TD>
+
+		<TD align='center'>
+			<a href="javascript:Load('$CurrentFileName?Edit=1&Domain=$Domain&Page=$Page')" class=Action>{$LNG['Modify']}</a>
+		</TD>
+
+		</tr>
+		
+	</if>
+	  
+</loop>
+
+<footer>
+
+	<if $Edit!=1>
+
+		</TBODY>
+
+		<TFOOT>
+
+		<TH align='$DAlign' colspan=2>
+		Showing $X of $RowsNo records.
+		</th>
+		
+		<TH align='$OAlign' colspan=3>
+		<php>
+				
+		include "pages.php";
+
+		</php>
+		</th>
+
+		</TFOOT>
+
+		</TABLE>
+		</div>
+		</form>
+
+	</if>
+	
+</footer>
+
+
+

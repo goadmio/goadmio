@@ -1,0 +1,222 @@
+<html>
+
+<head>
+
+<title>Installing GoAdmio</title>
+
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+<link rel="shortcut icon" href="image/favicon.png" type="image/x-icon"/>
+<link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon-180x180.png"/>
+
+<script>
+var http;function Ajax(){return window.XMLHttpRequest?new XMLHttpRequest:window.ActiveXObject?new ActiveXObject("Microsoft.XMLHTTP"):null}
+
+
+		function Progress()
+		{
+		http=Ajax();http.abort();
+		http.open("POST", "./progress.html",true);
+		http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		http.onreadystatechange = HandelProgress;
+		http.send('');
+		}
+
+		function HandelProgress()
+		{
+			if (http.readyState == 1)
+			{
+			
+			}
+	
+			if (http.readyState == 4)
+			{
+				var response = http.responseText;
+
+				if (response.match("found")) 
+				{
+					document.location.reload(true);
+				}
+				else
+				{
+					response = response.replace(/\r?\n|\r/g,'');
+						
+					if (response.match("|")) 
+					{
+						var Array = response.split("|");
+
+						if (Array[1]=="100")
+						{
+						document.location.reload(true);
+						}
+						else
+						{
+							var Progress=Math.floor(Array[0]);							
+
+							if (typeof Progress !== 'undefined')
+							{
+								if (Progress!=0)
+								{
+								document.getElementById('ProgressBar').style.width=Progress+'%';
+								document.getElementById('Complete').innerHTML= Progress+'% Complete';
+								}
+							}
+							
+							if (typeof Array[1] !== 'undefined')
+							{
+							document.getElementById('Detail').innerHTML= Array[1];
+							}
+							else
+							{
+							document.getElementById('Detail').innerHTML= 'Connecting...';
+							}
+							
+							if (typeof Array[2] !== 'undefined')
+							{
+							document.getElementById('TimeElapsed').innerHTML= 'Time Elapsed: '+Array[2];
+							}
+							
+							if (typeof Array[3] !== 'undefined')
+							{
+							document.getElementById('OS').innerHTML= 'OS: '+Array[3];
+							}
+							
+							if (typeof Array[4] !== 'undefined')
+							{
+
+								var regExp = /[a-zA-Z]/g;
+											
+								if(regExp.test(Array[4]))
+								{
+									document.getElementById('Virtualization').innerHTML= 'Virtualization: '+Array[4];  
+								} 
+								else 
+								{
+									// Server not VPS
+								}
+
+
+							}
+							
+						}
+						
+					}
+					
+				}
+
+			}
+			
+		}
+
+		setInterval(Progress, 3000);
+		
+		Progress();
+
+</script>
+
+<style>.Outer {display: table;height: 100%;width: 100%;}.Middle {display: table-cell;vertical-align: middle;}.Inner {margin-left: auto;margin-right: auto; width: 90%;padding:20px;text-align:center;font-weight:normal;FONT-SIZE: 17px; COLOR: #000000;font-family:Helvetica Neue,Helvetica,Arial;line-height:30px}</style>
+
+</head>
+
+<body bgcolor="#2D2D30">
+
+
+
+
+
+<div class="Outer"><div class="Middle"><div class="Inner">
+
+
+	<table align="center" cellpadding=0 cellspacing=0 width="100%">
+	<td align="left" width="50%" height="40" style="font-family:Arial;font-size:14px;color:#FFFFFF">
+	Installing GoAdmio v[GoVersion]...
+	</td>
+
+
+	<td align="right" width=50% height=40 style="font-family:Arial;font-size:12px;color:#FFFFFF">
+	<div id="Complete"></div>
+	</td>
+
+	<tr>
+
+	<td colspan=2 width=100% bgcolor=#204D6D>
+
+		
+		<table id="ProgressBar" cellpadding=0 cellspacing=0 width="1%">
+		<td width="100%" bgcolor="#0097FB" height="9">
+
+
+		</td>
+		</table>
+
+		
+
+
+	</td>
+
+	<tr>
+
+	<td align="left" width="50%" height="40">
+
+	<div id=Detail style="font-family:Arial;font-size:12px;color:#FFFFFF"></div>
+
+
+	</td>
+
+	<td align="right" width="50%">
+
+	<div id="TimeElapsed" style="font-family:Arial;font-size:12px;color:#FFFFFF"></div>
+
+	</td>
+
+	<tr>
+
+	<td align="left" width=50% height=40>
+	<div id=OS style="font-family:Arial;font-size:12px;color:Silver"></div>
+	</td>
+	
+
+	<td align="right" width=50%>
+	<div id=Virtualization style="font-family:Arial;font-size:12px;color:Silver"></div>
+	</td>
+	
+	</table>
+
+
+</div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

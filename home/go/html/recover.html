@@ -1,0 +1,124 @@
+<nav>
+
+	<div class=Navigator>
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+	
+</nav>
+
+<header>
+
+	<form name=CheckForm id=CheckForm action='$CurrentFileName'>
+	<input type=hidden name=Action id=Action>
+	
+	<div class=DivXTable>
+	<table cellPadding='8' cellSpacing='0' width='100%' class='Table'>
+
+	<THEAD>
+	
+	<tr>
+	
+	
+    <TH align=$DAlign width='3%' height=40 class='UnderBar'>
+    <input type=checkbox name=AllCheckList id=AllCheckList onclick='CheckAll()'>
+    </TH>
+	
+    <TH align='center' width='2%' height=40>
+    
+    </TH>
+	
+    <TH align=$DAlign width='25%' height=40>
+    {$LNG['Domain']}
+    </TH>
+
+    <TH align=$DAlign width='25%'>
+    {$LNG['CreatedDate']}
+    </TH>
+
+    <TH align=$DAlign width='25%' class='UnderBar'>
+    {$LNG['AccountState']}
+    </TH>
+
+    <TH width='20%'>
+
+    </TH>
+	
+	</tr>
+	
+	</THEAD>
+	
+	<TBODY>
+
+</header>
+
+<loop>
+
+	<tr id='TR{$ID}' class='$TDColor' divid=Find find='{$Row['Domain']}-{$Row['Email']}'>
+
+    <TD><input onclick="ColorRow(R$i,$i,'$BGColorLine')" type=checkbox name=CheckList[] id=CheckList[] value='{$Row['SiteID']}'></td>
+    
+	<TD align='center'>$Information</td>
+
+    <TD>
+    <a href='#'>{$Row['Domain']}</a>
+    </td>
+
+	<TD>    
+    $CreatedDate
+    </td>
+
+	<TD>
+    
+    $Status
+    </td>
+	
+	<TD align='$OAlign'>
+
+	<a href="javascript:Load('$CurrentFileName?Restore=1&SiteID=$SiteID&Username=$Username&Domain=$Domain&Page=$Page&ScrollTo=TR{$ID}')" class=Action>Restore</a>
+	<a href="javascript:Load('$CurrentFileName?Remove=1&SiteID=$SiteID&Username=$Username&Domain=$Domain&Page=$Page&ScrollTo=TR{$ID}')" class=Action>Delete Forever</a>
+
+    </td>
+    
+	</tr>
+ 
+</loop>
+
+<footer>
+
+	
+	</TBODY>
+	
+	<TFOOT>
+	
+    <tr>
+
+		<th align='$DAlign' colspan=3>
+		Showing $X of $RowsNo records.
+		</th>
+		
+		<th align='$OAlign' colspan=3>
+		<php>
+				
+		include "pages.php";
+
+		</php>
+		</th>
+
+    </tr>
+
+	</TFOOT>
+	
+    </TABLE>
+	</form>
+
+	
+</footer>
+
+
+

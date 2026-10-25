@@ -1,0 +1,199 @@
+<nav>
+
+	<div class=Navigator>
+		
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+	
+</nav>
+
+<content>
+
+	$Error
+
+	<form name="Form" method="POST" onsubmit="return Submit('$CurrentFileName');" autocomplete="off" action="$CurrentFileName">
+
+	<input type=hidden name=Edit value='$Edit'>
+	<input type=hidden name=MailID value='$MailID'>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['Email']}<br>
+	
+		<if $Edit==1>
+		
+			<input type='hidden' name='User' value='$User'>
+			<input type='hidden' name='Domain' value='$Domain'>
+			$User@$Domain
+					
+		<else>
+
+			<input type='Text' name='User' pattern="[a-zA-Z0-9._]+" title="Only letters, numbers, dot and underscore are allowed." required maxlength=100 autocomplete='off' class=InputText30 style='width:24%'>@$SelectDomain
+			
+		</if>
+		
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['Password']}<br>
+	<input type='password' name='Pass' id='Password' value='$Pass' pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$' title='Must contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters long' autocomplete='new-password' required maxlength=100 class=InputText> <span onclick="GeneratePassword('Password')" style='cursor:pointer'>Generate Password</span>
+	
+	</div>
+	
+	<div id=DivSubmit class=DivSubmit>
+	
+	<if $Edit==1>
+	
+		<input type=submit value='{$LNG['SaveChanges']}' Class=InputButton>
+	
+	<else>
+		
+		<input type=submit value='{$LNG['Create']}' Class=InputButton>
+		
+	</if>
+
+	</div>
+
+	</form>
+
+</content>
+
+<header>
+
+	<div class=DivXTable>
+	<table cellPadding='8' cellSpacing='0' width='100%' class='Table'>
+
+	<THEAD>
+	
+	<tr>
+
+	<th align='$DAlign' width='20%'>
+	<a href="javascript:Load('$CurrentFileName?&SortBy=Email')">{$LNG['Email']}</a>
+	</th>
+	
+	<th align='$DAlign' width='10%'>
+	<a href="javascript:Load('$CurrentFileName?&SortBy=SentToday&Direction=DESC')">Sent Today</a>
+	</th>
+
+	<th align='$DAlign' width='10%'>
+	<a href="javascript:Load('$CurrentFileName?&SortBy=SentThisWeek&Direction=DESC')">Sent This Week</a>
+	</th>
+	
+
+	<th align='$DAlign' width='20%'>
+	<a href="javascript:Load('$CurrentFileName?&SortBy=TimeStamp')">{$LNG['CreatedDate']}</a>
+	</th>
+
+	<th align='$DAlign' width='10%'>
+	<a href="javascript:Load('$CurrentFileName?&SortBy=Admin')">{$LNG['Admin']}</a>
+	</th>
+
+	<th align='$DAlign' width='10%'>
+	<a href="javascript:Load('$CurrentFileName?&SortBy=Admin')">{$LNG['Status']}</a>
+	</th>
+
+	<th width='10%'>
+	
+	</th>
+	
+	<th width='10%'>
+	
+	</th>
+
+
+	</tr>
+	
+	</THEAD>
+	
+	<TBODY>
+
+</header>
+
+<loop>
+
+	<tr name=R$i id=R$i divid=Find find='{$Row['Email']}' class='$TDColor'>
+
+	<TD><a href='roundcube.php?MailID={$Row['MailID']}' target='_blank'>{$Row['Email']}</a></TD>
+
+	<TD>$SentToday</TD>
+	<TD>$SentThisWeek</TD>
+
+	<TD>$CreatedDate</TD>
+
+	<TD>$AdminCode</TD>
+	
+	<TD>$SuspendCode</TD>
+	
+	<TD>
+		
+		<div class='DropdownButton'>
+		
+			<button onclick="DropdownButton('Email{$MailID}', event)" class='DropButton'>Action</button>	
+		  
+			<div id='Email{$MailID}' class='DropdownButtonContent'>
+
+				<a href="javascript:Load('$CurrentFileName?Action=Config&Domain={$Row['Domain']}&Email={$Row['Email']}&Page=$Page&ScrollTo=TR{$ID}')">Configuration Settings</a>
+				<a href="javascript:Load('$CurrentFileName?Edit=1&Domain={$Row['Domain']}&Email={$Row['Email']}&Page=$Page&ScrollTo=TR{$ID}')">Change Password</a>
+				<a href="javascript:Load('$CurrentFileName?Delete=1&Step=1&Domain={$Row['Domain']}&Email={$Row['Email']}&Page=$Page&ScrollTo=TR{$ID}')">Delete</a>							
+				<a href="javascript:Load('contact.php?EmailTo={$Row['Email']}')">Contacts</a>
+				<a href="#" onclick="this.textContent='Please Wait...';Load('$CurrentFileName?Restore=1&Step=1&Domain={$Row['Domain']}&Email={$Row['Email']}&Page=$Page&ScrollTo=TR{$ID}')">Restore Snapshot</a>
+				<a href="javascript:Load('$CurrentFileName?Action=Troubleshoot&Domain={$Row['Domain']}&Email={$Row['Email']}&Page=$Page&ScrollTo=TR{$ID}')">{$LNG['TroubleshootProblems']}</a>				
+				
+			</div>
+		  
+		</div>
+		
+	</td>
+	
+	<TD>
+
+		<div class='DropdownButton'>
+		
+			<button onclick="DropdownButton('Webmail{$MailID}', event)" class='DropButton'>Webmail</button>	
+		  
+			<div id='Webmail{$MailID}' class='DropdownButtonContent'>
+						
+				<a href="roundcube.php?MailID={$Row['MailID']}" target='_blank'>Roundcube</a>
+				<a href="snappymail.php?MailID={$Row['MailID']}" target='_blank'>SnappyMail</a>
+				
+			</div>
+		  
+		</div>
+
+	</td>
+
+</loop>
+
+<footer>
+
+	</TBODY>
+
+	<TFOOT>
+
+	<tr>
+
+	<th align='$DAlign' colspan=3>
+	Showing $X of $RowsNo records.
+	</th>
+	
+	<th align='$OAlign' colspan=4>
+	<php>
+			
+		include "pages.php";
+
+	</php>
+	</th>
+
+	</tr>
+
+	</TFOOT>
+
+	</TABLE>
+	</div>
+	</form>
+	
+
+</footer>

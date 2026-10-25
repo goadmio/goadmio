@@ -1,0 +1,104 @@
+<nav>
+
+	<div class=Navigator>
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+	
+</nav>
+
+<header>
+
+	<form name=CheckForm id=CheckForm action='$CurrentFileName'>
+	<input type=hidden name=Action id=Action>
+	
+
+	<div class=DivXTable>
+	<table cellPadding='8' cellSpacing='0' width='100%' class='Table'>
+
+	<THEAD>
+	
+    <TH align=$DAlign width='17%' height=40>
+    
+    <a href='$CurrentFileName?Service=$Service&ControlID=$ControlID&ServiceControl=$ServiceControl&SortBy=Domain'>{$LNG['DatabaseName']}</a>
+    </TH>
+
+    <TH align=$DAlign width='17%'>
+    <a href='$CurrentFileName?Service=$Service&ControlID=$ControlID&ServiceControl=$ServiceControl&SortBy=Domain'>{$LNG['Domain']}</a>
+    </TH>
+	
+    <TH align=$DAlign width='17%'>
+    <a href='$CurrentFileName?Service=$Service&ControlID=$ControlID&ServiceControl=$ServiceControl&SortBy=Username'>{$LNG['Username']}</a>
+    </TH>
+
+    <TH align=$DAlign width='17%'>
+    <a href='$CurrentFileName?Service=$Service&ControlID=$ControlID&ServiceControl=$ServiceControl&SortBy=CreateDate'>{$LNG['CreatedDate']}</a>
+    </TH>
+
+    <TH align=$DAlign width='27%'>
+    </TH>
+	
+	</tr>
+	
+	</THEAD>
+	
+	<TBODY>
+
+</header>
+
+<loop>
+
+	<tr id='TR{$ID}' class='$TDColor' divid=Find find='{$Row['Name']}-{$Row['Username']}-{$Row['Domain']}'>
+
+	<TD>
+	<a href="javascript:Load('$CurrentFileName?Action=Repair&Name=$Name')">$Name</a>
+	</div>
+
+	<TD>
+	{$Row['Domain']}
+	</div>
+
+	<TD>
+	{$Row['Username']}
+	</div>
+	
+	<TD>
+	$CreatedDate
+	</div>
+
+	<TD align='$OAlign' width='20%'>
+	<a href="javascript:Load('$CurrentFileName?Action=Repair&Name=$Name')" class=Action>{$LNG['Repair']}</a>
+	</div>
+
+	</tr>
+
+</loop>
+
+<footer>
+
+	</TBODY>
+
+	<TFOOT>
+
+		<th align='$DAlign' colspan=3>
+		Showing $X of $RowsNo records.
+		</th>
+		
+		<th align='$OAlign' colspan=4>
+		<php>
+			include "pages.php";
+		</php>
+		</th>
+
+   </tr>
+
+	</TFOOT>
+
+	</form>
+	
+</footer>

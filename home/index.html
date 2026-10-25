@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>
+GoAdmio
+</title>
+
+<meta charset="utf-8">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<meta name="format-detection" content="telephone=no">
+
+<script src='https://www.gopanel.org/js/copy.js'></script>
+<link rel='stylesheet' href='https://www.gopanel.org/css/en.css' />
+
+<style>
+    input:focus, textarea:focus, select:focus{
+        outline: none;
+    }
+</style>
+
+<script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: 'a85a6482-f20a-4c7b-a594-d3a5e77df233', f: true }); done = true; } }; })();</script>
+
+<script>
+
+var MenuOpen=0;
+function Menu()
+{
+
+	if (MenuOpen==0)
+	{
+	document.getElementById('Items').style.display = '';
+
+	
+	document.getElementById('Menu').src = 'https://www.gopanel.org/image/close-black.svg';
+	MenuOpen=1;
+	}
+	else
+	{
+	document.getElementById('Items').style.display = 'none';
+	
+	document.getElementById('Menu').src = 'https://www.gopanel.org/image/menu-black.svg';
+	MenuOpen=0;	
+	}
+}
+
+function CopyNow(ID,DivID) 
+{
+  var Text = document.getElementById(ID).value;
+  Copy(Text);
+  document.getElementById(DivID).innerHTML='Copied';
+  
+  setTimeout(function() { document.getElementById(DivID).innerHTML='Copy'; }, 3000);
+  
+}
+
+</script>
+
+</head>
+
+<body class=Body>
+
+<table cellpadding=0 cellspacing=0 width=100% class=THeader>
+<td align='center' width=100%>
+
+	<table align=center cellpadding=0 cellspacing=0 class='MenuTable No' height=60>
+	<td width=15%>
+	
+		<a href='index.html'>
+		<div class=Logo></div>
+		</a>
+		
+	</td>
+	
+	<td id=Pc align='center' width=40%>
+		
+		<a href='index.html' class=Header>Home</a>
+		<a href='https://www.gopanel.org/command.php' class=Header>Commands</a>
+		<a href='https://www.gopanel.org/support.php' class=Header>Support</a>
+	
+	</td>
+	
+	<td align='right' width=45%>
+		<a href='go/' class=Login>GoAdmio Login</a>
+		<a href='go/webmail/' class=Login>Webmail</a>
+		<a href='go/webmail/roundcube/' class=Login>Roundcube</a>
+		<a href='go/webmail/snappymail/' class=Login>SnappyMail</a>
+	</td>
+
+	</table>
+
+	<table align=center cellpadding=0 cellspacing=0 class='MenuTable MenuYes'>
+	<td align='middle' width=100% height=60 style='border-bottom:1px solid Silver'>
+			
+		<img src='https://www.gopanel.org/image/menu-black.svg' id=Menu class=Menu width=32 onclick='Menu()'>
+	
+		<a href='https://www.gopanel.org/index.php'>
+		<div class=Logo></div>
+		</a>
+			
+	</td>
+	
+	<TR id=Items style='display:none'>
+
+	<td id=Mob width=100%>
+		
+		<br>
+		
+		<span class=HeaderB>Products</span><br>
+
+		<div><a href='https://www.gopanel.org/index.php' class=Header>Features</a></div>
+		<div><a href='https://www.gopanel.org/command.php' class=Header>Commands</a></div>
+		<div><a href='https://www.gopanel.org/api.php' class=Header>GoAdmio API</a></div>
+		<div><a href='https://www.gopanel.org/support.php' class=Header>Support</a></div>
+		<div><a href='https://www.gopanel.org/about.php' class=Header>About</a></div>
+
+		<br>
+
+		<span class=HeaderB>Useful Links</span><br>
+
+		<div><a href='go/' class=Header>GoAdmio Login</a></div>
+		<div><a href='go/webmail/' class=Header>Webmail</a></div>
+		<div><a href='go/webmail/roundcube/' class=Header>Roundcube</a></div>
+		<div><a href='go/webmail/snappymail/' class=Header>SnappyMail</a></div>
+
+	</td>
+
+	</table>
+
+</td>
+</table>
+
+<table cellpadding=0 cellspacing=0 width=100% height=60 class=DHeader>
+<td align='center' width=100%>
+
+</td>
+</table>
+
+<table align=center cellpadding=0 cellspacing=0 width=100%>
+<td align='center' width=100% height=250 style='background: url(https://www.gopanel.org/image/bg8.jpg);background-repeat: no-repeat; background-size: cover;'>
+
+		<h1 class=H1B>
+		Getting Started with GoAdmio
+		</h1>
+		
+		<span class=Column>
+		GoAdmio Free Linux Web Hosting Control Panel
+		<br>
+		A Better Way To Manage Your Server
+		<br>
+		Powerful And Easy To Use Web Hosting Control Panel
+		<br>
+		Running Servers All Around The World
+		</span>
+
+</td>
+</table>
+
+<table cellpadding=0 cellspacing=0 bgcolor='#333940' width=100%>
+<td align='center' width=100%>
+
+	<table align=center cellpadding=0 cellspacing=0 class=Table style='margin-top:48px'>
+	<td id=Footer width=50% valign=top>
+
+	<span class=FooterB>GoAdmio</span><br>
+	<li><a href='https://www.gopanel.org/feature.php' class=Footer>Features</a></li>
+	<li><a href='https://www.gopanel.org/command.php' class=Footer>Commands</a></li>
+	<li><a href='https://www.gopanel.org/api.php' class=Footer>API</a></li>
+	<li><a href='https://www.gopanel.org/support.php' class=Footer>Support</a></li>
+	</td>
+	
+	<td id=Footer width=50% valign=top>
+
+	<span class=FooterB>Useful Links</span><br>
+	
+	<li><a href='go/' class=Footer>GoAdmio Login</a></li>
+	<li><a href='go/webmail/' class=Footer>Webmail</a></li>
+	<li><a href='go/webmail/roundcube/' class=Footer>Roundcube</a></li>
+	<li><a href='go/webmail/snappymail/' class=Footer>SnappyMail</a></li>
+	
+	</td>
+	</table>
+	
+	<table align=center cellpadding=0 cellspacing=0 class=Table height=40 style='margin-top:64px'>
+	<td width=100% height=1 bgcolor=555c62></td>
+	<tr>
+	<td width=100% height=48>
+	<span class=CR>
+	&copy 2020 - 2026 GoAdmio Inc., all rights reserved.
+	</span>
+	<br>
+	<br>
+	</td>
+	</table>
+
+</td>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<nav>
+
+	<div class=Navigator>
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+	
+	
+</nav>
+
+<header>
+
+	<form name=CheckForm id=CheckForm action='$CurrentFileName'>
+	<input type=hidden name=Action id=Action>
+
+	<div class=DivXTable>
+	<table cellPadding='8' cellSpacing='0' width='100%' class='Table'>
+
+	<THEAD>
+	
+	<tr>
+		
+    <TH align=$DAlign width='30%'>
+    <a href="javascript:Load('$CurrentFileName?SortBy=Domain&ControlID=$ControlID&Page=$Page','$ControlID')">{$LNG['Domain']}</a>
+    </TH>
+
+    <TH align=$DAlign width='25%'>
+    <a href="javascript:Load('$CurrentFileName?SortBy=Suspend&ControlID=$ControlID&Page=$Page','$ControlID')">{$LNG['AccountState']}</a>
+    </TH>
+
+    <TH align=$DAlign width='25%'>
+    <a href="javascript:Load('$CurrentFileName?SortBy=Suspend&SortDir=DESC&ControlID=$ControlID&Page=$Page','$ControlID')">{$LNG['Reason']}</a>
+    </TH>
+
+    <TH align=$DAlign width='20%'>
+    
+    </TH>
+	
+	</tr>
+	
+	</THEAD>
+	
+	<TBODY>
+
+</header>
+
+<loop>
+
+    <tr id='TR{$ID}' class='$TDColor' divid=Find find='{$Row['Domain']}-{$Row['Email']}'>
+
+    <TD title='Created Date: $CreatedDate'>
+    <a href='http://{$Row['Domain']}' target='_blank'>{$Row['Domain']}</a>
+    </TD>
+	
+	<TD>
+    $Status
+    </TD>
+
+	<TD>
+    $Reason
+    </TD>
+
+
+	<TD align='$OAlign'>
+	
+	
+	<if $Row['Suspend']==0>
+	
+		<a href="javascript:Load('$CurrentFileName?Suspend=1&Step=1&SiteID=$SiteID&Domain=$Domain&SortBy=$SortBy&SortDir=$SortDir&ControlID=$ControlID&Page=$Page','$ControlID')" class=Action>{$LNG['Suspend']}</a>
+	
+	<else>
+	
+		<a href="javascript:Load('$CurrentFileName?Unsuspend=1&Step=1&SiteID=$SiteID&Domain=$Domain&SortBy=$SortBy&SortDir=$SortDir&ControlID=$ControlID&Page=$Page','$ControlID')" class=ActionB>{$LNG['Unsuspend']}</a>
+	
+	</if>
+	
+	
+    </TD>
+    
+	</tr>
+
+</loop>
+
+<footer>
+
+
+	</TBODY>
+	
+	<TFOOT>
+
+    <tr>
+
+   
+		<th align='$DAlign' colspan=3>
+		Showing $X of $RowsNo records.
+		</th>
+		
+		<th align='$OAlign' colspan=3>
+	
+		<php>
+		include "pages.php";
+		</php>
+
+		</th>
+
+    </tr>
+
+	</TFOOT>
+	
+    </TABLE>
+	</form>
+	
+</footer>

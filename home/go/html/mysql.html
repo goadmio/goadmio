@@ -1,0 +1,186 @@
+<nav>
+
+	<div class=Navigator>
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+	
+</nav>
+
+<content>
+
+	$Error
+
+	<form name="Form" method="POST" onsubmit="return Submit('$CurrentFileName');" autocomplete="off" action="$CurrentFileName">
+	<input type=hidden name=ServiceControl value='$ServiceControl'>
+	<input type=hidden name=Edit value='$Edit'>
+	<input type=hidden name=MysqlID value='$MysqlID'>
+	<input type=hidden id=FixedName value='$Name'>
+	<input type=hidden id=FixedUser value='$User'>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['Domain']}<br>
+
+	$SelectDomain	
+	
+	</div>
+	
+	<div class='DivInput {$Dir}DivInput'>{$LNG['DatabaseName']}<br>
+	<input type='Text' name='Name' id='Name' value='$Name' required maxlength=100 class=InputText $NamePattern $Readonly>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['DatabaseUsername']}<br>
+	<input type='Text' name='User' id='User' value='$User' required maxlength=100 class=InputText $UserPattern>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['Password']}<br>
+	<input type='password' name='Pass' id='Password' pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$' title='Must contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters long' autocomplete='new-password' required maxlength=100 class=InputText> <span onclick="GeneratePassword('Password')" style='cursor:pointer'>Generate Password</span>
+	</div>
+
+	<div class=DivCheckbox>
+	
+		<label class=LabelCheckbox>{$LNG['RemoteConnection']}
+			<input type='checkbox' name='Remote' id='Remote' value='1' $RemoteConnectionChecked>
+			<span class='Checkbox'></span>
+		</label>
+	
+	</div>
+
+	<div id=DivSubmit class=DivSubmit>
+	
+		<if $Edit==1>
+		
+			<input type=submit value='{$LNG['SaveChanges']}' Class=InputButton>
+		
+		<else>
+		
+			<input type=submit value='{$LNG['Create']}' Class=InputButton>
+		
+		</if>
+	
+	</div>
+
+	</form>
+	
+	
+</content>
+
+<header>
+
+		<div class=DivXTable>
+		<table cellPadding='8' cellSpacing=0 width='100%' class=Table>
+
+		<THEAD>
+		
+		<tr>
+		
+		<th width='2%'>
+
+		</th>
+		
+		<th align='$DAlign' width='15%'>
+		<a href="javascript:Load('$CurrentFileName?SortBy=Name')">{$LNG['Name']}</a>
+		</th>
+		
+		<th align='$DAlign' width='15%'>
+		<a href="javascript:Load('$CurrentFileName?SortBy=User')">{$LNG['Username']}</a>
+		</th>
+		
+		<th align='$DAlign' width='15%'>
+		<a href="javascript:Load('$CurrentFileName?SortBy=Domain')">{$LNG['Owner']}</a>
+		</th>
+
+		<th align='$DAlign' width='5%'>
+		<a href="javascript:Load('$CurrentFileName?SortBy=Size')">{$LNG['Size']}</a>
+		</th>
+
+		<th align='$DAlign' width='20%'>
+		<a href="javascript:Load('$CurrentFileName?SortBy=TimeStamp')">{$LNG['CreatedDate']}</a>
+		</th>
+		
+		<th width='30%'>
+	
+		</th>
+
+		</tr>
+		
+		</THEAD>
+		
+		<TBODY>
+
+</header>
+
+<loop>
+
+	<tr id='TR{$ID}' class='$TDColor' divid=Find find='{$Row['Name']}-{$Row['User']}-{$Row['Domain']}-{$Row['Username']}'>
+
+	<TD align='middle'>
+	$SerialNo
+	</TD>
+
+	<TD align='$DAlign'><a href="javascript:Load('$CurrentFileName?Delete=1&Step=1&Name={$Row['Name']}&Domain={$Row['Domain']}&ControlID=$ControlID&Page=$Page&ScrollTo=TR{$ID}')">{$Row['Name']}</a></TD>
+	
+	<TD align='$DAlign'>{$Row['User']}</TD>
+	
+	<TD align='$DAlign'>{$Row['Domain']}</TD>
+				
+	<TD align='$DAlign'>$Size</TD>
+	
+	<TD align='$DAlign'>$CreatedDate</TD>
+
+	<TD align='$OAlign'>
+
+		<div class='DropdownButton'>
+		
+			<button onclick="DropdownButton('Mysql{$ID}', event)" class='DropButton'>Action</button>	
+		  
+			<div id='Mysql{$ID}' class='DropdownButtonContent'>
+						
+				<a href="javascript:Load('$CurrentFileName?Edit=1&MysqlID={$Row['MysqlID']}&Name={$Row['Name']}&Domain={$Row['Domain']}&ControlID=$ControlID&Page=$Page&ScrollTo=TR{$ID}')">{$LNG['Edit']}</a>
+				<a href="javascript:Load('$CurrentFileName?Delete=1&Step=1&Name={$Row['Name']}&Domain={$Row['Domain']}&ControlID=$ControlID&Page=$Page&ScrollTo=TR{$ID}')">{$LNG['Delete']}</a>
+				<a href="#" onclick="this.textContent='Please Wait...';Load('$CurrentFileName?Restore=1&Step=1&Name={$Row['Name']}&Domain={$Row['Domain']}&ControlID=$ControlID&Page=$Page&ScrollTo=TR{$ID}')">Restore Snapshot</a>
+				
+			</div>
+		  
+		</div>
+
+
+	</TD>
+
+</loop>
+
+<footer>
+
+	</TBODY>
+	
+	<TFOOT>
+
+	<tr>
+
+	<th align='$DAlign' colspan=3>
+	Showing $X of $RowsNo records.
+	</th>
+
+	<th align='$OAlign' colspan=3>
+			
+	<php>
+		include "pages.php";
+	</php>
+
+	</th>
+
+	</tr>
+
+	</TFOOT>
+
+	</TABLE>
+	</div>
+
+</footer>
+
+
+
