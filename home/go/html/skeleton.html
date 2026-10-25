@@ -1,0 +1,52 @@
+<nav>
+
+	<div class=Navigator>
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+	
+	<div class=NavigatorInfo>
+	
+		<b>/skeleton</b>
+		<br>
+		{$LNG['SkeletonDescription']}
+			
+	</div>
+	
+</nav>
+
+<content>
+
+	$Error
+
+	<form name="Form" method="POST" onsubmit="return Submit('$CurrentFileName');" autocomplete="off" action="$CurrentFileName">
+
+	<div class='TitleB'>
+		{$LNG['FTPInformation']}
+	</div>
+		
+	<div class='DivInput'>{$LNG['Host']}:<br>
+	<input type='text' name='Host' value='{$_SERVER['SERVER_ADDR']}' readonly class=InputText maxlength=100>
+	</div>
+
+	<div class='DivInput>{$LNG['Username']}:<br>
+	<input type='text' name='Username' value='skeleton' readonly class=InputText maxlength=100>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['NewPassword']}:<br>
+	<input type='password' name='Password' id='Password' pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$' title='Must contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters long' autocomplete='new-password' required maxlength=100 class=InputText>
+	</div>
+
+	<div id=DivSubmit class=DivSubmit>
+	<input type=submit value='{$LNG['ChangePassword']}' Class=InputButton>
+	</div>
+
+	</form>
+	
+	
+</content>

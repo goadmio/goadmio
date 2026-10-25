@@ -1,0 +1,40 @@
+<nav>
+
+	<div class=Navigator>
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+	
+</nav>
+
+<content>
+
+	$Error
+
+	<form name="Form" method="POST" onsubmit="return Submit('$CurrentFileName');" autocomplete="off" action="$CurrentFileName">
+
+	<div class='DivInput {$Dir}DivInput'>
+	{$LNG['SSHPort']}
+	<br>
+	<input type='text' name='PORT' value='$SSHPort' class=InputText maxlength=5><br />
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>
+	Dropbear Port
+	<br>
+	<input type='text' name='DROPBEARPORT' value='$DROPBEARPORT' class=InputText maxlength=5><br />
+	</div>
+
+
+	<div id=DivSubmit class=DivSubmit>
+	<input type=submit value='{$LNG['Save']}' Class=InputButton>
+	</div>
+
+	</form>
+
+</content>

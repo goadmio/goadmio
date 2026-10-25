@@ -1,0 +1,161 @@
+<nav>
+
+	<div class=Navigator>
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+	
+</nav>
+
+<content>
+
+	$Error
+
+	<form name="Form" method="POST" onsubmit="return Submit('$CurrentFileName');" autocomplete="off" action="$CurrentFileName">
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['Domain']}<br>
+	$SelectDomain	
+	</div>
+
+<!-- Folder Selector Component - No Search -->
+<div class="folder-selector-wrapper">
+    <div class="folder-tree-list" id="folderTreeContainer">
+        <!-- Folder tree will be rendered here -->
+    </div>
+</div>
+
+
+
+	
+	<div class='DivInput {$Dir}DivInput'>Directory<br>	
+	<input type='Text' name='Directory' id='Directory' value='$Directory' maxlength=255 class=InputText>
+	</div>
+	
+	<div class='DivInput {$Dir}DivInput'>{$LNG['URL']}<br>
+	<input type='Text' name='URL' value='$URL' maxlength=100 class=InputText>
+	</div>
+
+	<div class=DivCheckbox>
+	
+		<label class=LabelCheckbox>{$LNG['SyncingWithGitHub']}
+			<input type='checkbox' name='Sync' id='Sync' value='1' $SyncChecked>
+			<span class='Checkbox'></span>
+		</label>
+	
+	</div>
+
+	<div id=DivSubmit class=DivSubmit>
+
+	<input type=submit value='{$LNG['Download']}' Class=InputButton>
+	
+	</div>
+
+	</form>
+
+
+</content>
+
+<header>
+
+		<div class=DivXTable>
+		<table cellPadding='8' cellSpacing=0 width='100%' class=Table>
+
+		<THEAD>
+		
+		<tr>
+		
+		<th width='2%'>
+
+		</th>
+		
+		<th align='$DAlign' width='38%'>
+		<a href="javascript:Load('$CurrentFileName?SortBy=URL')">{$LNG['URL']}</a>
+		</th>
+		
+		<th align='$DAlign' width='20%'>
+		<a href="javascript:Load('$CurrentFileName?SortBy=Directory')">{$LNG['Directory']}</a>
+		</th>
+		
+		<th align='$DAlign' width='15%'>
+		<a href="javascript:Load('$CurrentFileName?SortBy=Date')">{$LNG['Date']}</a>
+		</th>
+
+		<th align='$DAlign' width='15%'>
+		<a href="javascript:Load('$CurrentFileName?SortBy=Username')">{$LNG['Username']}</a>
+		</th>
+
+		<th align='$DAlign' width='5%'>
+		<a href="javascript:Load('$CurrentFileName?SortBy=Sync')">{$LNG['Status']}</a>
+		</th>
+
+		<th width='5%'>
+	
+		</th>
+
+		</tr>
+		
+		</THEAD>
+		
+		<TBODY>
+
+</header>
+
+<loop>
+
+	<tr id='TR{$ID}' class='$TDColor' divid=Find find='{$Row['URL']}-{$Row['Directory']}-{$Row['Username']}'>
+
+	<TD align='middle'>
+	$SerialNo
+	</TD>
+
+	<TD align='$DAlign'><a href="{$Row['URL']}" target='_blank'>{$Row['URL']}</a></TD>
+	
+	<TD align='$DAlign'>{$Row['Directory']}</TD>
+	
+	<TD align='$DAlign'>$Date</TD>
+	
+	<TD align='$DAlign'>{$Row['Username']}</TD>
+	
+	<TD align='$DAlign'>$SyncCode</TD>
+
+	<TD align='$OAlign'>
+	
+	<a href="javascript:Load('$CurrentFileName?Action=Delete&Step=1&GithubID={$Row['GithubID']}&Username={$Row['Username']}&ControlID=$ControlID&Page=$Page&ScrollTo=TR{$ID}')" class=Action>{$LNG['Delete']}</a>
+
+	</TD>
+
+</loop>
+
+<footer>
+
+	</TBODY>
+	
+	<TFOOT>
+
+	<tr>
+
+	<th align='$DAlign' colspan=3>
+	Showing $X of $RowsNo records.
+	</th>
+
+	<th align='$OAlign' colspan=3>
+			
+	<php>
+		include "pages.php";
+	</php>
+
+	</th>
+
+	</tr>
+
+	</TFOOT>
+
+	</TABLE>
+	</div>
+
+</footer>

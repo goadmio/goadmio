@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>503 Loading...</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Soft, neutral gradient that feels calm and professional */
+            background: linear-gradient(135deg, #f4f6f9 0%, #e8edf2 100%);
+            min-height: 100vh;
+            /* CRITICAL FIX: Establish a full-height flex container */
+            display: flex;
+            /* Ensure the container takes full viewport height for perfect centering */
+            height: 100vh;
+            /* Modern reset to prevent any overflow issues */
+            overflow: hidden;
+            /* Flex centering properties */
+            justify-content: center;
+            align-items: center;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+        }
+
+        /* MAIN CONTAINER: Single unit, perfectly centered inside body flex */
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* No extra margins/paddings that could offset center */
+            margin: 0;
+            padding: 0;
+            /* Ensure the block takes only needed width, preserving perfect alignment */
+            width: auto;
+            /* Optional: smooth appearance */
+            border-radius: 32px;
+        }
+
+        /* SPINNER: Polished neutral grayscale with refined motion */
+        .spinner {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            /* For clean rendering, no extra spacing */
+            display: block;
+        }
+
+        /* Main ring using pseudo-element for crisp rotation */
+        .spinner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            /* Layered gray tones for depth — modern & soft */
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            /* Top is a rich slate gray for primary action */
+            border-top-color: #3a4a6e;
+            /* Right & bottom: subtle gradient effect */
+            border-right-color: #6b7a8f;
+            border-bottom-color: #9aa9bb;
+            border-left-color: rgba(0, 0, 0, 0.1);
+            /* Smooth, non-linear easing for elegant motion */
+            animation: spin 0.9s cubic-bezier(0.5, 0, 0.3, 1) infinite;
+            /* Very subtle shadow for depth, doesn't affect centering */
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.03));
+        }
+
+        /* Smooth rotation keyframes */
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* LOADING TEXT: Perfectly spaced below spinner, centered alignment */
+        .loading-text {
+            margin-top: 26px;
+            font-size: 0.95rem;
+            letter-spacing: 0.6px;
+            font-weight: 490;
+            color: #2c3e4e;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            padding: 6px 20px;
+            border-radius: 60px;
+            display: inline-block;
+            width: fit-content;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+            /* No margin auto needed, flex parent handles center */
+            text-align: center;
+        }
+
+        /* Gentle pulse on text to indicate activity without distraction */
+        .fade-pulse {
+            animation: softPulse 1.6s ease-in-out infinite;
+        }
+
+        @keyframes softPulse {
+            0% { opacity: 0.55; transform: scale(0.98);}
+            50% { opacity: 1; transform: scale(1);}
+            100% { opacity: 0.55; transform: scale(0.98);}
+        }
+
+        /* Make responsive refinements: keep center intact on all devices */
+        @media (max-width: 768px) {
+            .spinner {
+                width: 68px;
+                height: 68px;
+            }
+            .spinner::before {
+                border-width: 3.5px;
+            }
+            .loading-text {
+                margin-top: 22px;
+                font-size: 0.85rem;
+                padding: 5px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .spinner {
+                width: 56px;
+                height: 56px;
+            }
+            .spinner::before {
+                border-width: 3px;
+            }
+            .loading-text {
+                margin-top: 18px;
+                font-size: 0.78rem;
+                padding: 4px 14px;
+                letter-spacing: 0.4px;
+            }
+        }
+
+        /* High-resolution & extra-tall screens: ensure alignment stays dead center */
+        @media (min-height: 800px) {
+            body {
+                align-items: center;
+            }
+        }
+
+        /* For any edge case where user scaling could affect centering — but safe */
+        .loading-container {
+            transform: translateZ(0); /* subtle GPU layer, no offset */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loading-container">
+        <div class="spinner" aria-label="Loading animation"></div>
+        <div class="loading-text fade-pulse">Loading</div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.reload(true);
+        }, 1000);
+    </script>
+	
+</body>
+</html>

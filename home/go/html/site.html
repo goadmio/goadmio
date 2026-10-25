@@ -1,0 +1,138 @@
+<nav>
+
+	<div class=Navigator>
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+	
+</nav>
+
+<content>
+
+	$Error
+
+	<form name="Form" method="POST" onsubmit="return Submit('$CurrentFileName');" autocomplete="off" action="$CurrentFileName">
+	<input type=hidden name=Edit value='$Edit'>
+	<input type=hidden name=SiteID value='$SiteID'>
+
+	<input type=hidden name=CurrentDomain value='$Domain'>
+	
+	<div class='TitleB {$Dir}TitleB'>
+	{$LNG['DomainInformation']}
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['Domain']}<br>
+	<input type='text' name='Domain' value='$Domain' pattern="^(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$" title="Please enter a valid domain name (e.g., example.com)" maxlength=255 $AdminEmailEvent onkeyup='GenerateUsername()' onblur='GenerateUsername()' class=InputText required>
+	</div>
+	
+	<div class='DivInput {$Dir}DivInput'>{$LNG['Username']}<br>
+	<input type='text' name='Username' value='$Username' maxlength=32 class=InputText required>
+	
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['Password']}<br>
+	<input type='text' name='Password' id='Password' maxlength=100 class=InputText required> <span onclick="GeneratePassword('Password')" style='cursor:pointer'>Generate Password</span>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['Email']}<br>
+	<input type='email' name='Email' id='Email' value='$Email' title="Please enter a valid email address (e.g., user@example.com)" maxlength=255 class=InputText>
+	</div>
+		
+	<div class='DivInput {$Dir}DivInput'>{$LNG['ExpiresOn']}<br>
+	<input type='text' name='ExpiresOn' id='ExpiresOn' value='$ExpiresOn' maxlength=100 class=InputText required>
+	</div>
+
+	<div id=DivPHPVersion class=DivInput>{$LNG['PHPVersion']}<br>
+
+		<div class="radio-group-enhanced">
+		$SelectPHPVersion
+		</div>
+		
+	</div>
+
+	<div class='TitleB {$Dir}TitleB'>
+	{$LNG['PackageInformation']}
+	</div>
+	
+	<div class='DivInput {$Dir}DivInput'>{$LNG['PackageName']}<br>
+	$SelectPackage
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['DiskSpace']}<br>
+	<input type='Text' name='DiskSpace' id='DiskSpace' value='$DiskSpace' maxlength=100 class=InputText required> MB
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['BandwidthLimit']}<br>
+	<input type='Text' name='Bandwidth' id='Bandwidth' value='$Bandwidth' maxlength=100 class=InputText required> MB
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['InodeLimit']}<br>
+	<input type='Text' name='Inode' id='Inode' value='$Inode' maxlength=10 class=InputText required> Files
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['MaxFTPAccounts']}<br>
+	<input type='Text' name='FTPNo' id='FTPNo' value='$FTPNo' maxlength=100 class=InputText required>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['MaxEmailAccounts']}<br>
+	<input type='Text' name='EmailNo' id='EmailNo' value='$EmailNo' maxlength=100 class=InputText required>
+	</div>
+	
+	<div class='DivInput {$Dir}DivInput'>{$LNG['MaxSQLDatabases']}<br>
+	<input type='Text' name='DatabaseNo' id='DatabaseNo' value='$DatabaseNo' maxlength=100 class=InputText required>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>{$LNG['MaxSubDomains']}<br>
+	<input type='Text' name='SubDomainNo' id='SubDomainNo' value='$SubDomainNo' maxlength=100 class=InputText required>
+	</div>
+	
+	<div class='DivInput {$Dir}DivInput'>{$LNG['MaxAliasDomains']}<br>
+	<input type='Text' name='AliasNo' id='AliasNo' value='$AliasNo' maxlength=100 class=InputText required>
+	</div>
+	
+	<div class='DivInput {$Dir}DivInput'>{$LNG['MaxAddonDomains']}<br>
+	<input type='Text' name='AddonNo' id='AddonNo' value='$AddonNo' maxlength=100 class=InputText required>
+	</div>
+
+
+	<div class=DivCheckbox>
+	
+		<label class=LabelCheckbox>{$LNG['CopySkeletonFilesToHome']}
+			<input type='checkbox' name='Skeleton' id='Skeleton' value='y'>
+			<span class='Checkbox'></span>
+		</label>
+	 
+	</div>
+
+	<div class=DivCheckbox>
+	
+		<label class=LabelCheckbox>{$LNG['InstallAnSSLCertificate']}
+			<input type='checkbox' name='SSLCertificate' id='SSLCertificate' value='1' $SSLCertificateChecked>
+			<span class='Checkbox'></span>
+		</label>
+		
+	</div>
+
+	<div class=DivCheckbox>
+	
+		<label class=LabelCheckbox>{$LNG['RedirectHTTPToHTTPS']}
+			<input type='checkbox' name='SSLRedirect' id='SSLRedirect' value='1' $SSLRedirectChecked>
+			<span class='Checkbox'></span>
+		</label>
+		
+	</div>
+
+	<div id=DivSubmit class=DivSubmit>
+
+	<input type=submit value='{$LNG['Create']}' Class=InputButton>
+
+	</div>
+
+	</form>
+
+</content>

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?><svg enable-background="new 0 0 32 32" height="32px" id="svg2" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg">
+
+<style>
+#database {fill:#CCCCCC}
+</style>
+
+
+<g id="background"><rect fill="none" height="32" width="32"/></g><g id="database"><path d="M29.998,4.999c0.027-0.272-0.205-1.715-2.102-2.851C26.012,0.997,22.598,0.004,16.001,0   C9.402,0.004,5.988,0.997,4.103,2.148C2.207,3.283,1.975,4.726,2.002,4.999l0,0v22.74c-0.035,0.353,0.305,1.628,2.176,2.525   C6.045,31.19,9.416,31.994,16,32c6.582-0.006,9.955-0.81,11.82-1.736c1.873-0.897,2.213-2.173,2.178-2.525V4.999L29.998,4.999z    M27.777,27.907C27.15,28.552,24.43,30.019,16,30c-6.414,0.007-9.541-0.821-10.925-1.524c-0.694-0.35-0.987-0.648-1.075-0.78   c-0.018-0.027,0.009-0.047,0.002-0.062L4,7.783C4.036,7.806,4.064,7.83,4.103,7.852C5.988,9.001,9.402,9.993,16.001,10   c6.597-0.006,10.011-0.999,11.896-2.147C27.934,7.83,27.963,7.805,28,7.783v19.853C27.98,27.678,27.924,27.765,27.777,27.907z"/></g></svg>

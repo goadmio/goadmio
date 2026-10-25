@@ -1,0 +1,35 @@
+<nav>
+
+	<div class=Navigator>
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+	
+</nav>
+
+<content>
+
+	$Error
+
+	<form name="Form" method="POST" onsubmit="return Submit('$CurrentFileName');" autocomplete="off" action="$CurrentFileName">
+
+	<div class='DivInput {$Dir}DivInput'>New admin Password<br>
+	<input type='password' name='Password' id='Password' pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$' title='Must contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters long' autocomplete='new-password' required maxlength=100 class=InputText> <span onclick="GeneratePassword('Password')" style='cursor:pointer'>Generate Password</span>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>Confirm Password<br>
+	<input type='password' name='VerifyPassword' id='VerifyPassword' pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$' title='Must contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters long' autocomplete='new-password' required class=InputText maxlength=100>
+	</div>
+
+	<div id=DivSubmit class=DivSubmit>
+	<input type=submit value='{$LNG['ChangePassword']}' Class=InputButton>
+	</div>
+
+	</form>
+
+</content>

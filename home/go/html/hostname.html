@@ -1,0 +1,32 @@
+<nav>
+
+	<div class=Navigator>
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+		
+</nav>
+
+<content>
+
+	$Error
+
+	<form name="Form" method="POST" onsubmit="return Submit('$CurrentFileName');" autocomplete="off" action="$CurrentFileName">
+		
+		<div class='DivInput {$Dir}DivInput'>{$LNG['Hostname']}:<br>
+		<input type='text' name='Hostname' value='$Hostname' pattern="((?:(?:(?:\\w[\\.\\-\\+]?)*)\\w)+)((?:(?:(?:\\w[\\.\\-\\+]?){0,62})\\w)+)\\.(\\w{2,12})" title="Enter a valid hostname with at least two dots (e.g., smtp.example.com)" maxlength=255 class=InputText required>
+		{$HostnameError}
+		</div>		
+		
+		<div id=DivSubmit class=DivSubmit>
+		<input type=submit value='{$LNG['Save']}' Class=InputButton>
+		</div>
+
+	</form>
+	
+</content>

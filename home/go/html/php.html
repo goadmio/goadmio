@@ -1,0 +1,89 @@
+<nav>
+
+	<div class=Navigator>
+		
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][0]}'>{$Navigator['Name'][0]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;</span>
+
+		<a class='NavigatorLink {$Dir}NavigatorLink' href='{$Navigator['URL'][1]}'>{$Navigator['Name'][1]}</a>
+		<span class='NavigatorLink {$Dir}NavigatorLink'>&nbsp;&raquo;&nbsp;{$Navigator['Name'][2]}</span>
+
+	</div>
+	
+</nav>
+
+<content>
+
+	$Error
+
+	<form name="Form" method="POST" onsubmit="return Submit('$CurrentFileName');" autocomplete="off" action="$CurrentFileName">
+
+	<div class='DivInput {$Dir}DivInput'>memory_limit<br>
+	
+	<input type='text' value='$MemoryLimit' id='MemoryLimit' onchange="PHP('/go/memorylimit',encodeURI(document.getElementById('MemoryLimit').value),'MemoryLimit')" class=InputText>
+	
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>disable_functions<br>
+	<input type='text' value='$DisableFunctions' id='DisableFunctions' onchange="PHP('/go/disablefunctions',encodeURI(document.getElementById('DisableFunctions').value),'DisableFunctions')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>max_execution_time<br>
+	<input type='text' value='$MaxExecutionTime' id='MaxExecutionTime' onchange="PHP('/go/maxexecutiontime',encodeURI(document.getElementById('MaxExecutionTime').value),'MaxExecutionTime')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>max_input_time<br>
+	<input type='text' value='$MaxInputTime' id='MaxInputTime' onchange="PHP('/go/maxinputtime',encodeURI(document.getElementById('MaxInputTime').value),'MaxInputTime')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>max_input_vars<br>
+	<input type='text' value='$MaxInputVars' id='MaxInputVars' onchange="PHP('/go/maxinputvars',encodeURI(document.getElementById('MaxInputVars').value),'MaxInputVars')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>post_max_size<br>
+	<input type='text' value='$PostMaxSize' id='PostMaxSize' onchange="PHP('/go/postmaxsize',encodeURI(document.getElementById('PostMaxSize').value),'PostMaxSize')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>upload_max_filesize<br>
+	<input type='text' value='$UploadMaxFilesize' id='UploadMaxFilesize' onchange="PHP('/go/uploadmaxfilesize',encodeURI(document.getElementById('UploadMaxFilesize').value),'UploadMaxFilesize')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>max_file_uploads<br>
+	<input type='text' value='$MaxFileUploads' id='MaxFileUploads' onchange="PHP('/go/maxfileuploads',encodeURI(document.getElementById('MaxFileUploads').value),'MaxFileUploads')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>session.gc_maxlifetime<br>
+	<input type='text' value='$SessionGcMaxlifetime' id='SessionGcMaxlifetime' onchange="PHP('/go/sessiongcmaxlifetime',encodeURI(document.getElementById('SessionGcMaxlifetime').value),'SessionGcMaxlifetime')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>allow_url_fopen<br>
+	<input type='text' value='$AllowUrlFopen' id='AllowUrlFopen' onchange="PHP('/go/allowurlfopen',encodeURI(document.getElementById('AllowUrlFopen').value),'AllowUrlFopen')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>allow_url_include<br>
+	<input type='text' value='$AllowUrlInclude' id='AllowUrlInclude' onchange="PHP('/go/allowurlinclude',encodeURI(document.getElementById('AllowUrlInclude').value),'AllowUrlInclude')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>display_errors<br>
+	<input type='text' value='$DisplayErrors' id='DisplayErrors' onchange="PHP('/go/displayerrors',encodeURI(document.getElementById('DisplayErrors').value),'DisplayErrors')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>error_reporting<br>
+	<input type='text' value='$ErrorReporting' id='ErrorReporting' onchange="PHP('/go/errorreporting',encodeURI(document.getElementById('ErrorReporting').value),'ErrorReporting')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>display_startup_errors<br>
+	<input type='text' value='$DisplayStartupErrors' id='DisplayStartupErrors' onchange="PHP('/go/displaystartuperrors',encodeURI(document.getElementById('DisplayStartupErrors').value),'DisplayStartupErrors')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>file_uploads<br>
+	<input type='text' value='$FileUploads' id='FileUploads' onchange="PHP('/go/fileuploads',encodeURI(document.getElementById('FileUploads').value),'FileUploads')" class=InputText>
+	</div>
+
+	<div class='DivInput {$Dir}DivInput'>zlib.output_compression<br>
+	<input type='text' value='$ZlibOutputCompression' id='ZlibOutputCompression' onchange="PHP('/go/zliboutputcompression',encodeURI(document.getElementById('ZlibOutputCompression').value),'ZlibOutputCompression')" class=InputText>
+	</div>
+
+	</form>
+	
+</content>

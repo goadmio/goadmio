@@ -1,0 +1,236 @@
+body {background:#23232E;padding:0px;margin:0px;height:100%;}
+html {height:100%}
+
+* {margin:0px;padding:0px}
+
+.TdLogo {height:64px;background:linear-gradient(#000000, #373743)}
+.TdLogo img {margin-left:24px}
+.TdHeader {background:linear-gradient(#000000, #373743)}
+.TdLeft {background:#23232E;width:250px}
+.TdMain {background:#23232E;width:calc(100vw - 250px);}
+
+.DivControl {height:calc(100vh - 112px);overflow-y:scroll;}
+
+.DivControl::-webkit-scrollbar {width: 10px;background:#0080FF}
+.DivControl::-webkit-scrollbar-track {}
+.DivControl::-webkit-scrollbar-thumb {background: #666B7A;}
+
+.Scroll::-webkit-scrollbar {width: 10px;}
+.Scroll::-webkit-scrollbar-track {}
+.Scroll::-webkit-scrollbar-thumb {background: #666B7A;}
+
+.DivScroll::-webkit-scrollbar {width: 10px;}
+.DivScroll::-webkit-scrollbar-track {}
+.DivScroll::-webkit-scrollbar-thumb {background: #666B7A;}
+
+.Search {height:48px;background:#23232E;}
+.Search input {border:0px;width:250px;height:46px;text-align:center;color:#FFFFFF;background: #666B7A url(../../../theme/dark/image/search.svg) no-repeat right 10px center;background-size:32px;}
+.Search input:focus {background: #666B7A url(../../../theme/dark/image/search-on.svg) no-repeat right 10px center;background-size:32px;}
+
+.TableSearch {background:#23232E;border:1px solid #80FFFF}
+.InputSearch {background: #23232E;color:#FFFFFF;border:0px;width:100%;font-family:Roboto,"Helvetica Neue",Helvetica,Aria;font-size:1rem;padding:16px;outline: none;}
+
+.Navigator {padding-left:16px;padding-right:16px;background:#23232E;height:48px;width:100%;position:fixed}
+.NavigatorInfo {margin-top:1px;padding-left:16px;padding-right:16px;line-height:40px;background:#1A468F;color:#FFFFFF;font-family:Roboto,"Helvetica Neue",Helvetica,Arial;font-size:15px;}
+.NavigatorInfo a {color:#FFFFFF}
+.Title {line-height:48px;FONT-WEIGHT: bold;FONT-SIZE: 18px; COLOR: #FFFFFF; font-family:Roboto,"Helvetica Neue",Helvetica,Arial;padding-left: 75px;padding-right: 16px;margin-top:16px;margin-bottom:16px}
+.UnderTitle {padding:16px;background:#1A468F;color:#FFFFFF;font-family:Roboto,"Helvetica Neue",Helvetica,Arial;font-size:15px;}
+.TitleB {background:#23232E;FONT-WEIGHT: bold;FONT-SIZE: 16px; COLOR: #FFFFFF; font-family:Roboto,"Helvetica Neue",Helvetica,Arial;padding:16px;border-bottom:5px solid gray}
+
+.NavigatorHeight {height:48px}
+
+A.NavigatorLink:link {FONT-WEIGHT: 400;FONT-SIZE: 15px; COLOR: #FFFFFF; font-family: Arial,Roboto,Helvetica}
+A.NavigatorLink:visited {FONT-WEIGHT: 400;FONT-SIZE: 15px; COLOR: #FFFFFF; TEXT-DECORATION: none ;font-family: Arial,Roboto,Helvetica}
+A.NavigatorLink:active {FONT-WEIGHT: 400;FONT-SIZE: 15px; COLOR: #FF6A00; TEXT-DECORATION: none ;font-family: Arial,Roboto,Helvetica}
+A.NavigatorLink:hover {FONT-WEIGHT: 400;FONT-SIZE: 15px; COLOR: #FF6A00; TEXT-DECORATION: none ; font-family: Arial,Roboto,Helvetica}
+
+.NavigatorLink {FONT-WEIGHT: 400;FONT-SIZE: 15px; COLOR: #FFFFFF; TEXT-DECORATION: none ; font-family: Arial,Roboto,Helvetica;line-height:48px}
+
+input,selec,textarea {outline: none;}
+
+.DivAction path  {background:#23232E;text-align:right;line-height:64px;padding:16px}
+
+.DivInput {width:50%;background:#23232E;FONT-WEIGHT: bold;FONT-SIZE: 12px; COLOR: #FFFFFF; font-family:Roboto,"Helvetica Neue",Helvetica,Arial;padding:12px;}
+.DivInputB {width:50%;background:#23232E;FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FFFFFF; font-family:Roboto,"Helvetica Neue",Helvetica,Arial;padding:12px;}
+.DivInput100 {width:100%;background:#23232E;FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FFFFFF; font-family:Roboto,"Helvetica Neue",Helvetica,Arial;padding-top:12px;padding-bottom:12px;}
+.ColonA {FONT-WEIGHT: bold;FONT-SIZE: 12px; COLOR: #FFFFFF; font-family:Roboto,"Helvetica Neue",Helvetica,Arial;line-height:30px}
+.DivSubmit {width:50%;background:#23232E;padding-left:16px;padding-right:16px;padding-bottom:16px}
+
+.InputText {width:75%;FONT-WEIGHT: 400;FONT-SIZE: .9375rem; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;padding:6px;margin-top:2px;background:#23232E;color:#FFFFFF;border:0px;border-bottom:1px solid #b6c1c9}
+.InputText:focus  {border-bottom:1px solid #FFFFFF}
+.InputText50 {width:50%;FONT-WEIGHT: 400;FONT-SIZE: .9375rem; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;padding:6px;margin-top:2px;background:#23232E;color:#FFFFFF;border:0px;border-bottom:1px solid #b6c1c9}
+.InputText50:focus  {border-bottom:1px solid #FFFFFF}
+.InputText30 {width:30%;FONT-WEIGHT: 400;FONT-SIZE: .9375rem; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;padding:6px;margin-top:2px;background:#23232E;color:#FFFFFF;border:0px;border-bottom:1px solid #b6c1c9}
+.InputText30:focus  {border-bottom:1px solid #FFFFFF}
+
+.InputZC {width:95%;FONT-WEIGHT: 400;FONT-SIZE: .9375rem; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;padding:6px;margin-top:2px;background:#23232E;color:#FFFFFF;border:0px;text-align:center}
+
+.InputUsername {width:100%;FONT-WEIGHT: 400;FONT-SIZE: .9375rem; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;padding:6px;margin-top:2px;background:#23232E;color:#FFFFFF;border:0px;border-bottom:1px solid #b6c1c9}
+.InputUsername:focus  {border-bottom:1px solid #FFFFFF}
+
+.InputPassword {width:100%;FONT-WEIGHT: 400;FONT-SIZE: .9375rem; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;padding:6px;margin-top:2px;background:#23232E;color:#FFFFFF;border:0px;border-bottom:1px solid #b6c1c9}
+.InputPassword:focus  {border-bottom:1px solid #FFFFFF}
+
+.TextArea {width:75%;FONT-WEIGHT: 400;FONT-SIZE: .9375rem; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;padding:6px;margin-top:2px;background:#23232E;color:#FFFFFF;border:0px;border-bottom:1px solid #b6c1c9;outline: none;}
+.TextArea:focus {border-bottom:1px solid #FFFFFF}
+	
+.Select {FONT-WEIGHT: 400;FONT-SIZE: .9375rem; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;padding:6px;margin-top:2px;background:#23232E;color:#FFFFFF;border:0px;border-bottom:1px solid #b6c1c9}
+.Select:focus {border-bottom:1px solid #FFFFFF}
+
+.InputButton {FONT-WEIGHT: normal;FONT-SIZE: .9375rem; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;padding:8px;border: 1px solid #FF6A00;background: #FF6A00;color:#FFFFFF;cursor:pointer;transition:all 0.3s ease-in-out 0s;}
+.InputButton:hover {border: 1px solid #FF6A00;background:#23232E;color:#FFFFFF;transition:all 0.3s ease-in-out 0s;}
+
+.LI {COLOR: #FFFFFF; LIST-STYLE-TYPE: square;FONT-SIZE: 12px; font-family: Roboto,"Helvetica Neue",Helvetica,Arial}
+
+h1 {COLOR: gray; LIST-STYLE-TYPE: square;FONT-SIZE: 18px; font-family: Roboto,"Helvetica Neue",Helvetica,Arial}
+
+.Menu {background:#23232E;padding-left:40px;FONT-WEIGHT: 400;FONT-SIZE: 13px; COLOR: #01F1FE; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial;line-height:40px;cursor:pointer}
+.Menu:hover {background:#42424E;color:#01F1FE}
+
+.MenuB {padding-left:40px;FONT-WEIGHT: 400;FONT-SIZE: 13px; COLOR: #FFFFFF; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial;line-height:40px;}
+
+A.Header:link {FONT-WEIGHT: 400; COLOR: #FFFFFF; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial}
+A.Header:visited {FONT-WEIGHT: 400; COLOR: #FFFFFF; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial}
+A.Header:active {FONT-WEIGHT: 400; COLOR: #FF6A00; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial}
+A.Header:hover {FONT-WEIGHT: 400; COLOR: #FF6A00; TEXT-DECORATION: none ; font-family: Roboto,"Helvetica Neue",Helvetica,Arial}
+
+.Header {FONT-WEIGHT: 400;FONT-SIZE: .9375rem; COLOR: #FFFFFF; TEXT-DECORATION: none ; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;line-height:24px}
+
+.HeaderB {FONT-WEIGHT: 600;FONT-SIZE: 1.3rem; COLOR: #000000; TEXT-DECORATION: none ; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;line-height:30px;padding-left:20px;}
+
+A.Main:link {FONT-WEIGHT: 400;FONT-SIZE: 13px; COLOR: #FFFFFF; TEXT-DECORATION: none;font-family: Roboto,"Helvetica Neue",Helvetica,Arial}
+A.Main:visited {FONT-WEIGHT: 400;FONT-SIZE: 13px; COLOR: #FFFFFF; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial}
+A.Main:active {FONT-WEIGHT: 400;FONT-SIZE: 13px; COLOR: #FFFFFF; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial}
+A.Main:hover {FONT-WEIGHT: 400;FONT-SIZE: 13px; COLOR: #FFFFFF; TEXT-DECORATION: none ; font-family: Roboto,"Helvetica Neue",Helvetica,Arial}
+
+.Main  {FONT-WEIGHT: bold;FONT-SIZE: 16px; COLOR: #FFFFFF; TEXT-DECORATION: none ; font-family: Roboto,"Helvetica Neue",Helvetica,Arial}
+
+A.Action:link {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FFFFFF; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial;background: #FF6A00;border:1px solid #dc2027;border-radius:30px;padding: 8px;margin-left:4px;transition:all 0.3s ease-in-out 0s;}
+A.Action:visited {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FFFFFF; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial;background: #FF6A00;border:1px solid #dc2027;border-radius:30px;padding: 8px;margin-left:4px;transition:all 0.3s ease-in-out 0s;}
+A.Action:active {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FF6A00; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial;background: #FFFFFF;border:1px solid #FFFFFF;transition:all 0.3s ease-in-out 0s;}
+A.Action:hover {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FF6A00; TEXT-DECORATION: none ; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;background: #FFFFFF;border:1px solid #FFFFFF;transition:all 0.3s ease-in-out 0s;}
+
+A.ActionB:link {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FFFFFF; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial;background: #28C88C;border:1px solid #dc2027;border-radius:30px;padding: 8px;margin-left:4px;transition:all 0.3s ease-in-out 0s;}
+A.ActionB:visited {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #FFFFFF; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial;background: #28C88C;border:1px solid #dc2027;border-radius:30px;padding: 8px;margin-left:4px;transition:all 0.3s ease-in-out 0s;}
+A.ActionB:active {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #28C88C; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial;background: #FFFFFF;border:1px solid #FFFFFF;transition:all 0.3s ease-in-out 0s;}
+A.ActionB:hover {FONT-WEIGHT: normal;FONT-SIZE: 12px; COLOR: #28C88C; TEXT-DECORATION: none ; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;background: #FFFFFF;border:1px solid #FFFFFF;transition:all 0.3s ease-in-out 0s;}
+
+A.Website:link {background:#ffffff;padding:10px;FONT-WEIGHT: 400;FONT-SIZE: .8rem; COLOR: #000000; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial;border-radius:30px}
+A.Website:visited {background:#ffffff;padding:10px;FONT-WEIGHT: 400;FONT-SIZE: .8rem; COLOR: #000000; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial;border-radius:30px}
+A.Website:active {background:#ffffff;padding:10px;FONT-WEIGHT: 400;FONT-SIZE: .8rem; COLOR: #000000; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial;border-radius:30px}
+A.Website:hover {background:#ffffff;padding:10px;FONT-WEIGHT: 400;FONT-SIZE: .8rem; COLOR: #000000; TEXT-DECORATION: none ; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;border-radius:30px}
+
+.Website {background:#ffffff;padding:10px;FONT-WEIGHT: 400;FONT-SIZE: .8rem; COLOR: #000000; TEXT-DECORATION: none ; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;border:1px solid #808040;border-radius:30px}
+
+.ButtonB {margin-left:4px;padding:8px;border-left:5px solid #FFFFFF;border-right:1px solid #FFFFFF;border-top:1px solid #FFFFFF;border-bottom:1px solid #FFFFFF;line-height:30px;FONT-WEIGHT: 400;FONT-SIZE: 12px; COLOR: #FFFFFF; TEXT-DECORATION: none ;font-family: Roboto,"Helvetica Neue",Helvetica,Arial; transition:all 0.3s ease-in-out 0s;}
+.ButtonB:hover {border-left:5px solid #FF6A00;border-right:1px solid #FF6A00;border-top:1px solid #FF6A00;border-bottom:1px solid #FF6A00; transition:all 0.3s ease-in-out 0s;}
+
+.DivInfo {background:#1A468F;FONT-WEIGHT: bold;FONT-SIZE: 14px; COLOR: #FFFFFF; font-family:Roboto,"Helvetica Neue",Helvetica,Arial;padding:16px;}
+
+.Description {FONT-WEIGHT: normal;FONT-SIZE: 10px; COLOR: #808080; font-family: Verdana,Arial,Times New Roman}
+.Message {FONT-WEIGHT: normal;FONT-SIZE: 16px; COLOR: #FFFFFF; TEXT-DECORATION: none ; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;line-height:24px}
+
+.Date {FONT-WEIGHT: normal;FONT-SIZE: 10px; COLOR: #FF0000; font-family: Verdana,Arial,Times New Roman}
+.Time {FONT-WEIGHT: normal;FONT-SIZE: 10px; COLOR: #0000ff; font-family: Verdana,Arial,Times New Roman}	
+.Username {FONT-WEIGHT: normal;FONT-SIZE: 10px; COLOR: #008000; font-family: Verdana,Arial,Times New Roman}	
+
+/* Pages */
+.Pages {width:20px;line-height:20px;border: 1px solid #FF6A00;color:#FFFFFF;padding:5px;margin-left:4px;display:inline-table;text-align:center;font-family:Roboto,"Helvetica Neue",Helvetica;font-size:15px;font-weight:400;border-radius: 32px}
+.Pages:hover {background: #FF6A00;border: 1px solid #FF6A00;color:#FFFFFF}
+.PagesOver {width:20px;line-height:20px;background: #FF6A00;color:#FFFFFF;border: 1px solid #FF6A00;padding:5px;margin-left:4px;display:inline-table;text-align:center;font-family:Roboto,"Helvetica Neue",Helvetica;font-weight:400;font-size:15px;border-radius: 32px}
+
+.DivIcon {padding:16px;text-align:center}
+.Icon {background:#373743;width:18%;margin:8px;padding-top:32px;padding-bottom:32px;display:inline-table;text-align:center}
+.Icon:hover {background:#42424E;}
+
+.Expanded {background:#666B7A;FONT-WEIGHT: bold;FONT-SIZE: 14px; COLOR: #FFFFFF; font-family:Roboto,"Helvetica Neue",Helvetica,Arial;padding:16px;}
+.ExpandedContent {background:#373743;border-left:1px solid #666B7A;border-right:1px solid #666B7A;border-bottom:1px solid #666B7A;padding-left:16px;padding-right:16px;padding-top:16px;padding-bottom:16px;margin-bottom:16px;}
+
+.DivCountry {padding:16px}
+.Country {width:150px;display:inline-table;border-left:5px solid #23232E;FONT-WEIGHT: 400;FONT-SIZE: 12px; COLOR: #FFFFFF; font-family: Roboto,"Helvetica Neue",Helvetica;height:30px;line-height:30px;padding-left:35px;cursor:pointer}
+.Country:hover {border-left:5px solid #FF6A00;}
+
+.ServerInfo {border-left:5px solid #23232E;padding-left:8px;width:150px;display:inline-table;FONT-WEIGHT: 400;FONT-SIZE: 12px; COLOR: #FFFFFF; font-family: Roboto,"Helvetica Neue",Helvetica;height:30px;line-height:30px;}
+.ServerInfo:hover {border-left:5px solid #FF6A00;}
+.ServerInfo a {color:#FFFFFF;text-decoration:none}
+
+pre {font-family: Consolas,monospace;color:#FFFFFF}
+
+h1 {color:#FFFFFF}
+
+.DivTable {margin:16px}
+.DivXTable {margin-top:16px;margin-bottom:16px;}
+.Table {background:#E4E4E4;width:100%}
+.TableZ {border:1px solid #0080FF;width:100%}
+
+.DivSide {margin-left:16px;margin-right:16px;FONT-WEIGHT: 400;FONT-SIZE: .9375rem; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;color:#FFFFFF}
+
+THEAD tr {background:#23232E;}
+THEAD tr th {padding:8px;border-bottom:1px solid #80FFFF;height:30px;font-family:Roboto,"Helvetica Neue",Helvetica,Arial;color:#FFFFFF;font-size:12px;font-weight:700}
+THEAD tr th a {color:#FFFFFF;text-decoration:none}
+
+TFOOT tr th {padding:8px;background:#23232E;height:30px;font-family:Roboto,"Helvetica Neue",Helvetica,Arial;color:#FFFFFF;font-size:15px;font-weight:400}
+
+.Table TBODY tr td {padding:8px;border-bottom:1px solid #0080FF;height:40px;font-family:Roboto,"Helvetica Neue",Helvetica,Arial;font-size:12px;font-weight:400;}
+
+.Td {background:#23232E;color:#FFFFFF}
+.Td a {color:#FFFFFF;text-decoration:none}
+.TdB {background:#23232E;color:#FFFFFF}
+.TdB a {color:#FFFFFF;text-decoration:none}
+.TdEr {background:#23232E;color:#FF8080}
+.TdEr a {color:#FF8080;text-decoration:none}
+.TdInfo {background:#23232E;color:#8080FF}
+.TdInfo a {color:#8080FF;text-decoration:none}
+
+.NoError {background:#23232E;FONT-WEIGHT: normal;FONT-SIZE: 15px; COLOR: #FFFFFF; font-family:Roboto,"Helvetica Neue",Helvetica,Arial;padding:16px;}
+.NoError a {COLOR: #FFFFFF;}
+.Error {background:#E40000;FONT-WEIGHT: normal;FONT-SIZE: 15px; COLOR: #FFFFFF; font-family:Roboto,"Helvetica Neue",Helvetica,Arial;padding:16px;}
+.Error a {COLOR: #FFFFFF;}
+
+.MainFill {fill:#FF0000}
+
+
+
+.DivChart {padding-left:8px;padding-right:8px;padding-bottom:16px;text-align:center;}
+.Chart {width:27%;height:200px;;background:#373743;text-align:left;display:inline-table;padding:20px;margin-left:8px;margin-right:8px;FONT-WEIGHT: 400;FONT-SIZE: 12px; COLOR: #FFFFFF; font-family: Arial;}
+.ChartTitle {FONT-WEIGHT: 400;FONT-SIZE: 1rem; COLOR: #FFFFFF; TEXT-DECORATION: none ; font-family: Roboto,"Helvetica Neue",Helvetica,Arial;}
+.ChartA  {width:60%;line-height:30px;display:inline-table;border-bottom:1px solid #0080FF}
+.ChartB  {width:39%;line-height:30px;display:inline-table;border-bottom:1px solid #0080FF}
+
+/* The message box is shown when the user clicks on the password field */
+#message {margin-left:40px; display:none;FONT-WEIGHT: bold;FONT-SIZE: 12px; COLOR: #FFFFFF; font-family:Roboto,"Helvetica Neue",Helvetica,Arial;padding-bottom:16px}
+.valid {color: #80FF80;}
+.valid:before {position: relative;left: -16px;content: "✔";}
+.invalid {color: #FF8080;}
+.invalid:before {position: relative;left: -16px;content: "✖";}
+
+
+
+.Label {display: block;position: relative;padding-left: 24px;margin-bottom: 8px;cursor: pointer;font-family:Roboto,"Helvetica Neue",Helvetica,Arial; font-size: .9375rem;  font-weight:400; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; line-height:18px;}
+
+/* Hide the browser's default radio button */
+.Label input {position: absolute;opacity: 0;cursor: pointer;}
+
+/* Create a custom radio button */
+.Checkbox {position: absolute;top: 0;left: 0;height: 18px;width: 18px;background-color: #eee;}
+.Radio {position: absolute;top: 0;left: 0;height: 18px;width: 18px;background-color: #eee; border-radius: 50%;}
+
+/* On mouse-over, add a grey background color */
+.Label:hover input ~ .Checkbox {background-color: #ccc;}
+.Label:hover input ~ .Radio {background-color: #ccc;}
+
+/* When the radio button is checked, add a blue background */
+.Label input:checked ~ .Checkbox {background-color: #FF6A00;}
+.Label input:checked ~ .Radio {background-color: #FF6A00;}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.Checkbox:after {content: "";position: absolute;display: none;}
+.Radio:after {content: "";position: absolute;display: none;}
+
+/* Show the indicator (dot/circle) when checked */
+.Label input:checked ~ .Checkbox:after {display: block;}
+.Label input:checked ~ .Radio:after {display: block;}
+
+/* Style the indicator (dot/circle) */
+.Label .Checkbox:after {top: 6px;left: 6px;width: 6px;height: 6px;background: white;}
+.Label .Radio:after {top: 6px;left: 6px;width: 6px;height: 6px;border-radius: 50%;background: white;}

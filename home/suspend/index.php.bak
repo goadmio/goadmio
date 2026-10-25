@@ -1,0 +1,53 @@
+<?php
+$Domain=$_SERVER['HTTP_HOST'];
+$Domain=str_replace("www.","",$Domain);
+include("/usr/local/go/home/go/include/function/function.php");
+include("/usr/local/go/include/config/config.php");
+
+$Date=date ("Y-m-d");
+
+$Reason="This account has been suspended.";
+
+$Result = SQL("select * from Site where Domain='$Domain' and SpaceUsed>DiskSpace and DiskSpace!=0");
+foreach ($Result as $Row)
+{
+
+	$ResultQ = SQL("select * from Template where Name='Disk Quota Exceeded'");
+	foreach ($ResultQ as $RowQ)
+	{
+		echo $RowQ['Code'];
+	}
+	exit;
+}
+
+$Result = SQL("select * from Site where Domain='$Domain' and BandwidthUsed>Bandwidth and Bandwidth!=0");
+foreach ($Result as $Row)
+{
+	$ResultQ = SQL("select * from Template where Name='Bandwidth Limit Exceeded'");
+	foreach ($ResultQ as $RowQ)
+	{
+		echo $RowQ['Code'];
+	}
+	exit;
+}
+
+$Result = SQL("select * from Site where Domain='$Domain' and ExpiresOn>='$Date'");
+foreach ($Result as $Row)
+{
+
+	$ResultQ = SQL("select * from Template where Name='Hosting Expired'");
+	foreach ($ResultQ as $RowQ)
+	{
+		echo $RowQ['Code'];
+	}
+	exit;
+}
+
+$ResultQ = SQL("select * from Template where Name='Account Suspended'");
+foreach ($ResultQ as $RowQ)
+{
+	echo $RowQ['Code'];
+}
+
+
+?>

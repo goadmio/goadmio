@@ -1,0 +1,634 @@
+/* Merged CSS from GoAdmio Webmail (Dashboard + Login) */
+
+/* === Dashboard Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Body {
+    background: gray;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 1.5rem;
+}
+
+.BodyLogin {
+	background: gray;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main container */
+.dashboard {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header card */
+.header-card {
+    background: #0f0f0f;
+    border-radius: 2rem;
+    padding: 1.2rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05), 0 4px 12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.logo-area a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.logo-area img {
+    height: 32px;
+    filter: brightness(0) invert(1);
+}
+
+.logo-area span {
+    font-weight: 600;
+    color: #eef2ff;
+    font-size: 1.2rem;
+}
+
+.user-area {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.user-area a, .user-area span {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.user-area a:hover {
+    color: #9bb8da;
+}
+
+.user-area i {
+    margin-right: 0.2rem;
+}
+
+.logout-btn {
+    background: #2c3e66;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    color: white !important;
+}
+
+.logout-btn:hover {
+    background: #3a5282;
+}
+
+/* Content card */
+.content-card {
+    background: #0f0f0f;
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05), 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Grid for webmail options */
+.webmail-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.webmail-card {
+    flex: 1 1 280px;
+    background: #1a1a1a;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.2s ease;
+    border: 1px solid #2a2a2a;
+}
+
+.webmail-card:hover {
+    transform: translateY(-4px);
+    border-color: #4a6a8a;
+    box-shadow: 0 8px 20px rgba(74, 106, 138, 0.2);
+}
+
+.webmail-card a {
+    text-decoration: none;
+    display: block;
+}
+
+.webmail-icon {
+    width: 100%;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 1rem;
+}
+
+.webmail-card h3 {
+    color: #eef2ff;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+/* Change password form */
+.password-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #e0e0e0;
+    font-weight: 500;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    border: 1.5px solid #b8b8b8;
+    border-radius: 1.2rem;
+    background: #1a1a1a;
+    color: #f0f0f0;
+    transition: all 0.2s;
+    font-family: 'Inter', monospace;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #d4e0ff;
+    box-shadow: 0 0 0 3px rgba(212, 224, 255, 0.3);
+    background: #222;
+}
+
+/* password strength messages */
+#message {
+    background: #0a0a0a;
+    border-radius: 1rem;
+    padding: 0.8rem;
+    margin: 1rem 0;
+    font-size: 0.8rem;
+}
+#message p {
+    color: #aaa;
+    margin: 0.2rem 0;
+}
+.valid {
+    color: #4caf50 !important;
+}
+.invalid {
+    color: #f44336 !important;
+}
+
+.btn-primary {
+    background: #2c3e66;
+    border: none;
+    padding: 0.85rem 2rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+.btn-primary:hover {
+    background: #3a5282;
+    transform: scale(1.01);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #9bb8da;
+    text-decoration: none;
+}
+
+hr {
+    border-color: #2a2a2a;
+    margin: 1rem 0;
+}
+
+/* card container - dark mode with subtle white shadow */
+.login-card {
+    max-width: 440px;
+    width: 100%;
+    background: #0f0f0f;
+    border-radius: 2rem;
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.08), 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+}
+
+/* header */
+.brand-header {
+    background: #0f0f0f;
+    padding: 2rem 2rem 1rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+
+.brand-icon {
+    background: #1a2c3f;
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.5);
+}
+
+.brand-icon i {
+    font-size: 2rem;
+    color: #eef2ff;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #eef2ff;
+    margin-bottom: 0.25rem;
+}
+
+/* form container */
+.form-container {
+    padding: 1.8rem 2rem 1.8rem 2rem;
+}
+
+/* table styling — only input rows remain */
+.login-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.login-table tr {
+    display: block;
+    margin-bottom: 1.25rem;
+}
+
+/* input row */
+.input-row td {
+    display: block;
+    position: relative;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.3rem;
+    font-size: 0.9rem;
+    border: 1.5px solid #b8b8b8;
+    border-radius: 1.2rem;
+    background: #1a1a1a;
+    color: #f0f0f0;
+    transition: all 0.2s;
+    font-family: 'Inter', monospace;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #d4e0ff;
+    box-shadow: 0 0 0 3px rgba(212, 224, 255, 0.3), 0 2px 8px rgba(255, 255, 255, 0.15);
+    background: #222;
+}
+
+.input-field::placeholder {
+    color: #8a8a8a;
+}
+
+/* icons inside input */
+.input-icon {
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9a9a9a;
+    font-size: 0.9rem;
+    pointer-events: none;
+}
+
+/* password wrapper */
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #9a9a9a;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.toggle-password:hover {
+    color: #e0e0e0;
+}
+
+/* button row */
+.button-row td {
+    display: block;
+    padding-top: 0.5rem;
+}
+
+.login-btn {
+    width: 100%;
+    background: #2c3e66;
+    border: none;
+    padding: 0.85rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #eef2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.login-btn:hover {
+    background: #3a5282;
+    transform: scale(1.01);
+    box-shadow: 0 6px 12px rgba(44, 62, 102, 0.6);
+}
+
+/* login status div - centered and fixed height */
+#DivLogin {
+    min-height: 30px;          /* default height 30px */
+    text-align: center;        /* center content horizontally */
+    font-size: 0.85rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: #e0e0e0;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* status row td: center the div (already block, but ensure no extra margins) */
+.status-row td {
+    display: block;
+    text-align: center;
+}
+
+.icons-row td {
+    display: block;
+    text-align: center;
+}
+
+.round-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: #6b6b6b;  /* Gray background */
+    border-radius: 50%;
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.icon-circle:hover {
+    background: #4a6a8a;  /* Blue-gray on hover */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(74, 106, 138, 0.3);
+}
+
+/* SVG styling inside circle */
+.icon-circle svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: fill 0.2s;
+}
+
+/* For the SnappyMail SVG, ensure it scales properly */
+.icon-circle .snappy-svg {
+    width: 26px;
+    height: 26px;
+}
+
+.icon-circle i {
+    font-size: 1.2rem;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #FFFFFF;
+    padding-top: 0.8rem;
+    border-top: 1px solid #2a2a2a;
+}
+
+.copyright i {
+    margin-right: 0.2rem;
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 1.2rem;
+    }
+    .input-field {
+        font-size: 0.85rem;
+    }
+    .icon-circle {
+        width: 38px;
+        height: 38px;
+    }
+    .icon-circle svg {
+        width: 20px;
+        height: 20px;
+    }
+    .icon-circle .snappy-svg {
+        width: 22px;
+        height: 22px;
+    }
+    #DivLogin {
+        min-height: 30px;
+        padding: 0.3rem 0.5rem;
+    }
+}
+
+/* ===== Email Accounts Table Styling ===== */
+.accounts-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1a1a1a;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    color: #eef2ff;
+}
+
+.accounts-table th,
+.accounts-table td {
+    padding: 1rem 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.accounts-table th {
+    background: #0f0f0f;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #9bb8da;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.accounts-table th a {
+    color: #9bb8da;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.accounts-table th a:hover {
+    color: #d4e0ff;
+}
+
+.accounts-table td {
+    font-size: 0.9rem;
+}
+
+.accounts-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Zebra striping for better readability */
+.accounts-table tbody tr:hover {
+    background: #222;
+    transition: background 0.2s;
+}
+
+/* Action links inside table */
+.action-link {
+    color: #9bb8da;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.action-link:first-child {
+    margin-left: 0;
+}
+
+.action-link:hover {
+    color: #d4e0ff;
+    text-decoration: underline;
+}
+
+/* Delete link special color */
+.action-link[style*="color:#f66"]:hover,
+.action-link[onclick*="confirm"]:hover {
+    color: #ff8888 !important;
+}
+
+/* Back link spacing */
+.back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #9bb8da;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #d4e0ff;
+    text-decoration: underline;
+}
+
+/* Table footer */
+.accounts-table tfoot th {
+    background: #0f0f0f;
+    font-weight: normal;
+    font-size: 0.85rem;
+    color: #aaa;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* Responsive table for small screens */
+@media (max-width: 768px) {
+    .accounts-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .accounts-table th,
+    .accounts-table td {
+        padding: 0.8rem;
+    }
+
+    .action-link {
+        margin-left: 0.8rem;
+    }
+}
+
+/* Make sure the password strength message is visible in dark mode */
+#message {
+    background: #0a0a0a;
+    border-radius: 1rem;
+    padding: 0.8rem;
+    margin: 1rem 0;
+    font-size: 0.8rem;
+    display: none;  /* hidden by default, shown on focus */
+}
+
+/* Additional fix for form group spacing */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #e0e0e0;
+    font-weight: 500;
+}
