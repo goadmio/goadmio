@@ -12,7 +12,7 @@ GoAdmio gives you root-level server administration, security hardening, and per-
 
 | Admin Panel | User Panel |
 |---|---|
-| ![GoAdmio Admin Panel](screenshots/admin.png) | ![GoAdmio User Panel](screenshots/user.png) |
+| ![GoAdmio Admin Panel](admin.png) | ![GoAdmio User Panel](user.png) |
 
 ---
 
