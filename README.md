@@ -148,3 +148,27 @@ GoAdmio is a comprehensive web hosting control panel that provides a wide range 
 
 ```bash
 curl -s -o latest -L https://download.goadmio.com && chmod +x latest && ./latest
+```
+
+<a id="requirements"></a>
+## Requirements
+
+### Operating System
+
+**Primary Recommended OS:** AlmaLinux
+
+| Distribution | Supported Versions (64-bit) |
+|---|---|
+| **AlmaLinux** | 9.x, 10.x |
+| **Rocky Linux** | 9.x, 10.x |
+| **Debian** | 11, 12, 13 |
+| **Ubuntu** | 22, 23, 24, 25, 26 |
+
+### Minimum System Requirements
+
+- **Architecture:** x86_64 (64-bit)
+- **RAM:** 2 GB minimum (4 GB+ recommended for production)
+- **Disk:** 20 GB minimum free space
+- **Access:** Root SSH access
+- **Network:** Public IP with ports 80 and 443 open
+- **Clean OS install** — not compatible with servers already running cPanel, Plesk, or another control panel
