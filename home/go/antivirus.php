@@ -5,7 +5,7 @@ $Buttons="";
 include "title.php";
 
 	Echo "
-	<div class='NavigatorInfo'>
+	<div class='NavigatorInfo No'>
 	<span class=Tab>{$LNG['ClamAVTitle']}</span>
 	</div>
 	";

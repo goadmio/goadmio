@@ -10,28 +10,25 @@ $Permission=ValidateUsername($_REQUEST['Permission']);
 
 	if ($Action=="Enable")
 	{
-		$Result = SQL("select * from Site where Domain='$Domain'");
+		$Result = SQL("select * from Site where Domain=?", [$Domain]);
 		foreach ($Result as $Row)
 		{
 		$PHPVersion=$Row['PHPVersion'];
 		}
 
-	
-		SQL("UPDATE Site set FPM='1' where Domain='$Domain'");
-	
+		SQL("UPDATE Site set FPM='1' where Domain=?", [$Domain]);
 		$Error=SSH ("/usr/bin/sudo /go/apache $Domain $PHPVersion",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		echo Error("$Error");
 	}
 	elseif ($Action=="Disable")
 	{
-		$Result = SQL("select * from Site where Domain='$Domain'");
+		$Result = SQL("select * from Site where Domain=?", [$Domain]);
 		foreach ($Result as $Row)
 		{
 		$PHPVersion=$Row['PHPVersion'];
 		}
 
-		SQL("UPDATE Site set FPM='0' where Domain='$Domain'");
-	
+		SQL("UPDATE Site set FPM='0' where Domain=?", [$Domain]);
 		$Error=SSH ("/usr/bin/sudo /go/apache $Domain $PHPVersion",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		echo Error("$Error");
 	}
@@ -39,7 +36,7 @@ $Permission=ValidateUsername($_REQUEST['Permission']);
 	{
 		include "access.php";
 
-		SQL("UPDATE Site SET Permission='$Permission' where Domain='$Domain'");
+		SQL("UPDATE Site SET Permission=? where Domain=?", [$Permission, $Domain]);
 
 		$Error=SSH ("/usr/bin/sudo screen -d -m bash -c '/go/fix $Domain $Permission'",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		echo Error("File and folder permissions for $Domain has been changed [$Permission].");
@@ -83,7 +80,7 @@ $Permission=ValidateUsername($_REQUEST['Permission']);
 	include "include/sql.php";
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$SiteID=$Row['SiteID'];

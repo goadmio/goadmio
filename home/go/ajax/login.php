@@ -59,13 +59,13 @@ if (class_exists(GoogleAuthenticator::class))
 		exit;
 	}
 	
-	$Result = SQL("select Username from Site where Username='$Username'");
+	$Result = SQL("select Username from Site where Username=?", [$Username]);
 	foreach ($Result as $Row)
 	{
 	$SiteExists=1;
 	}
 	
-	$Result = SQL("select * from Auth where AuthUser='$Username'");
+	$Result = SQL("select * from Auth where AuthUser=?", [$Username]);
 	foreach ($Result as $Row)
 	{
 	$AuthUser=$Row['AuthUser'];
@@ -97,7 +97,7 @@ if (class_exists(GoogleAuthenticator::class))
 
 		if (CheckPassword($Username,$Password))
 		{
-			SQL("UPDATE User SET Username='$Username',Password='".md5($Password)."' where UserID=1");
+			SQL("UPDATE User SET Username=?,Password=? where UserID=1", [$Username, md5($Password)]);
 			
 			$Result = SQL("select * from User where UserID=1");
 			foreach ($Result as $Row) {
@@ -148,14 +148,14 @@ if (class_exists(GoogleAuthenticator::class))
 		{
 		
 			$Password=md5($Password);
-			SQL("UPDATE Site SET Password='$Password' where Username='$Username'");
+			SQL("UPDATE Site SET Password=? where Username=?", [$Password, $Username]);
 		
-			$Result=SQL("select * from Site where Username='$Username'");
+			$Result=SQL("select * from Site where Username=?", [$Username]);
 			foreach ($Result as $Row)
 			{
 				$Success=1;
 
-				$ResultQ=SQL("select ControlFile from Package where PackageID='{$Row['PackageID']}'");
+				$ResultQ=SQL("select ControlFile from Package where PackageID=?", [$Row['PackageID'] ?? 0]);
 				foreach ($ResultQ as $RowQ)
 				{
 				$_SESSION['SessionControlFile']=$RowQ['ControlFile'];
@@ -193,7 +193,7 @@ if (class_exists(GoogleAuthenticator::class))
 		// Reseller
 	
 			$Password=md5($Password);
-			$Result = SQL("select * from User where Username='$Username' and Password='$Password'");
+			$Result = SQL("select * from User where Username=? and Password=?", [$Username, $Password]);
 			foreach ($Result as $Row)
 			{
 

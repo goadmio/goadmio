@@ -1,4 +1,4 @@
-</TD><?php
+<?php
 include "navigator.php";
 include "no.php";
 $Buttons="";
@@ -44,8 +44,7 @@ exit;
 		<select name='Source' class=Select>
 		";
 		
-		$Sql = "select * from Mysql where MysqlID>=1 order by Name";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Mysql where MysqlID>=1 order by Name");
 		foreach ($Result as $Row)
 		{
 			echo "<option value='{$Row['Name']}'>{$Row['Name']} ({$Row['Domain']})</option>";
@@ -63,8 +62,7 @@ exit;
 		<select name='Domain' class=Select>
 		";
 		
-		$Sql = "select * from Site where Trash=0 $SearchSql order by Domain";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Site where Trash=0 $SearchSql order by Domain");
 		foreach ($Result as $Row)
 		{
 			if ($Row['Domain']==$Domain)

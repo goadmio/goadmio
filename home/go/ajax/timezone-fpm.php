@@ -16,8 +16,7 @@ $Domain=ValidateDomain($_REQUEST['Domain']);
 if ($Domain!="")
 {
 
-	$Sql = "select Timezone from Site where Domain='$Domain'";
-	$Result = SQL($Sql);
+	$Result = SQL("select Timezone from Site where Domain=?", [$Domain]);
 	foreach ($Result as $Row)
 	{
 		$Timezone=trim($Row['Timezone']);

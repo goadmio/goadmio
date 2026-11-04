@@ -14,8 +14,7 @@ $Email=$_REQUEST['Email'];
 
 
 
-		$Sql = "select Hostname,SMTPPort from Config where ConfigID=1";
-		$Result = SQL($Sql);
+		$Result = SQL("select Hostname,SMTPPort from Config where ConfigID=1");
 		foreach ($Result as $Row)
 		{
 		$Hostname=$Row['Hostname'];

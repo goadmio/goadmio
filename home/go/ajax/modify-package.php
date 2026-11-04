@@ -17,8 +17,7 @@ $Domain=trim($_REQUEST['Domain']);
 if ($Domain!="")
 {
 
-
-	$Result=SQL("select * from Package where PackageID='$PackageID'");
+	$Result=SQL("select * from Package where PackageID=?", [$PackageID]);
 	foreach ($Result as $Row)
 	{ 
 
@@ -36,11 +35,11 @@ if ($Domain!="")
 
 	if ($PackageID==0)
 	{
-	SQL("UPDATE Site SET PackageID='$PackageID' where Domain='$Domain'");
+	SQL("UPDATE Site SET PackageID=? where Domain=?", [$PackageID, $Domain]);
 	}
 	else
 	{
-	SQL("UPDATE Site SET PackageID='$PackageID',DiskSpace='$DiskSpace',Bandwidth='$Bandwidth',Inode='$Inode',FTPNo='$FTPNo',EmailNo='$EmailNo',DatabaseNo='$DatabaseNo',SubDomainNo='$SubDomainNo',AliasNo='$AliasNo',AddonNo='$AddonNo' where PackageID='$PackageID' or Domain='$Domain'");
+	SQL("UPDATE Site SET PackageID=?,DiskSpace=?,Bandwidth=?,Inode=?,FTPNo=?,EmailNo=?,DatabaseNo=?,SubDomainNo=?,AliasNo=?,AddonNo=? where PackageID=? or Domain=?", [$PackageID,$DiskSpace,$Bandwidth,$Inode,$FTPNo,$EmailNo,$DatabaseNo,$SubDomainNo,$AliasNo,$AddonNo,$PackageID,$Domain]);
 	}
 
 	echo $Domain;

@@ -69,8 +69,7 @@ Echo "
 	foreach ($ListArray as $Domain)
 	{
 		$Exists=0;
-		$Sql = "select Domain from Site where Domain='$Domain'";
-		$Result = SQL($Sql);
+		$Result = SQL("select Domain from Site where Domain=?", [$Domain]);
 		foreach ($Result as $Row)
 		{
 		$Exists=1;

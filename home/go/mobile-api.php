@@ -31,8 +31,7 @@ If ($Delete==1 and $Step==1)
 if ($Delete==1 and $Step==2)
 {
 
-	$Sql = "DELETE from MobileApi where MobileApiID='$MobileApiID'";
-	$Result = SQL($Sql);
+	$Result = SQL("DELETE from MobileApi where MobileApiID=?", [$MobileApiID]);
 	If ($Result)
 	{
 		echo Error("API $Name ($MobileApiID) has been deleted.");
@@ -45,8 +44,7 @@ elseif ($_REQUEST['TableName']!="")
 	if ($Edit==1)
 	{
 	
-		$Sql = "UPDATE MobileApi SET Name='$Name',TableName='$TableName',Columns='$Columns',ApiKey='$ApiKey',Domain='$Domain' where MobileApiID='$MobileApiID'";
-		$Result = SQL($Sql);
+		$Result = SQL("UPDATE MobileApi SET Name=?,TableName=?,Columns=?,ApiKey=?,Domain=? where MobileApiID=?", [$Name,$TableName,$Columns,$ApiKey,$Domain,$MobileApiID]);
 		If ($Result)
 		{
 		echo Error("API $Name ($MobileApiID) updated successfully.");
@@ -57,8 +55,7 @@ elseif ($_REQUEST['TableName']!="")
 	else
 	{
 		$TimeStamp=time();
-		$Sql = "INSERT INTO MobileApi (Name,TableName,Columns,ApiKey,Domain,TimeStamp) VALUES ('$Name','$TableName','$Columns','$ApiKey','$Domain','$TimeStamp')";
-		$Result = SQL($Sql);
+		$Result = SQL("INSERT INTO MobileApi (Name,TableName,Columns,ApiKey,Domain,TimeStamp) VALUES (?,?,?,?,?,?)", [$Name,$TableName,$Columns,$ApiKey,$Domain,$TimeStamp]);
 		If ($Result)
 		{
 		echo Error("API $Name created successfully.");
@@ -73,8 +70,7 @@ elseif ($_REQUEST['TableName']!="")
 	$Domain="";
 	if ($Edit==1)
 	{
-		$Sql = "select * from MobileApi where MobileApiID='$MobileApiID'";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from MobileApi where MobileApiID=?", [$MobileApiID]);
 		foreach ($Result as $Row)
 		{ 
 	
@@ -99,8 +95,7 @@ elseif ($_REQUEST['TableName']!="")
 		<select name='Domain' class=Select>
 		";
 		
-		$Sql = "select * from Site where Trash=0 $SearchSql order by Domain";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Site where Trash=0 $SearchSql order by Domain");
 		foreach ($Result as $Row)
 		{
 			if ($Row['Domain']==$Domain)
@@ -123,8 +118,7 @@ elseif ($_REQUEST['TableName']!="")
 		<select name='Name' class=Select>
 		";
 		
-		$Sql = "select * from Mysql where MysqlID>=1 $SearchSql order by Name";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Mysql where MysqlID>=1 $SearchSql order by Name");
 		foreach ($Result as $Row)
 		{
 			if ($Row['Name']==$Name)
@@ -227,7 +221,7 @@ elseif ($_REQUEST['TableName']!="")
 		
 
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 		

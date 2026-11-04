@@ -9,8 +9,7 @@ header("Content-Disposition: attachment; filename=parked-domain.txt");
 header("Pragma: no-cache");
 header("Expires: 0");
 
-	$Sql = "select * from Site where SiteID>=1 order by Domain ASC";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Site where SiteID>=1 order by Domain ASC");
 	foreach ($Result as $Row)
 	{
 	echo "{$Row['Domain']}\n";
@@ -18,15 +17,6 @@ header("Expires: 0");
 
 	exit;
 }
-
-if ($_REQUEST['Action']=="Reset")
-{
-
-	$Sql = "UPDATE Site SET VisitorNo=0,RefererUrl='',TargetUrl=''";
-	$Result = SQL($Sql);
-	
-}
-
 
 if ($_REQUEST['Domain']!="")
 {

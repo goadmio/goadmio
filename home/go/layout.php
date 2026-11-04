@@ -92,7 +92,7 @@ $switchViewText = "Switch to $viewText View";
 		{
 		
 		echo "
-		<div class='Slidbar'>
+		<div class='Slidbar No'>
 			<div class='slider-toggle' onclick='toggleSidebar()'>
 				<svg class='slider-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>
 					<path d='M15 18l-6-6 6-6'/>
@@ -105,7 +105,7 @@ $switchViewText = "Switch to $viewText View";
 		$LoadPage="home.php";
 		if ($_SESSION['SessionType']=="Website" and $_SESSION['SkipContact']!=1)
 		{
-			$Result = SQL("select * from Site where Domain='{$_SESSION['SessionDomain']}'");
+            $Result = SQL("select * from Site where Domain=?", [$_SESSION['SessionDomain']]);
 			foreach ($Result as $Row)
 			{
 				if ($Row['Email']=="" or strlen($Row['Mobile'])<10)
@@ -134,7 +134,7 @@ $switchViewText = "Switch to $viewText View";
     <!-- Main Content Area -->
     <div class='main-content'>
         <!-- Left Area - Contains control.php menu -->
-        <div class='left-area'>
+        <div class='left-area No'>
             <?php include "$ControlFile"; ?>
         </div>
         

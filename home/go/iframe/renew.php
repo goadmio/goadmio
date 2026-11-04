@@ -38,7 +38,7 @@ echo "
 ";
 
 
-if ($_SESSION['SessionSSHUsername']!="root" and $_SESSION['SessionSSHUsername']!=$SSHUsername)
+if ($_SESSION['SessionType']!="Root" and $_SESSION['SessionSSHUsername']!=$SSHUsername)
 {
 
 	Echo "
@@ -56,10 +56,8 @@ exit;
 	
 		if ($Success==1)
 		{
-		$ExpiresOn = date("Y-m-d", strtotime("+1 month",strtotime("$ExpiresOn")));
-		
-		SQL("UPDATE VPS set ExpiresOn='$ExpiresOn' where VPSID='$VPSID'");
-		
+		$ExpiresOn = date("Y-m-d", strtotime("+1 month",strtotime("$ExpiresOn")));		
+		SQL("UPDATE VPS set ExpiresOn=? where VPSID=?", [$ExpiresOn, $VPSID]);
 		echo Error ("$IP renew down ($ExpiresOn), Customer ID: $CustomerID");
 		}
 		else
@@ -94,9 +92,7 @@ $OAlign="right";
 $Dir="LTR";
 }
 
-
-
-	$Result = SQL("SELECT * FROM VPS where VPSID='$VPSID'");
+	$Result = SQL("SELECT * FROM VPS where VPSID=?", [$VPSID]);
 	foreach ($Result as $Row)
 	{
 	$ExpiresOn=$Row['ExpiresOn'];

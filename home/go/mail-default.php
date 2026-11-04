@@ -5,7 +5,7 @@ $Buttons="";
 include "title.php";
 	
 Echo "
-<div class=NavigatorInfo>
+<div class='NavigatorInfo No'>
 <img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>Catch any email that is sent to an invalid email address for your domain.
 </div>
 ";
@@ -42,7 +42,7 @@ include "access.php";
 	if (stristr($_SESSION['SessionDomain'],"."))
 	{
 
-		$Result = SQL("select Email from Mail where DefaultAddress=1 and Domain='{$_SESSION['SessionDomain']}'");
+		$Result = SQL("select Email from Mail where DefaultAddress=1 and Domain=?", [$_SESSION['SessionDomain']]);
 		foreach ($Result as $Row)
 		{
 		$Email=$Row['Email'];
@@ -60,7 +60,7 @@ include "access.php";
 		else
 		{
 
-			$Result = SQL("select Email from Mail where DefaultAddress=1 and Domain='$Domain'");
+			$Result = SQL("select Email from Mail where DefaultAddress=1 and Domain=?", [$Domain]);
 			foreach ($Result as $Row)
 			{
 			$Email=$Row['Email'];

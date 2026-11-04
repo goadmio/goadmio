@@ -90,7 +90,7 @@ $Email=trim($_REQUEST['Email']);
 	{
 		$HomeDirectorySelected="selected";
 		
-		$Result = SQL("select * from Site where Domain='{$_SESSION['SessionDomain']}'");
+		$Result = SQL("select * from Site where Domain=?", [$_SESSION['SessionDomain']]);
 		foreach ($Result as $Row)
 		{
 			$Email=$Row['AdminEmail'];
@@ -105,9 +105,7 @@ $Email=trim($_REQUEST['Email']);
 	<div class='DivInput {$Dir}DivInput'>{$LNG['Domain']}<br>
 	";
 
-
-		$Sql = "select * from Site where Trash=0 $SearchSql";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Site where Trash=0 $SearchSql");
 		foreach ($Result as $Row)
 		{
 		$Account['Domain'][]=$Row['Domain'];

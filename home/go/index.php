@@ -128,9 +128,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" or ($_SESSION['SessionUserGroup']>=1) and
 		exit;
 	}
 
-
-	$Sql = "select Username from Site where Username='{$_SESSION['SessionUsername']}'";
-	$Result = SQL($Sql);
+	$Result = SQL("select Username from Site where Username=?", [$_SESSION['SessionUsername']]);
 	foreach ($Result as $Row)
 	{
 	$SiteExists=1;
@@ -155,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" or ($_SESSION['SessionUserGroup']>=1) and
 		if ($View=="") {$View="User";}
 	
 		// Site Access
-		$Result = SQL("select * from Site where Username='{$_SESSION['SessionUsername']}' and Password='{$_SESSION['SessionPassword']}'");
+		$Result = SQL("select * from Site where Username=? and Password=?", [$_SESSION['SessionUsername'], $_SESSION['SessionPassword']]);
 		foreach ($Result as $Row)
 		{
 			$Success=1;
@@ -179,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" or ($_SESSION['SessionUserGroup']>=1) and
 		{
 		// Reseller
 	
-			$Result = SQL("select * from User where Username='{$_SESSION['SessionUsername']}' and Password='{$_SESSION['SessionPassword']}'");
+			$Result = SQL("select * from User where Username=? and Password=?", [$_SESSION['SessionUsername'], $_SESSION['SessionPassword']]);
 			foreach ($Result as $Row)
 			{
 				$Success=1;

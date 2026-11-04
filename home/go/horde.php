@@ -11,7 +11,7 @@ include("/usr/local/goadmio/include/config/config.php");
 
 $MailID=$_REQUEST['MailID'];
 
-$Result = SQL("select * from Mail where MailID='$MailID'");
+$Result = SQL("select * from Mail where MailID=?", [$MailID]);
 foreach ($Result as $Row)
 { 
 

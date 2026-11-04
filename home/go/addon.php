@@ -37,8 +37,7 @@ if ($Primary==1 and $AddonDomain!="")
 }
 elseif ($AddonDomain!="")
 {
-	$Sql = "select AddonNo from Site where Domain='$Domain'";
-	$Result = SQL($Sql);
+	$Result = SQL("select AddonNo from Site where Domain=?", [$Domain]);
 	foreach ($Result as $Row)
 	{
 		if ($Row['AddonNo']<=0)
@@ -76,8 +75,7 @@ elseif ($AddonDomain!="")
 	<select name='Domain' class=Select>
 	";
 	
-	$Sql = "select * from Site where Trash=0 and Owner='' $SearchSql order by Domain";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Site where Trash=0 and Owner='' $SearchSql order by Domain");
 	foreach ($Result as $Row)
 	{
 	echo "
@@ -151,7 +149,7 @@ elseif ($AddonDomain!="")
 		include "include/sql.php";
 
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 		$ID=$Row['SiteID'];

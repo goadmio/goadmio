@@ -29,15 +29,13 @@ if ($_REQUEST['ExpiresOn']!="")
 	$Description=$_REQUEST['Description'];
 	$ExpiresOn=substr($_REQUEST['ExpiresOn'],6,4)."-".substr($_REQUEST['ExpiresOn'],3,2)."-".substr($_REQUEST['ExpiresOn'],0,2);
 
-	$Sql = "select Domain from Site where SiteID='$SiteID'";
-    $Result = SQL($Sql);
+	$Result = SQL("select Domain from Site where SiteID=?", [$SiteID]);
     foreach ($Result as $Row)
     {
 	$Domain=$Row['Domain'];
 	}
-
-	$Sql = "UPDATE Site SET FullName='$FullName',Mobile='$Mobile',Email='$Email',ExpiresOn='$ExpiresOn',Description='$Description' where SiteID='$SiteID'";
-	$Result = SQL($Sql);
+	
+	$Result = SQL("UPDATE Site SET FullName=?,Mobile=?,Email=?,ExpiresOn=?,Description=? where SiteID=?", [$FullName,$Mobile,$Email,$ExpiresOn,$Description,$SiteID]);
 	If ($Result)
 	{
 	echo Error("Expiration date updated successfully.");
@@ -45,10 +43,7 @@ if ($_REQUEST['ExpiresOn']!="")
 	
 }
 
-	
-	
-
-	$Result = SQL("select * from Site where SiteID='$SiteID'");
+	$Result = SQL("select * from Site where SiteID=?", [$SiteID]);
 	foreach ($Result as $Row)
 	{
 	$Domain=$Row['Domain'];

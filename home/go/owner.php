@@ -84,9 +84,7 @@ If ($Action=="ListOwner")
 	
 if ($ChangeOwner==1)
 {
-
-	SQL("UPDATE Site set UserID='$UserID' where Domain='$Domain'");
-
+	SQL("UPDATE Site set UserID=? where Domain=?", [$UserID, $Domain]);
 }
 
 
@@ -151,7 +149,7 @@ $Date=date ("Y-m-d",mktime (date("G"),date("i")+$GMT,date("s"),date("m"),date("d
     
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$SiteID=$Row['SiteID'];

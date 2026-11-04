@@ -25,7 +25,7 @@ $Domain="-";
 }
 
 Echo "
-<div class=NavigatorInfo>
+<div class='NavigatorInfo No'>
 To access Terminal directly, navigate to <a href='http://$Domain:2222' target='_blank'>http://$IPv4:2222</a></span>
 </div>
 ";
@@ -37,16 +37,12 @@ $SSHFontSize=$_REQUEST['SSHFontSize'];
 
 if ($SSHFontSize!="")
 {
-	$Sql = "UPDATE Config Set SSHFontSize='$SSHFontSize' where ConfigID=1";
-	$Result = SQL($Sql);
+	$Result = SQL("UPDATE Config Set SSHFontSize=? where ConfigID=1", [$SSHFontSize]);
 }
-
 
 if ($SSH!="")
 {
-	$Sql = "UPDATE Config Set SSH='$SSH' where ConfigID=1";
-	$Result = SQL($Sql);
-
+	$Result = SQL("UPDATE Config Set SSH=? where ConfigID=1", [$SSH]);
 }
 
 

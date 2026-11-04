@@ -1,6 +1,6 @@
 <?php
 $config = [];
-$config['db_dsnw'] = 'mysql://roundcube:Fszm55vOH7x0iPKM@localhost/roundcube';
+$config['db_dsnw'] = 'mysql://roundcube:vBggcsap0gM3pAXM@localhost/roundcube';
 $config['default_host'] = 'localhost';
 $config['smtp_user'] = '%u';
 $config['smtp_pass'] = '%p';

@@ -5,19 +5,24 @@ include "title.php";
 
 $Password=ValidatePassword($_REQUEST['Password']);
 
-	if (!in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUsername], true))
-	{
+if ($_SESSION['SessionType']!="Root")
+{
+	Echo "
+	Sorry, You Are Not Allowed to Access This Page
+	";
 
-		Echo "
-		Sorry, You Are Not Allowed to Access This Page
-		";
-
-		exit;
-	}
-
+	exit;
+}
 
 if ($Password!="")
 {
+
+	if ($DemoPassword!="")
+	{
+	echo Error($LNG['ThisFunctionalityNotAvailableDemoMode']);
+	exit;
+	}
+
 	$Error=SSH ("/usr/bin/sudo /go/skeleton $Password",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 	echo Error("$Error");
 	

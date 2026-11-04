@@ -4,7 +4,7 @@ $Buttons="<a href='javascript:Load(\"$CurrentFileName?Action=Renew&Page=$Page\")
 $Buttons.="<a href='javascript:Load(\"$CurrentFileName?Action=MAC&Page=$Page\")' class='ButtonB {$Dir}ButtonB'>Generate MAC</a>";
 include "title.php";
 
-echo "<div class=NavigatorInfo><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>This feature is supported only on physical server hardware and will not function on VPS (Virtual Private Server) or cloud-based environments</div>";
+echo "<div class='NavigatorInfo No'><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>This feature is supported only on physical server hardware and will not function on VPS (Virtual Private Server) or cloud-based environments</div>";
 
 $Edit=$_REQUEST['Edit'];
 $ID=intval($_REQUEST['ID']);
@@ -66,7 +66,7 @@ If ($Delete==1 and $Step==1)
 if ($Delete==1 and $Step==2)
 {
 
-	SQL("DELETE from VPS where VPSID='$VPSID'");
+	SQL("DELETE from VPS where VPSID=?", [$VPSID]);
 	echo Error("VPS IP $IP has been deleted.");
 	
 
@@ -74,7 +74,7 @@ if ($Delete==1 and $Step==2)
 elseif ($ServerIP!="")
 {
 
-	$Result = SQL("select * from Server where ServerIP='$ServerIP'");
+	$Result = SQL("select * from Server where ServerIP=?", [$ServerIP]);
 	foreach ($Result as $Row)
 	{ 
 		$Location=$Row['Location'];
@@ -87,28 +87,28 @@ elseif ($ServerIP!="")
 	
 
 		$HostnameExists=0;
-		$Result = SQL("select Hostname from VPS where Hostname='$Hostname' and VPSID!='$VPSID'");
+		$Result = SQL("select Hostname from VPS where Hostname=? and VPSID!=?", [$Hostname,$VPSID]);
 		foreach ($Result as $Row)
 		{ 
 			$HostnameExists=1;
 		}
 
 		$IPExists=0;
-		$Result = SQL("select Hostname from VPS where IP='$IP' and VPSID!='$VPSID'");
+		$Result = SQL("select Hostname from VPS where IP=? and VPSID!=?", [$IP,$VPSID]);
 		foreach ($Result as $Row)
 		{ 
 			$IPExists=1;
 		}
 		
 		$IDExists=0;
-		$Result = SQL("select ID from VPS where ServerIP='$ServerIP' and ID='$ID' and VPSID!='$VPSID'");
+		$Result = SQL("select ID from VPS where ServerIP=? and ID=? and VPSID!=?", [$ServerIP,$ID,$VPSID]);
 		foreach ($Result as $Row)
 		{ 
 			$IDExists=1;
 		}
 
 		$MACExists=0;
-		$Result = SQL("select MAC from VPS where MAC='$MAC' and MAC!='' and VPSID!='$VPSID'");
+		$Result = SQL("select MAC from VPS where MAC=? and MAC!='' and VPSID!=?", [$MAC,$VPSID]);
 		foreach ($Result as $Row)
 		{ 
 			$MACExists=1;
@@ -126,7 +126,7 @@ elseif ($ServerIP!="")
 					if ($HostnameExists==0)
 					{
 
-						SQL("UPDATE VPS SET ID='$ID',ServerIP='$ServerIP',IP='$IP',CIDR='$CIDR',Gateway='$Gateway',MAC='$MAC',CustomerID='$CustomerID',File='$File',DiskType='$DiskType',DiskSpace='$DiskSpace',Cores='$Cores',Memory='$Memory',Hostname='$Hostname',VPSName='$VPSName',PlanName='$PlanName',Price='$Price',ExpiresOn='$ExpiresOn',Location='$Location',AvailablePlan='$AvailablePlan' where VPSID='$VPSID'");
+						SQL("UPDATE VPS SET ID=?,ServerIP=?,IP=?,CIDR=?,Gateway=?,MAC=?,CustomerID=?,File=?,DiskType=?,DiskSpace=?,Cores=?,Memory=?,Hostname=?,VPSName=?,PlanName=?,Price=?,ExpiresOn=?,Location=?,AvailablePlan=? where VPSID=?", [$ID,$ServerIP,$IP,$CIDR,$Gateway,$MAC,$CustomerID,$File,$DiskType,$DiskSpace,$Cores,$Memory,$Hostname,$VPSName,$PlanName,$Price,$ExpiresOn,$Location,$AvailablePlan,$VPSID]);
 						echo Error("VPS IP $IP updated successfully.");
 					
 						$Edit="";
@@ -176,28 +176,28 @@ elseif ($ServerIP!="")
 	{
 		
 		$HostnameExists=0;
-		$Result = SQL("select Hostname from VPS where Hostname='$Hostname'");
+		$Result = SQL("select Hostname from VPS where Hostname=?", [$Hostname]);
 		foreach ($Result as $Row)
 		{ 
 			$HostnameExists=1;
 		}
 
 		$IPExists=0;
-		$Result = SQL("select Hostname from VPS where IP='$IP'");
+		$Result = SQL("select Hostname from VPS where IP=?", [$IP]);
 		foreach ($Result as $Row)
 		{ 
 			$IPExists=1;
 		}
 		
 		$IDExists=0;
-		$Result = SQL("select ID from VPS where ServerIP='$ServerIP' and ID='$ID'");
+		$Result = SQL("select ID from VPS where ServerIP=? and ID=?", [$ServerIP,$ID]);
 		foreach ($Result as $Row)
 		{ 
 			$IDExists=1;
 		}
 
 		$MACExists=0;
-		$Result = SQL("select MAC from VPS where MAC='$MAC' and MAC!=''");
+		$Result = SQL("select MAC from VPS where MAC=? and MAC!=''", [$MAC]);
 		foreach ($Result as $Row)
 		{ 
 			$MACExists=1;
@@ -229,7 +229,7 @@ elseif ($ServerIP!="")
 						if ($Success==1)
 						{
 						$TimeStamp=time();
-						SQL("INSERT INTO VPS (ID,ServerIP,IP,CIDR,Gateway,MAC,CustomerID,File,DiskType,DiskSpace,Cores,Memory,Hostname,VPSName,PlanName,Price,ExpiresOn,Location,AvailablePlan,TimeStamp) VALUES ('$ID','$ServerIP','$IP','$CIDR','$Gateway','$MAC','$CustomerID','$File','$DiskType','$DiskSpace','$Cores','$Memory','$Hostname','$VPSName','$PlanName','$Price','$ExpiresOn','$Location','$AvailablePlan','$TimeStamp')");
+						SQL("INSERT INTO VPS (ID,ServerIP,IP,CIDR,Gateway,MAC,CustomerID,File,DiskType,DiskSpace,Cores,Memory,Hostname,VPSName,PlanName,Price,ExpiresOn,Location,AvailablePlan,TimeStamp) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [$ID,$ServerIP,$IP,$CIDR,$Gateway,$MAC,$CustomerID,$File,$DiskType,$DiskSpace,$Cores,$Memory,$Hostname,$VPSName,$PlanName,$Price,$ExpiresOn,$Location,$AvailablePlan,$TimeStamp]);
 						echo Error("VPS IP $IP added successfully.");
 							
 						$CustomerID="";
@@ -286,7 +286,7 @@ elseif ($ServerIP!="")
 
 	if ($Edit==1)
 	{
-		$Result = SQL("select * from VPS where VPSID='$VPSID'");
+		$Result = SQL("select * from VPS where VPSID=?", [$VPSID]);
 		foreach ($Result as $Row)
 		{
 	
@@ -349,7 +349,7 @@ elseif ($ServerIP!="")
 	}
 	else
 	{
-	$Result = SQL("SELECT * FROM Plan where DiskType='$DiskType' order by DiskType,DiskSpace");
+	$Result = SQL("SELECT * FROM Plan where DiskType=? order by DiskType,DiskSpace", [$DiskType]);
 	}
 	foreach ($Result as $Row)
 	{
@@ -641,7 +641,7 @@ elseif ($ServerIP!="")
 		include "include/sql.php";  
 
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 			

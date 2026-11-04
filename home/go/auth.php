@@ -18,7 +18,7 @@ $Domain = preg_replace("/^www\./","",$_SERVER['SERVER_NAME']);
 if ($Code=="Delete")
 {
 		echo Error("Two-Factor Authentication has been Disabled.");
-		SQL("DELETE from Auth where AuthUser='$AuthUser'");
+		SQL("DELETE from Auth where AuthUser=?", [$AuthUser]);
         SSH ("/usr/bin/sudo /go/ssh",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		
 }
@@ -30,8 +30,8 @@ elseif ($AuthUser!="" and $AuthSecret!="" and $Code!="")
 	if ($ga->checkCode($AuthSecret, $Code))
 	{
 		echo Error("Verification Successful.");
-		SQL("DELETE from Auth where AuthUser='$AuthUser'");
-		SQL("INSERT INTO Auth (AuthUser,AuthSecret) VALUES ('$AuthUser','$AuthSecret')");
+		SQL("DELETE from Auth where AuthUser=?", [$AuthUser]);
+		SQL("INSERT INTO Auth (AuthUser,AuthSecret) VALUES (?,?)", [$AuthUser, $AuthSecret]);
 		
 		$ClientIP=ClientIP();
 		SSH ("/usr/bin/sudo /go/ssh $ClientIP",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
@@ -55,8 +55,7 @@ elseif ($AuthUser!="" and $AuthSecret!="" and $Code!="")
 	}
 
 	$AuthEnable=0;
-	$Sql = "select * from Auth where AuthUser='$AuthUser'";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Auth where AuthUser=?", [$AuthUser]);
 	foreach ($Result as $Row)
 	{
 	$AuthEnable=1;

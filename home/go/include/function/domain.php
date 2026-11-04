@@ -117,9 +117,7 @@ function GetDomainExpire($Domain)
 	// تحديد اذا كان الدومين متاح ام لا
 	function CheckDomain($DomainName,$Ext)
 	{
-
-		$Sql = "select * from Extension where Extension='$Ext'";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Extension where Extension=?", [$Ext]);
 		foreach ($Result as $Row)
 		{
 	        $Server=$Row['Server'];
@@ -153,8 +151,7 @@ function GetDomainExpire($Domain)
 	// Whois Domain
 	function WhoisDomain($DomainName,$Ext)
 	{   
-		$Sql = "select * from Extension where Extension='$Ext'";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Extension where Extension=?", [$Ext]);
 		foreach ($Result as $Row)
 		{
 	        $Server=$Row['Server'];

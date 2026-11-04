@@ -9,10 +9,7 @@ $TXTRecord=$_REQUEST['TXTRecord'];
 
 if ($_REQUEST['Action']=="Reset")
 {
-
-	$Sql = "UPDATE Site SET VisitorNo=0,RefererUrl='',TargetUrl=''";
-	$Result = SQL($Sql);
-	
+	$Result = SQL("UPDATE Site SET VisitorNo=0,RefererUrl='',TargetUrl=''");	
 }
 
 

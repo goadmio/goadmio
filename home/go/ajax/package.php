@@ -17,7 +17,7 @@ $PackageID=intval($_REQUEST['PackageID']);
 if ($PackageID!="")
 {
 
-	$Result=SQL("select * from Package where PackageID='$PackageID'");
+	$Result=SQL("select * from Package where PackageID=?", [$PackageID]);
 	foreach ($Result as $Row)
 	{ 
 		$DiskSpace=intval($Row['DiskSpace'])/1048576;

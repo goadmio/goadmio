@@ -22,7 +22,7 @@ $Value=str_replace("'","",$Value);
 
 	if ($SiteID>=1)
 	{
-		$Result = SQL("select Domain from Site where SiteID='$SiteID'");
+		$Result = SQL("select Domain from Site where SiteID=?", [$SiteID]);
 		foreach ($Result as $Row)
 		{
 		$Domain=$Row['Domain'];
@@ -41,7 +41,7 @@ if ($Service=="OpenBasedir" and $SiteID!="")
 	
 	if ($_SESSION['SessionSSHUsername']=="root" or $_SESSION['SessionSSHUsername']==$SSHUsername)
 	{
-	SQL("UPDATE Site set OpenBasedir='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set OpenBasedir=? where SiteID=?", [$Value, $SiteID]);
 	SSH ("/usr/bin/sudo screen -d -m bash -c '/go/conf $Domain'",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 	}
 }
@@ -91,7 +91,7 @@ elseif ($Service=="DisableFunctions" and $SiteID!="")
 	
 	if ($_SESSION['SessionSSHUsername']=="root" or $_SESSION['SessionSSHUsername']==$SSHUsername)
 	{
-	SQL("UPDATE Site set DisableFunctions='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set DisableFunctions=? where SiteID=?", [$Value, $SiteID]);
 	SSH ("/usr/bin/sudo screen -d -m bash -c '/go/conf $Domain'",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 	}
 }
@@ -105,7 +105,7 @@ elseif ($Service=="SMTPHost" and $SiteID!="")
 	}
 	elseif (stristr($Value,".") OR $Value=="")
 	{
-		SQL("UPDATE Site set SMTPHost='$Value',SMTPStatus='-1' where SiteID='$SiteID'");
+		SQL("UPDATE Site set SMTPHost=?,SMTPStatus='-1' where SiteID=?", [$Value, $SiteID]);
 
 		if (stristr($Domain,"."))
 		{
@@ -121,7 +121,7 @@ elseif ($Service=="SMTPHost" and $SiteID!="")
 elseif ($Service=="SMTPUser" and $SiteID!="")
 {
 	$Value=trim($Value);
-	SQL("UPDATE Site set SMTPUser='$Value',SMTPStatus='-1' where SiteID='$SiteID'");
+	SQL("UPDATE Site set SMTPUser=?,SMTPStatus='-1' where SiteID=?", [$Value, $SiteID]);
 	
 	if (stristr($Domain,"."))
 	{
@@ -132,7 +132,7 @@ elseif ($Service=="SMTPUser" and $SiteID!="")
 elseif ($Service=="SMTPPass" and $SiteID!="")
 {
 	$Value=trim($Value);
-	SQL("UPDATE Site set SMTPPass='$Value',SMTPStatus='-1' where SiteID='$SiteID'");
+	SQL("UPDATE Site set SMTPPass=?,SMTPStatus='-1' where SiteID=?", [$Value, $SiteID]);
 
 	if (stristr($Domain,"."))
 	{
@@ -149,7 +149,7 @@ elseif ($Service=="SMTPPort" and $SiteID!="")
 	$Value="587";
 	}
 
-	SQL("UPDATE Site set SMTPPort='$Value',SMTPStatus='-1' where SiteID='$SiteID'");
+	SQL("UPDATE Site set SMTPPort=?,SMTPStatus='-1' where SiteID=?", [$Value, $SiteID]);
 	
 	if (stristr($Domain,"."))
 	{
@@ -170,7 +170,7 @@ elseif ($Service=="SMTPActive" and $SiteID!="")
 	$Value="1";
 	}
 
-	SQL("UPDATE Site set SMTPActive='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set SMTPActive=? where SiteID=?", [$Value, $SiteID]);
 	
 	if (stristr($Domain,"."))
 	{
@@ -189,7 +189,7 @@ elseif ($Service=="RoundcubeSMTPHost" and $SiteID!="")
 	}
 	elseif (stristr($Value,".") OR $Value=="")
 	{
-		SQL("UPDATE Site set RoundcubeSMTPHost='$Value' where SiteID='$SiteID'");
+		SQL("UPDATE Site set RoundcubeSMTPHost=? where SiteID=?", [$Value, $SiteID]);
 		
 		if (stristr($Domain,"."))
 		{
@@ -205,7 +205,7 @@ elseif ($Service=="RoundcubeSMTPHost" and $SiteID!="")
 elseif ($Service=="RoundcubeSMTPUser" and $SiteID!="")
 {
 	$Value=trim($Value);
-	SQL("UPDATE Site set RoundcubeSMTPUser='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set RoundcubeSMTPUser=? where SiteID=?", [$Value, $SiteID]);
 	
 	if (stristr($Domain,"."))
 	{
@@ -216,7 +216,7 @@ elseif ($Service=="RoundcubeSMTPUser" and $SiteID!="")
 elseif ($Service=="RoundcubeSMTPPass" and $SiteID!="")
 {
 	$Value=trim($Value);
-	SQL("UPDATE Site set RoundcubeSMTPPass='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set RoundcubeSMTPPass=? where SiteID=?", [$Value, $SiteID]);
 
 	if (stristr($Domain,"."))
 	{
@@ -233,7 +233,7 @@ elseif ($Service=="RoundcubeSMTPPort" and $SiteID!="")
 	$Value="587";
 	}
 
-	SQL("UPDATE Site set RoundcubeSMTPPort='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set RoundcubeSMTPPort=? where SiteID=?", [$Value, $SiteID]);
 	
 	if (stristr($Domain,"."))
 	{
@@ -254,7 +254,7 @@ elseif ($Service=="RoundcubeSMTPActive" and $SiteID!="")
 	$Value="1";
 	}
 
-	SQL("UPDATE Site set RoundcubeSMTPActive='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set RoundcubeSMTPActive=? where SiteID=?", [$Value, $SiteID]);
 
 	if (stristr($Domain,"."))
 	{
@@ -268,12 +268,12 @@ elseif ($Service=="MailTTL" and $Value!="" and $SiteID!="")
 	if ($Value<1 and $Value!=0) {$Value="1";}
 	if ($Value>2557) {$Value="2557";}
 	
-	SQL("UPDATE Site set MailTTL='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set MailTTL=? where SiteID=?", [$Value, $SiteID]);
 }
 elseif ($Service=="CacheTTL" and $SiteID!="")
 {
 	$Value=intval($Value);
-	SQL("UPDATE Site set CacheTTL='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set CacheTTL=? where SiteID=?", [$Value, $SiteID]);
 	
 	if (stristr($Domain,"."))
 	{
@@ -284,7 +284,7 @@ elseif ($Service=="CacheTTL" and $SiteID!="")
 elseif ($Service=="CacheLength" and $SiteID!="")
 {
 	$Value=intval($Value);
-	SQL("UPDATE Site set CacheLength='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set CacheLength=? where SiteID=?", [$Value, $SiteID]);
 	
 	if (stristr($Domain,"."))
 	{
@@ -295,7 +295,7 @@ elseif ($Service=="CacheLength" and $SiteID!="")
 elseif ($Service=="CacheExclude" and $SiteID!="")
 {
 	$Value=trim($Value);
-	SQL("UPDATE Site set CacheExclude='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set CacheExclude=? where SiteID=?", [$Value, $SiteID]);
 
 	if (stristr($Domain,"."))
 	{
@@ -316,7 +316,7 @@ elseif ($Service=="CacheActive" and $SiteID!="")
 	$Value="1";
 	}
 
-	SQL("UPDATE Site set CacheActive='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set CacheActive=? where SiteID=?", [$Value, $SiteID]);
 	
 	if (stristr($Domain,"."))
 	{
@@ -328,7 +328,7 @@ elseif ($Service=="PostfwdDomainLimit" and $SiteID!="")
 {
 	$Value=intval($Value);
 	
-	SQL("UPDATE Site set PostfwdDomainLimit='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set PostfwdDomainLimit=? where SiteID=?", [$Value, $SiteID]);
 	
 	if (stristr($Domain,"."))
 	{
@@ -340,7 +340,7 @@ elseif ($Service=="PostfwdUserLimit" and $SiteID!="")
 {
 	$Value=intval($Value);
 	
-	SQL("UPDATE Site set PostfwdUserLimit='$Value' where SiteID='$SiteID'");
+	SQL("UPDATE Site set PostfwdUserLimit=? where SiteID=?", [$Value, $SiteID]);
 	
 	if (stristr($Domain,"."))
 	{

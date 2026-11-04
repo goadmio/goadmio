@@ -118,12 +118,12 @@ if ($_REQUEST['Cron']!="" or $_REQUEST['Destination']!="" or $_REQUEST['RemoteDi
 
 if ($Action=="EnableBackup")
 {
-	SQL("UPDATE Site SET Backup='1' where SiteID='$SiteID'");
+SQL("UPDATE Site SET Backup='1' where SiteID=?", [$SiteID]);
 }
 
 if ($Action=="DisableBackup")
 {
-	SQL("UPDATE Site SET Backup='0' where SiteID='$SiteID'");
+SQL("UPDATE Site SET Backup='0' where SiteID=?", [$SiteID]);
 }
 
 if ($Storage=="" or $Storage=="backup")
@@ -378,7 +378,7 @@ echo "
 <form name=\"Form\" method=\"POST\" onsubmit=\"return Submit('$CurrentFileName');\" autocomplete=\"off\" action=\"$CurrentFileName\">
 <input type=hidden name=ControlID value='$ControlID'>
 
-<div class='DivInput {$Dir}DivInput'>{$LNG['StorageBox']}:<br>
+<div class='DivInput {$Dir}DivInput'>{$LNG['StorageBox']}<br>
 
 	<label class=\"radio-enhanced\">
 		<input type='radio' name='Storage' value='backup' onclick=\"Load('schedule.php?ControlID=$ControlID&Storage=backup')\" $BackupCheck>
@@ -683,7 +683,7 @@ $DefaultDirection="ASC";
 include "include/sql.php";
 
 $X=0;
-$Result = SQL($Sql);
+$Result = SQL($SQL);
 foreach ($Result as $Row)
 {
 	$SiteID=$Row['SiteID'];

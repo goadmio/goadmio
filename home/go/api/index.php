@@ -30,16 +30,14 @@ echo "Invalid API Key.";
 exit;
 }
 
-$Sql = "select * from Config where ConfigID=1";
-$Result = SQL($Sql);
+$Result = SQL("select * from Config where ConfigID=1");
 foreach ($Result as $Row)
 {
 	$SSHPassword=$Row['SSHPassword'];
 }
 
 $Success=0;
-$Sql = "select APIKey from API where APIKey='$APIKey' and Command=''";
-$Result = SQL($Sql);
+$Result = SQL("select APIKey from API where APIKey=? and Command=''", [$APIKey]);
 foreach ($Result as $Row)
 {
 	$Success=1;

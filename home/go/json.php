@@ -17,8 +17,7 @@ $ApiKey=preg_replace("/[^A-Za-z0-9\_]/","", $ApiKey);
 $OrderBy=preg_replace("/[^A-Za-z0-9\_]/","", $OrderBy);
 
 $ApiExists=0;
-$Sql = "select * from MobileApi where MobileApiID='$MobileApiID' and ApiKey='$ApiKey'";
-$Result = SQL($Sql);
+$Result = SQL("select * from MobileApi where MobileApiID=? and ApiKey=?", [$MobileApiID, $ApiKey]);
 foreach ($Result as $Row)
 {
 	$ApiExists=1;
@@ -42,8 +41,7 @@ exit;
 }
 
 $Owner=0;
-$Sql = "select * from Mysql where Name='$Name' and Domain='$Domain'";
-$Result = SQL($Sql);
+$Result = SQL("select * from Mysql where Name=? and Domain=?", [$Name, $Domain]);
 foreach ($Result as $Row)
 {
 $Owner=1;
@@ -91,18 +89,18 @@ if ($OrderBy!="")
 
 if ($Start==0 and $Limit>=1)
 {
-$Sql = "select $Columns from $Name.$TableName $OrderBySQL limit $Limit";
+$SQL="select $Columns from $Name.$TableName $OrderBySQL limit $Limit";
 }
 elseif ($Start>=1 and $Limit>=1)
 {
-$Sql = "select $Columns from $Name.$TableName $OrderBySQL limit $Start,$Limit";
+$SQL="select $Columns from $Name.$TableName $OrderBySQL limit $Start,$Limit";
 }
 else
 {
-$Sql = "select $Columns from $Name.$TableName $OrderBySQL";
+$SQL="select $Columns from $Name.$TableName $OrderBySQL";
 }
 
-$Result = MariaDBSQL($Sql);
+$Result = MariaDBSQL($SQL);
 foreach ($Result as $Row)
 {
     $Array[] = $Row;

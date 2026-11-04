@@ -141,10 +141,8 @@ $FavoriteCode="
 		$FavoriteCode.="<tr onclick=\"window.location.href='favorite.php?SecretCode=$SecretCode&Favorites=$PageTabName&PageIcon=$PageIcon'\" style='cursor:pointer'><td align=middle width=30 height=30><img src='media/image/icon/24x24/favorite-add.png' ></td><td valign=middle class=TdMenu onMouseOver=\"this.className='TdMenuOver'\" OnMouseOut=\"this.className='TdMenu'\" width=220><span class=Tab>&nbsp; Add to Favorites</td>";
 		
 		$FavoriteCode.="<tr><td colspan=2 width='100%' background=\"media/image/admin/$Theme/option-line-bg.gif\" height=2></td>";
-
 		
-		$Sql = "select * from Favorites where FavoritesID>=1 order by FavoritesID DESC LIMIT 10";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Favorites where FavoritesID>=1 order by FavoritesID DESC LIMIT 10");
 		foreach ($Result as $Row)
 		{
 			$EnFavorite=$Row['EnFavorite'];

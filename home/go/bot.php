@@ -15,17 +15,14 @@ include "access.php";
 
 	if ($Action=="Enable")
 	{
-		SQL("UPDATE Site set Bot='1' where Domain='$Domain'");
-	
+		SQL("UPDATE Site set Bot='1' where Domain=?", [$Domain]);	
 		$Error=SSH ("/usr/bin/sudo /go/apache $Domain",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		$Error=SSH ("/usr/bin/sudo /go/nginx $Domain",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		
 	}
 	else
 	{
-	
-		SQL("UPDATE Site set Bot='0' where Domain='$Domain'");
-	
+		SQL("UPDATE Site set Bot='0' where Domain=?", [$Domain]);	
 		$Error=SSH ("/usr/bin/sudo /go/apache $Domain",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		$Error=SSH ("/usr/bin/sudo /go/nginx $Domain",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		
@@ -73,7 +70,7 @@ include "access.php";
 	include "include/sql.php";    
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$SiteID=$Row['SiteID'];

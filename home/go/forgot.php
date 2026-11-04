@@ -16,16 +16,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Email']))
 	$OTP=sprintf("%06s",mt_rand(0,999999));
 	$OTP=md5("$OTP|$Password");
 	
-	SQL("UPDATE Site SET OTP='$OTP' WHERE Domain='$Domain';");
+  SQL("UPDATE Site SET OTP=? WHERE Domain=?;", [$OTP, $Domain]);
 
 	$URL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 	$URL = str_replace("/forgot.php","",$URL);
 
 	$Email=$_POST['Email'];
 	$Mobile=$Email;
-	
-	$Sql = "select * FROM Site where Domain='$Domain' and (Email='$Email' OR Mobile='$Mobile')";
-	$Result = SQL($Sql);
+
+  $Result = SQL("select * FROM Site where Domain=? and (Email=? OR Mobile=?)", [$Domain, $Email, $Mobile]);
 	foreach ($Result as $Row)
 	{
 		

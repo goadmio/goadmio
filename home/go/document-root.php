@@ -12,9 +12,9 @@ if ($_REQUEST['Domain']!="")
 	
 	include "access.php";
 	
-	SQL("UPDATE Site SET DocumentRoot='$DocumentRoot' where Domain='$Domain'");
+	SQL("UPDATE Site SET DocumentRoot=? where Domain=?", [$DocumentRoot, $Domain]);
 	
-	$Result = SQL("select PHPVersion from Site where Domain='$Domain'");
+	$Result = SQL("select PHPVersion from Site where Domain=?", [$Domain]);
 	foreach ($Result as $Row)
 	{
 		$PHPVersion=$Row['PHPVersion'];

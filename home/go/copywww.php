@@ -2,7 +2,7 @@
 include "navigator.php";
 include "no.php";
 
-	echo "<div class=NavigatorInfo><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>{$LNG['CopyFilesTitle']}</div>";
+	echo "<div class='NavigatorInfo No'><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>{$LNG['CopyFilesTitle']}</div>";
 
 
 $Buttons="";

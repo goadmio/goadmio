@@ -10,8 +10,7 @@ include("/usr/local/goadmio/include/config/smtp.php");
 $Domain=str_replace(["www.","webmail.","go."],"",$_SERVER['HTTP_HOST']);
 $OTP=$_REQUEST['OTP'];
 
-$Sql = "select * from Config where ConfigID=1";
-$Result = SQL($Sql);
+$Result = SQL("select * from Config where ConfigID=1");
 foreach ($Result as $Row)
 {
 	$SSHPassword=$Row['SSHPassword'];
@@ -41,9 +40,7 @@ if ($formSubmitted)
 	
 		if (strlen($OTP)>=6)
 		{
-		
-			$Sql = "select * FROM Site where Domain='$Domain' and OTP='$OTP'";
-			$Result = SQL($Sql);
+            $Result = SQL("select * FROM Site where Domain=? and OTP=?", [$Domain, $OTP]);
 			foreach ($Result as $Row)
 			{
 				$Error=SSH ("/usr/bin/sudo /go/password $Domain $Password",$SSHUsername,$SSHPassword);
@@ -54,8 +51,7 @@ if ($formSubmitted)
 				$OTP=sprintf("%06s",mt_rand(0,999999));
 				$OTP=md5("$OTP|$Password");
 
-				
-				SQL("UPDATE Site SET OTP='$OTP' WHERE Domain='$Domain';");
+                SQL("UPDATE Site SET OTP=? WHERE Domain=?", [$OTP, $Domain]);
 			}
 
 		}

@@ -22,7 +22,7 @@ include "access.php";
 
 	if ($Action=="Enable")
 	{
-		SQL("UPDATE Site set FPM='1' where Domain='$Domain'");
+		SQL("UPDATE Site set FPM='1' where Domain=?", [$Domain]);
 	
 		$Error=SSH ("/usr/bin/sudo /go/apache $Domain",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		echo Error("PHP FPM has been enabled for Domain $Domain");
@@ -30,7 +30,7 @@ include "access.php";
 	else
 	{
 	
-		SQL("UPDATE Site set FPM='0' where Domain='$Domain'");
+		SQL("UPDATE Site set FPM='0' where Domain=?", [$Domain]);
 		$Error=SSH ("/usr/bin/sudo /go/apache $Domain",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		echo Error("PHP FPM has been disabled for Domain $Domain");
 	}
@@ -73,7 +73,7 @@ include "access.php";
 	include "include/sql.php";    
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$SiteID=$Row['SiteID'];

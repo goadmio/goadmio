@@ -64,7 +64,7 @@ $Date=date ("Y-m-d",mktime (date("G"),date("i")+$GMT,date("s"),date("m"),date("d
 	include "include/sql.php";
     
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 		$SiteID=$Row['SiteID'];

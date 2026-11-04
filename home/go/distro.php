@@ -3,7 +3,7 @@ include "navigator.php";
 $Buttons="<a href=\"javascript:Load('$CurrentFileName?Action=Restore&ControlID=$ControlID&Page=$Page','$ControlID')\" class='ButtonB {$Dir}ButtonB'>{$LNG['RestoreDefault']}</a>";
 include "title.php";
 
-echo "<div class=NavigatorInfo><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>This feature is supported only on physical server hardware and will not function on VPS (Virtual Private Server) or cloud-based environments</div>";
+echo "<div class='NavigatorInfo No'><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>This feature is supported only on physical server hardware and will not function on VPS (Virtual Private Server) or cloud-based environments</div>";
 
 $File=trim($_REQUEST['File']);
 $Name=trim($_REQUEST['Name']);
@@ -22,12 +22,12 @@ if ($Action=="Restore")
 
 if ($Action=="Enable")
 {
-	SQL("UPDATE Distro set Active=1 where DistroID='$DistroID'");
+SQL("UPDATE Distro set Active=1 where DistroID=?", [$DistroID]);
 }
 
 if ($Action=="Disable")
 {
-	SQL("UPDATE Distro set Active=0 where DistroID='$DistroID'");
+	SQL("UPDATE Distro set Active=0 where DistroID=?", [$DistroID]);
 }
 
 if ($Name!="" and $File!="")
@@ -35,11 +35,11 @@ if ($Name!="" and $File!="")
 
 	if ($Edit==1)
 	{
-	SQL("UPDATE Distro set Name='$Name',File='$File' where DistroID='$DistroID'");
+	SQL("UPDATE Distro set Name=?,File=? where DistroID=?", [$Name,$File,$DistroID]);
 	}
 	else
 	{
-	SQL("INSERT INTO Distro (Name,File) VALUES ('$Name','$File')");
+	SQL("INSERT INTO Distro (Name,File) VALUES (?,?)", [$Name,$File]);
 	}
 	
 	$Edit=0;
@@ -59,13 +59,13 @@ If ($Delete==1 and $Step==1)
 
 if ($Delete==1 and $Step==2)
 {
-	SQL("Delete FROM Distro where DistroID='$DistroID'");
+	SQL("Delete FROM Distro where DistroID=?", [$DistroID]);
 }
 
 
 	if ($Edit==1)
 	{
-		$Result = SQL("select * from Distro where DistroID='$DistroID'");
+		$Result = SQL("select * from Distro where DistroID=?", [$DistroID]);
 		foreach ($Result as $Row)
 		{
 
@@ -148,7 +148,7 @@ if ($Delete==1 and $Step==2)
 		include "include/sql.php";
 		
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 		$Name=$Row['Name'];

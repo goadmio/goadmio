@@ -16,25 +16,148 @@
 
 	$Error
 
-	<form name="Form" method="POST" onsubmit="return Submit('$CurrentFileName');" autocomplete="off" action="$CurrentFileName">
+	<form name="FormOpenSSH" method="POST" onsubmit="return Submit('$CurrentFileName','FormOpenSSH','DivSubmitOpenSSH');" autocomplete="off" action="$CurrentFileName">
 
 	<div class='DivInput {$Dir}DivInput'>
-	{$LNG['SSHPort']}
+	OpenSSH Port
 	<br>
-	<input type='text' name='PORT' value='$SSHPort' class=InputText maxlength=5><br />
+	<input type='text' name='PORT' value='$SSHPort' class=InputText maxlength=5>
 	</div>
+
+	<div id=DivSubmitOpenSSH class=DivSubmit>
+	<input type=submit value='Change Port' Class=InputButton>
+	</div>
+	
+	</form>
+
+	<div class='TitleH'>
+	Dropbear (SSH Alternative)
+	</div>
+
+	<form name="FormDropbear" method="POST" onsubmit="return Submit('$CurrentFileName','FormDropbear','DivSubmitDropbear');" autocomplete="off" action="$CurrentFileName">
 
 	<div class='DivInput {$Dir}DivInput'>
 	Dropbear Port
 	<br>
-	<input type='text' name='DROPBEARPORT' value='$DROPBEARPORT' class=InputText maxlength=5><br />
+	<input type='text' name='DROPBEARPORT' value='$DROPBEARPORT' class=InputText maxlength=5>
 	</div>
 
+	<div id=DivSubmitDropbear class=DivSubmit>
+	<input type=submit value='Change Port' Class=InputButton>
+	</div>
+	
+	</form>
 
-	<div id=DivSubmit class=DivSubmit>
-	<input type=submit value='{$LNG['Save']}' Class=InputButton>
+
+	<div class='TitleH'>
+	Allow root login only from these IP(s)
+	</div>
+
+	<form name="FormIP" method="POST" onsubmit="return Submit('$CurrentFileName','FormIP','DivSubmitIP');" autocomplete="off" action="$CurrentFileName">
+
+	<div class='DivInput {$Dir}DivInput'>
+	{$LNG['IP']}:
+	<br>
+	<input type='text' name='IP' value='' class=InputText maxlength=50>
+	</div>
+
+	<div id=DivSubmitIP class=DivSubmit>
+	<input type=submit value='{$LNG['Add']}' Class=InputButton>
 	</div>
 
 	</form>
 
+
 </content>
+
+
+<header>
+
+	<form name=CheckForm id=CheckForm action='$CurrentFileName'>
+	<input type=hidden name=Action id=Action>
+
+	<div class=DivXTable>
+	<table cellPadding='8' cellSpacing='0' width='100%' class='Table'>
+
+	<THEAD>
+	
+	<tr>
+		
+    <TH align=$DAlign width='30%'>
+    <a href="javascript:Load('$CurrentFileName?SortBy=IP&ControlID=$ControlID&Page=$Page','$ControlID')">{$LNG['IP']}</a>
+    </TH>
+
+    <TH align=$DAlign width='25%'>
+    <a href="javascript:Load('$CurrentFileName?SortBy=Directive&ControlID=$ControlID&Page=$Page','$ControlID')">Directive</a>
+    </TH>
+
+    <TH align=$DAlign width='25%'>
+    <a href="javascript:Load('$CurrentFileName?SortBy=Value&SortDir=DESC&ControlID=$ControlID&Page=$Page','$ControlID')">Value</a>
+    </TH>
+
+    <TH align=$DAlign width='20%'>
+    
+    </TH>
+	
+	</tr>
+	
+	</THEAD>
+	
+	<TBODY>
+
+</header>
+
+<loop>
+
+    <tr id='TR{$ID}' class='$TDColor' divid=Find find='{$Row['Domain']}-{$Row['Email']}'>
+
+    <TD title='Created Date: $CreatedDate'>
+    {$Row['IP']}
+    </TD>
+	
+	<TD>
+	{$Row['Directive']}
+    </TD>
+
+	<TD>
+    {$Row['Value']}
+    </TD>
+
+	<TD align='$OAlign'>
+	<a href="javascript:Load('$CurrentFileName?Delete=1&SSHID=$SSHID&IP=$IP&Directive=$Directive&SortBy=$SortBy&SortDir=$SortDir&ControlID=$ControlID&Page=$Page','$ControlID')" class=Action>{$LNG['Delete']}</a>
+    </TD>
+    
+	</tr>
+
+</loop>
+
+<footer>
+
+
+	</TBODY>
+	
+	<TFOOT>
+
+    <tr>
+
+   
+		<th align='$DAlign' colspan=3>
+		Showing $X of $RowsNo records.
+		</th>
+		
+		<th align='$OAlign' colspan=3>
+	
+		<php>
+		include "pages.php";
+		</php>
+
+		</th>
+
+    </tr>
+
+	</TFOOT>
+	
+    </TABLE>
+	</form>
+	
+</footer>

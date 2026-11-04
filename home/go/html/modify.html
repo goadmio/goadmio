@@ -61,51 +61,51 @@
 
 	<if $Edit==1>
 	
-		<div class='DivInput {$Dir}DivInput'>Package:<br>
+		<div class='DivInput {$Dir}DivInput'>Package<br>
 		$SelectPackage
 		</div>
 
-		<div class='DivInput {$Dir}DivInput'>Primary Domain:<br>
+		<div class='DivInput {$Dir}DivInput'>Primary Domain<br>
 		<input type='text' name='Domain' id='Domain' value='$Domain' class=InputText maxlength=255 readonly> <a href="javascript:Load('domain.php?Domain=$Domain')">Chnage Primary Domain</a>
 		</div>
 		
-		<div class='DivInput {$Dir}DivInput'>Username:<br>
+		<div class='DivInput {$Dir}DivInput'>Username<br>
 		<input type='text' name='Username' value='$Username' class=InputText maxlength=100 readonly> <a href="javascript:Load('username.php?Domain=$Domain')">Chnage Username</a>
 		</div>
 
-		<div class='DivInput {$Dir}DivInput'>{$LNG['DiskSpace']}:<br>
+		<div class='DivInput {$Dir}DivInput'>{$LNG['DiskSpace']}<br>
 		<input type='text' id='DiskSpace{$Row['SiteID']}' value='$DiskSpace' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('DiskSpace{$Row['SiteID']}').value),'DiskSpace{$Row['SiteID']}')" class=InputText maxlength=100>
 		</div>
 		
-		<div class='DivInput {$Dir}DivInput'>{$LNG['BandwidthLimit']}:<br>
+		<div class='DivInput {$Dir}DivInput'>{$LNG['BandwidthLimit']}<br>
 		<input type='text' id='Bandwidth{$Row['SiteID']}' value='$Bandwidth' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('Bandwidth{$Row['SiteID']}').value),'Bandwidth{$Row['SiteID']}')" class=InputText maxlength=100>
 		</div>
 
-		<div class='DivInput {$Dir}DivInput'>{$LNG['InodeLimit']}:<br>
+		<div class='DivInput {$Dir}DivInput'>{$LNG['InodeLimit']}<br>
 		<input type='text' id='Inode{$Row['SiteID']}' value='$Inode' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('Inode{$Row['SiteID']}').value),'Inode{$Row['SiteID']}')" class=InputText maxlength=100>
 		</div>
 		
-		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxFTPAccounts']}:<br>
+		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxFTPAccounts']}<br>
 		<input type='text' id='FTPNo{$Row['SiteID']}' value='$FTPNo' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('FTPNo{$Row['SiteID']}').value),'FTPNo{$Row['SiteID']}')" class=InputText maxlength=100>
 		</div>
 		
-		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxEmailAccounts']}:<br>
+		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxEmailAccounts']}<br>
 		<input type='text' id='EmailNo{$Row['SiteID']}' value='$EmailNo' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('EmailNo{$Row['SiteID']}').value),'EmailNo{$Row['SiteID']}')" class=InputText maxlength=100>
 		</div>
 		
-		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxSQLDatabases']}:<br>
+		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxSQLDatabases']}<br>
 		<input type='text' id='DatabaseNo{$Row['SiteID']}' value='$DatabaseNo' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('DatabaseNo{$Row['SiteID']}').value),'DatabaseNo{$Row['SiteID']}')" class=InputText maxlength=100>
 		</div>
 
-		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxSubDomains']}:<br>
+		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxSubDomains']}<br>
 		<input type='text' id='SubDomainNo{$Row['SiteID']}' value='$SubDomainNo' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('SubDomainNo{$Row['SiteID']}').value),'SubDomainNo{$Row['SiteID']}')" class=InputText maxlength=100>
 		</div>
 
-		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxAliasDomains']}:<br>
+		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxAliasDomains']}<br>
 		<input type='text' id='AliasNo{$Row['SiteID']}' value='$AliasNo' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('AliasNo{$Row['SiteID']}').value),'AliasNo{$Row['SiteID']}')" class=InputText maxlength=100>
 		</div>
 
-		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxAddonDomains']}:<br>
+		<div class='DivInput {$Dir}DivInput'>{$LNG['MaxAddonDomains']}<br>
 		<input type='text' id='AddonNo{$Row['SiteID']}' value='$AddonNo' onchange="Modify('{$Row['SiteID']}',encodeURI(document.getElementById('AddonNo{$Row['SiteID']}').value),'AddonNo{$Row['SiteID']}')" class=InputText maxlength=100>
 		</div>
 

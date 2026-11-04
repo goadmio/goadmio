@@ -1,0 +1,2 @@
+Debian 12 Supported|2023-06-27
+Upgrade phpMyAdmin to v5.2.1|2023-02-11

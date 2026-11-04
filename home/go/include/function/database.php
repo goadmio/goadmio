@@ -30,9 +30,8 @@ function ReplaceInDatabase ($FindWhat,$ReplaceWith,$TableName)
 			}				
 		}
 	}
-	
-	$Sql = "UPDATE $Prefix".$TableName." SET $FieldNameString where $IDFieldName>=1";
-	$Result = SQL($Sql);
+
+	$Result = SQL("UPDATE $TableName SET $FieldNameString where $IDFieldName>=1");
 	$AffectedRowsNo=$PDO->affected_rows;
 	
 	return $AffectedRowsNo;
@@ -73,9 +72,9 @@ function Insert ($TableName)
 	
 	$FieldNameStringValues="'$".str_replace(",","','$",$FieldNameString)."'";
 	
-	$Sql = "INSERT INTO $TableName ($FieldNameString) VALUES ($FieldNameStringValues)";
-	eval("\$Sql = \"$Sql\";");
-	$Result = SQL($Sql);
+	$SQL="INSERT INTO $TableName ($FieldNameString) VALUES ($FieldNameStringValues)";
+	eval("\$SQL=\"$SQL\";");
+	$Result = SQL($SQL);
 	$ID=$PDO->lastInsertId(); 
 	
 	return $ID;
@@ -105,8 +104,7 @@ function AlterAdd($TableName,$StartField,$CreateSql)
 			$FieldName=$FieldNameArray[0];
 		}
 		
-		$Sql ="ALTER TABLE $TableName ADD $CreateSqlArray[$X] AFTER $FieldName";
-		$Result = SQL($Sql);
+		$Result = SQL("ALTER TABLE $TableName ADD $CreateSqlArray[$X] AFTER $FieldName");
 		if ($Result)
 		{
 		$AffectedRowsNo=$Result->fetchColumn();
@@ -131,8 +129,7 @@ $CreateSqlArray=explode(",",$CreateSql);
 		$FieldNameArray=explode (" ",$CreateSqlArray[$X]);
 		$FieldName=$FieldNameArray[0];
 		
-		$Sql ="ALTER TABLE $TableName CHANGE $FieldName $CreateSqlArray[$X]";
-		$Result = SQL($Sql);
+		$Result = SQL("ALTER TABLE $TableName CHANGE $FieldName $CreateSqlArray[$X]");
 		$AffectedRowsNo=$Result->fetchColumn();
 		if ($AffectedRowsNo==-1) {$FONTCOLOR="<span class=Error>";}else{$FONTCOLOR="";}
 		echo "<fieldset><legend>$Sql.</legend>$FONTCOLOR $AffectedRowsNo row(s) has been affected.</span></fieldset>";
@@ -140,10 +137,10 @@ $CreateSqlArray=explode(",",$CreateSql);
 	
 }
 
-function FieldToArray ($Sql,$FieldName)
+function FieldToArray ($SQL,$FieldName)
 {
 
-	$Result = SQL($Sql);
+	$Result = SQL($SQL);
 	foreach ($Result as $Row)
 	{
 		
@@ -163,8 +160,6 @@ function FieldToArray ($Sql,$FieldName)
 	return $Array;
 	}
 }
-
-
 
 function Backup($TableName = '*',$TargetDir)
     {

@@ -186,7 +186,7 @@ exit;
 	{
 		$Readonly="readonly";
 	
-		$Result = SQL("select * from Mysql where MysqlID='$MysqlID'");
+		$Result = SQL("select * from Mysql where MysqlID=?", [$MysqlID]);
 		foreach ($Result as $Row)
 		{
 			$Domain=$Row['Domain'];
@@ -255,9 +255,8 @@ exit;
 			}
 		}
 
-		$Content=DesignCode($Content,"$Control (Content)");
-		echo $Content;
-
+		echo DesignCode($Content,"$Control (Content)");
+		
 	}
 	else
 	{
@@ -268,64 +267,37 @@ exit;
 		
 
 
-
-
-
 	if($Edit!=1)
 	{
-
 		include "search.php";
 				
-		$Header=DesignCode($Header,"$Control (Header)");
-		echo $Header;
-
+		echo DesignCode($Header,"$Control (Header)");
+		
 		$Table="Mysql";$Field="MysqlID>=1";
 		$DefaultSortBy="Name";
 		$DefaultDirection="ASC";
 		include "include/sql.php";
 		
-
 		$X=0;		
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
-		{
-			
+		{			
+			if ($X%2==0) {$TDColor="Td";} else {$TDColor="TdB";}
 		
 			$MysqlID=$Row['MysqlID'];
 			$ID=$Row['MysqlID'];
 			
-			if ($X==0)
-			{
-			echo "<TBODY>";
-			}
-
-			if ($X%2==0)
-			{
-			$TDColor="Td";
-			}
-			else
-			{
-			$TDColor="TdB";
-			}
-			
 			$SerialNo=(($Page-1)*$PageNo)+($X+1);
-
 			$Size=FormatSize($Row['Size']);
-
 			$CreatedDate=date("D j M Y g:i a", $Row['TimeStamp']);
 
-
-
 			echo DesignCode($Loop,"$Control (Loop)");
-			
 			
 		$X++;
 		}
 				
 		$Footer=DesignCode($Footer,"$Control (Footer)");
 		echo $Footer;
-		
-		
 	}
 
 ?>

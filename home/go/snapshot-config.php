@@ -19,12 +19,12 @@ if (!in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUsern
 
 if ($Action=="EnableSnapshot")
 {
-	SQL("UPDATE Site SET Snapshot='1' where SiteID='$SiteID'");
+	SQL("UPDATE Site SET Snapshot='1' where SiteID=?", [$SiteID]);
 }
 
 if ($Action=="DisableSnapshot")
 {
-	SQL("UPDATE Site SET Snapshot='0' where SiteID='$SiteID'");
+	SQL("UPDATE Site SET Snapshot='0' where SiteID=?", [$SiteID]);
 }
 
 if ($_REQUEST['Cron']!="" or $_REQUEST['Destination']!="" or $_REQUEST['RemoteDir']!="")
@@ -515,7 +515,7 @@ $DefaultDirection="ASC";
 include "include/sql.php";
 
 $X=0;
-$Result = SQL($Sql);
+$Result = SQL($SQL);
 foreach ($Result as $Row)
 {
 	$SiteID=$Row['SiteID'];

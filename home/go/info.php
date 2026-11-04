@@ -1,18 +1,13 @@
 <?php
 
-	if (!function_exists('SQL')) 
-	{
-	echo "SQL() function does NOT exist";
-	exit;
-	}
-
-	if (in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUsername], true))
+	if ($_SESSION['SessionType']=="Root")
 	{
 		$PHPVersion=phpversion();
 	}
-	else
+	
+	if (stristr($_SESSION['SessionDomain'],"."))
 	{
-		$Result=SQL("select * from Site where Domain='{$_SESSION['SessionDomain']}'");
+		$Result=SQL("select * from Site where Domain=?", [$_SESSION['SessionDomain']]);
 		foreach ($Result as $Row)
 		{	
 			$ExpiresOn = date("D j M Y", strtotime($Row['ExpiresOn']));
@@ -94,9 +89,8 @@
 	$Databases=RowCount("select * from Mysql where Domain='{$_SESSION['SessionDomain']}'");
 	$Databases=intval($Databases);
 
-	$Sql = "select sum(Size) as MySQLSize from Mysql where Domain='{$_SESSION['SessionDomain']}'";
-    $Result = SQL($Sql);
-    foreach ($Result as $Row)
+    $Result = SQL("select sum(Size) as MySQLSize from Mysql where Domain=?", [$_SESSION['SessionDomain']]);
+	foreach ($Result as $Row)
     {	
 		$MySQLSize=FormatSize($Row['MySQLSize']);
 	}

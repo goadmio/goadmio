@@ -64,7 +64,7 @@ if (in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUserna
 		$NewVersion=Version($Latest);
 		if (stristr($NewVersion,"."))
 		{
-		echo "<div class=NavigatorInfo id=Update><img src='theme/{$_SESSION['SessionTheme']}/image/update.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>{$LNG['ANewVersion']} $NewVersion {$LNG['IsAvailable']}. <a href='javascript:Update();' class=Action>{$LNG['UpdateNow']}</a></div>";
+		echo "<div class='NavigatorInfo No' id=Update><img src='theme/{$_SESSION['SessionTheme']}/image/update.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>{$LNG['ANewVersion']} $NewVersion {$LNG['IsAvailable']}. <a href='javascript:Update();' class=Action>{$LNG['UpdateNow']}</a></div>";
 		}
 	}
 	elseif ($_SESSION['SessionTIP']!=1)
@@ -103,7 +103,7 @@ if (in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUserna
 			$TIP=Lang($TIP).". <a href=\"javascript:Load('schedule.php')\" class=Action>{$LNG['CreateScheduledBackup']}</a>";
 			}
 
-			echo "<div class=NavigatorInfo id=Update><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>$TIP</div>";		
+			echo "<div class='NavigatorInfo No' id=Update><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>$TIP</div>";		
 		}
 	
 	
@@ -125,7 +125,7 @@ if (in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUserna
 	$ShowIPv6="<span title='Click to Copy' onclick=\"Copy('$IPv6')\">IPv6: $IPv6</span> | <span onclick=\"Load('home.php?DisableIPv6=1')\" style='cursor:pointer'>Disable IPv6</span>";
 	}
 
-	echo "<div class=UNavigator>Hostname: $Hostname &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OS: $OS $OSVersion &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Web Server: $WS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span title='Click to Copy' onclick=\"Copy('$IPv4')\">IPv4: $IPv4</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ShowIPv6</div>";		
+	echo "<div class='UNavigator No'>Hostname: $Hostname &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OS: $OS $OSVersion &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Web Server: $WS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span title='Click to Copy' onclick=\"Copy('$IPv4')\">IPv4: $IPv4</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ShowIPv6</div>";		
 	
 
 
@@ -194,7 +194,7 @@ if (in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUserna
 {
 
 	echo "
-	<div class=DivChart>
+	<div class='DivChart No'>
 	
 		<div class=Chart title='$HardDiskInfo'> 
 		
@@ -245,7 +245,7 @@ if (in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUserna
 }
 elseif ($_SESSION['SessionType']=="Website")
 {
-    $Result = SQL("select * from Site where Username='{$_SESSION['SessionUsername']}'",60);
+    $Result = SQL("select * from Site where Username=?", [$_SESSION['SessionUsername']], 60);
     foreach ($Result as $Row)
     {	
 		$ExpiresOn = date("D j M Y", strtotime($Row['ExpiresOn']));
@@ -302,7 +302,7 @@ elseif ($_SESSION['SessionType']=="Website")
 	$FTPs=RowCount("select * from Ftp where Username='{$_SESSION['SessionUsername']}'");
 	$Databases=RowCount("select * from Mysql where Username='{$_SESSION['SessionUsername']}'");
 
-    $Result = SQL("select sum(Size) as MySQLSize from Mysql where Username='{$_SESSION['SessionUsername']}'");
+    $Result = SQL("select sum(Size) as MySQLSize from Mysql where Username=?", [$_SESSION['SessionUsername']]);
     foreach ($Result as $Row)
     {	
 		$MySQLSize=FormatSize($Row['MySQLSize']);

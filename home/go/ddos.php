@@ -6,7 +6,7 @@ include "title.php";
 $DDosID=intval($_REQUEST['DDosID']);
 $CheckList=$_REQUEST['CheckList'];
 
-if ($_SESSION['SessionSSHUsername']!="root")
+if ($_SESSION['SessionType']!="Root")
 {
 
 	
@@ -98,7 +98,7 @@ $Date=date ("Y-m-d",mktime (date("G"),date("i")+$GMT,date("s"),date("m"),date("d
 	
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$DDosID=$Row['DDosID'];

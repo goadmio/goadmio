@@ -34,7 +34,7 @@ echo "
 ";
 
 
-if ($_SESSION['SessionSSHUsername']!="root" and $_SESSION['SessionSSHUsername']!=$SSHUsername)
+if ($_SESSION['SessionType']!="Root" and $_SESSION['SessionSSHUsername']!=$SSHUsername)
 {
 
 	Echo "
@@ -50,9 +50,7 @@ exit;
 		exit;
 	}
 
-
-$Sql = "select * from Server where ServerIP='$ServerIP'";
-$Result = SQL($Sql);
+$Result = SQL("select * from Server where ServerIP=?", [$ServerIP]);
 foreach ($Result as $Row)
 { 
 	$ServerName=$Row['ServerName'];

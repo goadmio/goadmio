@@ -47,7 +47,7 @@ if ($_SESSION['SessionSwitchUsername']=="root")
 	else
 	{
 
-		$Result = SQL("select * from Site where Username='$Username'");
+		$Result = SQL("select * from Site where Username=?", [$Username]);
 		foreach ($Result as $Row)
 		{
 			$Success=1;
@@ -78,7 +78,7 @@ else
 
 	if (!stristr($Username,"."))
 	{
-		$Result = SQL("select * from User where UserID='{$_SESSION['SessionUserID']}'");
+		$Result = SQL("select * from User where UserID=?", [$_SESSION['SessionUserID']]);
 		foreach ($Result as $Row)
 		{
 		
@@ -104,7 +104,7 @@ else
 	}
 	else
 	{
-		$Result = SQL("select * from Site where Username='$Username' and UserID='{$_SESSION['SessionUserID']}'");
+		$Result = SQL("select * from Site where Username=? and UserID=?", [$Username, $_SESSION['SessionUserID']]);
 		foreach ($Result as $Row)
 		{
 			$Success=1;

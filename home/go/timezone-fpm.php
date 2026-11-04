@@ -25,7 +25,7 @@ include "access.php";
 
 $Domain=ValidateDomain($_REQUEST['Domain']);
 
-		SQL("update Site set Timezone='$Timezone' where Domain='$Domain'");
+		SQL("update Site set Timezone=? where Domain=?", [$Timezone, $Domain]);
 		$Error=SSH ("/usr/bin/sudo /go/php-fpm $Domain",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 
 		echo Error("$Domain timezone has been set to $Timezone.");
@@ -36,8 +36,7 @@ exit;
 }
 
 		unset($Domains);
-		$Sql = "select * from Site where Trash=0 $SearchSql";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Site where Trash=0 $SearchSql");
 		foreach ($Result as $Row)
 		{
 		$Domains[]=$Row['Domain'];
@@ -62,8 +61,7 @@ exit;
 			
 		}
 		
-	$Sql = "select * from Site where Domain='$CurrentDomain'";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Site where Domain=?", [$CurrentDomain]);
 	foreach ($Result as $Row)
 	{
 		$Timezone=trim($Row['Timezone']);

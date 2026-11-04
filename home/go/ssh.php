@@ -6,21 +6,23 @@ include "title.php";
 $SiteID=intval($_REQUEST['SiteID']);
 $Domain=ValidateDomain($_REQUEST['Domain']);
 
-if (!in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUsername], true))
+if ($_SESSION['SessionType']!="Root")
 {
-	
-	if ($_SESSION['SessionResellerUsername']=="")
-	{
-		echo "
-		Sorry, You Are Not Allowed to Access This Page
-		";
-		
-		exit;
-	}
+	Echo "
+	Sorry, You Are Not Allowed to Access This Page
+	";
+
+	exit;
 }
 
 if ($Action!="")
 {
+	if ($DemoPassword!="")
+	{
+	echo Error($LNG['ThisFunctionalityNotAvailableDemoMode']);
+	exit;
+	}
+
 	include "access.php";
 
 	if ($Action=="EnableShell")
@@ -63,7 +65,7 @@ $DefaultDirection="ASC";
 include "include/sql.php";
 
 $X=0;
-$Result = SQL($Sql);
+$Result = SQL($SQL);
 foreach ($Result as $Row)
 {
 	$SiteID=$Row['SiteID'];

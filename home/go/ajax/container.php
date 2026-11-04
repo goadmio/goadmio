@@ -18,7 +18,7 @@ for ($ID=101;$ID<=9999;$ID++)
 {
 
 	$Exists=0;
-	$Result = SQL("select ID from VPS where ServerIP='$ServerIP' and ID='$ID'");
+	$Result = SQL("select ID from VPS where ServerIP=? and ID=?", [$ServerIP, $ID]);
 	foreach ($Result as $Row)
 	{
 		$Exists=1;

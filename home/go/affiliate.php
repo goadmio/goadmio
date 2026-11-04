@@ -27,8 +27,7 @@ If ($Delete==1 and $Step==1)
 if ($Delete==1 and $Step==2)
 {
 
-	$Sql = "DELETE from Affiliate where AffiliateID='$AffiliateID'";
-	$Result = SQL($Sql);
+	$Result = SQL("DELETE from Affiliate where AffiliateID=?", [$AffiliateID]);
 	If ($Result)
 	{
 		echo Error("User $Email  has been deleted.");
@@ -40,9 +39,7 @@ elseif ($_REQUEST['FullName']!="")
 
 	if ($Edit==1)
 	{
-	
-		$Sql = "UPDATE Affiliate SET Email='$Email',Password='$Password',FullName='$FullName',Mobile='$Mobile',Gender='$Gender',Country='$Country',Website='$Website',Company='$Company' where AffiliateID='$AffiliateID'";
-		$Result = SQL($Sql);
+		$Result = SQL("UPDATE Affiliate SET Email=?,Password=?,FullName=?,Mobile=?,Gender=?,Country=?,Website=?,Company=? where AffiliateID=?", [$Email,$Password,$FullName,$Mobile,$Gender,$Country,$Website,$Company,$AffiliateID]);
 		If ($Result)
 		{
 		echo Error("User $Email updated successfully.");
@@ -53,8 +50,8 @@ elseif ($_REQUEST['FullName']!="")
 	else
 	{
 		$TimeStamp=time();
-		$Sql = "INSERT INTO Affiliate (Email,Password,FullName,Mobile,Gender,Country,IP,Website,Company,TimeStamp) VALUES ('$Email','$Password','$FullName','$Mobile','$Gender','$Country','$IP','$Website','$Company','$TimeStamp')";
-		$Result = SQL($Sql);
+
+		$Result = SQL("INSERT INTO Affiliate (Email,Password,FullName,Mobile,Gender,Country,IP,Website,Company,TimeStamp) VALUES (?,?,?,?,?,?,?,?,?,?)", [$Email,$Password,$FullName,$Mobile,$Gender,$Country,$IP,$Website,$Company,$TimeStamp]);
 		If ($Result)
 		{
 		echo Error("User $Email created successfully.");
@@ -73,8 +70,7 @@ elseif ($_REQUEST['FullName']!="")
 	$Company="";
 	if ($Edit==1)
 	{
-		$Sql = "select * from Affiliate where AffiliateID='$AffiliateID'";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Affiliate where AffiliateID=?", [$AffiliateID]);
 		foreach ($Result as $Row)
 		{ 
 	
@@ -218,12 +214,12 @@ elseif ($_REQUEST['FullName']!="")
 
 		if ($FilterSql!="")
 		{
-			$Sql = "select * from Affiliate where AffiliateID>=1 and $FilterSql $SearchSql order by $SortBy $Direction LIMIT $FromRecord,$PageNo";
+			$SQL="select * from Affiliate where AffiliateID>=1 and $FilterSql $SearchSql order by $SortBy $Direction LIMIT $FromRecord,$PageNo";
 			$RowsNo=RowsCount("select * from Affiliate where AffiliateID>=1 and $FilterSql $SearchSql");
 		}
 		elseif ($SearchFor=="")
 		{
-			$Sql = "select * from Affiliate where AffiliateID>=1 $SearchSql order by $SortBy $Direction  LIMIT $FromRecord,$PageNo";
+			$SQL="select * from Affiliate where AffiliateID>=1 $SearchSql order by $SortBy $Direction  LIMIT $FromRecord,$PageNo";
 			$RowsNo=RowCount("select * from Affiliate where AffiliateID>=1 $SearchSql");
 		}
 		else
@@ -231,11 +227,9 @@ elseif ($_REQUEST['FullName']!="")
 			$TableName="Affiliate";
 			include "include/search.php";
 		}
-
-		
-
+2
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 			

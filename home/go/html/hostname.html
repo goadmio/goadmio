@@ -18,7 +18,7 @@
 
 	<form name="Form" method="POST" onsubmit="return Submit('$CurrentFileName');" autocomplete="off" action="$CurrentFileName">
 		
-		<div class='DivInput {$Dir}DivInput'>{$LNG['Hostname']}:<br>
+		<div class='DivInput {$Dir}DivInput'>{$LNG['Hostname']}<br>
 		<input type='text' name='Hostname' value='$Hostname' pattern="((?:(?:(?:\\w[\\.\\-\\+]?)*)\\w)+)((?:(?:(?:\\w[\\.\\-\\+]?){0,62})\\w)+)\\.(\\w{2,12})" title="Enter a valid hostname with at least two dots (e.g., smtp.example.com)" maxlength=255 class=InputText required>
 		{$HostnameError}
 		</div>		

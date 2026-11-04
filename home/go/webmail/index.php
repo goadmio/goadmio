@@ -99,12 +99,12 @@ if (stristr($_SESSION['SessionEmail'], '.')) {
     $userDisplay = '<a class="header-link" href="javascript:Load(\'go.php\')">' . $userDisplay . '</a>';
 }
 
-	$Result = SQL("select * from Mail where Email='{$_SESSION['SessionEmail']}' and Pass='{$_SESSION['SessionEmailPass']}'");
-	foreach ($Result as $Row)
-	{
-		$Admin=$Row['Admin'];
-		$Success=1;
-	}
+$Result = SQL("select * from Mail where Email=? and Pass=?", [$_SESSION['SessionEmail'], $_SESSION['SessionEmailPass']]);
+foreach ($Result as $Row)
+{
+$Admin=$Row['Admin'];
+$Success=1;
+}
 
 // Output HTML with dark theme
 ?><!DOCTYPE html>

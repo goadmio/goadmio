@@ -35,8 +35,7 @@ if ($Delete==1 and $Step==2)
 
 	include "access.php";
 
-	$Sql = "UPDATE Mail SET ResponderSubject='',ResponderMessage='',ResponderFirstDay='',ResponderLastDay='',ResponderActive='-0' where Email='$Email'";
-	$Result = SQL($Sql);
+	$Result = SQL("UPDATE Mail SET ResponderSubject='',ResponderMessage='',ResponderFirstDay='',ResponderLastDay='',ResponderActive='-0' where Email=?", [$Email]);
 	
 	echo Error("Auto-responder has been deleted successfully for email: {$Email}");
 
@@ -56,9 +55,7 @@ if ($ResponderSubject!="")
 	
 	if ($Email!="")
 	{
-		$Sql = "UPDATE Mail SET ResponderSubject='$ResponderSubject',ResponderMessage='$ResponderMessage',ResponderFirstDay='$ResponderFirstDay',ResponderLastDay='$ResponderLastDay',ResponderActive='$ResponderActive' where Email='$Email'";
-		$Result = SQL($Sql);
-		
+		$Result = SQL("UPDATE Mail SET ResponderSubject=?,ResponderMessage=?,ResponderFirstDay=?,ResponderLastDay=?,ResponderActive=? where Email=?", [$ResponderSubject,$ResponderMessage,$ResponderFirstDay,$ResponderLastDay,$ResponderActive,$Email]);
 		echo Error("Auto-responder created successfully for email: {$Email}");
 
 		echo Error("<a href=\"javascript:Load('$CurrentFileName')\"><img src='theme/{$_SESSION['SessionTheme']}/image/back.svg' height=24 style='padding-right:8px;vertical-align:middle'>Go Back</a>");
@@ -77,8 +74,7 @@ if ($ResponderSubject!="")
 
 	if ($Edit==1)
 	{
-		$Sql = "select * from Mail where Email='$Email'";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Mail where Email=?", [$Email]);
 		foreach ($Result as $Row)
 		{ 
 			$EmailArray=explode("@",$Row['Email']);
@@ -297,7 +293,7 @@ if ($ResponderSubject!="")
 		include "include/sql.php";
 
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 

@@ -37,7 +37,7 @@ echo "
 ";
 
 
-if ($_SESSION['SessionSSHUsername']!="root" and $_SESSION['SessionSSHUsername']!=$SSHUsername)
+if ($_SESSION['SessionType']!="Root" and $_SESSION['SessionSSHUsername']!=$SSHUsername)
 {
 
 	Echo "
@@ -56,10 +56,7 @@ exit;
 		if ($Success==1)
 		{
 		$ExpiresOn=date('Y-m-d', strtotime('+1 month'));
-		
-		SQL("UPDATE VPS set CustomerID='$CustomerID',ExpiresOn='$ExpiresOn' where VPSID='$VPSID'");
-		
-
+		SQL("UPDATE VPS set CustomerID=?,ExpiresOn=? where VPSID=?", [$CustomerID, $ExpiresOn, $VPSID]);
 		echo Error ("$PlanName ($IP) assigned to Customer ID: $CustomerID");
 		}
 		else
@@ -101,7 +98,7 @@ $Dir="LTR";
 	$Customer['Email'][]=$Row['Email'];
 	}
 
-	$Result = SQL("SELECT * FROM VPS where VPSID='$VPSID'");
+	$Result = SQL("SELECT * FROM VPS where VPSID=?", [$VPSID]);
 	foreach ($Result as $Row)
 	{
 	$IP=$Row['IP'];

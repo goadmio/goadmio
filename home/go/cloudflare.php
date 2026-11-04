@@ -26,4 +26,65 @@ echo "
 ";
 
 
+			
+	echo "
+	<div class=DivXTable>
+
+		<table cellPadding='8' cellSpacing='0' width='100%' class='Table'>
+
+		<THEAD>
+		
+		<tr>
+
+		<th width='100%' colspan=3 height=40>
+		Required Cloudflare API Permissions
+		</th>
+		
+		</THEAD>
+			
+		<TBODY>
+		
+		<tr class='Td'>
+		<TD>Zone</TD>
+		<TD>Dmarc Management</TD>
+		<TD>Edit</TD>
+		
+		<tr class='TdB'>
+		<TD>Zone</TD>
+		<TD>Cache Rules</TD>
+		<TD>Edit</TD>
+		
+		<tr class='Td'>
+		<TD>Zone</TD>
+		<TD>Bot Management</TD>
+		<TD>Edit</TD>
+		
+		<tr class='TdB'>
+		<TD>Zone</TD>
+		<TD>Zone</TD>
+		<TD>Edit</TD>
+		
+		<tr class='Td'>
+		<TD>Zone</TD>
+		<TD>Cache Purge</TD>
+		<TD>Purge</TD>
+		
+
+		<tr class='TdB'>
+		<TD>Zone</TD>
+		<TD>Page Rules</TD>
+		<TD>Edit</TD>
+		
+		<tr class='Td'>
+		<TD>Zone</TD>
+		<TD>DNS</TD>
+		<TD>Edit</TD>
+		
+		</TBODY>
+		</TABLE>
+
+	</div>
+	";
+
+
 ?>

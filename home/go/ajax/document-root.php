@@ -13,7 +13,7 @@ $Domain=ValidateDomain($_REQUEST['Domain']);
 
 if ($Domain!="")
 {
-	$Result = SQL("select * from Site where Domain='$Domain'");
+	$Result = SQL("select * from Site where Domain=?", [$Domain]);
 	foreach ($Result as $Row)
 	{
 		echo $Row['DocumentRoot'];

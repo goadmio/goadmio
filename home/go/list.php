@@ -33,7 +33,7 @@ exit;
 If ($Action=="ListOwner")
 {
 	echo "
-	<div class='DivInput {$Dir}DivInput'>Select a New Owner ($Domain):<BR>
+	<div class='DivInput {$Dir}DivInput'>Select a New Owner ($Domain)<BR>
 	";
 
 		$Result = SQL("select * from User where UserID>=1");
@@ -80,7 +80,7 @@ If ($Action=="ListOwner")
 	
 if ($ChangeOwner==1)
 {
-	SQL("UPDATE Site set UserID='$UserID' where Domain='$Domain'");	
+	SQL("UPDATE Site SET UserID = ? WHERE Domain = ?", [$UserID, $Domain]);
 }
 
 
@@ -160,10 +160,8 @@ if ($ChangeOwner==1)
 	$DefaultDirection="ASC";
 	include "include/sql.php";
 
-
-
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$UserID=$Row['UserID'];

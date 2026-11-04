@@ -13,11 +13,11 @@ include "access.php";
 
 	if ($Action=="Enable")
 	{
-		SQL("UPDATE Country set Whitelist='1' where ID='$ID'");
+		SQL("UPDATE Country set Whitelist='1' where ID=?", [$ID]);
 	}
 	else
 	{
-		SQL("UPDATE Country set Whitelist='0' where ID='$ID'");
+		SQL("UPDATE Country set Whitelist='0' where ID=?", [$ID]);
 	}
 	
 }
@@ -58,7 +58,7 @@ include "access.php";
 	include "include/sql.php";    
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$ID=$Row['ID'];

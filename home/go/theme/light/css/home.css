@@ -131,10 +131,10 @@
     --inner-shadow-light: inset 0 1px 0 rgba(255, 255, 255, 0.8);
     --inner-shadow-dark: inset 0 1px 0 rgba(0, 0, 0, 0.05);
     
-    /* ========== FONTS ========== */
+    /* ========== FONTS — Cloudflare system stack ========== */
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --font-family-headline: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --font-family-headline: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     
     /* ========== ADDITIONAL UI ELEMENTS ========== */
     /* Progress bars */
@@ -212,6 +212,20 @@ body {
     line-height: 1.4;
 }
 
+
+.Yes {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .No {
+        display: none;
+    }
+    .Yes {
+        display: inline;
+    }
+}
+
 /* Target specific input types - DON'T apply to all inputs globally */
 textarea,
 input[type="text"],
@@ -261,6 +275,8 @@ a:hover {
     height: 60px;
     width: 100%;
     border-bottom: 1px solid var(--border-tertiary);
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .NavigatorInfo {
@@ -282,6 +298,10 @@ a:hover {
     color: var(--text-primary);
     font-size: 12px;
     text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .DivButton {
@@ -299,6 +319,8 @@ a:hover {
     line-height: 60px;
     color: var(--text-primary);
     border-bottom: 1px solid var(--border-tertiary);
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .LTRTitle {
@@ -306,15 +328,25 @@ a:hover {
     font-size: 18px;
     font-family: inherit;
     padding-left: 60px;
-    padding-right: 20px;
 }
 
 .RTLTitle {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Cairo', Tahoma, Arial, sans-serif;
     padding-right: 60px;
+}
+
+.TitleH {
+    line-height: 60px;
+    color: var(--text-primary);
+	border-top: 1px solid var(--border-tertiary);
+	border-bottom: 1px solid var(--border-tertiary);
+    font-weight: 700;
+    font-size: 18px;
+    font-family: inherit;
     padding-left: 20px;
+    padding-right: 20px;
 }
 
 .UnderTitle {
@@ -1232,6 +1264,18 @@ TFOOT tr th {
     position: relative;
 }
 
+@media (max-width: 768px) {
+    .left-area,
+    .Slidbar {           /* hide the toggle too since it has nothing to toggle */
+        display: none !important;
+    }
+
+    .right-area {
+        width: 100%;
+        padding: 0;
+    }
+}
+
 /* Resizer Handle */
 .resizer {
     width: 5px;
@@ -1317,36 +1361,34 @@ body.resizing {
 }
 
 /* ============================================
-   SEARCH STYLES
+   MODERN SEARCH (LIGHT)
    ============================================ */
 .Search {
-    padding: 0;
-    background-color: var(--background-secondary);
+    padding: 12px;
+    background: var(--background-secondary);
     position: sticky;
     top: 0;
     z-index: 10;
     flex-shrink: 0;
-    border-bottom: 1px solid var(--border-tertiary);
-    height: 60px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    height: auto;
+    display: flex;
+    align-items: center;
 }
 
 .Search input {
     width: 100%;
-    height: 58px;
-    padding: 0 58px 0 16px;
-    background-color: var(--background-secondary);
-    border: none;
-    outline: none;
+    height: 38px;
+    padding: 0 14px 0 40px;
+    background: var(--background-primary);
+    border: 1px solid var(--opaque-separator);
+    border-radius: 10px;
     color: var(--text-primary);
-    font-size: 14px;
-    transition: all 0.2s ease;
+    font-size: 13px;
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     margin: 0;
-    border-radius: 0;
     box-sizing: border-box;
-}
-
-.Search input:focus {
-    background-color: var(--fill-quaternary);
+    outline: none;
 }
 
 .Search input::placeholder {
@@ -1355,197 +1397,390 @@ body.resizing {
 }
 
 .Search input:hover {
-    background-color: var(--fill-quaternary);
+    background: var(--fill-quinary);
+    border-color: var(--border-secondary);
 }
 
+.Search input:focus {
+    background: var(--background-primary);
+    border-color: var(--border-tertiary);
+    box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.15);
+}
+
+/* Search icon on the LEFT */
 .Search::before {
     content: '';
     position: absolute;
-    right: 12px;
+    left: 26px;
     top: 50%;
     transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%233C3C43'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E");
+    width: 15px;
+    height: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%238E8E93' stroke-width='2.2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath stroke-linecap='round' d='M20 20l-3.5-3.5'/%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;
     pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1;
 }
 
-.Search:hover::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23FF6A00'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E");
+.Search:focus-within::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23FF6A00' stroke-width='2.2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath stroke-linecap='round' d='M20 20l-3.5-3.5'/%3E%3C/svg%3E");
 }
 
 .Search input::-webkit-search-cancel-button {
     display: none;
 }
 
+/* ============================================
+   NAV WRAPPER (LIGHT)
+   ============================================ */
 .nav-wrapper {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 8px 0 16px;
 }
 
-.nav-wrapper::-webkit-scrollbar {
-    width: 8px;
-}
-
-.nav-wrapper::-webkit-scrollbar-track {
-    background: var(--background-secondary);
-    border-radius: 10px;
-}
-
+.nav-wrapper::-webkit-scrollbar { width: 6px; }
+.nav-wrapper::-webkit-scrollbar-track { background: transparent; }
 .nav-wrapper::-webkit-scrollbar-thumb {
-    background: var(--opaque-separator);
-    border-radius: 10px;
-    transition: background 0.2s ease;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
 }
-
 .nav-wrapper::-webkit-scrollbar-thumb:hover {
-    background: var(--border-tertiary);
+    background: rgba(0, 0, 0, 0.16);
 }
 
 .no-results-msg {
-    padding: 20px;
+    padding: 24px 20px;
     text-align: center;
-    color: var(--text-secondary);
-    font-size: 13px;
-    background-color: var(--background-secondary);
-    border-top: 1px solid var(--opaque-separator);
+    color: var(--text-tertiary);
+    font-size: 12px;
+    letter-spacing: 0.2px;
 }
 
 /* ============================================
-   CONTROL PANEL MENU
+   MENU SECTIONS (LIGHT)
    ============================================ */
 .DivControl {
     width: 100%;
     background-color: var(--background-secondary);
     display: flex;
     flex-direction: column;
+    gap: 6px;
 }
 
 .MenuSection {
     display: block;
-    margin-bottom: 4px;
-    border-bottom: 1px solid var(--opaque-separator);
+    margin: 0 8px;
     flex-shrink: 0;
 }
 
-.MenuSection:last-child {
-    border-bottom: none;
+.MenuSection + .MenuSection {
+    padding-top: 4px;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.MenuB, 
+/* Section header — Cloudflare-like */
+.MenuB,
 h2.MenuB {
     display: flex;
     align-items: center;
-    padding: 10px 16px 10px 12px;
-    background-color: var(--background-secondary);
-    color: var(--text-primary);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 0;
-    border-left: 3px solid var(--border-tertiary);
     gap: 10px;
-    min-height: 36px;
+    padding: 9px 10px;
+    margin: 6px 0 2px;
+    background-color: transparent;
+    color: var(--text-tertiary);
+    font-family: var(--font-family-system);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    user-select: none;
+    min-height: 34px;
 }
 
 .MenuB:hover,
 h2.MenuB:hover {
     background-color: var(--fill-quaternary);
+    color: var(--text-primary);
 }
 
-.menu-arrow {
-    font-size: 10px;
-    transition: transform 0.3s ease;
-    color: var(--text-primary);
-    display: inline-block;
+/* Section icon */
+.MenuB .menu-icon {
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+    display: block;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+.MenuB:hover .menu-icon { opacity: 1; }
+
+/* Chevron arrow — 18px */
+.MenuB .menu-arrow {
+    margin-left: auto;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text-tertiary);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+    transform: rotate(0deg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
     flex-shrink: 0;
 }
 
-.menu-arrow.rotated {
+.MenuB .menu-arrow.rotated {
     transform: rotate(90deg);
+    color: var(--text-primary);
 }
+
+.MenuB:hover .menu-arrow { color: var(--text-primary); }
 
 .menu-title {
     flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
+/* ============================================
+   MENU ITEMS — Cloudflare-style typography (LIGHT)
+   ============================================ */
 .MenuItems {
     list-style: none;
     margin: 0;
-    padding: 0;
-    background-color: var(--background-secondary);
+    padding: 0 0 4px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
 }
 
 .MenuItem {
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid var(--opaque-separator);
+    border: none;
 }
 
-.MenuItem:last-child {
-    border-bottom: none;
-}
-
+/* Parent item — 13px, medium weight */
 .Menu,
 div.Menu {
     display: flex;
     align-items: center;
-    padding: 8px 16px 8px 32px;
+    padding: 8px 38px;
+    margin: 0;
     color: var(--text-secondary);
-    font-size: 12px;
+    font-family: var(--font-family-system);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
     cursor: pointer;
     position: relative;
-    border-left: 3px solid transparent;
-    margin: 0;
-    min-height: 36px;
-    line-height: 1.2;
+    border: none;
+    border-radius: 8px;
+    min-height: 32px;
     background-color: transparent;
-    transition: background-color 0.25s ease, color 0.25s ease, border-left-color 0.25s ease;
+    transition: background-color 0.18s ease, color 0.18s ease;
+    overflow: hidden;
+}
+
+.Menu::before,
+div.Menu::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    width: 2px;
+    height: 16px;
+    border-radius: 2px;
+    background: var(--border-tertiary);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .Menu:hover,
 div.Menu:hover {
     background-color: var(--fill-quaternary);
     color: var(--text-primary);
-    border-left-color: var(--border-tertiary);
 }
 
+.Menu:hover::before,
+div.Menu:hover::before {
+    transform: translateY(-50%) scaleY(1);
+}
+
+.MenuItems:hover .Menu:not(:hover) {
+    color: var(--text-tertiary);
+    opacity: 0.85;
+}
+
+/* Active — soft orange tint, orange text */
 .Menu.active,
 div.Menu.active {
-    background-color: var(--border-tertiary) !important;
-    color: #FFFFFF !important;
-    border-left-color: var(--border-tertiary);
-    min-height: 36px;
-    padding: 8px 16px 8px 32px !important;
+    background-color: rgba(255, 106, 0, 0.10) !important;
+    color: var(--border-tertiary) !important;
+    font-weight: 600;
+    padding: 8px 38px !important;
     margin: 0 !important;
+    border-radius: 8px !important;
     transform: none !important;
-    box-shadow: var(--inner-shadow-light);
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.Menu.active::before,
+div.Menu.active::before {
+    transform: translateY(-50%) scaleY(1);
+    background: var(--border-tertiary);
 }
 
 .Menu.active:hover,
 div.Menu.active:hover {
-    background-color: var(--background-menu-hover) !important;
-    color: #FFFFFF !important;
-    transform: none !important;
+    background-color: rgba(255, 106, 0, 0.16) !important;
+    color: var(--border-tertiary) !important;
 }
 
 .Menu:active,
 div.Menu:active {
-    transform: scale(0.99);
-    transition: transform 0.05s ease;
+    transform: scale(0.985);
+    transition: transform 0.08s ease;
 }
 
-.MenuItems.closed {
-    display: none !important;
+.Menu:focus-visible {
+    outline: 2px solid var(--border-tertiary);
+    outline-offset: -2px;
+    border-radius: 8px;
 }
+
+/* ============================================
+   SUB-MENU (Cloudflare-style nested items — LIGHT)
+   ============================================ */
+
+/* Parent item — has a nested sub-list */
+.Menu.has-children {
+    position: relative;
+    padding-right: 32px;
+}
+
+.Menu.has-children::after {
+    content: '›';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    line-height: 1;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.Menu.has-children.expanded::after {
+    transform: translateY(-50%) rotate(90deg);
+    color: var(--text-primary);
+}
+
+.Menu.has-children:hover::after {
+    color: var(--text-primary);
+}
+
+/* Nested list — appears under the parent text */
+.SubMenu {
+    list-style: none;
+    margin: 0;
+    padding: 2px 0 4px 0;
+    display: none;
+    flex-direction: column;
+    gap: 1px;
+    position: relative;
+}
+
+.SubMenu.open {
+    display: flex;
+    animation: subMenuOpen 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes subMenuOpen {
+    from { opacity: 0; transform: translateY(-2px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Vertical guide line (light mode) */
+.SubMenu::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 1px;
+}
+
+/* Sub-item — 12px */
+.SubMenu .Menu,
+.SubMenu div.Menu {
+    padding: 6px 38px;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-tertiary);
+    min-height: 28px;
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
+.SubMenu .Menu::before,
+.SubMenu div.Menu::before {
+    display: none; /* no accent dot on sub-items */
+}
+
+.SubMenu .Menu:hover,
+.SubMenu div.Menu:hover {
+    background-color: var(--fill-quaternary);
+    color: var(--text-primary);
+}
+
+.SubMenu .Menu.active,
+.SubMenu div.Menu.active {
+    background-color: rgba(255, 106, 0, 0.10) !important;
+    color: var(--border-tertiary) !important;
+    font-weight: 500;
+    padding: 6px 38px !important;
+}
+
+.SubMenu:hover .Menu:not(:hover) {
+    color: var(--label-quaternary);
+}
+
+/* Prevent group-hover dim from hitting sub-items when sub is open */
+.MenuItems:hover .SubMenu .Menu {
+    opacity: 1;
+}
+
+/* Toggle states */
+.MenuItems.closed { display: none !important; }
 
 .MenuItems.open {
-    display: block !important;
+    display: flex !important;
+    animation: menuOpen 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes menuOpen {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================
@@ -1574,9 +1809,11 @@ div.Menu:active {
 .left-area-inner[style*="width: 40px"] .Menu,
 .left-area-inner[style*="width: 40px;"] .Menu {
     padding: 8px 0 !important;
+    margin: 2px 4px !important;
     text-align: center !important;
-    font-size: 0 !important;
     justify-content: center !important;
+    font-size: 0 !important;
+    border-radius: 8px !important;
 }
 
 .left-area-inner[style*="width: 40px"] .MenuB,
@@ -1674,12 +1911,40 @@ div.Menu:active {
 
 .left-area-inner[style*="width: 40px"] .Menu.active,
 .left-area-inner[style*="width: 40px;"] .Menu.active {
-    background-color: transparent !important;
+    background-color: rgba(255, 106, 0, 0.15) !important;
     padding: 8px 0 !important;
+    margin: 2px 4px !important;
 }
 
 .left-area-inner[style*="width: 40px"] .Menu.active::before {
     color: var(--border-tertiary) !important;
+}
+
+.left-area-inner[style*="width: 40px"] .Menu::before,
+.left-area-inner[style*="width: 40px;"] .Menu::before {
+    display: none !important;
+}
+
+.left-area-inner[style*="width: 40px"] .menu-icon,
+.left-area-inner[style*="width: 40px;"] .menu-icon {
+    display: none !important;
+}
+
+.left-area-inner[style*="width: 40px"] .MenuB .menu-arrow,
+.left-area-inner[style*="width: 40px;"] .MenuB .menu-arrow {
+    margin: 0 auto !important;
+    transform: rotate(90deg) !important;
+}
+
+/* Hide sub-menus when the sidebar is collapsed */
+.left-area-inner[style*="width: 40px"] .SubMenu,
+.left-area-inner[style*="width: 40px;"] .SubMenu {
+    display: none !important;
+}
+
+.left-area-inner[style*="width: 40px"] .Menu.has-children::after,
+.left-area-inner[style*="width: 40px;"] .Menu.has-children::after {
+    display: none !important;
 }
 
 /* ============================================
@@ -1706,11 +1971,7 @@ div.Menu:active {
     .left-area {
         width: 240px;
     }
-    
-    .right-area {
-        padding: 15px;
-    }
-    
+        
     .custom-select {
         min-width: 120px;
         font-size: 11px;
@@ -1726,25 +1987,48 @@ div.Menu:active {
     }
     
     .Search input {
-        height: 40px;
-        font-size: 13px;
-        padding: 0 36px 0 12px;
+        height: 36px;
+        font-size: 12px;
+        padding: 0 12px 0 36px;
+    }
+    
+    .Search::before {
+        left: 22px;
+        width: 14px;
+        height: 14px;
     }
     
     .MenuB, h2.MenuB {
-        padding: 8px 12px;
-        font-size: 12px;
-        min-height: 34px;
+        padding: 8px 10px;
+        font-size: 10px;
+        min-height: 32px;
+    }
+    
+    .MenuB .menu-arrow {
+        font-size: 16px;
+        width: 20px;
+        height: 20px;
     }
     
     .Menu, div.Menu {
-        padding: 6px 12px 6px 28px;
-        font-size: 11px;
-        min-height: 34px;
+        padding: 8px 10px;
+        font-size: 12px;
+        min-height: 32px;
     }
     
     .Menu.active, div.Menu.active {
-        padding: 6px 12px 6px 28px !important;
+        padding: 8px 10px !important;
+    }
+    
+    .SubMenu .Menu,
+    .SubMenu div.Menu {
+        padding: 6px 38px;
+        font-size: 11px;
+    }
+    
+    .SubMenu .Menu.active,
+    .SubMenu div.Menu.active {
+        padding: 6px 38px !important;
     }
     
     .slider-toggle {
@@ -1767,11 +2051,7 @@ div.Menu:active {
     .left-area {
         width: 200px;
     }
-    
-    .right-area {
-        padding: 10px;
-    }
-    
+        
     .user-info {
         gap: 8px;
     }
@@ -1813,25 +2093,48 @@ div.Menu:active {
     }
     
     .Search input {
-        height: 40px;
-        font-size: 12px;
-        padding: 0 34px 0 10px;
+        height: 34px;
+        font-size: 11px;
+        padding: 0 10px 0 32px;
+    }
+    
+    .Search::before {
+        left: 20px;
+        width: 13px;
+        height: 13px;
     }
     
     .MenuB, h2.MenuB {
-        padding: 6px 10px;
+        padding: 6px 8px;
+        font-size: 10px;
+        min-height: 30px;
+    }
+    
+    .MenuB .menu-arrow {
+        font-size: 15px;
+        width: 19px;
+        height: 19px;
+    }
+    
+    .Menu, div.Menu {
+        padding: 7px 8px;
         font-size: 11px;
         min-height: 32px;
     }
     
-    .Menu, div.Menu {
-        padding: 5px 10px 5px 24px;
-        font-size: 10px;
-        min-height: 32px;
+    .Menu.active, div.Menu.active {
+        padding: 7px 8px !important;
     }
     
-    .Menu.active, div.Menu.active {
-        padding: 5px 10px 5px 24px !important;
+    .SubMenu .Menu,
+    .SubMenu div.Menu {
+        padding: 6px 38px;
+        font-size: 10px;
+    }
+    
+    .SubMenu .Menu.active,
+    .SubMenu div.Menu.active {
+        padding: 6px 38px !important;
     }
     
     .slider-toggle {
@@ -1917,6 +2220,7 @@ div.Menu:active {
     .left-area-inner,
     .Menu,
     .MenuB,
+    .SubMenu,
     .menu-arrow,
     .Search,
     .dropdown-menu,
@@ -1931,7 +2235,7 @@ div.Menu:active {
    ============================================ */
 .DivCheckbox {
     display: block;
-    width: 50%;
+    width: 100%;
     margin-bottom: 0;
     padding: 0;
 }
@@ -2245,7 +2549,7 @@ textarea:focus {
 .SearchContainer::after {
     content: "";
     position: absolute;
-    right: 8px; /* Adjusted for better alignment inside the rounded input */
+    right: 8px;
     top: 50%;
     transform: translateY(-50%);
     width: 36px;
@@ -2259,15 +2563,6 @@ textarea:focus {
     background-size: 18px;
     box-sizing: border-box;
 }
-
-
-
-
-
-
-
-
-
 
 .CategoryWrapper {
     margin-bottom: 10px;
@@ -3310,13 +3605,6 @@ textarea:focus {
     border-radius: 12px;
 }
 
-
-
-
-
-
-
-
 .Main {
     text-decoration: none;
     display: block;
@@ -3375,14 +3663,12 @@ textarea:focus {
     -webkit-box-orient: vertical;
 }
 
-/* Focus state for accessibility */
 .Main:focus-visible {
     outline: 2px solid var(--keyboard-focus-indicator);
     outline-offset: 4px;
     border-radius: 8px;
 }
 
-/* Container grid for better spacing */
 .DivIcon {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 140px));
@@ -3391,7 +3677,6 @@ textarea:focus {
     padding: 20px;
 }
 
-/* Animation */
 @keyframes fadeInScale {
     from {
         opacity: 0;
@@ -3403,7 +3688,6 @@ textarea:focus {
     }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .DivIcon {
         grid-template-columns: repeat(auto-fill, minmax(100px, 120px));
@@ -3430,5 +3714,3 @@ textarea:focus {
         margin-bottom: 20px;
     }
 }
-
-

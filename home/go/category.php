@@ -27,7 +27,7 @@ echo "
 <div class='DivIcon'>
 ";
 
-$Result = SQL("select * from Control where $ServiceSql and ControlMenu='$ControlMenu' order by Sort");
+$Result = SQL("select * from Control where $ServiceSql and ControlMenu=? order by Sort", [$ControlMenu]);
 foreach ($Result as $Row)
 {
     $X++;

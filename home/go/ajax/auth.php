@@ -14,7 +14,7 @@ include("/usr/local/goadmio/include/config/config.php");
 
 $Username=ValidateUsername($_REQUEST['Username']);
 
-$Result = SQL("select * from Auth where AuthUser='$Username'");
+$Result = SQL("select * from Auth where AuthUser=?", [$Username]);
 foreach ($Result as $Row)
 {
 echo "1";

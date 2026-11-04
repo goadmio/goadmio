@@ -110,7 +110,7 @@ $DefaultDirection="ASC";
 include "include/sql.php";
 
 $X=0;		
-$Result = SQL($Sql);
+$Result = SQL($SQL);
 foreach ($Result as $Row)
 {
 	$GithubID=$Row['GithubID'];

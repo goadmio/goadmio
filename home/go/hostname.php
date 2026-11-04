@@ -7,7 +7,7 @@ $Buttons="<a href=\"javascript:Load('$CurrentFileName?Action=Restore&ControlID=$
 }
 include "title.php";
 
-echo "<div class=NavigatorInfo><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>{$LNG['HostnameTitle']}</div>";
+echo "<div class='NavigatorInfo No'><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>{$LNG['HostnameTitle']}</div>";
 
 $Hostname=$_REQUEST['Hostname'];
 
@@ -23,6 +23,11 @@ $Hostname=$_REQUEST['Hostname'];
 
 if ($_REQUEST['Action']=="Restore")
 {
+	if ($DemoPassword!="")
+	{
+	echo Error($LNG['ThisFunctionalityNotAvailableDemoMode']);
+	exit;
+	}
 
 	$Error=SSH ("/usr/bin/sudo /go/hostname restore",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 	echo Error($Error);
@@ -33,6 +38,13 @@ exit;
 
 if ($_REQUEST['Hostname']!="")
 {
+
+	if ($DemoPassword!="")
+	{
+	echo Error($LNG['ThisFunctionalityNotAvailableDemoMode']);
+	exit;
+	}
+
 	$Error=SSH ("/usr/bin/sudo /go/hostname $Hostname",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 	$Error=Error($Error);
 }

@@ -14,7 +14,7 @@ $PostgreID=intval($_REQUEST['PostgreID']);
 if ($Adminer==1)
 {
 
-	$Result = SQL("select * from Postgre where PostgreID='$PostgreID'");
+	$Result = SQL("select * from Postgre where PostgreID=?", [$PostgreID]);
 	foreach ($Result as $Row)
 	{
 	setcookie ("CookiesPostgreUser",$Row['User'],time() + (86400 * 30), "/");
@@ -76,7 +76,7 @@ exit;
 	{
 	$Readonly="readonly";
 	
-		$Result = SQL("select * from Postgre where PostgreID='$PostgreID'");
+		$Result = SQL("select * from Postgre where PostgreID=?", [$PostgreID]);
 		foreach ($Result as $Row)
 		{
 		$Domain=$Row['Domain'];
@@ -97,7 +97,7 @@ exit;
 		<select name='Domain' class=Select>
 		";
 		
-		$Result = SQl("select * from Site where Trash=0 $SearchSql order by Domain");
+		$Result = SQL("select * from Site where Trash=0 $SearchSql order by Domain");
 		foreach ($Result as $Row)
 		{
 			if ($Row['Domain']==$Domain)
@@ -137,7 +137,6 @@ exit;
 		else
 		{
 			echo "<input type=submit value='{$LNG['Create']}' Class=InputButton>";
-		
 		}
 		
 	echo "
@@ -199,7 +198,7 @@ exit;
 	
 
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 		

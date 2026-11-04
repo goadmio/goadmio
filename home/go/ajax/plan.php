@@ -13,14 +13,14 @@ include "/usr/local/goadmio/home/go/include/function/function.php";
 
 $ServerIP=ValidateUsername($_REQUEST['ServerIP']);
 
-$Result = SQL("SELECT DiskType FROM Server where ServerIP='$ServerIP'");
+$Result = SQL("SELECT DiskType FROM Server where ServerIP=?", [$ServerIP]);
 foreach ($Result as $Row)
 {
 $DiskType=$Row['DiskType'];
 }
 
 
-$Result = SQL("SELECT * FROM Plan where DiskType='$DiskType' order by DiskType,DiskSpace");
+$Result = SQL("SELECT * FROM Plan where DiskType=? order by DiskType,DiskSpace", [$DiskType]);
 foreach ($Result as $Row)
 {
 $Plan['PlanID'][]=$Row['PlanID'];

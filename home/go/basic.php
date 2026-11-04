@@ -1,25 +1,22 @@
 <?php
-
 include "nav.php";
-$Buttons="";
+$Buttons = "";
 include "title.php";
 
-$AdminEmail=$_REQUEST['AdminEmail'];
-$CronEmail=$_REQUEST['CronEmail'];
-$AdminMobile=$_REQUEST['AdminMobile'];
+$AdminEmail     = trim((string)($_REQUEST['AdminEmail']     ?? ''));
+$CronEmail      = trim((string)($_REQUEST['CronEmail']      ?? ''));
+$AdminMobile    = trim((string)($_REQUEST['AdminMobile']    ?? ''));
+$WAInstanceID   = trim((string)($_REQUEST['WAInstanceID']   ?? ''));
+$WAAPIKey       = trim((string)($_REQUEST['WAAPIKey']       ?? ''));
+$ConfigPassword = trim((string)($_REQUEST['ConfigPassword'] ?? ''));
 
-$ConfigPassword=trim($_REQUEST['ConfigPassword']);
-
-$WAInstanceID=$_REQUEST['WAInstanceID'];
-$WAAPIKey=$_REQUEST['WAAPIKey'];
-
-$SSHAlert=intval($_REQUEST['SSHAlert']);
-$IMAPAlert=intval($_REQUEST['IMAPAlert']);
-$Junk=intval($_REQUEST['Junk']);
-$Welcome=intval($_REQUEST['Welcome']);
-$Heal=intval($_REQUEST['Heal']);
-$PermitRootLogin=intval($_REQUEST['PermitRootLogin']);
-$RemoteMariaDB=intval($_REQUEST['RemoteMariaDB']);
+$SSHAlert        = intval($_REQUEST['SSHAlert']        ?? 0);
+$IMAPAlert       = intval($_REQUEST['IMAPAlert']       ?? 0);
+$Junk            = intval($_REQUEST['Junk']            ?? 0);
+$Welcome         = intval($_REQUEST['Welcome']         ?? 0);
+$Heal            = intval($_REQUEST['Heal']            ?? 0);
+$PermitRootLogin = intval($_REQUEST['PermitRootLogin'] ?? 0);
+$RemoteMariaDB   = intval($_REQUEST['RemoteMariaDB']   ?? 0);
 
 	if (!in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUsername], true))
 	{
@@ -35,7 +32,7 @@ $RemoteMariaDB=intval($_REQUEST['RemoteMariaDB']);
 if ($_REQUEST['AdminEmail']!="")
 {
 	
-	SQL("UPDATE Config SET AdminEmail='$AdminEmail',CronEmail='$CronEmail',AdminMobile='$AdminMobile',WAInstanceID='$WAInstanceID',WAAPIKey='$WAAPIKey',IMAPAlert='$IMAPAlert',Junk='$Junk',Heal='$Heal',PermitRootLogin='$PermitRootLogin',RemoteMariaDB='$RemoteMariaDB',Welcome='$Welcome'");
+	SQL("UPDATE Config SET AdminEmail=?,CronEmail=?,AdminMobile=?,WAInstanceID=?,WAAPIKey=?,IMAPAlert=?,Junk=?,Heal=?,PermitRootLogin=?,RemoteMariaDB=?,Welcome=?", [$AdminEmail,$CronEmail,$AdminMobile,$WAInstanceID,$WAAPIKey,$IMAPAlert,$Junk,$Heal,$PermitRootLogin,$RemoteMariaDB,$Welcome]);
 
 	$Error=SSH ("/usr/bin/sudo screen -d -m bash -c '/go/basic'",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 	

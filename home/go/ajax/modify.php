@@ -28,7 +28,7 @@ if (stristr($ID,"DiskSpace"))
 	$Value=intval($Value);
 	
 	$DiskSpace=$Value*1048576;
-	SQL("UPDATE Site set DiskSpace='$DiskSpace' where SiteID='$SiteID'");
+	SQL("UPDATE Site set DiskSpace=? where SiteID=?", [$DiskSpace, $SiteID]);
 	if ($DiskSpace==0) 
 	{
 		$DiskSpace="Unlimited";
@@ -47,7 +47,7 @@ if (stristr($ID,"Bandwidth"))
 	$Value=intval($Value);
 	
 	$Bandwidth=$Value*1048576;
-	SQL("UPDATE Site set Bandwidth='$Bandwidth' where SiteID='$SiteID'");
+	SQL("UPDATE Site set Bandwidth=? where SiteID=?", [$Bandwidth, $SiteID]);
 	if ($Bandwidth==0) 
 	{
 		$Bandwidth="Unlimited";
@@ -65,7 +65,7 @@ if (stristr($ID,"Inode"))
 	$Value=intval($Value);
 	
 	$Inode=$Value;
-	SQL("UPDATE Site set Inode='$Inode' where SiteID='$SiteID'");
+	SQL("UPDATE Site set Inode=? where SiteID=?", [$Inode, $SiteID]);
 	if ($Inode==0) 
 	{
 		$Inode="Unlimited";
@@ -83,7 +83,7 @@ if (stristr($ID,"FTPNo"))
 	$Value=intval($Value);
 	
 	$FTPNo=intval($Value);
-	SQL("UPDATE Site set FTPNo='$FTPNo' where SiteID='$SiteID'");
+	SQL("UPDATE Site set FTPNo=? where SiteID=?", [$FTPNo, $SiteID]);
 	if ($FTPNo==0) 
 	{
 		$FTPNo="Unlimited";
@@ -101,7 +101,7 @@ if (stristr($ID,"EmailNo"))
 	$Value=intval($Value);
 	
 	$EmailNo=intval($Value);
-	SQL("UPDATE Site set EmailNo='$EmailNo' where SiteID='$SiteID'");
+	SQL("UPDATE Site set EmailNo=? where SiteID=?", [$EmailNo, $SiteID]);
 	if ($EmailNo==0) 
 	{
 		$EmailNo="Unlimited";
@@ -119,7 +119,7 @@ if (stristr($ID,"DatabaseNo"))
 	$Value=intval($Value);
 	
 	$DatabaseNo=intval($Value);
-	SQL("UPDATE Site set DatabaseNo='$DatabaseNo' where SiteID='$SiteID'");
+	SQL("UPDATE Site set DatabaseNo=? where SiteID=?", [$DatabaseNo, $SiteID]);
 	if ($DatabaseNo==0) 
 	{
 		$DatabaseNo="Unlimited";
@@ -137,7 +137,7 @@ if (stristr($ID,"SubDomainNo"))
 	$Value=intval($Value);
 	
 	$SubDomainNo=intval($Value);
-	SQL("UPDATE Site set SubDomainNo='$SubDomainNo' where SiteID='$SiteID'");
+	SQL("UPDATE Site set SubDomainNo=? where SiteID=?", [$SubDomainNo, $SiteID]);
 	if ($SubDomainNo==0) 
 	{
 		$SubDomainNo="Unlimited";
@@ -155,7 +155,7 @@ if (stristr($ID,"AliasNo"))
 	$Value=intval($Value);
 	
 	$AliasNo=intval($Value);
-	SQL("UPDATE Site set AliasNo='$AliasNo' where SiteID='$SiteID'");
+	SQL("UPDATE Site set AliasNo=? where SiteID=?", [$AliasNo, $SiteID]);
 	if ($AliasNo<=0) 
 	{
 		$AliasNo="Disabled";
@@ -169,7 +169,7 @@ if (stristr($ID,"AddonNo"))
 	$Value=intval($Value);
 	
 	$AddonNo=intval($Value);
-	SQL("UPDATE Site set AddonNo='$AddonNo' where SiteID='$SiteID'");
+	SQL("UPDATE Site set AddonNo=? where SiteID=?", [$AddonNo, $SiteID]);
 	if ($AddonNo<=0) 
 	{
 		$AddonNo="Disabled";

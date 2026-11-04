@@ -18,8 +18,8 @@ function XMLFeed($Type,$FileName,$Service,$Limit)
 
 			if ($Type=="Latest")
 			{
-				$Sql = "select * from $Service where Active=1 ORDER by ID DESC LIMIT $Limit";
-				$Result = SQL($Sql);
+				
+				$Result = SQL("select * from $Service where Active=1 ORDER by ID DESC LIMIT $Limit");
 				foreach ($Result as $Row)
 				{
 				
@@ -55,8 +55,7 @@ function XMLFeed($Type,$FileName,$Service,$Limit)
 
 			if ($Type=="Parked")
 			{
-				$Sql = "select * from Domain where DomainID>=1 order by Title ASC LIMIT 100";
-				$Result = SQL($Sql);
+				$Result = SQL("select * from Domain where DomainID>=1 order by Title ASC LIMIT 100");
 				foreach ($Result as $Row)
 				{
 				$Title=$Row['Title'];
@@ -79,8 +78,7 @@ function XMLFeed($Type,$FileName,$Service,$Limit)
 			
 			if ($Type=="Country")
 			{
-				$Sql = "select * from Country,$Service where Country.CountryID=$Service.CountryID group by $Service.CountryID order by Country.EnCountry ASC";
-				$Result = SQL($Sql);
+				$Result = SQL("select * from Country,$Service where Country.CountryID=$Service.CountryID group by $Service.CountryID order by Country.EnCountry ASC");
 				foreach ($Result as $Row)
 				{
 				$CountryID=$Row['CountryID'];

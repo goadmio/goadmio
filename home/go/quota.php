@@ -22,7 +22,7 @@ if ($Resource!="")
 {
 	include "access.php";
 	
-	SQL("UPDATE Config SET Resource='$Resource' WHERE ConfigID=1");
+	SQL("UPDATE Config SET Resource=? WHERE ConfigID=1", [$Resource]);
 
 	if ($Resource=="Unlimited")
 	{
@@ -93,7 +93,7 @@ if ($Action!="")
 	include "include/sql.php";    
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 		$Resource=$Row['Resource'];

@@ -20,20 +20,18 @@ if ($_SESSION['SessionType']!="Root")
 
 	if ($_REQUEST['ChangeUserLimit']==1)
 	{
-		$UserLimit=intval($_REQUEST['UserLimit']);
-		
-		SQL("UPDATE Config SET UserLimit='$UserLimit'");
-	
+		$UserLimit=intval($_REQUEST['UserLimit']);		
+		SQL("UPDATE Config SET UserLimit=?", [$UserLimit]);
+
+
 		SSH ("/usr/bin/sudo screen -d -m bash -c '/go/vmail'",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 			
 	}
 
 	if ($_REQUEST['ChangeSMTPDelay']==1)
 	{
-		$SMTPDelay=$_REQUEST['SMTPDelay'];
-	
-		SQL("UPDATE Config SET SMTPDelay='$SMTPDelay'");
-		
+		$SMTPDelay=$_REQUEST['SMTPDelay'];	
+		SQL("UPDATE Config SET SMTPDelay=?", [$SMTPDelay]);
 
 		$Error=SSH ("postconf -e 'default_destination_rate_delay = {$SMTPDelay}s' && systemctl restart postfix",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 			
@@ -42,8 +40,7 @@ if ($_SESSION['SessionType']!="Root")
 	if ($_REQUEST['ChangeSPAM']==1)
 	{
 		$SPAM=$_REQUEST['SPAM'];
-		SQL("UPDATE Config SET SPAM='$SPAM'");
-		
+		SQL("UPDATE Config SET SPAM=?", [$SPAM]);		
 	}
 
 	$Result = SQL("select * from Config");
@@ -256,7 +253,7 @@ $Date=date ("Y-m-d");
     
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$SpamID=$Row['SpamID'];

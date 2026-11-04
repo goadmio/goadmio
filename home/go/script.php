@@ -19,7 +19,7 @@ $Domain=$DomainArray[2];
 
 if ($_REQUEST['Directory']!="")
 {
-	$Result = SQL("select Username from Site where Domain='$Domain'");
+	$Result = SQL("select Username from Site where Domain=?", [$Domain]);
 	foreach ($Result as $Row)
 	{
 	$Username=$Row['Username'];
@@ -90,7 +90,7 @@ exit;
 		$DefaultDomainArray=explode(".",$DefaultDomain);
 		
 		$SelectVersion="<select name='ScriptID' id='ScriptID' class=Select>";
-		$Result = SQL("select * from Script where ScriptFile='$ScriptFile' order by ScriptID");
+		$Result = SQL("select * from Script where ScriptFile=? order by ScriptID", [$ScriptFile]);
 		foreach ($Result as $Row)
 		{
 			if ($Row['ScriptID']==$ScriptID)

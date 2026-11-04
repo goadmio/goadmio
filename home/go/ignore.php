@@ -6,7 +6,7 @@ include "title.php";
 $SiteID=intval($_REQUEST['SiteID']);
 $Domain=ValidateDomain($_REQUEST['Domain']);
 
-if ($_SESSION['SessionSSHUsername']!="root")
+if ($_SESSION['SessionType']!="Root")
 {	
 	echo "
 	Sorry, You Are Not Allowed to Access This Page
@@ -22,13 +22,12 @@ include "access.php";
 
 	if ($Action=="Enable")
 	{
-		SQL("UPDATE Site set APIIgnore='1' where Domain='$Domain'");
-
+		SQL("UPDATE Site set APIIgnore='1' where Domain=?", [$Domain]);
 		echo Error("API Ignored for domain $Domain");
 	}
 	else
 	{
-		SQL("UPDATE Site set APIIgnore='0' where Domain='$Domain'");
+		SQL("UPDATE Site set APIIgnore='0' where Domain=?", [$Domain]);
 		echo Error("API Applied to domain $Domain");
 	}
 	
@@ -67,7 +66,7 @@ include "access.php";
 	include "include/sql.php";    
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$SiteID=$Row['SiteID'];

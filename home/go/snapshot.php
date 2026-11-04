@@ -125,9 +125,6 @@ if ($Restore!=0)
 	}
 	
 }
-
-
-	include "search.php";
 	
     Echo "
 	<form name=CheckForm id=CheckForm action='$CurrentFileName'>

@@ -1,202 +1,870 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>
-GoAdmio
-</title>
+<title>GoAdmio — Free Linux Web Hosting Control Panel</title>
 
 <meta charset="utf-8">
 <meta name="robots" content="index,follow">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" href="go/image/favicon.svg" type="image/svg+xml">
+<meta name="description" content="GoAdmio is a free, open-source Linux web hosting control panel. Manage domains, mail, databases, SSL and backups from one fast, modern interface.">
 
-<script src='https://www.gopanel.org/js/copy.js'></script>
-<link rel='stylesheet' href='https://www.gopanel.org/css/en.css' />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src='https://www.goadmio.com/js/copy.js'></script>
 
 <style>
-    input:focus, textarea:focus, select:focus{
-        outline: none;
-    }
+/* ============ Tokens ============ */
+:root{
+	--bg:#0a0a0a;
+	--surface:#0f0f0f;
+	--surface-2:#161616;
+	--surface-3:#1d1d1d;
+	--border:#242424;
+	--border-2:#333;
+	--text:#ededed;
+	--muted:#9a9a9a;
+	--muted-2:#6f6f6f;
+	--accent:#FF6A00;
+	--accent-hover:#ff8533;
+	--accent-soft:rgba(255,106,0,.10);
+
+	--radius-sm:9px;
+	--radius:12px;
+	--radius-lg:20px;
+	--radius-pill:999px;
+
+	--maxw:1200px;
+	--ease:cubic-bezier(.4,0,.2,1);
+
+	--shadow:0 18px 40px -20px rgba(0,0,0,.9);
+	--shadow-accent:0 10px 26px -12px rgba(255,106,0,.6);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:88px}
+html,body{margin:0;padding:0}
+
+body{
+	background:var(--bg);
+	color:var(--text);
+	font-family:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+	font-feature-settings:"cv02","cv03","cv04","cv11","ss01";
+	font-size:16px;
+	line-height:1.55;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+/* Subtle film grain */
+body::before{
+	content:"";
+	position:fixed;inset:0;z-index:1;pointer-events:none;
+	opacity:.035;
+	background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit}
+::selection{background:var(--accent);color:#0a0a0a}
+
+:focus-visible{
+	outline:2px solid var(--accent);
+	outline-offset:3px;
+	border-radius:6px;
+}
+
+.wrap{
+	max-width:var(--maxw);
+	margin:0 auto;
+	padding:0 24px;
+}
+
+.Skip{
+	position:absolute;left:-9999px;top:0;z-index:999;
+	background:var(--accent);color:#0a0a0a;
+	padding:12px 18px;border-radius:0 0 var(--radius-sm) 0;
+	font-weight:700;
+}
+.Skip:focus{left:0}
+
+/* ============ Buttons ============ */
+.Btn{
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	gap:8px;
+	height:40px;
+	padding:0 18px;
+	border-radius:var(--radius-pill);
+	border:1px solid transparent;
+	background:transparent;
+	font-size:.9rem;
+	font-weight:600;
+	line-height:1;
+	cursor:pointer;
+	white-space:nowrap;
+	transition:background .18s var(--ease),color .18s var(--ease),
+	           border-color .18s var(--ease),transform .18s var(--ease),
+	           box-shadow .18s var(--ease);
+}
+.Btn:active{transform:translateY(1px)}
+
+.Btn-primary{
+	background:var(--accent);
+	color:#0a0a0a;
+	border-color:transparent;
+	font-weight:700;
+	box-shadow:
+		inset 0 1px 0 rgba(255,255,255,.35),
+		0 8px 24px -10px rgba(255,106,0,.55);
+}
+.Btn-primary:hover{
+	background:var(--accent-hover);
+	color:#0a0a0a;
+	box-shadow:
+		inset 0 1px 0 rgba(255,255,255,.45),
+		0 12px 32px -10px rgba(255,106,0,.7);
+	transform:translateY(-1px);
+}
+.Btn-primary:active{transform:translateY(0)}
+.Btn-primary svg{transition:transform .2s var(--ease)}
+.Btn-primary:hover svg{transform:translateX(3px)}
+
+.Btn-ghost{
+	background:var(--surface-2);
+	border-color:var(--border);
+	color:var(--text);
+}
+.Btn-ghost:hover{background:var(--surface-3);border-color:var(--border-2);color:#fff}
+
+.Btn-outline{
+	border-color:var(--border-2);
+	color:var(--text);
+	background:rgba(255,255,255,.02);
+}
+.Btn-outline:hover{border-color:var(--accent);color:#fff;background:rgba(255,106,0,.06)}
+
+.Btn-lg{height:48px;padding:0 26px;font-size:.97rem;border-radius:var(--radius-pill)}
+
+/* ============ Header ============ */
+.SiteHeader{
+	position:sticky;
+	top:0;
+	z-index:50;
+	background:rgba(10,10,10,.82);
+	backdrop-filter:blur(16px) saturate(140%);
+	-webkit-backdrop-filter:blur(16px) saturate(140%);
+	border-bottom:1px solid transparent;
+	transition:border-color .25s var(--ease),background .25s var(--ease);
+}
+.SiteHeader.scrolled{
+	border-bottom-color:var(--border);
+	background:rgba(10,10,10,.92);
+}
+
+.HeaderInner{
+	display:flex;
+	align-items:center;
+	gap:20px;
+	height:72px;
+}
+
+.Logo{display:inline-flex;align-items:center;flex-shrink:0}
+.Logo img{height:32px;width:auto}
+
+.Nav{
+	display:flex;
+	align-items:center;
+	gap:2px;
+	margin-left:14px;
+}
+
+.NavLink{
+	position:relative;
+	padding:8px 13px;
+	border-radius:var(--radius-sm);
+	color:var(--muted);
+	font-size:.92rem;
+	transition:color .15s var(--ease),background .15s var(--ease);
+}
+.NavLink:hover{color:#fff;background:var(--surface-2)}
+.NavLink[aria-current="page"]{color:#fff;background:var(--surface-2)}
+
+.Actions{
+	margin-left:auto;
+	display:flex;
+	align-items:center;
+	gap:8px;
+}
+
+/* Dropdown */
+.Dropdown{position:relative}
+.Chevron{transition:transform .2s var(--ease)}
+.DropdownToggle[aria-expanded="true"] .Chevron{transform:rotate(180deg)}
+
+.DropdownMenu{
+	position:absolute;
+	top:calc(100% + 10px);
+	right:0;
+	min-width:196px;
+	padding:6px;
+	background:var(--surface-2);
+	border:1px solid var(--border-2);
+	border-radius:var(--radius);
+	box-shadow:var(--shadow);
+	opacity:0;
+	visibility:hidden;
+	transform:translateY(-6px);
+	transition:opacity .16s var(--ease),transform .16s var(--ease),visibility .16s;
+	z-index:60;
+}
+.DropdownMenu.open{opacity:1;visibility:visible;transform:none}
+.DropdownMenu a{
+	display:block;
+	padding:9px 12px;
+	border-radius:8px;
+	font-size:.9rem;
+	color:var(--muted);
+	transition:background .15s var(--ease),color .15s var(--ease);
+}
+.DropdownMenu a:hover{background:var(--surface-3);color:#fff}
+
+/* Hamburger */
+.MenuBtn{
+	display:none;
+	align-items:center;
+	justify-content:center;
+	width:40px;height:40px;
+	background:transparent;
+	border:1px solid var(--border);
+	border-radius:var(--radius-pill);
+	color:#fff;
+	cursor:pointer;
+	transition:background .15s var(--ease),border-color .15s var(--ease);
+}
+.MenuBtn:hover{background:var(--surface-2);border-color:var(--border-2)}
+.MenuBtn svg{display:block}
+
+/* Mobile nav */
+.MobileMenu{
+	display:none;
+	padding:20px 24px 28px;
+	border-top:1px solid var(--border);
+	background:var(--surface);
+}
+.MobileMenu.open{display:block}
+.MobileSection{margin-bottom:22px}
+.MobileSection:last-child{margin-bottom:0}
+.MobileSection h2{
+	margin:0 0 8px;
+	padding:0 12px;
+	color:#fff;
+	font-size:.76rem;
+	font-weight:700;
+	letter-spacing:.1em;
+	text-transform:uppercase;
+}
+.MobileSection a{
+	display:block;
+	padding:11px 12px;
+	border-radius:var(--radius-sm);
+	color:var(--muted);
+	font-size:.95rem;
+}
+.MobileSection a:hover{background:var(--surface-2);color:#fff}
+
+@media (max-width:980px){
+	.Nav{display:none}
+	.Dropdown{display:none}
+	.MenuBtn{display:inline-flex}
+}
+
+/* ============ Hero ============ */
+.Hero{
+	position:relative;
+	overflow:hidden;
+	text-align:center;
+	padding:clamp(76px,10vw,124px) 24px clamp(72px,9vw,108px);
+	border-bottom:1px solid var(--border);
+	background:
+		radial-gradient(900px 460px at 50% -12%, rgba(255,106,0,.10), transparent 68%),
+		linear-gradient(180deg, rgba(10,10,10,.96) 0%, #0a0a0a 82%),
+		url(https://www.goadmio.com/image/bg8.jpg) center/cover no-repeat;
+}
+
+.Hero::before{
+	content:"";
+	position:absolute;
+	inset:0;
+	pointer-events:none;
+	background-image:
+		linear-gradient(to right, rgba(255,255,255,.045) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(255,255,255,.045) 1px, transparent 1px);
+	background-size:64px 64px;
+	-webkit-mask-image:radial-gradient(ellipse 68% 62% at 50% 38%, #000 15%, transparent 72%);
+	mask-image:radial-gradient(ellipse 68% 62% at 50% 38%, #000 15%, transparent 72%);
+}
+
+.HeroInner{
+	position:relative;
+	z-index:1;
+	max-width:840px;
+	margin:0 auto;
+}
+
+.H1{
+	margin:24px 0 20px;
+	font-size:clamp(2.2rem,5.4vw,3.9rem);
+	font-weight:800;
+	letter-spacing:-.045em;
+	line-height:1.02;
+	color:#fff;
+}
+.Grad{
+	background:linear-gradient(100deg,#ffb27a 0%,var(--accent) 52%,#ff4d00 100%);
+	-webkit-background-clip:text;
+	background-clip:text;
+	color:transparent;
+}
+
+.Lead{
+	max-width:600px;
+	margin:0 auto;
+	color:#b8b8b8;
+	font-size:clamp(1rem,1.55vw,1.13rem);
+	line-height:1.75;
+}
+
+.HeroActions{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	gap:12px;
+	margin-top:36px;
+}
+
+.HeroMeta{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	gap:10px 26px;
+	margin:34px 0 0;
+	padding:0;
+	list-style:none;
+	color:var(--muted-2);
+	font-size:.86rem;
+}
+.HeroMeta li{display:inline-flex;align-items:center;gap:8px}
+.HeroMeta li::before{
+	content:"";
+	width:5px;height:5px;
+	border-radius:50%;
+	background:var(--accent);
+	opacity:.8;
+}
+
+/* ============ Sections ============ */
+.Section{padding:clamp(60px,7.5vw,96px) 24px}
+.SectionAlt{background:linear-gradient(180deg,var(--surface),var(--bg) 70%)}
+
+.SectionHead{
+	max-width:640px;
+	margin:0 auto 48px;
+	text-align:center;
+}
+.Eyebrow{
+	display:block;
+	margin:0 0 12px;
+	color:var(--accent);
+	font-size:.76rem;
+	font-weight:700;
+	letter-spacing:.14em;
+	text-transform:uppercase;
+}
+.H2{
+	margin:0 0 14px;
+	font-size:clamp(1.55rem,3vw,2.25rem);
+	font-weight:800;
+	letter-spacing:-.03em;
+	line-height:1.2;
+	color:#fff;
+}
+.SectionSub{
+	margin:0;
+	color:var(--muted);
+	font-size:1rem;
+	line-height:1.75;
+}
+
+/* Stats */
+.Stats{
+	border-top:1px solid var(--border);
+	border-bottom:1px solid var(--border);
+	background:linear-gradient(180deg,rgba(255,255,255,.022),transparent);
+	padding:clamp(40px,5vw,60px) 24px;
+}
+.StatsGrid{
+	display:grid;
+	grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+	gap:28px;
+	max-width:var(--maxw);
+	margin:0 auto;
+	text-align:center;
+}
+.Stat{position:relative;padding:0 20px}
+.Stat + .Stat::before{
+	content:"";position:absolute;left:0;top:15%;bottom:15%;
+	width:1px;background:var(--border);
+}
+.StatNum{
+	display:block;
+	font-size:clamp(1.6rem,3vw,2.2rem);
+	font-weight:800;
+	letter-spacing:-.03em;
+	line-height:1.15;
+	color:#fff;
+	font-variant-numeric:tabular-nums;
+}
+.StatNum span{color:var(--accent)}
+.StatLabel{
+	display:block;
+	margin-top:6px;
+	color:var(--muted);
+	font-size:.86rem;
+	letter-spacing:.02em;
+}
+@media (max-width:600px){
+	.Stat + .Stat::before{display:none}
+}
+
+/* CTA */
+.Cta{
+	position:relative;
+	overflow:hidden;
+	margin:0 auto;
+	max-width:var(--maxw);
+	padding:clamp(40px,5.5vw,64px) clamp(24px,4vw,56px);
+	border:1px solid var(--border-2);
+	border-radius:24px;
+	text-align:center;
+	background:
+		radial-gradient(600px 260px at 50% 0%, rgba(255,106,0,.20), transparent 70%),
+		linear-gradient(180deg,var(--surface-2),var(--surface));
+}
+.Cta .H2{margin-bottom:12px}
+.Cta p{
+	max-width:520px;
+	margin:0 auto;
+	color:var(--muted);
+	line-height:1.7;
+}
+.CtaActions{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	gap:12px;
+	margin-top:30px;
+}
+
+/* ============ Footer ============ */
+.SiteFooter{
+	border-top:1px solid var(--border);
+	background:var(--surface);
+	padding:clamp(52px,6vw,72px) 24px 28px;
+}
+
+.FooterGrid{
+	display:grid;
+	grid-template-columns:1.5fr repeat(3,minmax(140px,1fr));
+	gap:40px 32px;
+	max-width:var(--maxw);
+	margin:0 auto;
+}
+
+.FooterBrand p{
+	max-width:320px;
+	margin:16px 0 20px;
+	color:var(--muted);
+	font-size:.92rem;
+	line-height:1.75;
+}
+
+.FooterB{
+	margin:0 0 14px;
+	color:#fff;
+	font-size:.78rem;
+	font-weight:700;
+	letter-spacing:.1em;
+	text-transform:uppercase;
+}
+
+.FooterCol ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.FooterCol a{
+	display:inline-block;
+	padding:6px 0;
+	color:var(--muted);
+	font-size:.93rem;
+	transition:color .15s var(--ease),transform .15s var(--ease);
+}
+.FooterCol a:hover{color:var(--accent);transform:translateX(2px)}
+
+.FooterBottom{
+	max-width:var(--maxw);
+	margin:48px auto 0;
+	padding-top:26px;
+	border-top:1px solid var(--border);
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	align-items:center;
+	gap:14px;
+	text-align:center;
+}
+.CR{
+	color:#FFFFFF;
+	font-size:.84rem;
+	letter-spacing:.02em;
+}
+
+@media (max-width:860px){
+	.FooterGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+	.FooterBrand{grid-column:1 / -1}
+	.FooterBottom{justify-content:center;text-align:center}
+}
+
+@media (max-width:420px){
+	.FooterGrid{grid-template-columns:1fr}
+}
+
+/* ============ Reveal on scroll ============ */
+[data-reveal]{
+	opacity:0;
+	transform:translateY(16px);
+	transition:opacity .7s var(--ease),transform .7s var(--ease);
+}
+[data-reveal].in{opacity:1;transform:none}
+
+/* ============ Motion preferences ============ */
+@media (prefers-reduced-motion:reduce){
+	html{scroll-behavior:auto}
+	*,*::before,*::after{
+		animation-duration:.001ms !important;
+		animation-iteration-count:1 !important;
+		transition-duration:.001ms !important;
+	}
+	.FooterCol a:hover{transform:none}
+	[data-reveal]{opacity:1;transform:none;transition:none}
+}
 </style>
-
-<script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: 'a85a6482-f20a-4c7b-a594-d3a5e77df233', f: true }); done = true; } }; })();</script>
-
-<script>
-
-var MenuOpen=0;
-function Menu()
-{
-
-	if (MenuOpen==0)
-	{
-	document.getElementById('Items').style.display = '';
-
-	
-	document.getElementById('Menu').src = 'https://www.gopanel.org/image/close-black.svg';
-	MenuOpen=1;
-	}
-	else
-	{
-	document.getElementById('Items').style.display = 'none';
-	
-	document.getElementById('Menu').src = 'https://www.gopanel.org/image/menu-black.svg';
-	MenuOpen=0;	
-	}
-}
-
-function CopyNow(ID,DivID) 
-{
-  var Text = document.getElementById(ID).value;
-  Copy(Text);
-  document.getElementById(DivID).innerHTML='Copied';
-  
-  setTimeout(function() { document.getElementById(DivID).innerHTML='Copy'; }, 3000);
-  
-}
-
-</script>
 
 </head>
 
-<body class=Body>
+<body>
 
-<table cellpadding=0 cellspacing=0 width=100% class=THeader>
-<td align='center' width=100%>
+<a class="Skip" href="#main">Skip to content</a>
 
-	<table align=center cellpadding=0 cellspacing=0 class='MenuTable No' height=60>
-	<td width=15%>
-	
-		<a href='index.html'>
-		<div class=Logo></div>
+<!-- ===================== HEADER ===================== -->
+<header class="SiteHeader" id="top">
+	<div class="wrap HeaderInner">
+
+		<a href="index.html" class="Logo" aria-label="GoAdmio — home">
+			<img src="go/image/logo.svg" alt="GoAdmio" width="132" height="32">
 		</a>
-		
-	</td>
-	
-	<td id=Pc align='center' width=40%>
-		
-		<a href='index.html' class=Header>Home</a>
-		<a href='https://www.gopanel.org/command.php' class=Header>Commands</a>
-		<a href='https://www.gopanel.org/support.php' class=Header>Support</a>
-	
-	</td>
-	
-	<td align='right' width=45%>
-		<a href='go/' class=Login>GoAdmio Login</a>
-		<a href='go/webmail/' class=Login>Webmail</a>
-		<a href='go/webmail/roundcube/' class=Login>Roundcube</a>
-		<a href='go/webmail/snappymail/' class=Login>SnappyMail</a>
-	</td>
 
-	</table>
+		<nav class="Nav" aria-label="Main navigation">
+			<a href="index.html" class="NavLink" aria-current="page">Home</a>
+			<a href="https://www.goadmio.com/feature.php" class="NavLink">Features</a>
+			<a href="https://www.goadmio.com/command.php" class="NavLink">Commands</a>
+			<a href="https://www.goadmio.com/api.php" class="NavLink">API</a>
+			<a href="https://www.goadmio.com/support.php" class="NavLink">Support</a>
+		</nav>
 
-	<table align=center cellpadding=0 cellspacing=0 class='MenuTable MenuYes'>
-	<td align='middle' width=100% height=60 style='border-bottom:1px solid Silver'>
-			
-		<img src='https://www.gopanel.org/image/menu-black.svg' id=Menu class=Menu width=32 onclick='Menu()'>
-	
-		<a href='https://www.gopanel.org/index.php'>
-		<div class=Logo></div>
-		</a>
-			
-	</td>
-	
-	<TR id=Items style='display:none'>
+		<div class="Actions">
 
-	<td id=Mob width=100%>
-		
-		<br>
-		
-		<span class=HeaderB>Products</span><br>
+			<div class="Dropdown">
+				<button class="Btn Btn-ghost DropdownToggle" id="webmailBtn"
+				        aria-expanded="false" aria-controls="webmailMenu" aria-haspopup="true">
+					Webmail
+					<svg class="Chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+					     stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+					     stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+				</button>
 
-		<div><a href='https://www.gopanel.org/index.php' class=Header>Features</a></div>
-		<div><a href='https://www.gopanel.org/command.php' class=Header>Commands</a></div>
-		<div><a href='https://www.gopanel.org/api.php' class=Header>GoAdmio API</a></div>
-		<div><a href='https://www.gopanel.org/support.php' class=Header>Support</a></div>
-		<div><a href='https://www.gopanel.org/about.php' class=Header>About</a></div>
+				<div class="DropdownMenu" id="webmailMenu" role="menu" aria-labelledby="webmailBtn">
+					<a href="go/webmail/" role="menuitem">Webmail Home</a>
+					<a href="go/webmail/roundcube/" role="menuitem">Roundcube</a>
+					<a href="go/webmail/snappymail/" role="menuitem">SnappyMail</a>
+				</div>
+			</div>
 
-		<br>
+			<a href="go/" class="Btn Btn-primary">GoAdmio Login</a>
 
-		<span class=HeaderB>Useful Links</span><br>
+			<button class="MenuBtn" id="menuBtn" aria-label="Open menu"
+			        aria-expanded="false" aria-controls="mobileMenu">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+				     stroke-width="2" stroke-linecap="round" aria-hidden="true">
+					<line x1="3" y1="6" x2="21" y2="6"/>
+					<line x1="3" y1="12" x2="21" y2="12"/>
+					<line x1="3" y1="18" x2="21" y2="18"/>
+				</svg>
+			</button>
 
-		<div><a href='go/' class=Header>GoAdmio Login</a></div>
-		<div><a href='go/webmail/' class=Header>Webmail</a></div>
-		<div><a href='go/webmail/roundcube/' class=Header>Roundcube</a></div>
-		<div><a href='go/webmail/snappymail/' class=Header>SnappyMail</a></div>
+		</div>
+	</div>
 
-	</td>
+	<div class="MobileMenu" id="mobileMenu">
+		<div class="MobileSection">
+			<h2>Product</h2>
+			<a href="index.html">Home</a>
+			<a href="https://www.goadmio.com/feature.php">Features</a>
+			<a href="https://www.goadmio.com/command.php">Commands</a>
+			<a href="https://www.goadmio.com/api.php">GoAdmio API</a>
+			<a href="https://www.goadmio.com/support.php">Support</a>
+			<a href="https://www.goadmio.com/about.php">About</a>
+		</div>
 
-	</table>
+		<div class="MobileSection">
+			<h2>Useful links</h2>
+			<a href="go/">GoAdmio Login</a>
+			<a href="go/webmail/">Webmail</a>
+			<a href="go/webmail/roundcube/">Roundcube</a>
+			<a href="go/webmail/snappymail/">SnappyMail</a>
+		</div>
+	</div>
+</header>
 
-</td>
-</table>
+<main id="main">
 
-<table cellpadding=0 cellspacing=0 width=100% height=60 class=DHeader>
-<td align='center' width=100%>
+	<!-- ===================== HERO ===================== -->
+	<section class="Hero">
+		<div class="HeroInner">
 
-</td>
-</table>
+			<h1 class="H1">
+				Getting started with <span class="Grad">GoAdmio</span>
+			</h1>
 
-<table align=center cellpadding=0 cellspacing=0 width=100%>
-<td align='center' width=100% height=250 style='background: url(https://www.gopanel.org/image/bg8.jpg);background-repeat: no-repeat; background-size: cover;'>
+			<p class="Lead">
+				A free Linux web hosting control panel — a better way to manage your server.
+				Powerful, easy to use, and running servers all around the world.
+			</p>
 
-		<h1 class=H1B>
-		Getting Started with GoAdmio
-		</h1>
-		
-		<span class=Column>
-		GoAdmio Free Linux Web Hosting Control Panel
-		<br>
-		A Better Way To Manage Your Server
-		<br>
-		Powerful And Easy To Use Web Hosting Control Panel
-		<br>
-		Running Servers All Around The World
-		</span>
+			<div class="HeroActions">
+				<a href="https://goadmio.com/" class="Btn Btn-primary Btn-lg">Get Started Free</a>
+				<a href="https://www.goadmio.com/command.php" class="Btn Btn-outline Btn-lg">Browse Commands</a>
+			</div>
 
-</td>
-</table>
+			<ul class="HeroMeta">
+				<li>No license fees</li>
+				<li>One-click installs</li>
+				<li>Community driven</li>
+			</ul>
 
-<table cellpadding=0 cellspacing=0 bgcolor='#333940' width=100%>
-<td align='center' width=100%>
+		</div>
+	</section>
 
-	<table align=center cellpadding=0 cellspacing=0 class=Table style='margin-top:48px'>
-	<td id=Footer width=50% valign=top>
+	<!-- ===================== STATS ===================== -->
+	<section class="Stats" aria-label="GoAdmio at a glance">
+		<div class="StatsGrid">
+			<div class="Stat" data-reveal>
+				<span class="StatNum">100<span>%</span></span>
+				<span class="StatLabel">Free &amp; open source</span>
+			</div>
+			<div class="Stat" data-reveal style="transition-delay:.06s">
+				<span class="StatNum">1<span>-click</span></span>
+				<span class="StatLabel">App installer</span>
+			</div>
+			<div class="Stat" data-reveal style="transition-delay:.12s">
+				<span class="StatNum">24<span>/7</span></span>
+				<span class="StatLabel">Community support</span>
+			</div>
+			<div class="Stat" data-reveal style="transition-delay:.18s">
+				<span class="StatNum">Global</span>
+				<span class="StatLabel">Server locations</span>
+			</div>
+		</div>
+	</section>
 
-	<span class=FooterB>GoAdmio</span><br>
-	<li><a href='https://www.gopanel.org/feature.php' class=Footer>Features</a></li>
-	<li><a href='https://www.gopanel.org/command.php' class=Footer>Commands</a></li>
-	<li><a href='https://www.gopanel.org/api.php' class=Footer>API</a></li>
-	<li><a href='https://www.gopanel.org/support.php' class=Footer>Support</a></li>
-	</td>
-	
-	<td id=Footer width=50% valign=top>
+	<!-- ===================== CTA ===================== -->
+	<section class="Section SectionAlt">
+		<div class="Cta" data-reveal>
+			<h2 class="H2">Ready to take control of your server?</h2>
+			<p>Sign in to GoAdmio or explore the command reference to see what the panel can do.</p>
+			<div class="CtaActions">
+				<a href="go/" class="Btn Btn-primary Btn-lg">GoAdmio Login</a>
+				<a href="https://www.goadmio.com/support.php" class="Btn Btn-outline Btn-lg">Get Support</a>
+			</div>
+		</div>
+	</section>
 
-	<span class=FooterB>Useful Links</span><br>
-	
-	<li><a href='go/' class=Footer>GoAdmio Login</a></li>
-	<li><a href='go/webmail/' class=Footer>Webmail</a></li>
-	<li><a href='go/webmail/roundcube/' class=Footer>Roundcube</a></li>
-	<li><a href='go/webmail/snappymail/' class=Footer>SnappyMail</a></li>
-	
-	</td>
-	</table>
-	
-	<table align=center cellpadding=0 cellspacing=0 class=Table height=40 style='margin-top:64px'>
-	<td width=100% height=1 bgcolor=555c62></td>
-	<tr>
-	<td width=100% height=48>
-	<span class=CR>
-	&copy 2020 - 2026 GoAdmio Inc., all rights reserved.
-	</span>
-	<br>
-	<br>
-	</td>
-	</table>
+</main>
 
-</td>
-</table>
+<!-- ===================== FOOTER ===================== -->
+<footer class="SiteFooter">
+
+	<div class="FooterGrid">
+
+		<div class="FooterBrand">
+			<a href="index.html" class="Logo" aria-label="GoAdmio — home">
+				<img src="go/image/logo.svg" alt="GoAdmio" width="132" height="32">
+			</a>
+			<p>GoAdmio is a free Linux web hosting control panel — a better way to manage your server.</p>
+			<a href="go/" class="Btn Btn-primary">GoAdmio Login</a>
+		</div>
+
+		<nav class="FooterCol" aria-labelledby="foot-product">
+			<h2 class="FooterB" id="foot-product">GoAdmio</h2>
+			<ul>
+				<li><a href="https://www.goadmio.com/feature.php">Features</a></li>
+				<li><a href="https://www.goadmio.com/command.php">Commands</a></li>
+				<li><a href="https://www.goadmio.com/api.php">API</a></li>
+				<li><a href="https://www.goadmio.com/support.php">Support</a></li>
+			</ul>
+		</nav>
+
+		<nav class="FooterCol" aria-labelledby="foot-webmail">
+			<h2 class="FooterB" id="foot-webmail">Webmail</h2>
+			<ul>
+				<li><a href="go/webmail/">Webmail Home</a></li>
+				<li><a href="go/webmail/roundcube/">Roundcube</a></li>
+				<li><a href="go/webmail/snappymail/">SnappyMail</a></li>
+			</ul>
+		</nav>
+
+		<nav class="FooterCol" aria-labelledby="foot-company">
+			<h2 class="FooterB" id="foot-company">Company</h2>
+			<ul>
+				<li><a href="https://www.goadmio.com/about.php">About</a></li>
+				<li><a href="https://www.goadmio.com/support.php">Contact</a></li>
+			</ul>
+		</nav>
+
+	</div>
+
+	<div class="FooterBottom">
+		<span class="CR">&copy; 2020 &ndash; 2026 GoAdmio Inc., all rights reserved.</span>
+	</div>
+
+</footer>
+
+<script>
+(function () {
+	'use strict';
+
+	var header  = document.querySelector('.SiteHeader');
+	var menuBtn = document.getElementById('menuBtn');
+	var menu    = document.getElementById('mobileMenu');
+	var ddBtn   = document.getElementById('webmailBtn');
+	var ddMenu  = document.getElementById('webmailMenu');
+
+	/* ---------- Mobile menu ---------- */
+	function setMenu(open) {
+		menu.classList.toggle('open', open);
+		menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+		menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+	}
+
+	menuBtn.addEventListener('click', function () {
+		setMenu(!menu.classList.contains('open'));
+	});
+
+	/* ---------- Webmail dropdown ---------- */
+	function setDropdown(open) {
+		ddMenu.classList.toggle('open', open);
+		ddBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+	}
+
+	ddBtn.addEventListener('click', function (e) {
+		e.stopPropagation();
+		setDropdown(!ddMenu.classList.contains('open'));
+	});
+
+	document.addEventListener('click', function (e) {
+		if (!ddBtn.parentElement.contains(e.target)) setDropdown(false);
+		if (!menu.contains(e.target) && !menuBtn.contains(e.target)) setMenu(false);
+	});
+
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'Escape') {
+			setDropdown(false);
+			setMenu(false);
+			ddBtn.blur();
+		}
+	});
+
+	/* ---------- Reset state when resizing up ---------- */
+	var mq = window.matchMedia('(min-width: 981px)');
+	function handleResize(e) { if (e.matches) setMenu(false); }
+	if (mq.addEventListener) mq.addEventListener('change', handleResize);
+	else mq.addListener(handleResize);
+
+	/* ---------- Header shadow on scroll ---------- */
+	var ticking = false;
+	function onScroll() {
+		if (ticking) return;
+		ticking = true;
+		window.requestAnimationFrame(function () {
+			header.classList.toggle('scrolled', window.scrollY > 8);
+			ticking = false;
+		});
+	}
+	window.addEventListener('scroll', onScroll, { passive: true });
+	onScroll();
+
+	/* ---------- Reveal on scroll ---------- */
+	if ('IntersectionObserver' in window) {
+		var io = new IntersectionObserver(function (entries) {
+			entries.forEach(function (e) {
+				if (e.isIntersecting) {
+					e.target.classList.add('in');
+					io.unobserve(e.target);
+				}
+			});
+		}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+		document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+	} else {
+		document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('in'); });
+	}
+})();
+
+/* Kept for compatibility with other pages that share this header */
+function CopyNow(ID, DivID) {
+	var Text = document.getElementById(ID).value;
+	Copy(Text);
+	document.getElementById(DivID).innerHTML = 'Copied';
+	setTimeout(function () { document.getElementById(DivID).innerHTML = 'Copy'; }, 3000);
+}
+</script>
+
+<script type='text/javascript' data-cfasync='false'>
+window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } };
+(function () {
+	var done = false;
+	var script = document.createElement('script');
+	script.async = true;
+	script.type = 'text/javascript';
+	script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript';
+	document.getElementsByTagName('HEAD').item(0).appendChild(script);
+	script.onreadystatechange = script.onload = function () {
+		if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
+			new PCWidget({ c: 'a85a6482-f20a-4c7b-a594-d3a5e77df233', f: true });
+			done = true;
+		}
+	};
+})();
+</script>
 
 </body>
 </html>

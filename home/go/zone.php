@@ -26,7 +26,7 @@ If ($Delete==1)
 {
 	include "access.php";
 
-	SQL("DELETE from Zone where ZoneID='$ZoneID' and Domain='$Domain'");
+	SQL("DELETE from Zone where ZoneID=? and Domain=?", [$ZoneID, $Domain]);
 	
 	$Error=SSH ("/usr/bin/sudo /go/zone $Domain",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 	echo Error($Error);
@@ -56,7 +56,7 @@ include "access.php";
 
 	if ($Edit==1)
 	{
-		SQL("UPDATE Zone set Name='$Name',Type='$Type',Value='$Value',TTL='$TTL',Priority='$Priority' where ZoneID='$ZoneID'");
+		SQL("UPDATE Zone set Name=?,Type=?,Value=?,TTL=?,Priority=? where ZoneID=?", [$Name,$Type,$Value,$TTL,$Priority,$ZoneID]);
 		
 		$Edit=0;
 		$Value="";
@@ -65,7 +65,7 @@ include "access.php";
 	else
 	{
 
-		$Result = SQL("INSERT INTO Zone (Domain,Name,Type,Value,TTL,Priority,Custom) VALUES ('$Domain','$Name','$Type','$Value','$TTL','$Priority','1')");
+		$Result = SQL("INSERT INTO Zone (Domain,Name,Type,Value,TTL,Priority,Custom) VALUES (?,?,?,?,?,?,'1')", [$Domain,$Name,$Type,$Value,$TTL,$Priority]);
 		If ($Result)
 		{
 			// echo Error("done..");
@@ -92,7 +92,7 @@ include "access.php";
 		if ($Edit==1)
 		{
 			
-			$Result = $SQL("select * from Zone where ZoneID='$ZoneID'");
+			$Result = SQL("select * from Zone where ZoneID=?", [$ZoneID]);
 			foreach ($Result as $Row)
 			{
 			$Domain=$Row['Domain'];
@@ -206,7 +206,7 @@ include "access.php";
 	include "include/sql.php";
 		
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 		

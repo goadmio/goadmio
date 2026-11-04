@@ -35,13 +35,13 @@ $SectionCounter = 0;
 
 if ($IconControlID=="" or $IconControlID=="0")
 {
-    $Sql = "select * from Control where $ServiceSql and Type!=0 ORDER BY Sort";
+    $SQL="select * from Control where $ServiceSql and Type!=0 ORDER BY Sort";
 }
 else
 {
-    $Sql = "select * from Control where $ServiceSql and Type!=0 and ControlID in ($IconControlID)  ORDER BY Sort";
+    $SQL="select * from Control where $ServiceSql and Type!=0 and ControlID in ($IconControlID)  ORDER BY Sort";
 }
-$Result = SQL($Sql);
+$Result = SQL($SQL);
 foreach ($Result as $Row)
 {
     $SubControl=$Row['SubControl'];
@@ -73,7 +73,9 @@ foreach ($Result as $Row)
     
     $ControlMenuText=$LNG[$Row['ControlMenu']];
     $ControlMenuImage=$Row['ControlMenuImage'];
-    $ControlMenuImage=str_replace(".png",".svg",$ControlMenuImage);
+
+    // Icon shown on the LEFT of each menu section header
+    $ControlImage = $Row['ControlImage'] ?? '';
     
     $ControlUrl=$Row['ControlUrl'];
     $ControlTarget=$Row['ControlTarget'];
@@ -96,7 +98,7 @@ foreach ($Result as $Row)
         $ControlTitle="";
         $MenuControlFind="";
         
-        $ResultQ = SQL("SELECT * FROM Control where ControlMenu='{$Row['ControlMenu']}' ORDER BY Sort");
+        $ResultQ = SQL("SELECT * FROM Control where ControlMenu=? ORDER BY Sort", [$Row['ControlMenu'] ?? '']);
         foreach ($ResultQ as $RowQ)
         {
             $BControlFind = $LNG[$RowQ['Control']] . " " . $LNG[$RowQ['ControlMenu']] . " " . $RowQ['SubFiles'];
@@ -116,13 +118,23 @@ foreach ($Result as $Row)
         $CollapseControlMenu = preg_replace('/[^a-zA-Z0-9]/', '', $ControlMenuText);
         $CNO++;
         $SectionCounter++;
-        
-        // Start new menu section with arrow on LEFT side
+
+        // Build the section header:
+        //   [ icon ]  Section title ........................ › (chevron on the RIGHT)
+        $SessionTheme = $_SESSION['SessionTheme'];
+        $IconSrc      = "theme/$SessionTheme/svg/$ControlImage";
+        $IconHtml     = ($ControlImage != '')
+            ? "<img class='menu-icon' src='$IconSrc' alt='' style='width:18px;height:18px;flex-shrink:0;'>"
+            : '';
+
+        // Start new menu section with icon on LEFT and chevron on RIGHT
         echo "
         <div class='MenuSection' id='MenuSection_$SectionCounter' data-menu-section='{$CollapseControlMenu}'>
-            <h2 class='MenuB' data-divid='Find' data-find='$MenuControlFind' data-menu-id='menu_$SectionCounter'>
-                <span class='menu-arrow'>▶</span>
-                <span class='menu-title'>$ControlMenuText</span>
+            <h2 class='MenuB' data-divid='Find' data-find='$MenuControlFind' data-menu-id='menu_$SectionCounter'
+                style='display:flex;align-items:center;gap:10px;'>
+                $IconHtml
+                <span class='menu-title' style='flex:1;'>$ControlMenuText</span>
+                <span class='menu-arrow'>›</span>
             </h2>
             <ul class='MenuItems' id='MenuItems_$SectionCounter' role='list'>
         ";
@@ -229,7 +241,7 @@ function toggleSidebar() {
         menuItems.forEach(function(item) {
             // Store original padding to restore later
             if (!item.getAttribute('data-original-padding')) {
-                item.setAttribute('data-original-padding', item.style.padding || '8px 16px 8px 32px');
+                item.setAttribute('data-original-padding', item.style.padding || '9px 12px');
             }
             item.style.fontSize = '0';
             item.style.padding = '8px 0';
@@ -248,6 +260,11 @@ function toggleSidebar() {
         var menuTitles = document.querySelectorAll('.menu-title');
         menuTitles.forEach(function(title) {
             title.style.display = 'none';
+        });
+
+        // Hide section icons when collapsed (so only the centered chevron shows)
+        document.querySelectorAll('.menu-icon').forEach(function(icon) {
+            icon.style.display = 'none';
         });
         
         // Center arrows
@@ -310,6 +327,11 @@ function toggleSidebar() {
         var menuTitles = document.querySelectorAll('.menu-title');
         menuTitles.forEach(function(title) {
             title.style.display = '';
+        });
+
+        // Restore section icons when expanded
+        document.querySelectorAll('.menu-icon').forEach(function(icon) {
+            icon.style.display = '';
         });
         
         var menuArrows = document.querySelectorAll('.menu-arrow');

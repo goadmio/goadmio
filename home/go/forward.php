@@ -66,8 +66,7 @@ if ($_REQUEST['User']!="")
 
 	if ($Edit==1)
 	{
-		$Sql = "select * from Mail where Email='$Email'";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Mail where Email=?", [$Email]);
 		foreach ($Result as $Row)
 		{
 			$EmailArray=explode("@",$Row['Email']);
@@ -264,7 +263,7 @@ if ($_REQUEST['User']!="")
 		include "include/sql.php";
 	
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 		

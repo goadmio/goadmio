@@ -10,7 +10,7 @@ $Domain = preg_replace("/^webmail\./","",$Domain);
 
 $MailID=$_REQUEST['MailID'];
 
-$Result = SQL("select * from Mail where MailID='$MailID'");
+$Result = SQL("select * from Mail where MailID=?", [$MailID]);
 foreach ($Result as $Row)
 { 
 

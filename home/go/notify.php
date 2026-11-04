@@ -25,30 +25,29 @@ if ($Action!="")
 
 	if ($Action=="EnableEmail")
 	{
-		SQL("UPDATE Notify set Email='1' where NotifyID='$NotifyID'");
+		SQL("UPDATE Notify set Email='1' where NotifyID=?", [$NotifyID]);
 	}
 	elseif ($Action=="DisableEmail")
 	{
-		SQL("UPDATE Notify set Email='0' where NotifyID='$NotifyID'");
+		SQL("UPDATE Notify set Email='0' where NotifyID=?", [$NotifyID]);
 	}
 	
-
 	if ($Action=="EnableWhatsapp")
 	{
-		SQL("UPDATE Notify set Whatsapp='1' where NotifyID='$NotifyID'");
+		SQL("UPDATE Notify set Whatsapp='1' where NotifyID=?", [$NotifyID]);
 	}
 	elseif ($Action=="DisableWhatsapp")
 	{
-		SQL("UPDATE Notify set Whatsapp='0' where NotifyID='$NotifyID'");
+		SQL("UPDATE Notify set Whatsapp='0' where NotifyID=?", [$NotifyID]);
 	}
 	
 	if ($Action=="EnableMissed")
 	{
-		SQL("UPDATE Notify set Missed='1' where NotifyID='$NotifyID'");
+		SQL("UPDATE Notify set Missed='1' where NotifyID=?", [$NotifyID]);
 	}
 	elseif ($Action=="DisableMissed")
 	{
-		SQL("UPDATE Notify set Missed='0' where NotifyID='$NotifyID'");
+		SQL("UPDATE Notify set Missed='0' where NotifyID=?", [$NotifyID]);
 	}
 	
 	if ($Keyword=="SSH Login")
@@ -101,7 +100,7 @@ if ($Action!="")
 	include "include/sql.php";    
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 		$ID=$Row['NotifyID'];

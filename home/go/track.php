@@ -66,7 +66,7 @@ $Error=SSH ("/usr/bin/sudo screen -d -m bash -c '/go/spam track'",$_SESSION['Ses
 	
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 		$Domain=$Row['Domain'];

@@ -44,7 +44,7 @@ if (!in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUsern
 
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$SiteID=$Row['SiteID'];
@@ -63,7 +63,7 @@ if (!in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUsern
 		}
 
 		$SelectPackage.="<select id='PackageID' name='PackageID' onchange='ModifyPackage()' class=Select><option value='0' selected>Custom</option>";
-		$ResultQ = SQL("select * from Package where UserID='{$_SESSION['SessionUserID']}' order by Name");
+		$ResultQ = SQL("select * from Package where UserID=? order by Name", [$_SESSION['SessionUserID']]);
 		foreach ($ResultQ as $RowQ)
 		{
 			if ($RowQ['PackageID']==$Row['PackageID'])

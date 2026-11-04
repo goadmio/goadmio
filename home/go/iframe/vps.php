@@ -34,7 +34,7 @@ echo "
 ";
 
 
-if ($_SESSION['SessionSSHUsername']!="root" and $_SESSION['SessionSSHUsername']!=$SSHUsername)
+if ($_SESSION['SessionType']!="Root" and $_SESSION['SessionSSHUsername']!=$SSHUsername)
 {
 
 	Echo "
@@ -46,7 +46,7 @@ exit;
 
 	if ($File!="")
 	{
-		SQL("UPDATE VPS set File='$File'");
+		SQL("UPDATE VPS set File=?", [$File]);
 		echo Error ("Reload OS $File.");
 		
 		$Password=RandomPassword(16);
@@ -58,8 +58,7 @@ exit;
 		exit;
 	}
 
-$Sql = "select * from VPS where VPSID='$VPSID'";
-$Result = SQL($Sql);
+$Result = SQL("select * from VPS where VPSID=?", [$VPSID]);
 foreach ($Result as $Row)
 { 
 	$CustomerID=$Row['CustomerID'];
@@ -67,9 +66,7 @@ foreach ($Result as $Row)
 	$File=$Row['File'];
 }
 
-
-$Sql = "select * from Customer where CustomerID='$CustomerID'";
-$Result = SQL($Sql);
+$Result = SQL("select * from Customer where CustomerID=?", [$CustomerID]);
 foreach ($Result as $Row)
 { 
 	$Email=$Row['Email'];

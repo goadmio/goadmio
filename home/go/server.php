@@ -4,7 +4,7 @@ include "navigator.php";
 $Buttons="<a href=\"javascript:Load('$CurrentFileName?Action=DiskUsage&ControlID=$ControlID&Page=$Page','$ControlID')\" class='ButtonB {$Dir}ButtonB'>Update Disk Usage</a>";
 include "title.php";
 
-echo "<div class=NavigatorInfo><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>This feature is supported only on physical server hardware and will not function on VPS (Virtual Private Server) or cloud-based environments</div>";
+echo "<div class='NavigatorInfo No'><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>This feature is supported only on physical server hardware and will not function on VPS (Virtual Private Server) or cloud-based environments</div>";
 
 $Edit=$_REQUEST['Edit'];
 $ServerID=$_REQUEST['ServerID'];
@@ -29,8 +29,8 @@ If ($Delete==1 and $Step==1)
 
 if ($Delete==1 and $Step==2)
 {
-	SQL("DELETE from Server where ServerIP='$ServerIP'");
-	SQL("DELETE from VPS where ServerIP='$ServerIP'");
+	SQL("DELETE from Server where ServerIP=?", [$ServerIP]);
+	SQL("DELETE from VPS where ServerIP=?", [$ServerIP]);
 	echo Error("Server $ServerName has been deleted.");
 }
 elseif ($ServerName!="" and $Action!="Edit")
@@ -38,9 +38,8 @@ elseif ($ServerName!="" and $Action!="Edit")
 
 	if ($Edit==1)
 	{
-		SQL("UPDATE VPS SET Location='$Location',AvailablePlan='$AvailablePlan',DiskType='$DiskType' where ServerIP='$ServerIP'");
-	
-		SQL("UPDATE Server SET ServerName='$ServerName',ServerIP='$ServerIP',Subnet='$Subnet',CIDR='$CIDR',Location='$Location',AvailablePlan='$AvailablePlan',DiskType='$DiskType',DiskSpace='$DiskSpace' where ServerID='$ServerID'");
+		SQL("UPDATE VPS SET Location=?,AvailablePlan=?,DiskType=? where ServerIP=?", [$Location,$AvailablePlan,$DiskType,$ServerIP]);
+		SQL("UPDATE Server SET ServerName=?,ServerIP=?,Subnet=?,CIDR=?,Location=?,AvailablePlan=?,DiskType=?,DiskSpace=? where ServerID=?", [$ServerName,$ServerIP,$Subnet,$CIDR,$Location,$AvailablePlan,$DiskType,$DiskSpace,$ServerID]);
 		echo Error("Server $ServerName updated successfully.");
 	
 		$Edit="";
@@ -48,7 +47,7 @@ elseif ($ServerName!="" and $Action!="Edit")
 	else
 	{
 		$TimeStamp=time();
-	    SQL("INSERT INTO Server (ServerName,ServerIP,Subnet,CIDR,Location,AvailablePlan,DiskType,DiskSpace) VALUES ('$ServerName','$ServerIP','$Subnet','$CIDR','$Location','$AvailablePlan','$DiskType','$DiskSpace')");
+		SQL("INSERT INTO Server (ServerName,ServerIP,Subnet,CIDR,Location,AvailablePlan,DiskType,DiskSpace) VALUES (?,?,?,?,?,?,?,?)", [$ServerName,$ServerIP,$Subnet,$CIDR,$Location,$AvailablePlan,$DiskType,$DiskSpace]);
 		echo Error("Server $ServerName created successfully.");
 		
 		if ($Subnet!="" and $CIDR!="" and $ServerIP!="")
@@ -68,8 +67,7 @@ elseif ($ServerName!="" and $Action!="Edit")
 
 	if ($Edit==1)
 	{
-		$Sql = "select * from Server where ServerID='$ServerID'";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Server where ServerID=?", [$ServerID]);
 		foreach ($Result as $Row)
 		{ 
 			$ServerName=$Row['ServerName'];
@@ -146,13 +144,13 @@ elseif ($ServerName!="" and $Action!="Edit")
 	";
 		if ($DiskType=="")
 		{
-		$Sql = "select * from Plan where PlanID>=1";
+		$SQL="select * from Plan where PlanID>=1";
 		}
 		else
 		{
-		$Sql = "select * from Plan where DiskType='$DiskType'";
+		$SQL="select * from Plan where DiskType='$DiskType'";
 		}
-		$Result = SQL($Sql);
+		$Result=SQL($SQL);
 		foreach ($Result as $Row)
 		{
 			if (stristr($AvailablePlan,"|{$Row['PlanName']}|"))
@@ -253,7 +251,7 @@ elseif ($ServerName!="" and $Action!="Edit")
 		include "include/sql.php";  
 
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 			

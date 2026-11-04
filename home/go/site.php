@@ -67,7 +67,7 @@ if ($Domain!="" and $Email!="")
 	if (stristr($Error,"correct"))
 	{
 	// Default PHPVersion as Last Website
-	SQL("UPDATE Config set PHPVersion='$PHPVersion'");
+	SQL("UPDATE Config set PHPVersion=?", [$PHPVersion]);
 	
 	echo "
 
@@ -313,7 +313,7 @@ exit;
 		";
 
 		$SelectPackage.="<select id='PackageID' name='PackageID' onchange='PackageInfo()' class=Select><option value='0' selected>Default Package</option>";
-		$Result = SQL("select * from Package where UserID='{$_SESSION['SessionUserID']}' order by Name");
+		$Result = SQL("select * from Package where UserID=? order by Name", [$_SESSION['SessionUserID']]);
 		foreach ($Result as $Row)
 		{
 			if ($Row['PackageID']==$PackageID)

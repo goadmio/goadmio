@@ -41,10 +41,8 @@ $Domain=ValidateDomain($_REQUEST['Domain']);
 
 if ($Action=="Delete")
 {
-	include "access.php";
-	
-	SQL("DELETE FROM Junk WHERE IP='$IP'");
-
+	include "access.php";	
+	SQL("DELETE FROM Junk WHERE IP=?", [$IP]);
 }
 elseif ($_REQUEST['IP']!="")
 {
@@ -163,7 +161,7 @@ elseif ($_REQUEST['IP']!="")
 	include "include/sql.php";
 
 	$X=0;
-	$Result = SQL($Sql);
+	$Result = SQL($SQL);
 	foreach ($Result as $Row)
 	{
 	

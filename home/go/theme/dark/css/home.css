@@ -1,11 +1,10 @@
 :root {
     /* ========== BACKGROUNDS ========== */
     --background-primary: #000000;
-    --background-secondary: #000000;        /* unified to pure black for max contrast */
-    --background-tertiary: #1A1A1A;          /* subtle difference but still ≥7:1 with text */
+    --background-secondary: #000000;
+    --background-tertiary: #1A1A1A;
     --background-tertiary-hover: #2A2A2A;
     
-    /* Window & surface backgrounds */
     --window-background: #000000;
     --window-background-active: #000000;
     --window-background-inactive: #000000;
@@ -15,17 +14,15 @@
     --non-emphasized-window-background: #0D0D0D;
     --sheet-background: #0D0D0D;
     
-    /* ========== HEADER ========== */
     --header-background: #0D0D0D;
-    --header-border-color: #FFFFFF;         /* solid white border */
+    --header-border-color: #FFFFFF;
     --header-text-color: #FFFFFF;
     --header-link-color: #FFFFFF;
-    --header-link-hover: #FFD60A;           /* bright yellow for hover */
+    --header-link-hover: #FFD60A;
     --header-logo-color: #FFD60A;
     --header-icon-color: #FFFFFF;
     --header-icon-hover: #FFD60A;
     
-    /* ========== FOOTER ========== */
     --footer-background: #0D0D0D;
     --footer-border-color: #FFFFFF;
     --footer-text-color: #FFFFFF;
@@ -34,47 +31,40 @@
     --footer-directory-title-color: #FFFFFF;
     --footer-directory-title-color-hover: #FFD60A;
     
-    /* ========== LOGO ========== */
     --background-logo: #FFD60A;
     --background-logo-hover: #FFB800;
 	--background-icon: #404040;
 	--background-menu-hover: #404040;
     
-    /* ========== TEXT / LABELS (HIG CONTRAST) ========== */
     --text-primary: #FFFFFF;
-    --text-secondary: #FFFFFF;              /* all primary text pure white */
+    --text-secondary: #FFFFFF;
     --text-tertiary: #FFFFFF;
-    --text-quaternary: #CCCCCC;              /* only for low-emphasis but still legible */
-    --text-quinary: #FFD60A;                 /* accent for links */
+    --text-quaternary: #CCCCCC;
+    --text-quinary: #FFD60A;
     
-    /* Semantic Labels */
     --label-primary: #FFFFFF;
-    --label-secondary: #CCCCCC;              /* contrast 13:1 on #000 */
-    --label-tertiary: #AAAAAA;               /* contrast 9:1 – meets AAA */
-    --label-quaternary: #888888;             /* contrast 5.5:1 – still AA */
+    --label-secondary: #CCCCCC;
+    --label-tertiary: #AAAAAA;
+    --label-quaternary: #888888;
     --label-disabled: #888888;
-    --placeholder-text: #AAAAAA;             /* improved from #636366 */
+    --placeholder-text: #AAAAAA;
     
-    /* Selected/highlighted text */
-    --selected-text-background: #FFD60A;     /* yellow instead of blue for high contrast */
+    --selected-text-background: #FFD60A;
     --selected-text-color: #000000;
     --unemphasized-selected-text: #000000;
     --unemphasized-selected-text-background: #CCCCCC;
     --selected-text-background-inactive: #666666;
     --selected-content-background: #FFD60A;
     
-    /* Find/search highlight */
     --find-highlight: #FFD60A;
     --find-highlight-stroke: #FFB800;
     
-    /* ========== FILLS (solid, no transparency) ========== */
     --fill-primary: #2A2A2A;
     --fill-secondary: #222222;
     --fill-tertiary: #1A1A1A;
     --fill-quaternary: #111111;
     --fill-quinary: #0A0A0A;
     
-    /* ========== CONTROLS ========== */
     --control-background: #2A2A2A;
     --control-background-disabled: #111111;
     --control-text-disabled: #888888;
@@ -84,18 +74,15 @@
     --control-regular: 32px;
     --control-large: 40px;
     
-    /* ========== SEPARATORS ========== */
-    --separator: #FFFFFF;                   /* solid white */
+    --separator: #FFFFFF;
     --opaque-separator: #FFFFFF;
     --grid-color: #444444;
     --menu-separator: #FFFFFF;
     
-    /* ========== BORDERS ========== */
-    --border: #FFFFFF;                      /* solid white for maximum visibility */
+    --border: #FFFFFF;
     --border-secondary: #CCCCCC;
     --border-tertiary: #FFD60A;
     
-    /* ========== SYSTEM ACCENT COLORS (highly saturated) ========== */
     --blue: #00AAFF;
     --green: #00FF66;
     --red: #FF3333;
@@ -109,18 +96,15 @@
     --mint: #66FFDD;
     --cyan: #00FFFF;
     
-    /* Control accent (system-wide) */
     --control-accent: #FFD60A;
     --control-accent-hover: #FFB800;
     --control-accent-pressed: #CC9900;
     
-    /* ========== KEYBOARD FOCUS ========== */
     --keyboard-focus-indicator: #FFD60A;
-    --keyboard-focus-ring: #FFD60A;         /* solid, no transparency */
+    --keyboard-focus-ring: #FFD60A;
     --keyboard-focus-ring-light: #FFD60A;
     --keyboard-focus-ring-dark: #FFB800;
     
-    /* ========== SHADOWS (keep as is, not critical for high contrast) ========== */
     --tooltip-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
     --elevated-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
@@ -131,64 +115,53 @@
     --inner-shadow-light: inset 0 1px 0 rgba(255, 255, 255, 0.15);
     --inner-shadow-dark: inset 0 1px 0 rgba(0, 0, 0, 0.3);
     
-    /* ========== FONTS (unchanged) ========== */
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --font-family-headline: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --font-family-headline: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     
-    /* ========== ADDITIONAL UI ELEMENTS ========== */
-    /* Progress bars */
     --progress-bar-background: #2A2A2A;
     --progress-bar-fill: #FFD60A;
     
-    /* Scrollbars – solid colors */
     --scrollbar-track: #000000;
     --scrollbar-thumb: #888888;
     --scrollbar-thumb-hover: #AAAAAA;
     --scrollbar-thumb-active: #CCCCCC;
     
-    /* Tooltips */
     --tooltip-background: #000000;
     --tooltip-text: #FFFFFF;
     --tooltip-border: #FFFFFF;
     
-    /* Popovers / menus */
     --popover-background: #0D0D0D;
     --popover-border: #FFFFFF;
     --menu-background: #0D0D0D;
     --menu-item-hover: #FFD60A;
     --menu-item-text: #FFFFFF;
     
-    /* Table / list view */
     --table-row-even: #000000;
     --table-row-odd: #111111;
     --table-row-selected: #FFD60A;
     --table-header-background: #0D0D0D;
     
-    /* Buttons */
     --button-primary-background: #FFD60A;
     --button-primary-hover: #FFB800;
     --button-primary-pressed: #CC9900;
-    --button-primary-text: #000000;         /* added for contrast */
+    --button-primary-text: #000000;
     --button-secondary-background: #2A2A2A;
     --button-secondary-hover: #3A3A3A;
     --button-secondary-pressed: #4A4A4A;
     --button-secondary-text: #FFFFFF;
     
-    /* Input fields */
     --input-background: #000000;
     --input-border: #FFFFFF;
     --input-focus-border: #FFD60A;
     --input-placeholder: #AAAAAA;
     --input-text: #FFFFFF;
     
-    /* Tabs */
     --tab-active-background: #FFD60A;
     --tab-inactive-background: #1A1A1A;
     --tab-active-text: #000000;
     --tab-inactive-text: #FFFFFF;
     
-    /* Status indicators */
     --status-success: #00FF66;
     --status-warning: #FFD60A;
     --status-error: #FF3333;
@@ -219,7 +192,24 @@ html {
     box-sizing: border-box;
 }
 
-/* Search Styles */
+body {
+    font-family: var(--font-family-system);
+}
+
+
+.Yes {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .No {
+        display: none;
+    }
+    .Yes {
+        display: inline;
+    }
+}
+
 .TableSearch {
     background: var(--background-secondary);
     border: 1px solid var(--border-tertiary);
@@ -227,7 +217,6 @@ html {
     overflow: hidden;
 }
 
-/* Navigator */
 .Navigator {
     padding-left: 20px;
     padding-right: 20px;
@@ -235,6 +224,8 @@ html {
     height: 60px;
     width: 100%;
 	border-bottom: 1px solid var(--border-tertiary);
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .NavigatorInfo {
@@ -256,6 +247,10 @@ html {
     color: var(--text-primary);
     font-size: 12px;
     text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .DivButton {
@@ -268,7 +263,6 @@ html {
     overflow-x: auto;
 }
 
-/* Title Styles */
 .Title {
     line-height: 60px;
     color: var(--text-primary);
@@ -280,15 +274,27 @@ html {
     font-size: 18px;
     font-family: inherit;
     padding-left: 60px;
-    padding-right: 20px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .RTLTitle {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Cairo', Tahoma, Arial, sans-serif;
     padding-right: 60px;
+}
+
+.TitleH {
+    line-height: 60px;
+    color: var(--text-primary);
+	border-top: 1px solid var(--border-tertiary);
+	border-bottom: 1px solid var(--border-tertiary);
+    font-weight: 700;
+    font-size: 18px;
+    font-family: inherit;
     padding-left: 20px;
+    padding-right: 20px;
 }
 
 .UnderTitle {
@@ -311,7 +317,6 @@ html {
     height: 60px;
 }
 
-/* Navigator Links */
 a.NavigatorLink:link,
 a.NavigatorLink:visited {
     color: var(--text-primary);
@@ -342,7 +347,6 @@ a.NavigatorLink:hover {
     line-height: 60px;
 }
 
-/* Input Styles */
 input, select, textarea {
     outline: none;
 }
@@ -398,7 +402,6 @@ input, select, textarea {
     -webkit-border-radius: 60px;
 }
 
-/* Text Inputs */
 .InputText,
 .InputText50,
 .InputText30 {
@@ -419,7 +422,6 @@ input, select, textarea {
     border-bottom: 1px solid var(--border-tertiary);
 }
 
-/* Select Dropdowns */
 .Select {
     color: var(--text-primary);
     font-size: 16px;
@@ -430,7 +432,6 @@ input, select, textarea {
     cursor: pointer;
 }
 
-/* Buttons */
 .InputButton {
     font-weight: 600;
     font-size: 14px;
@@ -450,7 +451,6 @@ input, select, textarea {
     box-shadow: var(--elevated-shadow);
 }
 
-/* Main Links */
 a.Main:link,
 a.Main:visited,
 a.Main:active,
@@ -527,7 +527,6 @@ a.ActionB:hover {
     box-shadow: var(--card-shadow);
 }
 
-/* Info Panels */
 .DivInfo {
     background: var(--background-tertiary);
     font-weight: 600;
@@ -569,7 +568,6 @@ a.ActionB:hover {
     font-family: Verdana, Arial, 'Times New Roman', sans-serif;
 }
 
-/* Pagination */
 .Pages {
     min-width: 30px;
     line-height: 30px;
@@ -622,7 +620,6 @@ pre {
     color: var(--text-primary);
 }
 
-/* Tables */
 .DivTable {
     margin: 20px;
 	overflow-x: auto;
@@ -638,7 +635,6 @@ pre {
 .DivPages {
     margin-bottom: 20px;
 }
-
 
 .Table {
     background: var(--background-primary);
@@ -660,7 +656,6 @@ pre {
     line-height: 60px;
 }
 
-/* Table Header */
 THEAD tr {
     background: var(--background-primary);
 }
@@ -673,7 +668,6 @@ THEAD tr th {
     font-weight: 700;
     text-align: left;
 }
-
 
 THEAD tr th a {
     color: var(--text-primary);
@@ -698,7 +692,6 @@ TFOOT tr th {
     font-weight: 400;
 }
 
-/* Table Cell Variants */
 .Td,
 .TdB,
 .TdEr,
@@ -735,7 +728,6 @@ TFOOT tr th {
     text-decoration: none;
 }
 
-/* Error/Info Messages */
 .NoError {
     background: var(--background-primary);
     font-weight: normal;
@@ -772,7 +764,6 @@ TFOOT tr th {
     fill: var(--background-logo);
 }
 
-/* Charts */
 .DivChart {
     padding-left: 8px;
     padding-right: 8px;
@@ -817,11 +808,6 @@ TFOOT tr th {
     border-bottom: 1px solid var(--border-tertiary);
 }
 
-/* ============================================
-   ADDITIONAL UTILITIES & RESPONSIVE STYLES
-   ============================================ */
-
-/* Responsive Sidebar */
 @media (max-width: 768px) {
     .TdLeft {
         width: 200px;
@@ -851,7 +837,6 @@ TFOOT tr th {
     }
 }
 
-/* Tablet Styles */
 @media (min-width: 769px) and (max-width: 1024px) {
     .Icon {
         width: calc(33.33% - 20px);
@@ -862,7 +847,6 @@ TFOOT tr th {
     }
 }
 
-/* Scrollbar Styling - Matching Theme */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -892,7 +876,6 @@ THEAD tr th {
     height: 60px;
 }
 
-/* Loading Animation for Preloader */
 @keyframes pulse {
     0%, 100% {
         opacity: 1;
@@ -906,13 +889,10 @@ THEAD tr th {
     animation: pulse 1s ease-in-out infinite;
 }
 
-
-/* Status Indicators */
 .status-online {
     color: var(--green);
 }
 
-/* Main App Container */
 .app-container {
     display: flex;
     flex-direction: column;
@@ -920,7 +900,6 @@ THEAD tr th {
     overflow: hidden;
 }
 
-/* Top Area - Height 60px */
 .top-area {
     height: 60px;
     background-color: var(--header-background);
@@ -935,11 +914,6 @@ THEAD tr th {
     gap: 15px;
 }
 
-/* ============================================
-   SLIDBAR STYLES - CIRCLE ON LEFT, CENTERED ARROW
-   ============================================ */
-
-/* Slidbar Container - Positioned on LEFT */
 .Slidbar {
     display: flex;
     align-items: center;
@@ -949,7 +923,6 @@ THEAD tr th {
     padding: 0;
 }
 
-/* Perfect Circle Button */
 .slider-toggle {
     display: flex;
     align-items: center;
@@ -978,7 +951,6 @@ THEAD tr th {
     transform: scale(0.95);
 }
 
-/* Arrow Icon - Perfectly Centered */
 .slider-icon {
     width: 20px;
     height: 20px;
@@ -992,7 +964,6 @@ THEAD tr th {
     pointer-events: none;
 }
 
-/* Rotate animation for the arrow when sidebar is collapsed */
 .slider-toggle.collapsed .slider-icon {
     transform: translate(-50%, -50%) rotate(180deg);
 }
@@ -1001,7 +972,6 @@ THEAD tr th {
     transform: translate(-50%, -50%) scale(1.1);
 }
 
-/* Fix for SVG inside slider-icon */
 .slider-icon svg {
     display: block;
     width: 100%;
@@ -1010,7 +980,6 @@ THEAD tr th {
     stroke-width: 2;
 }
 
-/* Logo Section - Next to Slidbar */
 .logo-area {
     display: flex;
     align-items: center;
@@ -1036,7 +1005,6 @@ THEAD tr th {
     color: var(--orange);
 }
 
-/* User Info Section - Pushed to RIGHT */
 .user-info {
     display: flex;
     align-items: center;
@@ -1059,9 +1027,6 @@ THEAD tr th {
     text-decoration: underline;
 }
 
-/* ============================================
-   USER DROPDOWN MENU & CUSTOM SELECT (menu.php)
-   ============================================ */
 .user-info {
     display: flex;
     align-items: center;
@@ -1221,7 +1186,18 @@ THEAD tr th {
     position: relative;
 }
 
-/* Resizer Handle - Draggable to resize left area */
+@media (max-width: 768px) {
+    .left-area,
+    .Slidbar {           /* hide the toggle too since it has nothing to toggle */
+        display: none !important;
+    }
+
+    .right-area {
+        width: 100%;
+        padding: 0;
+    }
+}
+
 .resizer {
     width: 5px;
     height: 100%;
@@ -1245,7 +1221,6 @@ THEAD tr th {
     width: 6px;
 }
 
-/* Disable text selection while resizing */
 body.resizing {
     cursor: col-resize !important;
     user-select: none !important;
@@ -1266,10 +1241,6 @@ body.resizing {
     padding: 0px;
     transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* ============================================
-   LOAD DIV & ANIMATIONS
-   ============================================ */
 
 .DivLoad {
     animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1307,252 +1278,403 @@ body.resizing {
     to { transform: rotate(360deg); }
 }
 
-/* ============================================
-   SEARCH STYLES
-   ============================================ */
-
 .Search {
-    padding: 0;
-    background-color: var(--background-secondary);
+    padding: 12px;
+    background: var(--background-secondary);
     position: sticky;
     top: 0;
     z-index: 10;
     flex-shrink: 0;
-    border-bottom: 1px solid var(--border-tertiary);
-    height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    height: auto;
+    display: flex;
+    align-items: center;
 }
 
 .Search input {
     width: 100%;
-    height: 58px;
-    padding: 0 58px 0 16px;
-    background-color: var(--background-secondary);
-    border: none;
-    outline: none;
+    height: 38px;
+    padding: 0 14px 0 40px;
+    background: var(--background-tertiary);
+    border: 1px solid transparent;
+    border-radius: 10px;
     color: var(--text-primary);
-    font-size: 14px;
-    transition: all 0.2s ease;
+    font-size: 13px;
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     margin: 0;
-    border-radius: 0;
     box-sizing: border-box;
-}
-
-.Search input:focus {
-    background-color: var(--background-tertiary-hover);
+    outline: none;
 }
 
 .Search input::placeholder {
-    color: var(--placeholder-text);
+    color: var(--label-tertiary);
     font-size: 13px;
 }
 
 .Search input:hover {
-    background-color: var(--background-tertiary-hover);
+    background: var(--background-tertiary-hover);
+}
+
+.Search input:focus {
+    background: var(--background-primary);
+    border-color: var(--border-tertiary);
+    box-shadow: 0 0 0 3px rgba(255, 214, 10, 0.15);
 }
 
 .Search::before {
     content: '';
     position: absolute;
-    right: 12px;
+    left: 26px;
     top: 50%;
     transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%238E8E93'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E");
+    width: 15px;
+    height: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%238E8E93' stroke-width='2.2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath stroke-linecap='round' d='M20 20l-3.5-3.5'/%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;
     pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1;
 }
 
-.Search:hover::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23FF6A00'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E");
+.Search input:focus ~ *,
+.Search:focus-within::before {
+    opacity: 1;
 }
 
-.Search input::-webkit-search-cancel-button {
-    display: none;
-}
+.Search input::-webkit-search-cancel-button { display: none; }
 
 .nav-wrapper {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 8px 0 16px;
 }
 
-.nav-wrapper::-webkit-scrollbar {
-    width: 8px;
-}
-
-.nav-wrapper::-webkit-scrollbar-track {
-    background: var(--background-secondary);
-    border-radius: 10px;
-}
-
+.nav-wrapper::-webkit-scrollbar { width: 6px; }
+.nav-wrapper::-webkit-scrollbar-track { background: transparent; }
 .nav-wrapper::-webkit-scrollbar-thumb {
-    background: var(--background-tertiary);
-    border-radius: 10px;
-    transition: background 0.2s ease;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
 }
-
 .nav-wrapper::-webkit-scrollbar-thumb:hover {
-    background: var(--background-logo);
+    background: rgba(255, 255, 255, 0.16);
 }
 
 .no-results-msg {
-    padding: 20px;
+    padding: 24px 20px;
     text-align: center;
-    color: var(--label-secondary);
-    font-size: 13px;
-    background-color: var(--background-secondary);
-    border-top: 1px solid var(--grid-color);
+    color: var(--label-tertiary);
+    font-size: 12px;
+    letter-spacing: 0.2px;
 }
-
-/* ============================================
-   CONTROL PANEL MENU - FIXED POSITIONING
-   ============================================ */
 
 .DivControl {
     width: 100%;
     background-color: var(--background-secondary);
     display: flex;
     flex-direction: column;
+    gap: 6px;
 }
 
 .MenuSection {
     display: block;
-    margin-bottom: 4px;
-    border-bottom: 1px solid var(--grid-color);
+    margin: 0 8px;
     flex-shrink: 0;
 }
 
-.MenuSection:last-child {
-    border-bottom: none;
+.MenuSection + .MenuSection {
+    padding-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-.MenuB, 
+.MenuB,
 h2.MenuB {
     display: flex;
     align-items: center;
-    padding: 10px 16px 10px 12px;
-    background-color: var(--background-secondary);
-    color: var(--text-primary);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 0;
-    border-left: 3px solid var(--border-tertiary);
     gap: 10px;
-    min-height: 36px;
+    padding: 9px 10px;
+    margin: 6px 0 2px;
+    background-color: transparent;
+    color: var(--label-secondary);
+    font-family: var(--font-family-system);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    user-select: none;
+    min-height: 34px;
 }
 
 .MenuB:hover,
 h2.MenuB:hover {
     background-color: var(--background-tertiary);
+    color: var(--text-primary);
 }
 
-.menu-arrow {
-    font-size: 10px;
-    transition: transform 0.3s ease;
-    color: var(--text-primary);
-    display: inline-block;
+.MenuB .menu-icon {
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+    filter: brightness(0) invert(1);
+    display: block;
+}
+.MenuB:hover .menu-icon { opacity: 1; }
+
+.MenuB .menu-arrow {
+    margin-left: auto;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--label-tertiary);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+    transform: rotate(0deg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
     flex-shrink: 0;
 }
 
-.menu-arrow.rotated {
+.MenuB .menu-arrow.rotated {
     transform: rotate(90deg);
+    color: var(--text-primary);
 }
+
+.MenuB:hover .menu-arrow { color: var(--text-primary); }
 
 .menu-title {
     flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .MenuItems {
     list-style: none;
     margin: 0;
-    padding: 0;
-    background-color: var(--background-secondary);
+    padding: 0 0 4px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
 }
 
 .MenuItem {
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid var(--grid-color);
+    border: none;
 }
 
-.MenuItem:last-child {
-    border-bottom: none;
-}
-
-/* Menu Item Styles - NO POSITION SHIFT */
 .Menu,
 div.Menu {
     display: flex;
     align-items: center;
-    padding: 8px 16px 8px 32px;
+    padding: 8px 38px;
+    margin: 0;
     color: var(--text-secondary);
-    font-size: 12px;
+    font-family: var(--font-family-system);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
     cursor: pointer;
     position: relative;
-    border-left: 3px solid transparent;
-    margin: 0;
-    min-height: 36px;
-    line-height: 1.2;
+    border: none;
+    border-radius: 8px;
+    min-height: 32px;
     background-color: transparent;
-    transition: background-color 0.25s ease, color 0.25s ease, border-left-color 0.25s ease;
+    transition: background-color 0.18s ease, color 0.18s ease;
+    overflow: hidden;
 }
 
-/* Hover effect - NO TRANSFORM */
+.Menu::before,
+div.Menu::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    width: 2px;
+    height: 16px;
+    border-radius: 2px;
+    background: var(--border-tertiary);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .Menu:hover,
 div.Menu:hover {
     background-color: var(--background-tertiary);
     color: var(--text-primary);
-    border-left-color: var(--border-tertiary);
 }
 
-/* Active menu item - Logo color background with white text - NO POSITION CHANGE */
+.Menu:hover::before,
+div.Menu:hover::before {
+    transform: translateY(-50%) scaleY(1);
+}
+
+.MenuItems:hover .Menu:not(:hover) {
+    color: var(--label-tertiary);
+    opacity: 0.85;
+}
+
 .Menu.active,
 div.Menu.active {
-    background-color: var(--background-logo) !important;
-    color: var(--text-primary) !important;
-    border-left-color: var(--border-tertiary);
-    min-height: 36px;
-    /* Keep exact same padding as regular items */
-    padding: 8px 16px 8px 32px !important;
+    background-color: rgba(255, 214, 10, 0.12) !important;
+    color: var(--background-logo) !important;
+    font-weight: 600;
+    padding: 8px 38px !important;
     margin: 0 !important;
-    /* Remove any transforms */
+    border-radius: 8px !important;
     transform: none !important;
-    /* Add subtle shadow but no position change */
-    box-shadow: var(--inner-shadow-light), var(--tooltip-shadow);
+    box-shadow: none !important;
+    border: none !important;
 }
 
-/* Active menu item hover - keep same position */
+.Menu.active::before,
+div.Menu.active::before {
+    transform: translateY(-50%) scaleY(1);
+    background: var(--background-logo);
+}
+
 .Menu.active:hover,
 div.Menu.active:hover {
-    background-color: var(--background-menu-hover) !important;
-    color: var(--text-primary) !important;
-    transform: none !important;
+    background-color: rgba(255, 214, 10, 0.18) !important;
+    color: var(--background-logo) !important;
 }
 
-/* Click animation - subtle without position shift */
 .Menu:active,
 div.Menu:active {
-    transform: scale(0.99);
-    transition: transform 0.05s ease;
+    transform: scale(0.985);
+    transition: transform 0.08s ease;
 }
 
-/* Menu toggle states */
-.MenuItems.closed {
-    display: none !important;
-}
-
-.MenuItems.open {
-    display: block !important;
+.Menu:focus-visible {
+    outline: 2px solid var(--border-tertiary);
+    outline-offset: -2px;
+    border-radius: 8px;
 }
 
 /* ============================================
-   SIDEBAR COLLAPSE/EXPAND STYLES - 40px ONLY
+   SUB-MENU — aligned UNDER parent text (past the icon)
    ============================================ */
+
+.Menu.has-children {
+    position: relative;
+    padding-right: 32px;
+}
+
+.Menu.has-children::after {
+    content: '›';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--label-tertiary);
+    line-height: 1;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.Menu.has-children.expanded::after {
+    transform: translateY(-50%) rotate(90deg);
+    color: var(--text-primary);
+}
+
+.Menu.has-children:hover::after {
+    color: var(--text-primary);
+}
+
+.SubMenu {
+    list-style: none;
+    margin: 0;
+    padding: 2px 0 4px 0;
+    display: none;
+    flex-direction: column;
+    gap: 1px;
+    position: relative;
+}
+
+.SubMenu.open {
+    display: flex;
+    animation: subMenuOpen 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes subMenuOpen {
+    from { opacity: 0; transform: translateY(-2px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Vertical guide line — visually connects sub-items to parent */
+.SubMenu::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 4px;
+    bottom: 6px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 1px;
+}
+
+/* Sub-item — padding-left clears parent's icon + gap so text sits UNDER parent text */
+.SubMenu .Menu,
+.SubMenu div.Menu {
+    padding: 6px 38px;     /* 12px base + 18px icon + 8px gap = 38px */
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--label-tertiary);
+    min-height: 28px;
+    line-height: 1.5;
+    letter-spacing: 0;
+    border-radius: 8px;
+}
+
+.SubMenu .Menu::before,
+.SubMenu div.Menu::before {
+    display: none;
+}
+
+.SubMenu .Menu:hover,
+.SubMenu div.Menu:hover {
+    background-color: var(--background-tertiary);
+    color: var(--text-primary);
+}
+
+.SubMenu .Menu.active,
+.SubMenu div.Menu.active {
+    background-color: rgba(255, 214, 10, 0.10) !important;
+    color: var(--background-logo) !important;
+    font-weight: 500;
+    padding: 6px 38px !important;
+}
+
+.SubMenu:hover .Menu:not(:hover) {
+    color: var(--label-quaternary);
+}
+
+.MenuItems:hover .SubMenu .Menu {
+    opacity: 1;
+}
+
+.MenuItems.closed { display: none !important; }
+
+.MenuItems.open {
+    display: flex !important;
+    animation: menuOpen 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes menuOpen {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
 
 .left-area-inner[style*="width: 40px"],
 .left-area-inner[style*="width: 40px;"] {
@@ -1577,9 +1699,11 @@ div.Menu:active {
 .left-area-inner[style*="width: 40px"] .Menu,
 .left-area-inner[style*="width: 40px;"] .Menu {
     padding: 8px 0 !important;
+    margin: 2px 4px !important;
     text-align: center !important;
-    font-size: 0 !important;
     justify-content: center !important;
+    font-size: 0 !important;
+    border-radius: 8px !important;
 }
 
 .left-area-inner[style*="width: 40px"] .MenuB,
@@ -1675,20 +1799,37 @@ div.Menu:active {
     transform: translate(-50%, -50%) rotate(180deg) !important;
 }
 
-/* Sidebar collapsed active menu item - keep icon visible */
 .left-area-inner[style*="width: 40px"] .Menu.active,
 .left-area-inner[style*="width: 40px;"] .Menu.active {
-    background-color: transparent !important;
+    background-color: rgba(255, 214, 10, 0.15) !important;
     padding: 8px 0 !important;
+    margin: 2px 4px !important;
 }
 
 .left-area-inner[style*="width: 40px"] .Menu.active::before {
     color: var(--background-logo) !important;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
+.left-area-inner[style*="width: 40px"] .Menu::before,
+.left-area-inner[style*="width: 40px;"] .Menu::before {
+    display: none !important;
+}
+
+.left-area-inner[style*="width: 40px"] .MenuB .menu-arrow,
+.left-area-inner[style*="width: 40px;"] .MenuB .menu-arrow {
+    margin: 0 auto !important;
+    transform: rotate(90deg) !important;
+}
+
+.left-area-inner[style*="width: 40px"] .SubMenu,
+.left-area-inner[style*="width: 40px;"] .SubMenu {
+    display: none !important;
+}
+
+.left-area-inner[style*="width: 40px"] .Menu.has-children::after,
+.left-area-inner[style*="width: 40px;"] .Menu.has-children::after {
+    display: none !important;
+}
 
 @media (max-width: 768px) {
     .top-area {
@@ -1711,11 +1852,7 @@ div.Menu:active {
     .left-area {
         width: 240px;
     }
-    
-    .right-area {
-        padding: 15px;
-    }
-    
+        
     .custom-select {
         min-width: 120px;
         font-size: 11px;
@@ -1731,25 +1868,53 @@ div.Menu:active {
     }
     
     .Search input {
-        height: 40px;
-        font-size: 13px;
-        padding: 0 36px 0 12px;
+        height: 36px;
+        font-size: 12px;
+        padding: 0 12px 0 36px;
+    }
+    
+    .Search::before {
+        left: 22px;
+        width: 14px;
+        height: 14px;
     }
     
     .MenuB, h2.MenuB {
-        padding: 8px 12px;
-        font-size: 12px;
-        min-height: 34px;
+        padding: 8px 10px;
+        font-size: 10px;
+        min-height: 32px;
+    }
+    
+    .MenuB .menu-arrow {
+        font-size: 16px;
+        width: 20px;
+        height: 20px;
     }
     
     .Menu, div.Menu {
-        padding: 6px 12px 6px 28px;
-        font-size: 11px;
-        min-height: 34px;
+        padding: 8px 10px;
+        font-size: 12px;
+        min-height: 32px;
     }
     
     .Menu.active, div.Menu.active {
-        padding: 6px 12px 6px 28px !important;
+        padding: 8px 10px !important;
+    }
+    
+    /* Sub-items align under parent text on tablet */
+    .SubMenu .Menu,
+    .SubMenu div.Menu {
+        padding: 6px 38px;
+        font-size: 11px;
+    }
+    
+    .SubMenu .Menu.active,
+    .SubMenu div.Menu.active {
+        padding: 6px 38px !important;
+    }
+    
+    .SubMenu::before {
+        left: 18px;
     }
     
     .slider-toggle {
@@ -1772,11 +1937,7 @@ div.Menu:active {
     .left-area {
         width: 200px;
     }
-    
-    .right-area {
-        padding: 10px;
-    }
-    
+        
     .user-info {
         gap: 8px;
     }
@@ -1818,25 +1979,53 @@ div.Menu:active {
     }
     
     .Search input {
-        height: 40px;
-        font-size: 12px;
-        padding: 0 34px 0 10px;
+        height: 34px;
+        font-size: 11px;
+        padding: 0 10px 0 32px;
+    }
+    
+    .Search::before {
+        left: 20px;
+        width: 13px;
+        height: 13px;
     }
     
     .MenuB, h2.MenuB {
-        padding: 6px 10px;
+        padding: 6px 8px;
+        font-size: 10px;
+        min-height: 30px;
+    }
+    
+    .MenuB .menu-arrow {
+        font-size: 15px;
+        width: 19px;
+        height: 19px;
+    }
+    
+    .Menu, div.Menu {
+        padding: 7px 8px;
         font-size: 11px;
         min-height: 32px;
     }
     
-    .Menu, div.Menu {
-        padding: 5px 10px 5px 24px;
-        font-size: 10px;
-        min-height: 32px;
+    .Menu.active, div.Menu.active {
+        padding: 7px 8px !important;
     }
     
-    .Menu.active, div.Menu.active {
-        padding: 5px 10px 5px 24px !important;
+    /* Sub-items align under parent text on mobile */
+    .SubMenu .Menu,
+    .SubMenu div.Menu {
+        padding: 6px 38px;
+        font-size: 10px;
+    }
+    
+    .SubMenu .Menu.active,
+    .SubMenu div.Menu.active {
+        padding: 6px 38px !important;
+    }
+    
+    .SubMenu::before {
+        left: 16px;
     }
     
     .slider-toggle {
@@ -1854,10 +2043,6 @@ div.Menu:active {
         margin: 0 3px;
     }
 }
-
-/* ============================================
-   PRINT STYLES
-   ============================================ */
 
 @media print {
     .top-area,
@@ -1891,10 +2076,6 @@ div.Menu:active {
     }
 }
 
-/* ============================================
-   ACCESSIBILITY & ANIMATIONS
-   ============================================ */
-
 @keyframes pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(255, 106, 0, 0.4);
@@ -1924,6 +2105,7 @@ div.Menu:active {
     .left-area-inner,
     .Menu,
     .MenuB,
+    .SubMenu,
     .menu-arrow,
     .Search,
     .dropdown-menu,
@@ -1933,13 +2115,9 @@ div.Menu:active {
     }
 }
 
-/* ============================================
-   CHECKBOX STYLES
-   ============================================ */
-
 .DivCheckbox {
     display: block;
-    width: 50%;
+    width: 100%;
     margin-bottom: 0;
     padding: 0;
 }
@@ -2113,7 +2291,6 @@ button.ButtonB {
     box-sizing: border-box;
 }
 
-/* Toggle Switch Styles - Brand Color #FF6A00 */
 .CheckboxToggle {
     position: relative;
     display: inline-block;
@@ -2201,10 +2378,6 @@ button.ButtonB {
     flex-shrink: 0;
 }
 
-
-
-
-/* Search Container - Full width with proper icon positioning */
 .SearchContainer {
     position: relative;
     width: 100%;
@@ -2215,7 +2388,6 @@ button.ButtonB {
 	text-align:right;
 }
 
-/* Search Input - Now 100% width of container, fully rounded */
 .SearchInput {
     width: 50%;
     min-width: 200px;
@@ -2234,11 +2406,10 @@ button.ButtonB {
     background: var(--header-background);
 }
 
-/* Search Icon - Properly aligned to the right inside input */
 .SearchContainer::after {
     content: "";
     position: absolute;
-    right: 8px; /* Adjusted for better alignment inside the rounded input */
+    right: 8px;
     top: 50%;
     transform: translateY(-50%);
     width: 36px;
@@ -2252,14 +2423,6 @@ button.ButtonB {
     background-size: 18px;
     box-sizing: border-box;
 }
-
-
-
-
-
-
-
-
 
 .CategoryWrapper {
     margin-bottom: 10px;
@@ -2327,7 +2490,6 @@ button.ButtonB {
     animation: fadeIn 0.3s ease;
 }
 
-/* Dropdown Button */
 .DropButton {
     background-color: var(--background-tertiary);
     color: var(--text-primary);
@@ -2351,7 +2513,6 @@ button.ButtonB {
     background-color: var(--button-secondary-pressed);
 }
 
-/* Dropdown Content Container */
 .DropdownButtonContent {
     display: none;
     position: absolute;
@@ -2364,7 +2525,6 @@ button.ButtonB {
     z-index: 1000;
 }
 
-/* Dropdown Links */
 .DropdownButtonContent a {
     color: var(--text-primary);
     padding: 12px 16px;
@@ -2389,13 +2549,11 @@ button.ButtonB {
     background-color: var(--button-secondary-pressed);
 }
 
-/* Show the dropdown when open */
 .DropdownButtonContent.show {
     display: block;
     animation: fadeIn 0.2s ease;
 }
 
-/* Fade in animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -2406,10 +2564,6 @@ button.ButtonB {
         transform: translateY(0);
     }
 }
-
-/* ============================================
-   CARD COMPONENTS
-   ============================================ */
 
 .card {
     background: var(--background-secondary);
@@ -2445,10 +2599,6 @@ button.ButtonB {
     padding-top: 12px;
     margin-top: 16px;
 }
-
-/* ============================================
-   MODAL / DIALOG STYLES
-   ============================================ */
 
 .modal-overlay {
     position: fixed;
@@ -2530,10 +2680,6 @@ button.ButtonB {
     gap: 12px;
 }
 
-/* ============================================
-   TOOLTIP STYLES
-   ============================================ */
-
 .tooltip {
     position: relative;
     display: inline-block;
@@ -2575,10 +2721,6 @@ button.ButtonB {
     opacity: 1;
 }
 
-/* ============================================
-   BADGE / TAG STYLES
-   ============================================ */
-
 .badge {
     display: inline-flex;
     align-items: center;
@@ -2614,10 +2756,6 @@ button.ButtonB {
     background: var(--blue);
     color: var(--text-primary);
 }
-
-/* ============================================
-   ALERT / NOTIFICATION STYLES
-   ============================================ */
 
 .alert {
     padding: 16px 20px;
@@ -2683,10 +2821,6 @@ button.ButtonB {
     opacity: 1;
 }
 
-/* ============================================
-   PROGRESS BAR STYLES
-   ============================================ */
-
 .progress {
     background: var(--progress-bar-background);
     border-radius: 10px;
@@ -2727,10 +2861,6 @@ button.ButtonB {
     }
 }
 
-/* ============================================
-   SPINNER / LOADING STATES
-   ============================================ */
-
 .spinner {
     display: inline-block;
     width: 20px;
@@ -2752,10 +2882,6 @@ button.ButtonB {
     height: 40px;
     border-width: 3px;
 }
-
-/* ============================================
-   BREADCRUMB STYLES
-   ============================================ */
 
 .breadcrumb {
     display: flex;
@@ -2786,10 +2912,6 @@ button.ButtonB {
     color: var(--label-tertiary);
     font-size: 12px;
 }
-
-/* ============================================
-   SWITCH / TOGGLE (Modern)
-   ============================================ */
 
 .switch {
     position: relative;
@@ -2841,10 +2963,6 @@ button.ButtonB {
     outline-offset: 2px;
 }
 
-/* ============================================
-   RADIO BUTTON STYLES
-   ============================================ */
-
 .radio-group {
     display: flex;
     gap: 20px;
@@ -2886,10 +3004,6 @@ button.ButtonB {
     border-color: var(--border-tertiary);
 }
 
-/* ============================================
-   FILE INPUT STYLES
-   ============================================ */
-
 .file-input {
     position: relative;
     display: inline-block;
@@ -2927,10 +3041,6 @@ button.ButtonB {
     color: var(--label-secondary);
 }
 
-/* ============================================
-   ANIMATION UTILITIES
-   ============================================ */
-
 .fade-enter {
     opacity: 0;
 }
@@ -2966,10 +3076,6 @@ button.ButtonB {
     transform: translateX(-100%);
     transition: transform 0.3s ease;
 }
-
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
 
 .text-center { text-align: center; }
 .text-left { text-align: left; }
@@ -3036,19 +3142,11 @@ button.ButtonB {
 .position-fixed { position: fixed; }
 .position-sticky { position: sticky; }
 
-/* ============================================
-   DARK MODE SPECIFIC ADJUSTMENTS
-   ============================================ */
-
 @media (prefers-color-scheme: dark) {
     :root {
         /* Already configured for dark mode */
     }
 }
-
-/* ============================================
-   HIGH CONTRAST MODE SUPPORT
-   ============================================ */
 
 @media (forced-colors: active) {
     .slider-toggle,
@@ -3060,10 +3158,6 @@ button.ButtonB {
     }
 }
 
-/* ============================================
-   SELECTION STYLES
-   ============================================ */
-
 ::selection {
     background: var(--selected-text-background);
     color: var(--selected-text-color);
@@ -3074,8 +3168,6 @@ button.ButtonB {
     color: var(--selected-text-color);
 }
 
-
-/* Enhanced Radio Button Styles */
 .radio-group-enhanced {
     display: flex;
     flex-wrap: wrap;
@@ -3158,7 +3250,6 @@ button.ButtonB {
     color: var(--background-logo);
 }
 
-/* Compact layout for many options */
 .radio-group-compact {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, auto));
@@ -3167,21 +3258,6 @@ button.ButtonB {
     background: var(--background-secondary);
     border-radius: 12px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .Main {
     text-decoration: none;
@@ -3241,14 +3317,12 @@ button.ButtonB {
     -webkit-box-orient: vertical;
 }
 
-/* Focus state for accessibility */
 .Main:focus-visible {
     outline: 2px solid var(--keyboard-focus-indicator);
     outline-offset: 4px;
     border-radius: 8px;
 }
 
-/* Container grid for better spacing */
 .DivIcon {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 140px));
@@ -3257,7 +3331,6 @@ button.ButtonB {
     padding: 20px;
 }
 
-/* Animation */
 @keyframes fadeInScale {
     from {
         opacity: 0;
@@ -3269,7 +3342,6 @@ button.ButtonB {
     }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .DivIcon {
         grid-template-columns: repeat(auto-fill, minmax(100px, 120px));

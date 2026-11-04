@@ -68,11 +68,11 @@ foreach ($Result as $Row)
 	{
 		if ($_SESSION['SessionType']=="Website")
 		{
-		SQL("UPDATE Control SET UClick=UClick+1 where ControlID='$ControlID'");
+			SQL("UPDATE Control SET UClick=UClick+1 where ControlID=?", [$ControlID]);
 		}
 		else
 		{
-		SQL("UPDATE Control SET RClick=RClick+1 where ControlID='$ControlID'");
+			SQL("UPDATE Control SET RClick=RClick+1 where ControlID=?", [$ControlID]);
 		}
 	}
 
@@ -99,7 +99,7 @@ echo "
 
 		$ControlMenu=trim($_REQUEST['ControlMenu']);
 
-		$Result = SQL("select * from Control where ControlMenu='$ControlMenu'");
+		$Result = SQL("select * from Control where ControlMenu=?", [$ControlMenu]);
 		foreach ($Result as $Row)
 		{
 		$ControlMenu=$Row['ControlMenu'];
@@ -127,7 +127,7 @@ echo "
 	
 		if ($ControlID>=1)
 		{
-			$Result = SQL("select * from Control where ControlID='$ControlID'");
+			$Result = SQL("select * from Control where ControlID=?", [$ControlID]);
 			foreach ($Result as $Row)
 			{
 				$Service=$Row['Service'];
@@ -140,7 +140,7 @@ echo "
 		}
 		else
 		{
-			$Result = SQL("select * from Control where ControlUrl like '$CurrentFileName%'");
+			$Result = SQL("select * from Control where ControlUrl like ?", [$CurrentFileName.'%']);
 			foreach ($Result as $Row)
 			{
 				$Service=$Row['Service'];
@@ -236,7 +236,7 @@ elseif ($_SESSION['SessionType']=="Website")
 {
 
 	// Addon Domains
-	$Result = SQL("select * from Site where Domain='{$_SESSION['SessionDomain']}' or Owner='{$_SESSION['SessionDomain']}'");
+	$Result = SQL("select * from Site where Domain=? or Owner=?", [$_SESSION['SessionDomain'], $_SESSION['SessionDomain']]);
 	foreach ($Result as $Row)
 	{
 		if ($Owner=="")
@@ -267,7 +267,7 @@ elseif ($_SESSION['SessionType']=="Website")
 elseif ($_SESSION['SessionType']=="Reseller")
 {
 	// Reseller
-	$Result = SQL("select * from Site where UserID='{$_SESSION['SessionUserID']}'");
+	$Result = SQL("select * from Site where UserID=?", [$_SESSION['SessionUserID']]);
 	foreach ($Result as $Row)
 	{
 		if ($Owner=="")

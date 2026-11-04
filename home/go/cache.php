@@ -83,7 +83,7 @@ if ($Action=="Purge" and $Domain!="")
 	include "include/sql.php";
     
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 		$ID=$Row['SiteID'];

@@ -11,8 +11,7 @@ $Domain=ValidateDomain($_REQUEST['Domain']);
 
 if ($Domain!="")
 {
-	$Sql = "select Username from Site where Domain='$Domain'";
-	$Result = SQL($Sql);
+	$Result = SQL("select Username from Site where Domain=?", [$Domain]);
 	foreach ($Result as $Row)
 	{
 	$Username=$Row['Username'];
@@ -40,7 +39,7 @@ If ($Delete==1 and $Step==1)
 if ($Delete==1 and $Step==2)
 {
 	include "access.php";
-	SQL("DELETE FROM Cron WHERE CronID='$CronID'");
+	SQL("DELETE FROM Cron WHERE CronID=?", [$CronID]);
 	echo Error("Cron Job \"$CronID\" Deleted Successfully.");
 }
 
@@ -50,11 +49,11 @@ if ($_REQUEST['Action']=="Active")
 
 	if ($_REQUEST['Active']=="1")
 	{
-		SQL("update Cron set Active=0 where CronID='$CronID'");	
+		SQL("update Cron set Active=0 where CronID=?", [$CronID]);	
 	}
 	else
 	{
-		SQL("update Cron set Active=1 where CronID='$CronID'");
+		SQL("update Cron set Active=1 where CronID=?", [$CronID]);
 	}
 	
 	SSH ("/usr/bin/sudo /go/cron $Domain",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
@@ -64,8 +63,7 @@ if ($_REQUEST['Action']=="Active")
 
 if ($_REQUEST['Action']=="Run")
 {
-	$Sql = "select * from Cron where CronID='$CronID' AND Domain='$Domain'";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Cron where CronID=? AND Domain=?", [$CronID,$Domain]);
 	foreach ($Result as $Row)
 	{
 	$Username=$Row['Username'];
@@ -97,9 +95,7 @@ if ($_REQUEST['Minute']!="")
 	{
 		if ($Edit==1)
 		{
-			
-			$Sql = "select CronID from Cron where Domain='$Domain' and Command='$Command' AND CronID!='$CronID'";
-			$Result = SQL($Sql);
+			$Result = SQL("select CronID from Cron where Domain=? and Command=? AND CronID!=?", [$Domain,$Command,$CronID]);
 			foreach ($Result as $Row)
 			{
 				echo Error("Command \"$Command\" Already Exists.");
@@ -108,15 +104,13 @@ if ($_REQUEST['Minute']!="")
 			}
 
 		
-			SQL("UPDATE Cron SET Minute='$Minute',Hour='$Hour',DayMonth='$DayMonth',Month='$Month',DayWeek='$DayWeek',Command='$Command',Description='$Description' WHERE CronID='$CronID'");
+			SQL("UPDATE Cron SET Minute=?,Hour=?,DayMonth=?,Month=?,DayWeek=?,Command=?,Description=? WHERE CronID=?", [$Minute,$Hour,$DayMonth,$Month,$DayWeek,$Command,$Description,$CronID]);
 			echo Error("Cron Job \"$CronID\" Edited Successfully.");
 			
 		}
 		else
 		{
-			
-			$Sql = "select CronID from Cron where Domain='$Domain' and Command='$Command'";
-			$Result = SQL($Sql);
+			$Result = SQL("select CronID from Cron where Domain=? and Command=?", [$Domain,$Command]);
 			foreach ($Result as $Row)
 			{
 				echo Error("Command \"$Command\" Already Exists.");
@@ -125,7 +119,7 @@ if ($_REQUEST['Minute']!="")
 			}
 
 		
-			$CronID=SQL("INSERT INTO Cron (Domain,Username,Minute,Hour,DayMonth,Month,DayWeek,Command,Description,TimeStamp) VALUES ('$Domain','$Username','$Minute','$Hour','$DayMonth','$Month','$DayWeek','$Command','$Description','$TimeStamp')");
+			$CronID=SQL("INSERT INTO Cron (Domain,Username,Minute,Hour,DayMonth,Month,DayWeek,Command,Description,TimeStamp) VALUES (?,?,?,?,?,?,?,?,?,?)", [$Domain,$Username,$Minute,$Hour,$DayMonth,$Month,$DayWeek,$Command,$Description,$TimeStamp]);
 			echo Error("Cron Job \"$CronID\" Created Successfully.");
 		}
 		
@@ -146,7 +140,7 @@ if ($_REQUEST['Minute']!="")
 	if ($Edit==1)
 	{
 
-		$Result = SQL("select * from Cron where CronID='$CronID'");
+		$Result = SQL("select * from Cron where CronID=?", [$CronID]);
 		foreach ($Result as $Row)
 		{
 		$Minute=$Row['Minute'];
@@ -249,7 +243,7 @@ echo "<div style=\"font-family: var(--font-family-system, -apple-system, BlinkMa
 	<input type=hidden name=CronID value='$CronID'>
 
 
-	<div class='DivInput {$Dir}DivInput'>Domain:<br>
+	<div class='DivInput {$Dir}DivInput'>Domain<br>
 	";
 
 		echo "<select name='Domain' id='Domain' class=Select>";
@@ -271,7 +265,7 @@ echo "<div style=\"font-family: var(--font-family-system, -apple-system, BlinkMa
 	</div>
 
 
-	<div class='DivInput {$Dir}DivInput'>Cron Schedule:<br>
+	<div class='DivInput {$Dir}DivInput'>Cron Schedule<br>
 	<input type='text' name='Minute' value='$Minute' pattern='([0-5]?[0-9]|\*)' title='0-59 or *' size='3' required class=InputText style='width:9%;text-align:center'>
 	<input type='text' name='Hour' value='$Hour' pattern='([01]?[0-9]|2[0-3]|\*)' title='0-23 or *' size='3' required class=InputText style='width:9%;text-align:center'>
 	<input type='text' name='DayMonth' value='$DayMonth' pattern='(0?[1-9]|[12][0-9]|3[01]|\*)' title='1-31 or *' size='3' required class=InputText style='width:9%;text-align:center'>
@@ -279,11 +273,11 @@ echo "<div style=\"font-family: var(--font-family-system, -apple-system, BlinkMa
 	<input type='text' name='DayWeek' value='$DayWeek' pattern='([0-7]|\*)' title='0-7 (0/7=Sun) or *' size='3' required class=InputText style='width:9%;text-align:center'>
 	</div>
 
-	<div class='DivInput {$Dir}DivInput'>Command:<br>
+	<div class='DivInput {$Dir}DivInput'>Command<br>
 	<input type='text' name='Command' value='$Command' maxlength=255 required class=InputText>
 	</div>
 
-	<div class='DivInput {$Dir}DivInput'>Description:<br>
+	<div class='DivInput {$Dir}DivInput'>Description<br>
 	<input type='text' name='Description' value='$Description' maxlength=50 class=InputText>
 	</div>
 
@@ -347,7 +341,7 @@ echo "<div style=\"font-family: var(--font-family-system, -apple-system, BlinkMa
 		include "include/sql.php";
 
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 			$ID=$Row['CronID'];

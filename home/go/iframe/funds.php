@@ -34,7 +34,7 @@ echo "
 ";
 
 
-if ($_SESSION['SessionSSHUsername']!="root" and $_SESSION['SessionSSHUsername']!=$SSHUsername)
+if ($_SESSION['SessionType']!="Root" and $_SESSION['SessionSSHUsername']!=$SSHUsername)
 {
 
 	Echo "
@@ -73,8 +73,7 @@ exit;
 	}
 
 
-$Sql = "select * from Customer where CustomerID='$CustomerID'";
-$Result = SQL($Sql);
+$Result = SQL("select * from Customer where CustomerID=?", [$CustomerID]);
 foreach ($Result as $Row)
 { 
 	$CustomerID=$Row['CustomerID'];

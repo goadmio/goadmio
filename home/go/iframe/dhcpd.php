@@ -11,8 +11,7 @@ header("Content-Disposition: attachment; filename=dhcpd.conf");
 header("Pragma: no-cache");
 header("Expires: 0");
 
-$Sql = "select * from Server where ServerIP='$ServerIP'";
-$Result = SQL($Sql);
+$Result = SQL("select * from Server where ServerIP=?", [$ServerIP]);
 foreach ($Result as $Row)
 {
 $Subnet=$Row['Subnet'];
@@ -49,8 +48,7 @@ echo "}\n";
 echo "\n";
 echo "\n";
 
-$Sql = "select * from VPS where ServerIP='$ServerIP' order by ID";
-$Result = SQL($Sql);
+$Result = SQL("select * from VPS where ServerIP=? order by ID", [$ServerIP]);
 foreach ($Result as $Row)
 {
 $ID=$Row['ID'];

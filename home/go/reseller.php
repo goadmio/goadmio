@@ -1,13 +1,10 @@
 <?php
 include "navigator.php";
 
-if ($_SESSION['SessionUsername']!="root")
+if ($_SESSION['SessionType']!="Root")
 {
-	if ($_SESSION['SessionResellerUsername']=="")
-	{
 	echo "<div class=NavigatorInfo><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>This feature has been disabled by your administrator.</div>";
 	exit;
-	}
 }
 
 $Buttons="";
@@ -32,7 +29,7 @@ if ($Delete==1 and $Step==2)
 {
 
 	$DomainNo=0;
-	$Result = SQL("select * from Site where UserID='$UserID'");
+	$Result = SQL("select * from Site where UserID=?", [$UserID]);
 	foreach ($Result as $Row)
 	{
 		$DomainNo++;
@@ -42,7 +39,7 @@ if ($Delete==1 and $Step==2)
 	if ($DomainNo==0)
 	{
 
-		$Result = SQL("DELETE from User where UserID!=1 and UserID='$UserID' and (CreatedBy='1' or CreatedBy='{$_SESSION['SessionUserID']}')");
+		$Result = SQL("DELETE from User where UserID!=1 and UserID=? and (CreatedBy='1' or CreatedBy=?)", [$UserID, $_SESSION['SessionUserID']]);
 		If ($Result)
 		{
 			echo Error("Reseller $Username has been deleted.");
@@ -58,7 +55,7 @@ elseif ($Username!="" and $Email!="")
 	if ($Edit==1)
 	{
 	
-		$Result = SQL("UPDATE User SET Username='$Username',Email='$Email',ResellerDiskSpace='$ResellerDiskSpace',ResellerAccounts='$ResellerAccounts' where UserID!=1 and UserID='$UserID' and (CreatedBy='1' or CreatedBy='{$_SESSION['SessionUserID']}')");
+		$Result = SQL("UPDATE User SET Username=?,Email=?,ResellerDiskSpace=?,ResellerAccounts=? where UserID!=1 and UserID=? and (CreatedBy='1' or CreatedBy=?)", [$Username, $Email, $ResellerDiskSpace, $ResellerAccounts, $UserID, $_SESSION['SessionUserID']]);
 		If ($Result)
 		{
 		
@@ -72,7 +69,7 @@ elseif ($Username!="" and $Email!="")
 			if (trim($Password!=""))
 			{
 				$Password=md5($Password);
-				SQL("UPDATE User SET Password='$Password' where UserID!=1 and UserID='$UserID' and (CreatedBy='1' or CreatedBy='{$_SESSION['SessionUserID']}')");
+				SQL("UPDATE User SET Password=? where UserID!=1 and UserID=? and (CreatedBy='1' or CreatedBy=?)", [$Password, $UserID, $_SESSION['SessionUserID']]);
 			}
 		
 			echo Error("Reseller $Username updated successfully.");
@@ -93,7 +90,7 @@ elseif ($Username!="" and $Email!="")
 			$Password=md5($Password);
 			$TimeStamp=time();	
 
-			$UserID=SQL("INSERT INTO User (Username,UserGroup,Password,Email,ResellerDiskSpace,ResellerAccounts,CreatedBy,TimeStamp) VALUES ('$Username','2','$Password','$Email','$ResellerDiskSpace','$ResellerAccounts','{$_SESSION['SessionUserID']}','$TimeStamp')");
+			$UserID=SQL("INSERT INTO User (Username,UserGroup,Password,Email,ResellerDiskSpace,ResellerAccounts,CreatedBy,TimeStamp) VALUES (?,'2',?,?,?,?,?,?)", [$Username,$Password,$Email,$ResellerDiskSpace,$ResellerAccounts,$_SESSION['SessionUserID'],$TimeStamp]);
 			If ($UserID>=1)
 			{
 				echo Error("Reseller $Username created successfully");
@@ -114,7 +111,7 @@ elseif ($Username!="" and $Email!="")
 	
 	if ($Edit==1)
 	{
-		$Result = SQL("select * from User where UserID='$UserID'");
+		$Result = SQL("select * from User where UserID=?", [(int) $UserID]);
 		foreach ($Result as $Row)
 		{
 		
@@ -219,7 +216,7 @@ elseif ($Username!="" and $Email!="")
 		include "include/sql.php";
 		
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 			

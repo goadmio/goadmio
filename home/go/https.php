@@ -12,15 +12,15 @@ if ($Action!="")
 
 	if ($Action=="1" and $Domain!="")
 	{
-		SQL("UPDATE Site set SSLRedirect='1' where Domain='$Domain'");
+		SQL("UPDATE Site set SSLRedirect='1' where Domain=?", [$Domain]);
 	
 		$Error=SSH ("/usr/bin/sudo /go/https $Domain 1",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		echo Error("$Error");
 	}
 	elseif ($Domain!="")
 	{
-		SQL("UPDATE Site set SSLRedirect='0' where Domain='$Domain'");
-	
+		SQL("UPDATE Site set SSLRedirect='0' where Domain=?", [$Domain]);
+
 		$Error=SSH ("/usr/bin/sudo /go/https $Domain 0",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		echo Error("$Error");
 	}
@@ -62,7 +62,7 @@ if ($Action!="")
 
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$SiteID=$Row['SiteID'];

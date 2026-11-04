@@ -87,7 +87,7 @@ This feature allows each domain on your server to send emails <strong>through Ro
 	include "include/sql.php";
     
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$SiteID=$Row['SiteID'];

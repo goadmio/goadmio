@@ -75,8 +75,7 @@ else
 	$Pass="";
 	if ($Edit==1)
 	{
-		$Sql = "select * from Ftp where User='$User'";
-		$Result=SQL($Sql);
+		$Result=SQL("select * from Ftp where User=?", [$User]);
 		foreach ($Result as $Row)
 		{
 
@@ -88,8 +87,7 @@ else
 
 		}
 		
-		$Sql = "select Domain from Site where Domain='$Domain'";
-		$Result=SQL($Sql);
+		$Result=SQL("select Domain from Site where Domain=?", [$Domain]);
 		foreach ($Result as $Row)
 		{
 		$Domain=$Row['Domain'];
@@ -249,7 +247,7 @@ else
 		
 
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 		$Domain=$Row['Domain'];

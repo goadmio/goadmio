@@ -246,7 +246,7 @@ exit;
 		<option value='0' selected>Default Package</option>
 		";
 		
-		$Result = SQL("select * from Package where UserID='{$_SESSION['SessionUserID']}' order by Name");
+		$Result = SQL("select * from Package where UserID=? order by Name", [$_SESSION['SessionUserID']]);
 		foreach ($Result as $Row)
 		{
 			if ($Row['PackageID']==$PackageID)

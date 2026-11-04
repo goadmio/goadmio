@@ -33,7 +33,8 @@ if ($Password!="")
 	{
 		$_SESSION['SessionPassword']=$Password;
 		$_SESSION['SessionSSHPassword']=$Password;
-		SQL("UPDATE User SET Username='root',Password='".md5($Password)."' where UserID=1");
+		SQL("UPDATE User SET Username='root',Password=? where UserID=1", [md5($Password)]);
+
 	}
 
 	echo Error("<a href=\"javascript:Load('$CurrentFileName')\"><img src='theme/{$_SESSION['SessionTheme']}/image/back.svg' height=24 style='padding-right:8px;vertical-align:middle'>Go Back</a>");

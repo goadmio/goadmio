@@ -14,7 +14,7 @@ $Domain=ValidateDomain($_REQUEST['Domain']);
 
 if ($Domain!="")
 {
-	$Result = SQL("SELECT Username FROM Site where Domain='$Domain'");
+	$Result = SQL("SELECT Username FROM Site where Domain=?", [$Domain]);
 	foreach ($Result as $Row)
 	{
 	$Username=$Row['Username'];

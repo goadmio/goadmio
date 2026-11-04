@@ -26,8 +26,7 @@ if ($_REQUEST['Action']=="Export")
 	";
 	
 	$X=0;
-	$Sql = "select * from Status where StatusID>=1 order by Sort";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Status where StatusID>=1 order by Sort");
 	foreach ($Result as $Row)
 	{
 	$X++;
@@ -145,8 +144,7 @@ exit;
 		}
 
 		$X=0;
-		$Sql = "select * from Status where StatusID>=1 order by $SortBy $Direction";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Status where StatusID>=1 order by $SortBy $Direction");
 		foreach ($Result as $Row)
 		{
 		

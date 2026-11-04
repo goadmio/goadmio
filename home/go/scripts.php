@@ -71,13 +71,13 @@ exit;
 	include "include/sql.php";
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 		$ScriptID=$Row['ScriptID'];
 		
 		$ScriptControlID=-1;
-		$ResultQ = SQL("SELECT ControlID from Control where ControlUrl like '%&ScriptFile={$Row['ScriptFile']}'");
+		$ResultQ = SQL("SELECT ControlID from Control where ControlUrl like ?", ['%&ScriptFile='.$Row['ScriptFile']]);
 		foreach ($ResultQ as $RowQ)
 		{
 		$ScriptControlID=$RowQ['ControlID'];

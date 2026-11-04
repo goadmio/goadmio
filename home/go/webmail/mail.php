@@ -64,7 +64,7 @@ if ($ControlScrolling == "") {
 }
 
 // ---- Authentication check (same as original) ----
-$Result = SQL("select * from Mail where Email='{$_SESSION['SessionEmail']}' and Pass='{$_SESSION['SessionEmailPass']}'");
+$Result = SQL("select * from Mail where Email=? and Pass=?", [$_SESSION['SessionEmail'], $_SESSION['SessionEmailPass']]);
 $Success = 0;
 foreach ($Result as $Row) 
 {
@@ -163,8 +163,7 @@ $FromRecord = ($Page - 1) * $PageNo;
 			$Pass = trim($_REQUEST['Pass']);
 			$Email = "$User@$Domain";
 
-			$Sql = "select Email from Mail where Email='$Email'";
-			$Result = SQL($Sql);
+            $Result = SQL("select Email from Mail where Email=?", [$Email]);
 			foreach ($Result as $Row) 
 			{
 				echo Error("Email $Email already exists.");
@@ -188,7 +187,7 @@ $FromRecord = ($Page - 1) * $PageNo;
 		}
 
 $X = 0;
-$Result = SQL("select * from Mail where Trash=0 and Username='{$_SESSION['SessionWebsiteUsername']}' order by $SortBy $Direction");
+$Result = SQL("select * from Mail where Trash=0 and Username=? order by $SortBy $Direction", [$_SESSION['SessionWebsiteUsername']]);
 $RowsNo = count($Result);
 ?>
 	

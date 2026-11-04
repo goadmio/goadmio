@@ -46,7 +46,7 @@ $FtplogID=$_REQUEST['FtplogID'];
 	
 
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 

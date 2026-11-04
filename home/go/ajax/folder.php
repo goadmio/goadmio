@@ -1,6 +1,9 @@
 <?php
+session_start();
+
 // Function to scan directories and build tree structure
-function getFolderTree($directory, $basePath = '') {
+function getFolderTree($directory, $basePath = '') 
+{
     $folders = [];
     $currentPath = $basePath ? $basePath . '/' . basename($directory) : basename($directory);
     
@@ -30,7 +33,21 @@ function getFolderTree($directory, $basePath = '') {
 // Get WWWPath from GET parameter
 $WWWPath = $_REQUEST['WWWPath'];
 
-if (is_dir($WWWPath)) {
+if (strpos($WWWPath,"/home/") !== 0) 
+{
+exit;
+}
+
+if (stristr($_SESSION['SessionDomain'],"."))
+{
+    if (strpos($WWWPath,"/home/{$_SESSION['SessionDomain']}") !== 0) 
+    {
+    exit;
+    }
+}
+
+if (is_dir($WWWPath)) 
+{
     $tree = getFolderTree($WWWPath);
     $response = [
         'success' => true, 

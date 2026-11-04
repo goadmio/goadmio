@@ -65,7 +65,7 @@ if ($Action=="Refresh")
 		include "include/sql.php";
 
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 		
@@ -107,7 +107,7 @@ if ($Action=="Refresh")
 			
 				$TOTAL=0;
 				$HTTP=0;
-				$ResultQ = SQL("SELECT SUM(ResponseSize) AS HTTP FROM Httplog where Domain='$Domain' and TimeStamp>='$StartMonthStamp'");
+				$ResultQ = SQL("SELECT SUM(ResponseSize) AS HTTP FROM Httplog where Domain=? and TimeStamp>=?", [$Domain,$StartMonthStamp]);
 				foreach ($ResultQ as $RowQ)
 				{
 				$HTTP=$RowQ['HTTP'];
@@ -117,19 +117,18 @@ if ($Action=="Refresh")
 				$HTTP=FormatSize($HTTP);
 
 				$FTP=0;
-				$ResultQ = SQL("SELECT SUM(FileSize) AS FTP FROM Ftplog where Username='$Username' and Date like '%".date ("M Y")."%'");
+				$ResultQ = SQL("SELECT SUM(FileSize) AS FTP FROM Ftplog where Username=? and Date like ?", [$Username,'%'.date ("M Y").'%']);
 				foreach ($ResultQ as $RowQ)
 				{
 				$FTP=$RowQ['FTP'];
 				$TOTAL=$TOTAL+$RowQ['FTP'];
 				}
 				
-				SQL("UPDATE Site set BandwidthUsed='$TOTAL' where Domain='$Domain'");
+				SQL("UPDATE Site set BandwidthUsed=? where Domain=?", [$TOTAL,$Domain]);
 				
 				$FTP=FormatSize($FTP);
 				$TOTAL=FormatSize($TOTAL);
 				
-
 
 
 			
@@ -141,7 +140,7 @@ if ($Action=="Refresh")
 			<TD>
 			";
 			
-			$ResultQ = SQL("SELECT Country,SUM(ResponseSize) AS Size FROM Httplog where Domain='$Domain' and TimeStamp>='$StartMonthStamp' GROUP BY Country Order By Size DESC LIMIT 5");
+			$ResultQ = SQL("SELECT Country,SUM(ResponseSize) AS Size FROM Httplog where Domain=? and TimeStamp>=? GROUP BY Country Order By Size DESC LIMIT 5", [$Domain,$StartMonthStamp]);
 			foreach ($ResultQ as $RowQ)
 			{
 				
@@ -158,7 +157,7 @@ if ($Action=="Refresh")
 			";
 			
 
-			$ResultQ = SQL("SELECT Country,COUNT(Country) as PageViews,COUNT(distinct IP) as Visitors FROM Httplog where Domain='$Domain' and TimeStamp>='$StartMonthStamp' and HTTP=1 and Browser!='' and Method='GET' GROUP BY Country Order By PageViews DESC LIMIT 5");
+			$ResultQ = SQL("SELECT Country,COUNT(Country) as PageViews,COUNT(distinct IP) as Visitors FROM Httplog where Domain=? and TimeStamp>=? and HTTP=1 and Browser!='' and Method='GET' GROUP BY Country Order By PageViews DESC LIMIT 5", [$Domain,$StartMonthStamp]);
 			foreach ($ResultQ as $RowQ)
 			{
 				echo "{$RowQ['Country']} | {$RowQ['Visitors']} Visitors | {$RowQ['PageViews']} Page Views";

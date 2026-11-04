@@ -22,7 +22,7 @@ $Priority=intval($_REQUEST['Priority']);
 if ($Priority>=1)
 {
 
-	SQL("update SMTP set Priority=$Priority where SMTPID='$SMTPID'");
+	SQL("update SMTP set Priority=? where SMTPID=?", [$Priority,$SMTPID]);
 	
 	$Priority=0;
 	$Result = SQL("select * from SMTP ORDER BY Priority");
@@ -30,7 +30,7 @@ if ($Priority>=1)
 	{
 	$Priority=$Priority+10;
 	$SMTPID=$Row['SMTPID'];
-	SQL("update SMTP set Priority=$Priority where SMTPID='$SMTPID'");	
+	SQL("update SMTP set Priority=? where SMTPID=?", [$Priority,$SMTPID]);	
 	}
 	
 	SSH ("/usr/bin/sudo screen -d -m bash -c '/go/vmail'",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
@@ -60,11 +60,11 @@ if ($Action=="Active")
 
 	if ($_REQUEST['Active']=="1")
 	{
-		SQL("update SMTP set Active=0 where SMTPID='$SMTPID'");	
+		SQL("update SMTP set Active=0 where SMTPID=?", [$SMTPID]);	
 	}
 	else
 	{
-		SQL("update SMTP set Active=1 where SMTPID='$SMTPID'");
+		SQL("update SMTP set Active=1 where SMTPID=?", [$SMTPID]);
 	}
 	
 	SSH ("/usr/bin/sudo screen -d -m bash -c '/go/vmail'",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
@@ -82,7 +82,7 @@ If ($Delete==1 and $Step==1)
 
 if ($Delete==1 and $Step==2)
 {
-	SQL("DELETE FROM SMTP WHERE SMTPID='$SMTPID'");
+	SQL("DELETE FROM SMTP WHERE SMTPID=?", [$SMTPID]);
 	echo Error("SMTP Hostname \"$SMTPHost\" has been deleted.");
 	echo Error("<a href=\"javascript:Load('$CurrentFileName')\"><img src='theme/{$_SESSION['SessionTheme']}/image/back.svg' height=24 style='padding-right:8px;vertical-align:middle'>Go Back</a>");
 
@@ -99,7 +99,7 @@ if ($SMTPHost!="" and $SMTPPort>=1)
 	if ($Edit==1)
 	{
 
-		$Result = SQL("select * from SMTP where SMTPHost='$SMTPHost' and SMTPPort='$SMTPPort' AND SMTPID!='$SMTPID'");
+		$Result = SQL("select * from SMTP where SMTPHost=? and SMTPPort=? AND SMTPID!=?", [$SMTPHost,$SMTPPort,$SMTPID]);
 		foreach ($Result as $Row)
 		{
 			echo Error("Hostname \"$SMTPHost\" already exists.");
@@ -107,13 +107,13 @@ if ($SMTPHost!="" and $SMTPPort>=1)
 			exit;
 		}
 	
-		SQL("UPDATE SMTP SET SMTPHost='$SMTPHost',SMTPPort='$SMTPPort',SMTPUser='$SMTPUser',SMTPPass='$SMTPPass',SMTPStatus='-1' where SMTPID='$SMTPID'");
+		SQL("UPDATE SMTP SET SMTPHost=?,SMTPPort=?,SMTPUser=?,SMTPPass=?,SMTPStatus='-1' where SMTPID=?", [$SMTPHost,$SMTPPort,$SMTPUser,$SMTPPass,$SMTPID]);
 		echo Error("SMTP Hostname \"$SMTPHost\" Edited Successfully.");
 	}
 	else
 	{
 	
-		$Result = SQL("select * from SMTP where SMTPHost='$SMTPHost' and SMTPPort='$SMTPPort'");
+		$Result = SQL("select * from SMTP where SMTPHost=? and SMTPPort=?", [$SMTPHost,$SMTPPort]);
 		foreach ($Result as $Row)
 		{
 			echo Error("Hostname \"$SMTPHost\" already exists.");
@@ -122,7 +122,7 @@ if ($SMTPHost!="" and $SMTPPort>=1)
 		}
 	
 		$Priority=time();
-		SQL("INSERT INTO SMTP (SMTPHost,SMTPPort,SMTPUser,SMTPPass,Priority,SMTPStatus) VALUES ('$SMTPHost','$SMTPPort','$SMTPUser','$SMTPPass','$Priority','-1')");
+		SQL("INSERT INTO SMTP (SMTPHost,SMTPPort,SMTPUser,SMTPPass,Priority,SMTPStatus) VALUES (?,?,?,?,?,'-1')", [$SMTPHost,$SMTPPort,$SMTPUser,$SMTPPass,$Priority]);
 		echo Error("SMTP Hostname \"$SMTPHost\" Created Successfully.");
 	}
 	
@@ -137,7 +137,7 @@ if ($SMTPHost!="" and $SMTPPort>=1)
 
 	if ($Edit==1)
 	{
-		$Result = SQL("select * from SMTP where SMTPID='$SMTPID'");
+		$Result = SQL("select * from SMTP where SMTPID=?", [$SMTPID]);
 		foreach ($Result as $Row)
 		{
 		$SMTPHost=$Row['SMTPHost'];
@@ -150,7 +150,7 @@ if ($SMTPHost!="" and $SMTPPort>=1)
 
 
 echo "
-<div class=NavigatorInfo>
+<div class='NavigatorInfo No'>
 Route outgoing email through an external SMTP server (also known as a smart host) to improve deliverability. Get free SMTP from <a href=\"https://www.brevo.com\" target=\"_blank\" rel=\"noopener noreferrer\">Brevo</a>, <a href=\"https://www.sendpulse.com\" target=\"_blank\" rel=\"noopener noreferrer\">SendPulse</a>. You can add many SMTP relays; if one fails, the next one will run. To make the server send via local SMTP, remove or deactivate all SMTP relay services.
 </div>
 ";
@@ -285,7 +285,7 @@ Route outgoing email through an external SMTP server (also known as a smart host
 
 		$Priority=0;
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 		

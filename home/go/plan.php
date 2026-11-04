@@ -3,7 +3,7 @@ include "navigator.php";
 $Buttons="";
 include "title.php";
 
-echo "<div class=NavigatorInfo><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>This feature is supported only on physical server hardware and will not function on VPS (Virtual Private Server) or cloud-based environments</div>";
+echo "<div class='NavigatorInfo No'><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>This feature is supported only on physical server hardware and will not function on VPS (Virtual Private Server) or cloud-based environments</div>";
 
 $Edit=$_REQUEST['Edit'];
 $PlanID=$_REQUEST['PlanID'];
@@ -26,7 +26,7 @@ If ($Delete==1 and $Step==1)
 if ($Delete==1 and $Step==2)
 {
 
-	SQL("DELETE from Plan where PlanID='$PlanID'");
+	SQL("DELETE from Plan where PlanID=?", [$PlanID]);
 	echo Error("Plan $PlanName has been deleted.");
 	
 
@@ -37,7 +37,7 @@ elseif ($PlanName!="" and $Action!="Edit")
 	if ($Edit==1)
 	{
 	
-		SQL("UPDATE Plan SET PlanName='$PlanName',Location='$Location',DiskType='$DiskType',DiskSpace='$DiskSpace',Cores='$Cores',Memory='$Memory',Price='$Price' where PlanID='$PlanID'");
+		SQL("UPDATE Plan SET PlanName=?,Location=?,DiskType=?,DiskSpace=?,Cores=?,Memory=?,Price=? where PlanID=?", [$PlanName,$Location,$DiskType,$DiskSpace,$Cores,$Memory,$Price,$PlanID]);
 		echo Error("Plan $PlanName updated successfully.");
 		
 	
@@ -46,7 +46,7 @@ elseif ($PlanName!="" and $Action!="Edit")
 	else
 	{
 		$TimeStamp=time();
-		SQL("INSERT INTO Plan (PlanName,Location,DiskType,DiskSpace,Cores,Memory,Price) VALUES ('$PlanName','$Location','$DiskType','$DiskSpace','$Cores','$Memory','$Price')");
+		SQL("INSERT INTO Plan (PlanName,Location,DiskType,DiskSpace,Cores,Memory,Price) VALUES (?,?,?,?,?,?,?)", [$PlanName,$Location,$DiskType,$DiskSpace,$Cores,$Memory,$Price]);
 		echo Error("Plan $PlanName created successfully.");
 		
 	}
@@ -61,8 +61,7 @@ elseif ($PlanName!="" and $Action!="Edit")
 	$Price="";
 	if ($Edit==1)
 	{
-		$Sql = "select * from Plan where PlanID='$PlanID'";
-		$Result = SQL($Sql);
+		$Result = SQL("select * from Plan where PlanID=?", [$PlanID]);
 		foreach ($Result as $Row)
 		{
 	
@@ -84,11 +83,11 @@ elseif ($PlanName!="" and $Action!="Edit")
 
 		if ($_REQUEST['InStock']=="1")
 		{
-			SQL("update Plan set InStock=0 where PlanID='$PlanID'");	
+			SQL("update Plan set InStock=0 where PlanID=?", [$PlanID]);
 		}
 		else
 		{
-			SQL("update Plan set InStock=1 where PlanID='$PlanID'");
+			SQL("update Plan set InStock=1 where PlanID=?", [$PlanID]);
 		}
 
 	}
@@ -212,7 +211,7 @@ elseif ($PlanName!="" and $Action!="Edit")
 		include "include/sql.php";  
 
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
 			

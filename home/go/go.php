@@ -13,7 +13,7 @@ $Email=trim($_REQUEST['Email']);
 if ($Email!="" or $Mobile!="")
 {
 	
-	SQL("UPDATE Site SET FullName='$FullName',Mobile='$Mobile',Email='$Email' where Domain='{$_SESSION['SessionUsername']}'");
+	SQL("UPDATE Site SET FullName=?,Mobile=?,Email=? where Domain=?", [$FullName,$Mobile,$Email,$_SESSION['SessionUsername']]);
 
 	echo Error("Your contact information and preferences have been updated.");
 	
@@ -21,7 +21,7 @@ if ($Email!="" or $Mobile!="")
 	exit;
 }
 
-$Result = SQL("select * from Site where Domain='{$_SESSION['SessionUsername']}'");
+$Result = SQL("select * from Site where Domain=?", [$_SESSION['SessionDomain']]);
 foreach ($Result as $Row)
 {
 	$FullName=$Row['FullName'];

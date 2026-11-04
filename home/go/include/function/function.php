@@ -1681,7 +1681,7 @@ function RowCount ($SQL)
 
 }
 
-function SQL($SQL,$TTL=0,$Memory=0)
+function SQL($SQL,array $Params=[],$TTL=0,$Memory=0)
 {
 	$TableName=TableName($SQL);
 
@@ -1703,7 +1703,7 @@ function SQL($SQL,$TTL=0,$Memory=0)
 			// Cache in Memory
 			$Redis=new Redis();
 			$Redis->connect('127.0.0.1', 6379);
-			$Key=md5($Domain.$SQL);
+			$Key=md5($Domain.$SQL.serialize($Params));
 		
 			if ($Redis->get($Key))
 			{
@@ -1715,27 +1715,27 @@ function SQL($SQL,$TTL=0,$Memory=0)
 			
 				if (stripos($SQL,"SELECT COUNT")===0)
 				{
-				$Result = $PDO->query($SQL)->fetchColumn();
+				$Stmt=$PDO->prepare($SQL);$Stmt->execute($Params);$Result=$Stmt->fetchColumn();
 				
 				$Redis->set($Key, serialize($Result));
 				$Redis->expire($Key,$TTL);
 				}
 				elseif (stripos($SQL,"SELECT")===0)
 				{
-				$Result = $PDO->query($SQL)->fetchAll();
+				$Stmt=$PDO->prepare($SQL);$Stmt->execute($Params);$Result=$Stmt->fetchAll();
 				
 				$Redis->set($Key, serialize($Result));
 				$Redis->expire($Key,$TTL);
 				}
 				elseif (stripos($SQL,"INSERT")==0)
 				{
-				$Result = $PDO->query($SQL);
+				$Stmt=$PDO->prepare($SQL);$Stmt->execute($Params);
 				return $PDO->lastInsertId(); 	
 				}
 				else
 				{
-				$Result = $PDO->query($SQL);
-				return $Result->rowCount();
+				$Stmt=$PDO->prepare($SQL);$Stmt->execute($Params);
+				return $Stmt->rowCount();
 				}
 				
 			}
@@ -1743,7 +1743,7 @@ function SQL($SQL,$TTL=0,$Memory=0)
 		else
 		{
 			// Cache in Disk
-			$Key=md5($Domain.$SQL).".key";
+			$Key=md5($Domain.$SQL.serialize($Params)).".key";
 			$P=time()-filemtime("/usr/local/goadmio/cache/$Key");
 			if (file_exists("/usr/local/goadmio/cache/$Key") and $P<=$TTL)
 			{
@@ -1754,25 +1754,25 @@ function SQL($SQL,$TTL=0,$Memory=0)
 			
 				if (stripos($SQL,"SELECT COUNT")===0)
 				{
-				$Result = $PDO->query($SQL)->fetchColumn();
+				$Stmt=$PDO->prepare($SQL);$Stmt->execute($Params);$Result=$Stmt->fetchColumn();
 				
 				file_put_contents("/usr/local/goadmio/cache/$Key",serialize($Result));
 				}
 				elseif (stripos($SQL,"SELECT")===0)
 				{
-					$Result = $PDO->query($SQL)->fetchAll();
+					$Stmt=$PDO->prepare($SQL);$Stmt->execute($Params);$Result=$Stmt->fetchAll();
 				
 					file_put_contents("/usr/local/goadmio/cache/$Key",serialize($Result));
 				}
 				elseif (stripos($SQL,"INSERT")==0)
 				{
-				$Result = $PDO->query($SQL);
+				$Stmt=$PDO->prepare($SQL);$Stmt->execute($Params);
 				return $PDO->lastInsertId(); 	
 				}
 				else
 				{
-				$Result = $PDO->query($SQL);
-				return $Result->rowCount();
+				$Stmt=$PDO->prepare($SQL);$Stmt->execute($Params);
+				return $Stmt->rowCount();
 				}
 			}
 		}
@@ -1782,26 +1782,27 @@ function SQL($SQL,$TTL=0,$Memory=0)
 	
 		if (stripos($SQL,"SELECT COUNT")===0)
 		{
-		$Result = $PDO->query($SQL)->fetchColumn();
+		$Stmt=$PDO->prepare($SQL);$Stmt->execute($Params);$Result=$Stmt->fetchColumn();
 		}
 		elseif (stripos($SQL,"SELECT")===0)
 		{
-		$Result = $PDO->query($SQL)->fetchAll();
+		$Stmt=$PDO->prepare($SQL);$Stmt->execute($Params);$Result=$Stmt->fetchAll();
 		}
 		elseif (stripos($SQL,"INSERT")===0)
 		{
-		$Result = $PDO->query($SQL);
+		$Stmt=$PDO->prepare($SQL);$Stmt->execute($Params);
 		return $PDO->lastInsertId(); 	
 		}
 		else
 		{
-		$Result = $PDO->query($SQL);
-		return $Result->rowCount();
+		$Stmt=$PDO->prepare($SQL);$Stmt->execute($Params);
+		return $Stmt->rowCount();
 		}
 	}
 
 	return $Result;
 }
+
 
 
 
@@ -1855,9 +1856,8 @@ function Invoice ($CustomerID,$Service,$Amount,$Subject,$Date="",$OrderID="")
 		$OrderID="MANUAL-".$CustomerID."-$R-".time();
 		}
 	}
-	
-	$Sql = "select * from Customer where CustomerID='$CustomerID'";
-	$Result = SQL($Sql);
+
+	$Result = SQL("select * from Customer where CustomerID=?", [$CustomerID]);
 	foreach ($Result as $Row)
 	{ 
 		$Balance=$Row['Balance'];
@@ -1869,9 +1869,7 @@ function Invoice ($CustomerID,$Service,$Amount,$Subject,$Date="",$OrderID="")
 		return 0;
 	}
 
-
-	$Sql = "select * from Invoice where OrderID='$OrderID'";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Invoice where OrderID=?", [$OrderID]);
 	foreach ($Result as $Row)
 	{ 
 		echo "Order ID $OrderID already exists.";
@@ -1879,10 +1877,10 @@ function Invoice ($CustomerID,$Service,$Amount,$Subject,$Date="",$OrderID="")
 	}
 
 	$BalanceAfter=$Balance+$Amount;
-	$Result=SQL("INSERT INTO Invoice (CustomerID,Service,OrderID,Amount,Subject,BalanceAfter,Date,TimeStamp) VALUES ('$CustomerID','$Service','$OrderID','$Amount','$Subject','$BalanceAfter','$Date','$TimeStamp')");
+	$Result=SQL("INSERT INTO Invoice (CustomerID,Service,OrderID,Amount,Subject,BalanceAfter,Date,TimeStamp) VALUES (?,?,?,?,?,?,?,?)", [$CustomerID,$Service,$OrderID,$Amount,$Subject,$BalanceAfter,$Date,$TimeStamp]);
 	if ($Result)
 	{
-		SQL("UPDATE Customer SET Balance=Balance+$Amount where CustomerID='$CustomerID'");
+		SQL("UPDATE Customer SET Balance=Balance+? where CustomerID=?", [$Amount,$CustomerID]);
 	
 		// Success
 		return 1;
@@ -1902,13 +1900,13 @@ function RenewVPS($RenewCustomerID=0,$RenewVPSID=0)
 	$Date=date ("Y-m-d");
 	if ($CustomerID==0)
 	{
-	$Sql = "select * from VPS where ExpiresOn<='$Date' and CustomerID>=1 and Renew=1";
+	$SQL="select * from VPS where ExpiresOn<='$Date' and CustomerID>=1 and Renew=1";
 	}
 	else
 	{
-	$Sql = "select * from VPS where ExpiresOn<='$Date' and CustomerID='$RenewCustomerID'";
+	$SQL="select * from VPS where ExpiresOn<='$Date' and CustomerID='$RenewCustomerID'";
 	}
-	$Result = SQL($Sql);
+	$Result=SQL($SQL);
 	foreach ($Result as $Row)
 	{
 		if ($RenewVPSID==0 or $RenewVPSID==$Row['VPSID'])
@@ -1931,7 +1929,7 @@ function RenewVPS($RenewCustomerID=0,$RenewVPSID=0)
 			$ExpiresOn = date("Y-m-d", strtotime("+1 month",strtotime("$ExpiresOn")));
 			
 			$TimeStamp=time();
-			SQL("UPDATE VPS set ExpiresOn='$ExpiresOn',TimeStamp='$TimeStamp' where VPSID='$VPSID'");
+			SQL("UPDATE VPS set ExpiresOn=?,TimeStamp=? where VPSID=?", [$ExpiresOn,$TimeStamp,$VPSID]);
 			
 			echo Error ("$IP renew done ($ExpiresOn), Customer ID: $CustomerID");
 			}
@@ -1953,8 +1951,7 @@ function AssignVPS($CustomerID,$PlanName,$Location)
 {
 	global $VPSOffer;
 
-	$Sql = "select * from Plan where PlanName='$PlanName'";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Plan where PlanName=?", [$PlanName]);
 	foreach ($Result as $Row)
 	{
 		$PlanName=$Row['PlanName'];
@@ -1965,8 +1962,7 @@ function AssignVPS($CustomerID,$PlanName,$Location)
 		$Price=$Row['Price'];
 	}
 	
-	$Sql = "select * from Customer where CustomerID='$CustomerID'";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Customer where CustomerID=?", [$CustomerID]);
 	foreach ($Result as $Row)
 	{ 
 
@@ -1982,8 +1978,7 @@ function AssignVPS($CustomerID,$PlanName,$Location)
 	}
 
 	$VPSID=0;
-	$Sql = "select * from VPS where CustomerID='0' and DiskType='$DiskType' and Location='$Location' ORDER BY TimeStamp LIMIT 1";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from VPS where CustomerID='0' and DiskType=? and Location=? ORDER BY TimeStamp LIMIT 1", [$DiskType,$Location]);
 	foreach ($Result as $Row)
 	{ 
 		$VPSID=$Row['VPSID'];
@@ -1996,8 +1991,7 @@ function AssignVPS($CustomerID,$PlanName,$Location)
 	return "There are no instances.";
 	}
 
-	$Sql = "select Location from Server where ServerIP='$ServerIP'";
-	$Result = SQL($Sql);
+	$Result = SQL("select Location from Server where ServerIP=?", [$ServerIP]);
 	foreach ($Result as $Row)
 	{ 
 		$Location=$Row['Location'];
@@ -2006,7 +2000,7 @@ function AssignVPS($CustomerID,$PlanName,$Location)
 	$Hostname="vps{$VPSID}.blackhost.com";
 	$ExpiresOn=date('Y-m-d', strtotime('+1 month'));
 	$TimeStamp=time();
-	SQL("UPDATE VPS SET CustomerID='$CustomerID',File='$File',DiskSpace='$DiskSpace',Cores='$Cores',Memory='$Memory',Hostname='$Hostname',VPSName='$VPSName',PlanName='$PlanName',Price='$Price',ExpiresOn='$ExpiresOn',Location='$Location',Renew='1',Suspend='0',TimeStamp='$TimeStamp' where VPSID='$VPSID'");
+	SQL("UPDATE VPS SET CustomerID=?,File=?,DiskSpace=?,Cores=?,Memory=?,Hostname=?,VPSName=?,PlanName=?,Price=?,ExpiresOn=?,Location=?,Renew='1',Suspend='0',TimeStamp=? where VPSID=?", [$CustomerID,$File,$DiskSpace,$Cores,$Memory,$Hostname,$VPSName,$PlanName,$Price,$ExpiresOn,$Location,$TimeStamp,$VPSID]);
 
 	// Create Invoice and Charge Amount from Customer
 	$Amount=$Price*-1;
@@ -2018,8 +2012,8 @@ function AssignVPS($CustomerID,$PlanName,$Location)
 		if ($VPSOffer=="Buy 1 Get 1")
 		{
 			$VPSID=0;
-			$Sql = "select * from VPS where CustomerID='0' and DiskType='$DiskType' and Location='$Location' ORDER BY TimeStamp LIMIT 1";
-			$Result = SQL($Sql);
+			
+			$Result = SQL("select * from VPS where CustomerID='0' and DiskType=? and Location=? ORDER BY TimeStamp LIMIT 1", [$DiskType,$Location]);
 			foreach ($Result as $Row)
 			{ 
 				$VPSID=$Row['VPSID'];
@@ -2027,8 +2021,7 @@ function AssignVPS($CustomerID,$PlanName,$Location)
 				$ServerIP=$Row['ServerIP'];
 			}
 		
-			$Sql = "select Location from Server where ServerIP='$ServerIP'";
-			$Result = SQL($Sql);
+			$Result = SQL("select Location from Server where ServerIP=?", [$ServerIP]);
 			foreach ($Result as $Row)
 			{ 
 				$Location=$Row['Location'];
@@ -2037,7 +2030,7 @@ function AssignVPS($CustomerID,$PlanName,$Location)
 			$Hostname="vps{$VPSID}.blackhost.com";
 			$ExpiresOn=date('Y-m-d', strtotime('+1 month'));
 			$TimeStamp=time();
-			SQL("UPDATE VPS SET CustomerID='$CustomerID',File='$File',DiskSpace='$DiskSpace',Cores='$Cores',Memory='$Memory',Hostname='$Hostname',VPSName='$VPSName',PlanName='$PlanName',Price='$Price',ExpiresOn='$ExpiresOn',Location='$Location',Renew='1',Suspend='0',TimeStamp='$TimeStamp' where VPSID='$VPSID'");
+			SQL("UPDATE VPS SET CustomerID=?,File=?,DiskSpace=?,Cores=?,Memory=?,Hostname=?,VPSName=?,PlanName=?,Price=?,ExpiresOn=?,Location=?,Renew='1',Suspend='0',TimeStamp=? where VPSID=?", [$CustomerID,$File,$DiskSpace,$Cores,$Memory,$Hostname,$VPSName,$PlanName,$Price,$ExpiresOn,$Location,$TimeStamp,$VPSID]);
 
 			// Create Invoice (Buy One Get One)
 			$Amount=0;
@@ -2054,7 +2047,7 @@ function AssignVPS($CustomerID,$PlanName,$Location)
 
 		// Make Expure Date today bz Invoice not completed
 		$ExpiresOn=date('Y-m-d');
-		SQL("UPDATE VPS SET ExpiresOn='$ExpiresOn' where VPSID='$VPSID'");
+		SQL("UPDATE VPS SET ExpiresOn=? where VPSID=?", [$ExpiresOn, $VPSID]);
 
 		return "Failed";
 
@@ -2092,8 +2085,7 @@ function Subnet ($SubnetIP,$CIDR,$ServerIP)
 
 	echo "<hr>";
 
-	$Sql = "select * from Server where ServerIP='$ServerIP'";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Server where ServerIP=?", [$ServerIP]);
 	foreach ($Result as $Row)
 	{ 
 		$Location=$Row['Location'];
@@ -2101,8 +2093,7 @@ function Subnet ($SubnetIP,$CIDR,$ServerIP)
 		$AvailablePlan=$Row['AvailablePlan'];
 	}
 
-	$Sql = "select * from Plan where DiskType='$DiskType' order by Price LIMIT 1";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Plan where DiskType=? order by Price LIMIT 1", [$DiskType]);
 	foreach ($Result as $Row)
 	{
 		$PlanName=$Row['PlanName'];
@@ -2113,7 +2104,7 @@ function Subnet ($SubnetIP,$CIDR,$ServerIP)
 	}
 	
 	$ID=0;
-	$Result = SQL("select ID from VPS where ServerIP='$ServerIP' order by ID DESC");
+	$Result = SQL("select ID from VPS where ServerIP=? order by ID DESC", [$ServerIP]);
 	foreach ($Result as $Row)
 	{
 		$ID=$Row['ID'];
@@ -2135,7 +2126,7 @@ function Subnet ($SubnetIP,$CIDR,$ServerIP)
 			$ExpiresOn=date('Y-m-d');
 			$Hostname="vps{$TimeStamp}{$N}.blackhost.com";
 			$MAC=GenerateMAC();
-			SQL("INSERT INTO VPS (ID,ServerIP,IP,CIDR,Gateway,MAC,CustomerID,File,DiskType,DiskSpace,Cores,Memory,Hostname,VPSName,PlanName,Price,ExpiresOn,Location,AvailablePlan,TimeStamp) VALUES ('$ID','$ServerIP','$IP','$CIDR','$Gateway','$MAC','$CustomerID','$File','$DiskType','$DiskSpace','$Cores','$Memory','$Hostname','$VPSName','$PlanName','$Price','$ExpiresOn','$Location','$AvailablePlan','$TimeStamp')");
+			SQL("INSERT INTO VPS (ID,ServerIP,IP,CIDR,Gateway,MAC,CustomerID,File,DiskType,DiskSpace,Cores,Memory,Hostname,VPSName,PlanName,Price,ExpiresOn,Location,AvailablePlan,TimeStamp) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [$ID,$ServerIP,$IP,$CIDR,$Gateway,$MAC,$CustomerID,$File,$DiskType,$DiskSpace,$Cores,$Memory,$Hostname,$VPSName,$PlanName,$Price,$ExpiresOn,$Location,$AvailablePlan,$TimeStamp]);
 		}
 		
 	}
@@ -2177,7 +2168,7 @@ function MAC()
 		$MAC=GenerateMAC();
 
 		$Exists=0;
-		$Result = SQL("select MAC from VPS where MAC='$MAC'");
+		$Result = SQL("select MAC from VPS where MAC=?", [$MAC]);
 		foreach ($Result as $Row)
 		{
 			$Exists=1;
@@ -2185,7 +2176,7 @@ function MAC()
 		
 		if ($Exists==0)
 		{
-		$Result = SQL("UPDATE VPS SET MAC='$MAC' where VPSID='$VPSID' and MAC=''");
+		$Result = SQL("UPDATE VPS SET MAC=? where VPSID=? and MAC=''", [$MAC,$VPSID]);
 		
 		echo "$IP >> $MAC <br>";
 		}
@@ -2257,8 +2248,7 @@ function Content($URL,$Timeout=5)
 function TableName($SQL)
 {
 	$SQL=str_ireplace("OR IGNORE","",$SQL);
-
-    $SQL = trim(preg_replace('/\s+/', ' ', $SQL));
+    $SQL=trim(preg_replace('/\s+/', ' ', $SQL));
     if (empty($SQL)) 
 	{
         return "";
@@ -2321,7 +2311,7 @@ function SVG($File,$Color="#000000")
 }
 
 
-function MariaDBSQL($SQL,$TTL=0,$Memory=0)
+function MariaDBSQL ($SQL,$TTL=0,$Memory=0)
 {
 	global $PDO;
 

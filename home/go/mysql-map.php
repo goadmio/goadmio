@@ -31,7 +31,7 @@ $Username=ValidateUsername($_REQUEST['Username']);
 if ($PHPMyAdmin==1)
 {
 
-	$Result = SQL("select * from Mysql where MysqlID='$MysqlID'");
+	$Result = SQL("select * from Mysql where MysqlID=?", [$MysqlID]);
 	foreach ($Result as $Row)
 	{
 	setcookie ("CookiesMySQLUsername",$Row[User],time() + (86400 * 30), "/");
@@ -47,7 +47,7 @@ exit;
 If ($Action=="ListOwner")
 {
 	echo "
-	<div class='DivInput {$Dir}DivInput'>Select a New Owner ($DatabaseName):<br>
+	<div class='DivInput {$Dir}DivInput'>Select a New Owner ($DatabaseName)<br>
 	";
 
 		$Result = SQL("select * from Site where SiteID>=1");
@@ -86,7 +86,7 @@ If ($Action=="ListOwner")
 if ($ChangeOwner==1)
 {
 	$Exists=0;
-	$Result = SQL("select MysqlID from Mysql where Name='$DatabaseName'");
+	$Result = SQL("select MysqlID from Mysql where Name=?", [$DatabaseName]);
 	foreach ($Result as $Row)
 	{
 	$Exists=1;
@@ -95,7 +95,7 @@ if ($ChangeOwner==1)
 	if ($Exists==0)
 	{
 	$TimeStamp=time();
-	SQL("INSERT OR IGNORE INTO Mysql (Domain,Username,Name,User,Pass,TimeStamp) VALUES ('$Domain','$Username','$DatabaseName','$DatabaseName','$Pass','$TimeStamp')");	
+	SQL("INSERT OR IGNORE INTO Mysql (Domain,Username,Name,User,Pass,TimeStamp) VALUES (?,?,?,?,?,?)", [$Domain,$Username,$DatabaseName,$DatabaseName,$Pass,$TimeStamp]);	
 	}
 	else
 	{
@@ -105,8 +105,7 @@ if ($ChangeOwner==1)
 		}
 		else
 		{
-		$Sql = "UPDATE Mysql set Domain='$Domain',Username='$Username' where Name='$DatabaseName'";
-		$Result = SQL($Sql);
+		$Result = SQL("UPDATE Mysql set Domain=?,Username=? where Name=?", [$Domain,$Username,$DatabaseName]);
 		}
 	}
 	
@@ -170,18 +169,17 @@ if ($ChangeOwner==1)
 
 	if ($FilterSql!="")
 	{
-		$Sql = "SELECT table_schema AS DatabaseName, SUM(data_length + index_length) AS DatabaseSize FROM information_schema.TABLES where table_schema not in ('mysql','information_schema','performance_schema','horde','roundcube','sys') GROUP BY table_schema order by $SortBy $SortDir LIMIT $FromRecord,$PageNo";
-		$RowsNo = $pdo->query("SELECT table_schema AS DatabaseName, SUM(data_length + index_length) AS DatabaseSize FROM information_schema.TABLES where table_schema not in ('mysql','information_schema','performance_schema','horde','roundcube','sys') GROUP BY table_schema")->rowCount();
+		$SQL="SELECT table_schema AS DatabaseName, SUM(data_length + index_length) AS DatabaseSize FROM information_schema.TABLES where table_schema not in ('mysql','information_schema','performance_schema','horde','roundcube','sys') GROUP BY table_schema order by $SortBy $SortDir LIMIT $FromRecord,$PageNo";
+		$RowsNo=$pdo->query("SELECT table_schema AS DatabaseName, SUM(data_length + index_length) AS DatabaseSize FROM information_schema.TABLES where table_schema not in ('mysql','information_schema','performance_schema','horde','roundcube','sys') GROUP BY table_schema")->rowCount();
 	}
 	elseif ($SearchFor=="")
 	{
-		$Sql = "SELECT table_schema AS DatabaseName, SUM(data_length + index_length) AS DatabaseSize FROM information_schema.TABLES where table_schema not in ('mysql','information_schema','performance_schema','horde','roundcube','sys') GROUP BY table_schema order by $SortBy $SortDir LIMIT $FromRecord,$PageNo";
-		$RowsNo = $pdo->query("SELECT table_schema AS DatabaseName, SUM(data_length + index_length) AS DatabaseSize FROM information_schema.TABLES where table_schema not in ('mysql','information_schema','performance_schema','horde','roundcube','sys') GROUP BY table_schema")->rowCount();
+		$SQL="SELECT table_schema AS DatabaseName, SUM(data_length + index_length) AS DatabaseSize FROM information_schema.TABLES where table_schema not in ('mysql','information_schema','performance_schema','horde','roundcube','sys') GROUP BY table_schema order by $SortBy $SortDir LIMIT $FromRecord,$PageNo";
+		$RowsNo=$pdo->query("SELECT table_schema AS DatabaseName, SUM(data_length + index_length) AS DatabaseSize FROM information_schema.TABLES where table_schema not in ('mysql','information_schema','performance_schema','horde','roundcube','sys') GROUP BY table_schema")->rowCount();
 	}
 
-
 	$X=0;
-	$Result = $pdo->query($Sql);
+	$Result = $pdo->query($SQL);
 	while ($Row = $Result->fetch(PDO::FETCH_ASSOC))
 	{
 		
@@ -204,7 +202,7 @@ if ($ChangeOwner==1)
 		$DatabaseSize=FormatSize($Row['DatabaseSize']);
 
 		$Owner="root";
-		$ResultQ = SQL("select * from Mysql where Name='{$Row['DatabaseName']}'");
+		$ResultQ = SQL("select * from Mysql where Name=?", [$Row['DatabaseName'] ?? '']);
 		foreach ($ResultQ as $RowQ)
 		{
 			$Domain=$RowQ['Domain'];
@@ -219,7 +217,7 @@ if ($ChangeOwner==1)
 			$Name=strstr($Name,"_",true);
 				
 			$SiteNo=0;
-			$ResultQ = SQL("select * from Site where Domain like '{$Name}%' or Username like '{$Name}%'");
+			$ResultQ = SQL("select * from Site where Domain like ? or Username like ?", [$Name.'%',$Name.'%']);
 			foreach ($ResultQ as $RowQ)
 			{
 				$SiteNo++;
@@ -236,7 +234,7 @@ if ($ChangeOwner==1)
 				{
 					$SmartName=substr($Name, 0, $N) . "-" . substr($Name, $N);
 							
-					$ResultQ = SQL("select * from Site where Domain like '{$SmartName}%' or Username like '{$SmartName}%'");
+					$ResultQ = SQL("select * from Site where Domain like ? or Username like ?", [$SmartName.'%',$SmartName.'%']);
 					foreach ($ResultQ as $RowQ)
 					{
 						$SiteNo++;
@@ -256,7 +254,7 @@ if ($ChangeOwner==1)
 			if ($SiteNo==1)
 			{
 				$TimeStamp=time();
-				$MysqlID=SQL("INSERT OR IGNORE INTO Mysql (Domain,Username,Name,User,Pass,TimeStamp) VALUES ('$Domain','$Username','{$Row['DatabaseName']}','{$Row['DatabaseName']}','$Pass','$TimeStamp')");	
+				$MysqlID=SQL("INSERT OR IGNORE INTO Mysql (Domain,Username,Name,User,Pass,TimeStamp) VALUES (?,?,?,?,?,?)", [$Domain,$Username,$Row['DatabaseName'],$Row['DatabaseName'],$Pass,$TimeStamp]);	
 				
 				if ($MysqlID>=1)
 				{

@@ -27,12 +27,12 @@ $HostingExpiredCode=$_REQUEST['HostingExpiredCode'];
 if ($DefaultWebsitePageCode!="" or $AccountSuspendedCode!="" or $AccountUnpublishedCode!="")
 {
 
-	$Result = SQL("UPDATE Template Set Code='$DefaultWebsitePageCode' where Name='Default Website Page'");
-	$Result = SQL("UPDATE Template Set Code='$AccountSuspendedCode' where Name='Account Suspended'");
-	$Result = SQL("UPDATE Template Set Code='$DiskQuotaExceededCode' where Name='Disk Quota Exceeded'");
-	$Result = SQL("UPDATE Template Set Code='$BandwidthLimitExceededCode' where Name='Bandwidth Limit Exceeded'");
-	$Result = SQL("UPDATE Template Set Code='$AccountUnpublishedCode' where Name='Account Unpublished'");
-	$Result = SQL("UPDATE Template Set Code='$HostingExpiredCode' where Name='Hosting Expired'");
+	$Result = SQL("UPDATE Template Set Code=? where Name='Default Website Page'", [$DefaultWebsitePageCode]);
+	$Result = SQL("UPDATE Template Set Code=? where Name='Account Suspended'", [$AccountSuspendedCode]);
+	$Result = SQL("UPDATE Template Set Code=? where Name='Disk Quota Exceeded'", [$DiskQuotaExceededCode]);
+	$Result = SQL("UPDATE Template Set Code=? where Name='Bandwidth Limit Exceeded'", [$BandwidthLimitExceededCode]);
+	$Result = SQL("UPDATE Template Set Code=? where Name='Account Unpublished'", [$AccountUnpublishedCode]);
+	$Result = SQL("UPDATE Template Set Code=? where Name='Hosting Expired'", [$HostingExpiredCode]);
 	
 	$Error=SSH ("/usr/bin/sudo /go/template",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 
@@ -83,37 +83,37 @@ exit;
 	Echo "
 	<form name=\"Form\" method=\"POST\" onsubmit=\"return Submit('$CurrentFileName');\" autocomplete=\"off\" action=\"$CurrentFileName\">
 
-	<div <div class='TitleB {$Dir}TitleB'>{$LNG['DefaultWebsitePage']}</div>
+	<div class='TitleB {$Dir}TitleB'>{$LNG['DefaultWebsitePage']}</div>
 	
 	<div class=DivTextarea>
 	<textarea name='DefaultWebsitePageCode' id='DefaultWebsitePageCode' cols=112 style='width:100%;'>$DefaultWebsitePageCode</textarea>	
 	</div>
 	
-	<div <div class='TitleB {$Dir}TitleB'>{$LNG['AccountSuspended']}</div>
+	<div class='TitleB {$Dir}TitleB'>{$LNG['AccountSuspended']}</div>
 	
 	<div class=DivTextarea>
 	<textarea name='AccountSuspendedCode' id='AccountSuspendedCode' cols=112 style='width:100%'>$AccountSuspendedCode</textarea>
 	</div>
 
-	<div <div class='TitleB {$Dir}TitleB'>{$LNG['DiskQuotaExceeded']}</div>
+	<div class='TitleB {$Dir}TitleB'>{$LNG['DiskQuotaExceeded']}</div>
 	
 	<div class=DivTextarea>
 	<textarea name='DiskQuotaExceededCode' id='DiskQuotaExceededCode' cols=112 style='width:100%'>$DiskQuotaExceededCode</textarea>
 	</div>
 	
-	<div <div class='TitleB {$Dir}TitleB'>{$LNG['BandwidthLimitExceeded']}</div>
+	<div class='TitleB {$Dir}TitleB'>{$LNG['BandwidthLimitExceeded']}</div>
 	
 	<div class=DivTextarea>
 	<textarea name='BandwidthLimitExceededCode' id='BandwidthLimitExceededCode' cols=112 style='width:100%'>$BandwidthLimitExceededCode</textarea>
 	</div>
 		
-	<div <div class='TitleB {$Dir}TitleB'>{$LNG['AccountUnpublished']}</div>
+	<div class='TitleB {$Dir}TitleB'>{$LNG['AccountUnpublished']}</div>
 	
 	<div class=DivTextarea>
 	<textarea name='AccountUnpublishedCode' id='AccountUnpublishedCode' cols=112 style='width:100%'>$AccountUnpublishedCode</textarea>
 	</div>
 
-	<div <div class='TitleB {$Dir}TitleB'>{$LNG['HostingExpired']}</div>
+	<div class='TitleB {$Dir}TitleB'>{$LNG['HostingExpired']}</div>
 	
 	<div class=DivTextarea>
 	<textarea name='HostingExpiredCode' id='HostingExpiredCode' cols=112 style='width:100%'>$HostingExpiredCode</textarea>

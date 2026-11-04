@@ -12,8 +12,7 @@ $Rate="100";
 $Price="10";
 $InStock="1";
 $Location="EU (Germany)";
-$Sql = "INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES ('$PlanName','$DiskType','$Location','$DiskSpace','$Cores','$Memory','$Rate','$Price','$InStock')";
-SQL($Sql);
+SQL("INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES (?,?,?,?,?,?,?,?,?)", [$PlanName,$DiskType,$Location,$DiskSpace,$Cores,$Memory,$Rate,$Price,$InStock]);
 
 $PlanName="DE-VPS S";
 $DiskType="SATA HDD";
@@ -24,8 +23,8 @@ $Rate="250";
 $Price="15";
 $InStock="1";
 $Location="EU (Germany)";
-$Sql = "INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES ('$PlanName','$DiskType','$Location','$DiskSpace','$Cores','$Memory','$Rate','$Price','$InStock')";
-SQL($Sql);
+SQL("INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES (?,?,?,?,?,?,?,?,?)", [$PlanName,$DiskType,$Location,$DiskSpace,$Cores,$Memory,$Rate,$Price,$InStock]);
+
 
 $PlanName="DE-VPS M";
 $DiskType="SATA HDD";
@@ -36,8 +35,8 @@ $Rate="500";
 $Price="25";
 $InStock="1";
 $Location="EU (Germany)";
-$Sql = "INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES ('$PlanName','$DiskType','$Location','$DiskSpace','$Cores','$Memory','$Rate','$Price','$InStock')";
-SQL($Sql);
+SQL("INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES (?,?,?,?,?,?,?,?,?)", [$PlanName,$DiskType,$Location,$DiskSpace,$Cores,$Memory,$Rate,$Price,$InStock]);
+
 
 $PlanName="DE-VPS X";
 $DiskType="SATA HDD";
@@ -48,8 +47,8 @@ $Rate="1000";
 $Price="40";
 $InStock="1";
 $Location="EU (Germany)";
-$Sql = "INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES ('$PlanName','$DiskType','$Location','$DiskSpace','$Cores','$Memory','$Rate','$Price','$InStock')";
-SQL($Sql);
+SQL("INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES (?,?,?,?,?,?,?,?,?)", [$PlanName,$DiskType,$Location,$DiskSpace,$Cores,$Memory,$Rate,$Price,$InStock]);
+
 
 $PlanName="DE-VPS XL";
 $DiskType="SATA HDD";
@@ -60,8 +59,8 @@ $Rate="1000";
 $Price="50";
 $InStock="1";
 $Location="EU (Germany)";
-$Sql = "INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES ('$PlanName','$DiskType','$Location','$DiskSpace','$Cores','$Memory','$Rate','$Price','$InStock')";
-SQL($Sql);
+SQL("INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES (?,?,?,?,?,?,?,?,?)", [$PlanName,$DiskType,$Location,$DiskSpace,$Cores,$Memory,$Rate,$Price,$InStock]);
+
 
 $PlanName="DE-VPS XXL";
 $DiskType="SATA HDD";
@@ -72,8 +71,7 @@ $Rate="1000";
 $Price="75";
 $InStock="1";
 $Location="EU (Germany)";
-$Sql = "INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES ('$PlanName','$DiskType','$Location','$DiskSpace','$Cores','$Memory','$Rate','$Price','$InStock')";
-SQL($Sql);
+SQL("INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES (?,?,?,?,?,?,?,?,?)", [$PlanName,$DiskType,$Location,$DiskSpace,$Cores,$Memory,$Rate,$Price,$InStock]);
 
 // NVMe SSD
 $PlanName="DE-VPS-NVM XS";
@@ -85,8 +83,8 @@ $Rate="100";
 $Price="5.99";
 $InStock="1";
 $Location="EU (Germany)";
-$Sql = "INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES ('$PlanName','$DiskType','$Location','$DiskSpace','$Cores','$Memory','$Rate','$Price','$InStock')";
-SQL($Sql);
+SQL("INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES (?,?,?,?,?,?,?,?,?)", [$PlanName,$DiskType,$Location,$DiskSpace,$Cores,$Memory,$Rate,$Price,$InStock]);
+
 
 $PlanName="DE-VPS-NVME S";
 $DiskType="NVMe SSD";
@@ -97,8 +95,8 @@ $Rate="250";
 $Price="10.99";
 $InStock="1";
 $Location="EU (Germany)";
-$Sql = "INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES ('$PlanName','$DiskType','$Location','$DiskSpace','$Cores','$Memory','$Rate','$Price','$InStock')";
-SQL($Sql);
+SQL("INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES (?,?,?,?,?,?,?,?,?)", [$PlanName,$DiskType,$Location,$DiskSpace,$Cores,$Memory,$Rate,$Price,$InStock]);
+
 
 $PlanName="DE-VPS-NVME M";
 $DiskType="NVMe SSD";
@@ -109,8 +107,8 @@ $Rate="500";
 $Price="15.99";
 $InStock="1";
 $Location="EU (Germany)";
-$Sql = "INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES ('$PlanName','$DiskType','$Location','$DiskSpace','$Cores','$Memory','$Rate','$Price','$InStock')";
-SQL($Sql);
+SQL("INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES (?,?,?,?,?,?,?,?,?)", [$PlanName,$DiskType,$Location,$DiskSpace,$Cores,$Memory,$Rate,$Price,$InStock]);
+
 
 $PlanName="DE-VPS-NVME X";
 $DiskType="NVMe SSD";
@@ -121,8 +119,8 @@ $Rate="1000";
 $Price="24.99";
 $InStock="1";
 $Location="EU (Germany)";
-$Sql = "INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES ('$PlanName','$DiskType','$Location','$DiskSpace','$Cores','$Memory','$Rate','$Price','$InStock')";
-SQL($Sql);
+SQL("INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES (?,?,?,?,?,?,?,?,?)", [$PlanName,$DiskType,$Location,$DiskSpace,$Cores,$Memory,$Rate,$Price,$InStock]);
+
 
 $PlanName="DE-VPS-NVME XL";
 $DiskType="NVMe SSD";
@@ -133,8 +131,8 @@ $Rate="1000";
 $Price="39.99";
 $InStock="1";
 $Location="EU (Germany)";
-$Sql = "INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES ('$PlanName','$DiskType','$Location','$DiskSpace','$Cores','$Memory','$Rate','$Price','$InStock')";
-SQL($Sql);
+SQL("INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES (?,?,?,?,?,?,?,?,?)", [$PlanName,$DiskType,$Location,$DiskSpace,$Cores,$Memory,$Rate,$Price,$InStock]);
+
 
 $PlanName="DE-VPS-NVME XXL";
 $DiskType="NVMe SSD";
@@ -145,7 +143,7 @@ $Rate="1000";
 $Price="59.99";
 $InStock="1";
 $Location="EU (Germany)";
-$Sql = "INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES ('$PlanName','$DiskType','$Location','$DiskSpace','$Cores','$Memory','$Rate','$Price','$InStock')";
-SQL($Sql);
+SQL("INSERT INTO Plan (PlanName,DiskType,Location,DiskSpace,Cores,Memory,Rate,Price,InStock) VALUES (?,?,?,?,?,?,?,?,?)", [$PlanName,$DiskType,$Location,$DiskSpace,$Cores,$Memory,$Rate,$Price,$InStock]);
+
 
 ?>

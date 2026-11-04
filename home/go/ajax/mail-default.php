@@ -12,7 +12,7 @@ $Domain=ValidateDomain($_REQUEST['Domain']);
 if ($Domain!="")
 {
 
-	$Result = SQL("select Email from Mail where DefaultAddress=1 and Domain='$Domain'");
+	$Result = SQL("select Email from Mail where DefaultAddress=1 and Domain=?", [$Domain]);
 	foreach ($Result as $Row)
 	{
 	$Email=$Row['Email'];

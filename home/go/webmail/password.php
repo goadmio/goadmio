@@ -4,7 +4,7 @@ session_start();
 include("/usr/local/goadmio/home/go/include/function/function.php");
 include("/usr/local/goadmio/include/config/config.php");
 
-$Result = SQL("select * from Mail where Email='{$_SESSION['SessionEmail']}' and Pass='{$_SESSION['SessionEmailPass']}'");
+$Result = SQL("select * from Mail where Email=? and Pass=?", [$_SESSION['SessionEmail'], $_SESSION['SessionEmailPass']]);
 foreach ($Result as $Row)
 {
 	$Success=1;

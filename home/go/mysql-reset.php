@@ -3,23 +3,17 @@ include "nav.php";
 $Buttons="";
 include "title.php";
 
-if (!StartsWith(getcwd(),"/usr/local/goadmio"))
-{
-	echo "Invalid Blackhost Path";
-	exit;
-}
-
 $Password=ValidatePassword($_REQUEST['Password']);
 
-if (!in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUsername], true))
+if ($_SESSION['SessionType']!="Root")
 {
-
 	Echo "
 	Sorry, You Are Not Allowed to Access This Page
 	";
 
-exit;
+	exit;
 }
+
 
 
 if ($Password!="")

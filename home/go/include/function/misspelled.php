@@ -72,10 +72,10 @@ $LP=0;
 }
 
 
-function DeeplySimilar ($Sql,$FieldName,$SearchFor)
+function DeeplySimilar ($SQL,$FieldName,$SearchFor)
 {
-	$A=Misspelled (FieldToArray($Sql,$FieldName),$SearchFor);
-	$B=Similar (FieldToArray($Sql,$FieldName),$SearchFor);
+	$A=Misspelled (FieldToArray($SQL,$FieldName),$SearchFor);
+	$B=Similar (FieldToArray($SQL,$FieldName),$SearchFor);
 
 	if ($A==$B)
 	{

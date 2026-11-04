@@ -5,13 +5,13 @@
 	{
 		if ($_SESSION['SessionType']=="Root")
 		{
-        $Sql = "select * from Site where Trash=0 and UserID>=1";
+        $SQL="select * from Site where Trash=0 and UserID>=1";
 		}
 		else
 		{
-		$Sql = "select * from Site where Trash=0 and UserID='{$_SESSION['SessionUserID']}'";
+		$SQL="select * from Site where Trash=0 and UserID='{$_SESSION['SessionUserID']}'";
 		}
-        $Result = SQL($Sql);
+        $Result=SQL($SQL);
         foreach ($Result as $Row) 
 		{
             $Account['Domain'][] = $Row['Domain'];

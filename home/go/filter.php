@@ -27,7 +27,7 @@ if ($Action=="Delete")
 {
 	include "access.php";
 	
-	SQL("DELETE FROM Filter WHERE FilterID='$FilterID'");
+	SQL("DELETE FROM Filter WHERE FilterID=?", [$FilterID]);
 	
 	SSH ("/usr/bin/sudo screen -d -m bash -c '/go/vmail'",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 }
@@ -38,7 +38,7 @@ elseif ($_REQUEST['Keyword']!="")
 	if ($Edit==1)
 	{
 
-		$Result = SQL("select * from Filter where Type='$Type' and Keyword='$Keyword' AND FilterID!='$FilterID'");
+		$Result = SQL("select * from Filter where Type=? and Keyword=? AND FilterID!=?", [$Type, $Keyword, $FilterID]);
 		foreach ($Result as $Row)
 		{
 			echo Error("Keyword \"$Keyword\" already exists.");
@@ -52,7 +52,7 @@ elseif ($_REQUEST['Keyword']!="")
 	else
 	{
 
-		$Result = SQL("select * from Filter where Type='$Type' and Keyword='$Keyword'");
+		$Result = SQL("select * from Filter where Type=? and Keyword=?", [$Type, $Keyword]);
 		foreach ($Result as $Row)
 		{
 			echo Error("Keyword \"$Keyword\" already exists.");
@@ -76,7 +76,7 @@ elseif ($_REQUEST['Keyword']!="")
 
 	if ($Edit==1)
 	{
-		$Result = SQL("select * from Filter where FilterID='$FilterID'");
+		$Result = SQL("select * from Filter where FilterID=?", [$FilterID]);
 		foreach ($Result as $Row)
 		{
 			$Type=$Row['Type'];
@@ -104,7 +104,7 @@ elseif ($_REQUEST['Keyword']!="")
 	<input type=hidden name=Edit value='$Edit'>
 	<input type=hidden name=FilterID value='$FilterID'>
 	
-	<div class='DivInput {$Dir}DivInput'>Type:<br>
+	<div class='DivInput {$Dir}DivInput'>Type<br>
 
 	<select name='Type' id='Type' class=Select>
 	<option value='Header' $HeaderSelected>Header</option>
@@ -113,7 +113,7 @@ elseif ($_REQUEST['Keyword']!="")
 		
 	</div>
 
-	<div class='DivInput {$Dir}DivInput'>Keyword:<br>
+	<div class='DivInput {$Dir}DivInput'>Keyword<br>
 	<input type='text' name='Keyword' value='$Keyword' required maxlength=255 class=InputText>
 	</div>
 
@@ -172,7 +172,7 @@ elseif ($_REQUEST['Keyword']!="")
 	include "include/sql.php";
 
 	$X=0;
-	$Result = SQL($Sql);
+	$Result = SQL($SQL);
 	foreach ($Result as $Row)
 	{
 	

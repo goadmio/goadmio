@@ -1,8 +1,5 @@
 <?php
-
-
-
-include "navigator.php";
+include "nav.php";
 $Buttons="";
 include "title.php";
 
@@ -39,7 +36,7 @@ if ($Delete==1 and $Step==2)
 if ($_REQUEST['AliasDomain']!="")
 {
 
-	$Result = SQL("select AliasNo from Site where Domain='$Domain'");
+	$Result = SQL("select AliasNo from Site where Domain=?", [$Domain]);
 	foreach ($Result as $Row)
 	{
 		if ($Row['AliasNo']==-1)
@@ -61,100 +58,17 @@ if ($_REQUEST['AliasDomain']!="")
 }
 
 
-	echo "
 	
-	<form name=\"Form\" method=\"POST\" onsubmit=\"return Submit('$CurrentFileName');\" autocomplete=\"off\" action=\"$CurrentFileName\">
-	<input type=hidden name=Edit value='$Edit'><input type=hidden name=ServiceControl value='$ServiceControl'>
-	<input type=hidden name=AliasID value='$AliasID'>
+	include "include/select/domain.php";
 
-	
-	<div class='DivInput {$Dir}DivInput'>
-	{$LNG['DomainAliasName']}<br>
-	<input type='text' name='AliasDomain' maxlength=100 class=InputText size=40>
-	</div>
-	
-	<div class='DivInput {$Dir}DivInput'>{$LNG['Domain']}<br>
-	<select name='Domain' class=Select>
-	";
-	
-	$Sql = "select * from Site where Trash=0 $SearchSql order by Domain";
-	$Result = SQL($Sql);
-	foreach ($Result as $Row)
-	{
-	echo "
-	<option value='{$Row['Domain']}'>{$Row['Domain']}</option>
-	";
-	}
-	
-	echo "
-	
-	</select>
-	
-	</div>
-	
-	<div id=DivSubmit class=DivSubmit>
-	";
-	
-		if ($Edit==1)
-		{
-			echo "<input type=submit value='{$LNG['SaveChanges']}' Class=InputButton>";
-		}
-		else
-		{
-			echo "<input type=submit value='{$LNG['Save']}' Class=InputButton>";
-		}
-
-	echo "
-	</div>
-	
-
-</form>
-
-";
-
-
+	echo DesignCode($Content,"$Control (Content)");
 
 	if($Edit!=1)
 	{
 	
-
 		include "search.php";
 
-		Echo "
-		<div class=DivXTable>
-		<table cellPadding='8' cellSpacing='0' width='100%' class='Table'>
-
-		<THEAD>
-		
-		<tr>
-		
-		<th width='2%'>
-
-		</th>
-		
-		<th align='$DAlign' width='25%'>
-		{$LNG['DomainAliasName']}
-		</th>
-		
-		<th align='$DAlign' width='25%'>
-		{$LNG['Domain']}
-		</th>
-		
-		<th align='$DAlign' width='25%'>
-		{$LNG['CreatedDate']}
-		</th>
-
-		<th width='23%'>
-	
-		</th>
-		
-		</tr>
-		
-		</THEAD>
-
-		";
-		
-		
+		echo DesignCode($Header,"$Control (Header)");
 
 		$Table="Alias";$Field="Trash=0";
 		$DefaultSortBy="AliasDomain";
@@ -162,80 +76,21 @@ if ($_REQUEST['AliasDomain']!="")
 		include "include/sql.php";	
 
 		$X=0;
-		$Result = SQL($Sql);
+		$Result = SQL($SQL);
 		foreach ($Result as $Row)
 		{
-		
-			if ($X==0)
-			{
-			echo "<TBODY>";
-			}
-
-			if ($X%2==0)
-			{
-			$TDColor="Td";
-			}
-			else
-			{
-			$TDColor="TdB";
-			}
-			
-			$SerialNo=(($Page-1)*$PageNo)+$x;
+			if ($X%2==0) {$TDColor="Td";} else {$TDColor="TdB";}
 			
 			$CreatedDate=date("D j M Y g:i a", $Row['TimeStamp']);
 
-			echo "
-			<tr id='TR{$ID}' class='$TDColor' divid=Find find='{$Row['Domain']}-{$Row['AliasDomain']}'>
+			echo DesignCode($Loop,"$Control (Loop)");
 
-			<TD align='center'>
-			$SerialNo
-			</TD>
-			
-			<TD><a href='http://{$Row['AliasDomain']}' target='_blank'>{$Row['AliasDomain']}</a></TD>
-
-			<TD>{$Row['Domain']}</TD>
-			
-			<TD>$CreatedDate</TD>
-			
-			<TD align='$OAlign'>
-			<a href=\"javascript:Load('$CurrentFileName?Delete=1&Step=1&AliasDomain={$Row['AliasDomain']}')\" class=Action>Delete</a>
-			</TD>
-			";
-			
 		$X++;
 		}
 		
-		if ($X!=0)
-		{
-		echo "</TBODY>";
-		}
+		$Footer=DesignCode($Footer,"$Control (Footer)");
+		echo $Footer;
 
-		echo "
-		<TFOOT>
-
-		<tr>
-
-		<th align='$DAlign' colspan=2>
-		Showing $X of $RowsNo records.
-		</th>
-		
-		<th align='$OAlign' colspan=3>
-		";
-				
-		include "pages.php";
-
-		echo "
-		</th>
-
-		</tr>
-
-		</TFOOT>
-
-		</TABLE>
-		</div>
-
-		";
-		
 	}
 
 ?>

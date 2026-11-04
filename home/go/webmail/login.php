@@ -46,7 +46,7 @@ include("/usr/local/goadmio/include/config/config.php");
 	}
 	
 
-				$Result = SQL("select * from Mail where Email='$EmailUser' and Pass='$EmailPass' and Suspend=0");
+				$Result = SQL("select * from Mail where Email=? and Pass=? and Suspend=0", [$EmailUser, $EmailPass]);
 				foreach ($Result as $Row)
 				{
 

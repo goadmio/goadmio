@@ -52,7 +52,7 @@ foreach ($Result as $Row)
         $MenuControlFind = "";
         $categoryId = "cat_" . preg_replace('/[^a-zA-Z0-9]/', '_', $ControlMenu) . "_" . $categoryCount;
 
-        $ResultQ = SQL("select * from Control where $ServiceSql and ControlMenu='{$Row['ControlMenu']}' ORDER BY $SortBy");
+        $ResultQ = SQL("select * from Control where $ServiceSql and ControlMenu=? ORDER BY $SortBy", [$Row['ControlMenu']]);
         foreach ($ResultQ as $RowQ)
         {
             $BControlFind="{$LNG[$RowQ['Control']]} {$LNG[$RowQ['ControlMenu']]} {$LNG[$RowQ['SubFiles']]}";

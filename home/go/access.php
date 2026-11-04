@@ -20,8 +20,7 @@ if ($_SESSION['SessionType']=="Website")
 
 if ($_SESSION['SessionType']=="Reseller")
 {
-	$Sql = "select * from Site where UserID='{$_SESSION['SessionUserID']}'";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Site where UserID=?", [$_SESSION['SessionUserID'] ?? 0]);
 	foreach ($Result as $Row)
 	{
 	$Access=1;

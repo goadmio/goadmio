@@ -52,9 +52,8 @@ if ($IMAPID=="IMAPHostname")
 	{
 	$Value="localhost";
 	}
-	
-	
-	SQL("update Config set IMAPHostname='$Value' where ConfigID=1");
+		
+	SQL("update Config set IMAPHostname=? where ConfigID=1", [$Value]);
 
 	echo $Value;
 
@@ -70,7 +69,7 @@ if ($IMAPID=="IMAPPort")
 	$Value="143";
 	}
 	
-	SQL("update Config set IMAPPort='$Value' where ConfigID=1");
+	SQL("update Config set IMAPPort=? where ConfigID=1", [$Value]);
 
 	if ($Value=="993")
 	{
@@ -86,7 +85,7 @@ if ($IMAPID=="IMAPSecure")
 
 	$Value=trim($Value);
 
-	SQL("update Config set IMAPSecure='$Value' where ConfigID=1");
+	SQL("update Config set IMAPSecure=? where ConfigID=1", [$Value]);
 
 	if ($Value=="None")
 	{
@@ -122,7 +121,7 @@ if ($IMAPID=="IMAPShortLogin")
 	$Value="Off";
 	}
 
-	SQL("update Config set IMAPShortLogin='$Value' where ConfigID=1");
+	SQL("update Config set IMAPShortLogin=? where ConfigID=1", [$Value]);
 
 	echo $Value;
 

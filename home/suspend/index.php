@@ -8,7 +8,7 @@ $Date=date ("Y-m-d");
 
 $Reason="This account has been suspended.";
 
-$Result = SQL("select * from Site where Domain='$Domain' and SpaceUsed>DiskSpace and DiskSpace!=0");
+$Result = SQL("select * from Site where Domain=? and SpaceUsed>DiskSpace and DiskSpace!=0", [$Domain]);
 foreach ($Result as $Row)
 {
 
@@ -20,7 +20,7 @@ foreach ($Result as $Row)
 	exit;
 }
 
-$Result = SQL("select * from Site where Domain='$Domain' and BandwidthUsed>Bandwidth and Bandwidth!=0");
+$Result = SQL("select * from Site where Domain=? and BandwidthUsed>Bandwidth and Bandwidth!=0", [$Domain]);
 foreach ($Result as $Row)
 {
 	$ResultQ = SQL("select * from Template where Name='Bandwidth Limit Exceeded'");
@@ -31,7 +31,7 @@ foreach ($Result as $Row)
 	exit;
 }
 
-$Result = SQL("select * from Site where Domain='$Domain' and ExpiresOn>='$Date'");
+$Result = SQL("select * from Site where Domain=? and ExpiresOn>=?", [$Domain, $Date]);
 foreach ($Result as $Row)
 {
 

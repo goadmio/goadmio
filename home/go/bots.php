@@ -12,11 +12,11 @@ if ($Action!="")
 
 	if ($Action=="Enable")
 	{
-		SQL("UPDATE Bot set Block='1' where ID='$ID'");
+		SQL("UPDATE Bot set Block='1' where ID=?", [$ID]);
 	}
 	else
 	{
-		SQL("UPDATE Bot set Block='0' where ID='$ID'");
+		SQL("UPDATE Bot set Block='0' where ID=?", [$ID]);
 	}
 	
 	$Error=SSH ("/usr/bin/sudo /go/conf --schedule",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
@@ -65,7 +65,7 @@ if ($Action!="")
 	include "include/sql.php";    
 
 	$X=0;
-    $Result = SQL($Sql);
+    $Result = SQL($SQL);
     foreach ($Result as $Row)
     {
 	$ID=$Row['ID'];

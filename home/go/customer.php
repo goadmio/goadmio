@@ -3,7 +3,7 @@ include "navigator.php";
 $Buttons="";
 include "title.php";
 
-echo "<div class=NavigatorInfo><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>This feature is supported only on physical server hardware and will not function on VPS (Virtual Private Server) or cloud-based environments</div>";
+echo "<div class='NavigatorInfo No'><img src='theme/{$_SESSION['SessionTheme']}/image/info.svg' height=24 style='vertical-align:middle;padding-$OAlign:8px'>This feature is supported only on physical server hardware and will not function on VPS (Virtual Private Server) or cloud-based environments</div>";
 
 $Edit=$_REQUEST['Edit'];
 $CustomerID=$_REQUEST['CustomerID'];
@@ -28,7 +28,7 @@ If ($Delete==1 and $Step==1)
 if ($Delete==1 and $Step==2)
 {
 
-        SQL("DELETE from Customer where CustomerID='$CustomerID'");
+        SQL("DELETE from Customer where CustomerID=?", [$CustomerID]);
         echo Error("Customer $Name has been deleted.");
 
 
@@ -39,7 +39,7 @@ elseif ($Name!="" and $Action!="Edit")
         if ($Edit==1)
         {
 
-                SQL("UPDATE Customer SET Name='$Name',Email='$Email',Company='$Company',Address='$Address',City='$City',ZipCode='$ZipCode',Country='$Country',Mobile='$Mobile' where CustomerID='$CustomerID'");
+                SQL("UPDATE Customer SET Name=?,Email=?,Company=?,Address=?,City=?,ZipCode=?,Country=?,Mobile=? where CustomerID=?", [$Name,$Email,$Company,$Address,$City,$ZipCode,$Country,$Mobile,$CustomerID]);
 
                 if ($Password!="")
                 {
@@ -47,8 +47,7 @@ elseif ($Name!="" and $Action!="Edit")
                 $Password=md5("$Password|$Salt");
                 }
 
-                SQL("UPDATE Customer SET Password='$Password',Salt='$Salt' where CustomerID='$CustomerID'");
-
+                SQL("UPDATE Customer SET Password=?,Salt=? where CustomerID=?", [$Password, $Salt, $CustomerID]);
 
                 echo Error("Customer $Name updated successfully.");
 
@@ -70,8 +69,7 @@ elseif ($Name!="" and $Action!="Edit")
         {
 
                 $EmailExists=0;
-                $Sql = "select Email from Customer where Email='$Email'";
-                $Result = SQL($Sql);
+                $Result = SQL("select Email from Customer where Email=?", [$Email]);
                 foreach ($Result as $Row)
                 { 
                         $EmailExists=1;
@@ -84,7 +82,7 @@ elseif ($Name!="" and $Action!="Edit")
                 $Salt=RandomSalt();
                 $Password=md5("$Password|$Salt");
 
-            SQL("INSERT INTO Customer (Name,Email,Password,Salt,Company,Address,City,ZipCode,Country,Mobile,TimeStamp) VALUES ('$Name','$Email','$Password','$Salt','$Company','$Address','$City','$ZipCode','$Country','$Mobile','$TimeStamp')");
+                SQL("INSERT INTO Customer (Name,Email,Password,Salt,Company,Address,City,ZipCode,Country,Mobile,TimeStamp) VALUES (?,?,?,?,?,?,?,?,?,?,?)", [$Name,$Email,$Password,$Salt,$Company,$Address,$City,$ZipCode,$Country,$Mobile,$TimeStamp]);
                 echo Error("Customer $Name added successfully.");
 
                 $Name="";
@@ -107,8 +105,7 @@ elseif ($Name!="" and $Action!="Edit")
 
         if ($Edit==1)
         {
-                $Sql = "select * from Customer where CustomerID='$CustomerID'";
-                $Result = SQL($Sql);
+                $Result = SQL("select * from Customer where CustomerID=?", [$CustomerID]);
                 foreach ($Result as $Row)
                 { 
 
@@ -240,7 +237,7 @@ elseif ($Name!="" and $Action!="Edit")
                 include "include/sql.php";
 
                 $X=0;
-                $Result = SQL($Sql);
+                $Result = SQL($SQL);
                 foreach ($Result as $Row)
                 {
 

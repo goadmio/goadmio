@@ -21,8 +21,7 @@ if ($Domain!="")
 {
 
 	$DefaultDomain="";
-	$Sql = "select * from Site where Domain='$Domain'";
-	$Result = SQL($Sql);
+	$Result = SQL("select * from Site where Domain=?", [$Domain]);
 	foreach ($Result as $Row)
 	{
 		$DefaultDomain=$Row['Domain'];
