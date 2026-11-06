@@ -24,8 +24,6 @@
   - [4. Integrations](#4-integrations)
 - [Screenshots](#screenshots)
 - [Installation](#installation)
-- [Supported Operating Systems](#supported-operating-systems)
-- [Minimum System Requirements](#minimum-system-requirements)
 - [Support](#support)
 
 ---
