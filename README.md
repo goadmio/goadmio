@@ -124,15 +124,13 @@ GoAdmio is a comprehensive web hosting control panel and PHP Hosting Panel that 
 ---
 
 ## Installation
-> ⚠️ **Requirements:** Linux server with **root access** on a clean OS install (PHP 8.x, Bash). See <a href="#requirements">Requirements</a> for supported distributions.
+> ⚠️ **Requirements:** Linux server with **root access** on a clean OS install (PHP 8.x, Bash). See [Requirements](#requirements) for supported distributions.
 
 **Full install** (run as root via SSH):
 
 ```bash
 curl -s -o latest -L https://download.goadmio.com && chmod +x latest && ./latest
 ```
-
-<a id="requirements"></a>
 
 *Requirements*
 *Operating System*
