@@ -16,6 +16,7 @@
 
 ## Table of Contents
 
+- [Why GoAdmio?](#why-goadmio)
 - [Features](#features)
   - [1. Server Management](#1-server-management)
   - [2. User-Level Features](#2-user-level-features)
@@ -23,9 +24,19 @@
   - [4. Integrations](#4-integrations)
 - [Screenshots](#screenshots)
 - [Installation](#installation)
-- [Requirements](#requirements)
 - [Support](#support)
-- [Why GoAdmio?](#why-goadmio)
+
+---
+
+## Why GoAdmio?
+
+- **Ease of use:** GoAdmio is the easiest to use control panel.
+- **Speed:** Programmed to be the fastest running control panel.
+- **Stability:** Avoids downtime by auto-recovering from crashes.
+- **Support:** High quality support, 24/7.
+- **Free:** No license fees, community driven.
+- **One-click installs:** For apps like WordPress.
+- **cPanel Alternative:** Powerful and free.
 
 ---
 
