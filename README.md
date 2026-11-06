@@ -1,3 +1,4 @@
+```
 # GoAdmio - Free cPanel Alternative
 
 **A comprehensive, free Linux web hosting control panel built with PHP & Bash** — a powerful and easy-to-use cPanel alternative for managing servers, websites, and hosting accounts. GoAdmio gives you root-level server administration, security hardening, and per-user website, email, and database management — all from one modern panel. It runs on AlmaLinux, Rocky Linux, Debian, and Ubuntu, and is designed to be fast, stable, and simple to use.
@@ -7,7 +8,6 @@
 ---
 
 ## Screenshots
-
 | Admin Panel | User Panel |
 |---|---|
 | ![GoAdmio Admin Panel](admin.png) | ![GoAdmio User Panel](user.png) |
@@ -24,15 +24,14 @@
 - [Installation](#installation)
 - [Requirements](#requirements)
 - [Support](#support)
+- [Why GoAdmio?](#why-goadmio)
 
 ---
 
 ## Features
-
 GoAdmio is a comprehensive web hosting control panel and PHP Hosting Panel that provides a wide range of features for managing servers, websites, and hosting accounts. Below is a categorized list of its key features:
 
 ### 1. Server Management
-
 #### Administration & Configuration
 - **Root Access Control** – Full server management via root.
 - **Service Configuration** – Manage Apache, PHP, DNS, FTP, etc.
@@ -68,7 +67,6 @@ GoAdmio is a comprehensive web hosting control panel and PHP Hosting Panel that 
 - **Zone Editor** – Manage DNS records (A, MX, CNAME, etc.).
 
 ### 2. User-Level Features
-
 #### Website & Domain Management
 - **Domain Management** – Addon domains, subdomains, aliases.
 - **File Manager** – Browser-based file editing/upload.
@@ -126,26 +124,28 @@ GoAdmio is a comprehensive web hosting control panel and PHP Hosting Panel that 
 ---
 
 ## Installation
-
 > ⚠️ **Requirements:** Linux server with **root access** on a clean OS install (PHP 8.x, Bash). See <a href="#requirements">Requirements</a> for supported distributions.
 
 **Full install** (run as root via SSH):
 
 ```bash
 curl -s -o latest -L https://download.goadmio.com && chmod +x latest && ./latest
+```
+
 <a id="requirements"></a>
 
-## Requirements
-
-### Operating System
-
+*Requirements*
+*Operating System*
 *Primary Recommended OS:* AlmaLinux
-Distribution | Supported Versions (64-bit)
-**AlmaLinux** | 9.x, 10.x
-**Rocky Linux** | 9.x, 10.x
-**Debian** | 11, 12, 13
-**Ubuntu** | 22, 23, 24, 25, 26
-### Minimum System Requirements
+
+| Distribution | Supported Versions (64-bit) |
+|---|---|
+| *AlmaLinux* | 9.x, 10.x |
+| *Rocky Linux* | 9.x, 10.x |
+| *Debian* | 11, 12, 13 |
+| *Ubuntu* | 22, 23, 24, 25, 26 |
+
+*Minimum System Requirements*
 - *Stack:* PHP 8.x + Bash
 - *OS:* AlmaLinux, Rocky Linux, Debian, Ubuntu
 - *Architecture:* x86_64 (64-bit)
@@ -155,6 +155,13 @@ Distribution | Supported Versions (64-bit)
 - *Network:* Public IP with ports 80 and 443 open
 - *Clean OS install* — not compatible with servers already running cPanel, Plesk, or another control panel
 
-### Why GoAdmio as a cPanel Alternative?
-
-GoAdmio is a free, open-source cPanel alternative built for speed, security, and simplicity. No license fees, full root control, and all the features you expect from a modern PHP Hosting Panel.
+*Why GoAdmio?*
+- *Ease of use*: GoAdmio is the easiest to use control panel.
+- *Speed*: Programmed to be the fastest running control panel.
+- *Stability*: Avoids downtime by auto-recovering from crashes.
+- *Support*: High quality support, 24/7.
+- *Free*: No license fees, community driven.
+- *One-click installs*: For apps like WordPress.
+- *cPanel Alternative*: Powerful and free.
+```
+```
