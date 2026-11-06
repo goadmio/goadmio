@@ -24,7 +24,6 @@
   - [4. Integrations](#4-integrations)
 - [Screenshots](#screenshots)
 - [Installation](#installation)
-- [Support](#support)
 
 ---
 
