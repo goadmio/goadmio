@@ -66,7 +66,6 @@ GoAdmio is a comprehensive web hosting control panel and PHP Hosting Panel that 
 - **PHP-FPM & suExec** – Isolate PHP processes for security.
 - **SSH Access Management** – Control shell access.
 - **Security Advisor** – Scan for vulnerabilities.
-- **Hotlink Protection** – Prevent image/content theft.
 
 #### Account & Resource Management
 
@@ -111,7 +110,6 @@ GoAdmio is a comprehensive web hosting control panel and PHP Hosting Panel that 
 - **Remote MySQL** – Allow external DB connections.
 - **phpMyAdmin** – Manage databases via GUI.
 - **Adminer** – Manage databases via GUI.
-- **PostgreSQL Management** – Create/modify databases.
 - **SQLite Management** – Create/modify databases.
 
 #### Security
@@ -138,7 +136,6 @@ GoAdmio is a comprehensive web hosting control panel and PHP Hosting Panel that 
 
 - **NGINX Web Server (Optional)** – Faster alternative to Apache.
 - **CloudLinux (Optional)** – Isolate accounts for stability.
-- **Imunify360 (Optional)** – Advanced security suite.
 - **GoAdmio Themes** (Light Mode, Dark Mode) – Customize UI.
 
 ### 4. Integrations
