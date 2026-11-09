@@ -1,4 +1,4 @@
-# GoAdmio - Free cPanel Alternative
+# GoAdmio
 
 **A comprehensive, free Linux web hosting control panel built with PHP & Bash** — a powerful and easy-to-use cPanel alternative for managing servers, websites, and hosting accounts. GoAdmio gives you root-level server administration, security hardening, and per-user website, email, and database management — all from one modern panel. It runs on AlmaLinux, Rocky Linux, Debian, and Ubuntu, and is designed to be fast, stable, and simple to use.
 
