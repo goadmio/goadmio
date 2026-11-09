@@ -154,3 +154,4 @@ GoAdmio is a comprehensive web hosting control panel and PHP Hosting Panel that 
 
 ```bash
 curl -s -o latest -L https://download.goadmio.com && chmod +x latest && ./latest
+```
