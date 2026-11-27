@@ -10,7 +10,7 @@ include "title.php";
 	$DisableSearch=1;
 	include "search.php";
 
-	Echo "
+	echo "
 	
 		<div class=DivXTable>
 		<table cellPadding='8' cellSpacing='0' width='100%' class='Table'>
@@ -58,7 +58,7 @@ include "title.php";
 			//$TDColor="TdInfo";
 			//}
 			
-			Echo "
+			echo "
 			<tr name=R$i id=R$i divid=Find find='{$LogArray[0]}-{$LogArray[1]}' class='$TDColor'>
 
 			<TD>{$LogArray[0]}</TD>

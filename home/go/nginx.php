@@ -31,7 +31,7 @@ exit;
 		SSH ("/usr/bin/sudo /go/gzip $gzip",$_SESSION['SessionSSHUsername'],$_SESSION['SessionSSHPassword']);
 		}
 		
-		Echo "
+		echo "
 		<form name=\"Form\" method=\"POST\" onsubmit=\"return Submit('$CurrentFileName');\" autocomplete=\"off\" action=\"$CurrentFileName\">
 		<input type=hidden name=Edit value='$Edit'>
 

@@ -7,7 +7,7 @@ $Password=ValidatePassword($_REQUEST['Password']);
 
 if ($_SESSION['SessionType']!="Root")
 {
-	Echo "
+	echo "
 	Sorry, You Are Not Allowed to Access This Page
 	";
 

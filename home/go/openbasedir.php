@@ -35,7 +35,7 @@ $Date=date ("Y-m-d",mktime (date("G"),date("i")+$GMT,date("s"),date("m"),date("d
     
 	include "search.php";
 	
-    Echo "
+    echo "
 	<form name=CheckForm id=CheckForm action='$CurrentFileName'>
 	<input type=hidden name=Action id=Action>
 	

@@ -122,7 +122,7 @@ elseif ($Name!="" and $Action!="Edit")
 
         }
 
-        Echo "
+        echo "
         <form name=\"Form\" method=\"POST\" onsubmit=\"return Submit('$CurrentFileName');\" autocomplete=\"off\" action=\"$CurrentFileName\">
         <input type=hidden name=CustomerID value='$CustomerID'>
         <input type=hidden name=Edit value='$Edit'>
@@ -170,15 +170,15 @@ elseif ($Name!="" and $Action!="Edit")
 
         if ($Edit==1)
         {
-                Echo "<input type=submit value='{$LNG['SaveChanges']}' Class=InputButton>";
+                echo "<input type=submit value='{$LNG['SaveChanges']}' Class=InputButton>";
         }
         else
         {
-                Echo "<input type=submit value='{$LNG['AddCustomer']}' Class=InputButton>";
+                echo "<input type=submit value='{$LNG['AddCustomer']}' Class=InputButton>";
         }
 
 
-        Echo "
+        echo "
         </div>
 
 </form>
@@ -192,7 +192,7 @@ elseif ($Name!="" and $Action!="Edit")
 
                 include "search.php";
 
-                Echo "
+                echo "
                 <div class=DivXTable>
                 <table cellPadding='8' cellSpacing='0' width='100%' class='Table'>
 
@@ -262,7 +262,7 @@ elseif ($Name!="" and $Action!="Edit")
                         $CreatedDate=date("D j M Y g:i a", $Row['TimeStamp']);
 
 
-                        Echo "
+                        echo "
                         <tr name=R$i id=R$i divid=Find find='{$Row['Email']}' class='$TDColor'>
 
                         <TD align='middle'>

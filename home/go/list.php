@@ -19,7 +19,7 @@ $CheckList=$_REQUEST['CheckList'];
 if (!in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUsername], true))
 {
 
-	Echo "
+	echo "
 	Sorry, You Are Not Allowed to Access This Page
 	";
 
@@ -97,7 +97,7 @@ if ($ChangeOwner==1)
 
 	include "search.php";
 
-	Echo "	
+	echo "	
 	<div class=DivXTable>
 	<table cellPadding='8' cellSpacing='0' width='100%' class='Table'>
 
@@ -201,7 +201,7 @@ if ($ChangeOwner==1)
 
 	$CreatedDate=date("D j M Y g:i a", $Row['TimeStamp']);
 
-    Echo "
+    echo "
 	<TD title='Created Date: $CreatedDate'>
 	{$Row['Domain']}
     </td>

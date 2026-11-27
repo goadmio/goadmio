@@ -22,7 +22,7 @@ $CheckList=$_REQUEST['CheckList'];
 if (!in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUsername], true))
 {
 
-	Echo "
+	echo "
 	Sorry, You Are Not Allowed to Access This Page
 	";
 
@@ -95,7 +95,7 @@ $Date=date ("Y-m-d",mktime (date("G"),date("i")+$GMT,date("s"),date("m"),date("d
     
 	include "search.php";
 	
-    Echo "
+    echo "
 	<form name=CheckForm id=CheckForm action='$CurrentFileName'>
 	<input type=hidden name=Action id=Action>
 	

@@ -94,14 +94,14 @@ elseif ($_REQUEST['IP']!="")
 	
 	if ($Edit==1)
 	{
-		Echo "<input type=submit value='{$LNG['SaveChanges']}' Class=InputButton>";
+		echo "<input type=submit value='{$LNG['SaveChanges']}' Class=InputButton>";
 	}
 	else
 	{
-		Echo "<input type=submit value='{$LNG['Block']}' Class=InputButton>";
+		echo "<input type=submit value='{$LNG['Block']}' Class=InputButton>";
 	}
 
-	Echo "
+	echo "
 	</div>
 
 </form>
@@ -175,7 +175,7 @@ elseif ($_REQUEST['IP']!="")
 		
 		$CreatedDate=date("D j M Y g:i a", $Row['TimeStamp']);
 
-		Echo "
+		echo "
 		<tr id='TR{$ID}' class='$TDColor' divid=Find find='{$Row['IP']}-{$Row['Domain']}-{$Row['Country']}'>
 
 		<TD><a href='http://{$Row['IP']}' target='_blank'>{$Row['IP']}</a></TD>
