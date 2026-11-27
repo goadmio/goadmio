@@ -208,7 +208,7 @@ if ($CurrentFileName!="home.php" and $CurrentFileName!="category.php")
 {
 	if ($Success==0)
 	{
-		Echo "
+		echo "
 		<div class=Error>
 		Sorry, You Are Not Allowed to Access This Page...
 		</div>

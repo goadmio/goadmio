@@ -293,7 +293,7 @@ echo "<div style=\"font-family: var(--font-family-system, -apple-system, BlinkMa
 		echo "<input type=submit value='{$LNG['Create']}' Class=InputButton>";
 	}
 
-	Echo "
+	echo "
 	</div>
 
 

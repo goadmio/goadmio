@@ -20,7 +20,7 @@ include "access.php";
 
 }
 
-	Echo "
+	echo "
 	<form name=\"Form\" method=\"POST\" onsubmit=\"return Submit('$CurrentFileName');\" autocomplete=\"off\" action=\"$CurrentFileName\">
 
 	<div class='DivInput {$Dir}DivInput'>

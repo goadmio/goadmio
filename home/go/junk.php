@@ -101,7 +101,7 @@ elseif ($_REQUEST['IP']!="")
 	
 	if ($Edit==1)
 	{
-		Echo "<input type=submit value='{$LNG['SaveChanges']}' class=InputButton>";
+		echo "<input type=submit value='{$LNG['SaveChanges']}' class=InputButton>";
 	}
 	else
 	{

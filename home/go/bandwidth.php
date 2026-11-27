@@ -17,7 +17,7 @@ if ($Action=="Refresh")
 
 		include "search.php";
 		
-		Echo "
+		echo "
 		<div class=DivTableX>
 		<table cellPadding='8' cellSpacing='0' width='100%' class='Table'>
 
@@ -88,7 +88,7 @@ if ($Action=="Refresh")
 			
 			$SerialNo=(($Page-1)*$PageNo)+($X+1);
 			
-			Echo "
+			echo "
 			<tr name=R$i id=R$i divid=Find find='{$Row['Username']}-{$Row['Domain']}-{$Row['Directory']}' class='$TDColor'>
 
 			<TD align='middle' height=40>
@@ -132,11 +132,11 @@ if ($Action=="Refresh")
 
 
 			
-			Echo "<TD>{$Row['Domain']}</TD>";
-			Echo "<TD nowrap>$HTTP</TD>";
-			Echo "<TD>$FTP</TD>";
-			Echo "<TD>$TOTAL</TD>";
-			Echo "
+			echo "<TD>{$Row['Domain']}</TD>";
+			echo "<TD nowrap>$HTTP</TD>";
+			echo "<TD>$FTP</TD>";
+			echo "<TD>$TOTAL</TD>";
+			echo "
 			<TD>
 			";
 			

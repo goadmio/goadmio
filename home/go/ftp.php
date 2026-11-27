@@ -129,7 +129,7 @@ else
 	}
 
 
-	Echo "
+	echo "
 	<form name=\"Form\" method=\"POST\" onsubmit=\"return Submit('$CurrentFileName');\" autocomplete=\"off\" action=\"$CurrentFileName\">
 	<input type=hidden name=Edit value='$Edit'>
 	<input type=hidden name=FtpID value='$FtpID'>
@@ -173,11 +173,11 @@ else
 
 	if ($Edit==1)
 	{
-		Echo "<input type='Text' name='User' value='$User' maxlength=100 readonly autocomplete='off' class=InputText>";
+		echo "<input type='Text' name='User' value='$User' maxlength=100 readonly autocomplete='off' class=InputText>";
 	}
 	else
 	{
-		Echo "<input type='Text' name='User' maxlength=100 autocomplete='off' class=InputText>";
+		echo "<input type='Text' name='User' maxlength=100 autocomplete='off' class=InputText>";
 	}
 
 	echo "
@@ -200,7 +200,7 @@ else
 	}
 
 
-	Echo "
+	echo "
 	</div>
 
 </form>

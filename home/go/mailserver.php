@@ -6,7 +6,7 @@ include "title.php";
 if (!in_array($_SESSION['SessionSSHUsername'], ['root', 'admin', 'go', $SSHUsername], true))
 {
 	
-	Echo "
+	echo "
 	Sorry, You Are Not Allowed to Access This Page
 	";
 	

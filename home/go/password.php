@@ -31,7 +31,7 @@ include "access.php";
 	{
 		array_multisort($Account['Domain'], SORT_ASC, SORT_STRING,$Account['Username'], SORT_NUMERIC, SORT_DESC);
 
-		Echo "
+		echo "
 		<form name=\"Form\" method=\"POST\" onsubmit=\"return Submit('$CurrentFileName');\" autocomplete=\"off\" action=\"$CurrentFileName\">
 
 		<div class='DivInput {$Dir}DivInput'>

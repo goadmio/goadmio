@@ -54,7 +54,7 @@ if ($_REQUEST['ExpiresOn']!="")
 	$ExpiresOn=substr($Row['ExpiresOn'],8,2)."/".substr($Row['ExpiresOn'],5,2)."/".substr($Row['ExpiresOn'],0,4);
 	}
 
-	Echo "
+	echo "
 	<form name=\"Form\" method=\"POST\" onsubmit=\"return Submit('$CurrentFileName');\" autocomplete=\"off\" action=\"$CurrentFileName\">
 	<input type=hidden name=SiteID value='$SiteID'>
 	<input type=hidden name=ControlID value='$ControlID'>
@@ -92,14 +92,14 @@ if ($_REQUEST['ExpiresOn']!="")
 	
 		if ($Edit==1)
 		{
-		Echo "<input type=submit value='{$LNG['SaveChanges']}' Class=InputButton>";
+		echo "<input type=submit value='{$LNG['SaveChanges']}' Class=InputButton>";
 		}
 		else
 		{
-		Echo "<input type=submit value='{$LNG['SaveChanges']}' Class=InputButton>";
+		echo "<input type=submit value='{$LNG['SaveChanges']}' Class=InputButton>";
 		}
 		
-	Echo "
+	echo "
 	</div>
 
 </form>

@@ -37,7 +37,7 @@ if ($Action=="Purge" and $Domain!="")
     
 	include "search.php";
 	
-	Echo "
+	echo "
 	<form name=CheckForm id=CheckForm action='$CurrentFileName'>
 	<input type=hidden name=Action id=Action>
 	
